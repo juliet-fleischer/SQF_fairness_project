@@ -85,14 +85,4 @@ rrp1 <- rrp[1]
 
 
 
-# fit a LASSO logistic regression for SUSPECT_ARRESTED_FLAG for variable selection
-X.arrested <- model.matrix(SUSPECT_ARRESTED_FLAG ~ ., data = train.set) # maybe discard the other targets?
-
-arrest.model.r <- glmnet(X.arrested, train.set$SUSPECT_ARRESTED_FLAG, family = "binomial", alpha = 1)
-
-# Get the lambda sequence used in the model
-lambdas <- arrest.model.r$lambda
-
-# Inspect the coefficients at the minimum lambda value in the sequence
-coef(arrest.model.r, s = min(lambdas))
-
+# fit a LASSO logistic regression for SUSPECT_ARRESTED_FLAG for variable selecti
