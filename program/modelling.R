@@ -26,63 +26,9 @@ ggroc(rocobj, colour = 'steelblue', size = 1) +
 coords(rocobj, "best", ret = c("threshold", "accuracy", "sensitivity", "specificity"))
 
 # hard label classifier based on optimal threshold or 0.5?
-predicted.dt <- data.table(
-  STOP_ID = test.set$STOP_ID,
-  # row_ID = test.set$row_idx,
-  truth = test.set$SUSPECT_ARRESTED_FLAG,
-  response_opt = as.factor(ifelse(predicted > coords(rocobj, "best")$threshold, "Y", "N")),
-  response_05 = as.factor(ifelse(predicted > 0.5, "Y", "N")),
+test.set[, `:=`(
   prob = predicted,
-  age = test.set$SUSPECT_REPORTED_AGE,
-  location = test.set$STOP_LOCATION_BOR,
-  sex = test.set$SUSPECT_SEX,
-  race = test.set$SUSPECT_RACE_DESCRIPTION
-)
-
-
-
-### --- alternative classifier --- ###
-
-
-# train model with mlr3 and tree learner
-set.seed(103)
-tsk_classif <- as_task_classif(sqf.complete.2023, target = "SUSPECT_ARRESTED_FLAG", positive = "Y")
-lrn_rpart <- lrn("classif.rpart", predict_type = "prob")
-measure <- msr("classif.auc")
-splits <- partition(tsk_classif, ratio = 0.9)
-
-# train
-lrn_rpart$train(tsk_classif, splits$train)
-
-# predict
-prediction <- lrn_rpart$predict(tsk_classif, splits$test)
-
-# evaluate
-prediction$confusion
-prediction$score(measure)
-
-autoplot(prediction, type = "roc")
-
-
-# with cv
-# define CV
-cv5 <- rsmp("cv", folds = 5)
-# perform CV
-rr <- resample(tsk_classif, lrn_rpart, cv5)
-rr
-# individual acc of each fold
-acc <- rr$score(measure)
-acc[, .(iteration, classif.auc)]
-# aggregated accuracy
-rr$aggregate(measure)
-
-# get the predictions of each fold
-rrp <- rr$predictions()
-rrp1 <- rrp[1]
-
-# this doesn't make sense I don't do hyperparameter tuning here...
-
-
-
-
-# fit a LASSO logistic regression for SUSPECT_ARRESTED_FLAG for variable selecti
+  response = ifelse(predicted > coords(rocobj, "best")$threshold, 1, 0)
+)]
+test.set <- test.set |> 
+  select(STOP_ID, SUSPECT_ARRESTED_FLAG, prob, response, everything())

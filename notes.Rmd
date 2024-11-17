@@ -3,8 +3,11 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+# General
+For all the Yes-No binary variables 1 = yes, 0 = no
+
 # Modelling
-be careful about classimbalance in one potential feature
+be careful about class-imbalance in one potential feature
 ```{r}
 table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 ```
