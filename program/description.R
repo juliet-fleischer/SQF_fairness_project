@@ -50,4 +50,7 @@ for(a in protected.a[-1]) {
     
     prop.data[[a]][[t]] <- sqf.complete.2023 |> 
       group_by(.data[[t]], .data[[a]]) |> 
-      s
+      summarise(count = n()) |>
+      mutate(prop = count / sum(count))
+  }
+}

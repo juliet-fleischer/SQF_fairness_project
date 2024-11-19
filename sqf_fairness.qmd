@@ -1,0 +1,47 @@
+---
+title: "SQF_fairness"
+format: revealjs
+editor: visual
+---
+
+# SQF Data for fairness research
+
+## General
+
+-   16971 observations in raw data
+
+-   13186 observations after discarding unimportant columns and then subsetting complete cases
+
+## Targets
+
+Four potential binary targets (Yes/No)
+
+-   Person arrested
+
+-   Summon issued
+
+-   Frisked
+
+-   Searched
+
+## PAs
+
+Numerical
+
+-   age
+
+Categorial
+
+-   boro (five), as proxy for location
+
+-   sex (binary)
+
+-   race (eight)
+
+    ```{r}
+
+    ```
+
+## Points to discuss
+
+-   Which targets should I look at?

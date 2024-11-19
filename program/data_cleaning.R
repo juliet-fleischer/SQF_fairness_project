@@ -37,7 +37,7 @@ for (a in attr.to.convert) {
   convertFactorNumeric(sqf.2023, a, c("Y", "N"), c(1, 0))
 }
 
-convertFactorNumeric(sqf.2023, "SUSPECT_SEX", c("MALE", "FEMALE"), c(1, 0))
+sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("MALE", "FEMALE"), labels = c(1, 0))
 
 sqf.2023$SUSPECT_RACE_DESCRIPTION <- factor(sqf.2023$SUSPECT_RACE_DESCRIPTION,
                                             levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
