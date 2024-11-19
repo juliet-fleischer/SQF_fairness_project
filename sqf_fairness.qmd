@@ -45,3 +45,9 @@ Categorial
 ## Points to discuss
 
 -   Which targets should I look at?
+
+# Target Arrested
+
+we first analyse fairness for PA sex (male, female) –\> binary, simpel case
+
+## Independence Fairness
