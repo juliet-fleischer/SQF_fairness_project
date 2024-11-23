@@ -11,8 +11,16 @@ sqf.2023[sqf.2023 == "(null)"] <- NA
 targets <- c("SUSPECT_ARRESTED_FLAG", "SUMMONS_ISSUED_FLAG", "FRISKED_FLAG", "SEARCHED_FLAG")
 
 # PAs
-protected.a <- c("SUSPECT_REPORTED_AGE", "STOP_LOCATION_BORO_NAME",
-                 "SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
+protected.a <- c("SUSPECT_REPORTED_AGE", "SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
+
+features <- c("MONTH2", "DAY2",
+              "STOP_LOCATION_BORO_NAME", "LOCATION_IN_OUT_CODE", "STOP_DURATION_MINUTES",
+              "SUSPECT_HEIGHT", "SUSPECT_WEIGHT", "SUSPECT_BODY_BUILD_TYPE",
+              "SUSPECT_EYE_COLOR", "SUSPECT_HAIR_COLOR", "STOP_WAS_INITIATED",
+              "OFFICER_EXPLAINED_STOP_FLAG", "OFFICER_IN_UNIFORM_FLAG",
+              "ASK_FOR_CONSENT_FLG", "CONSENT_GIVEN_FLG", "WEAPON_FOUND_FLAG")
+
+# "STOP_LOCATION_PRECINCT", "STOP_FRISK_DATE", "STOP_FRISK_TIME"
 
 
 # go through each column an check whether it matches alpha or digit
@@ -24,8 +32,16 @@ sqf.2023[, (col.names) := lapply(.SD, function(x) {
   if (all(is.na(x) | grepl("[[:digit:]]+", x))) as.numeric(x) else x
 }), .SDcols = col.names]
 
+# remove levels that are very rare
+hair.color <- c("GRN", "PLE", "PNK", "ORG", "SDY")
+eye.color <- c("MAR", "MUL", "PNK", "OTH")
+
+sqf.2023 <- sqf.2023 |> 
+  filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
+  filter(!SUSPECT_EYE_COLOR %in% eye.color)
+
 # convert to date object
-sqf.2023$STOP_FRISK_DATE <- as.Date(sqf.2023$STOP_FRISK_DATE, format = "%Y-%m-%d", na.rm = TRUE)
+sqf.2023$STOP_FRISK_DATE <- as.POSIXct(sqf.2023$STOP_FRISK_DATE, tz = "EST")
 
 # convert alls Yes-No columns 
 attr.to.convert <- c(targets,"WEAPON_FOUND_FLAG")
@@ -61,6 +77,7 @@ sqf.2023$STOP_LOCATION_PRECINCT <- factor(sqf.2023$STOP_LOCATION_PRECINCT)
 
 
 
+
 # 
 # # Missing data handling
 # na.count <- apply(sqf.2023, 2, function(x) sum(is.na(x)))
@@ -77,7 +94,6 @@ which(sapply(lapply(sqf.2023, unique), length) == 1)
 sqf.2023$YEAR2 <- NULL
 sqf.2023$RECORD_STATUS_CODE <- NULL
 
-cpw.data <- sqf.2023[SUSPECTED_CRIME_DESCRIPTION == "CPW", ]
 
 # 
 # # complete case analysis based on already reduced data set
@@ -87,11 +103,4 @@ cpw.data <- sqf.2023[SUSPECTED_CRIME_DESCRIPTION == "CPW", ]
 # summary(sqf.complete.2023)
 # # Height is measured in feet
 # 
-# # check for duplicates
-# duplicates <- sqf.complete.2023[duplicated(sqf.complete.2023), ] # no duplicates present
-# 
-# # reduce the complete data to a set of reasonable covariables
-# selected.attr <- c("STOP_ID", targets, protected.a, "STOP_LOCATION_PRECINCT",
-#                    "SUSPECT_WEIGHT", "WEAPON_FOUND_FLAG")
-# sqf.complete.2023 <- sqf.complete.2023[, ..selected.attr]
-
+# # check for

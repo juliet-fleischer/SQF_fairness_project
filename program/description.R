@@ -94,14 +94,9 @@ sqf.2023 |>
   mutate(prop = count / sum(count))
 
 
-# WEAPON_FOUND_FLAG ~ protected attributes, build, stop_in_out, officer in uniform, weight, height, month, day, STOP_WAS_INITIATED
 
-form.basic <-  WEAPON_FOUND_FLAG ~ SUSPECT_REPORTED_AGE + STOP_LOCATION_BORO_NAME +
-  SUSPECT_SEX + SUSPECT_RACE_DESCRIPTION + LOCATION_IN_OUT_CODE + STOP_WAS_INITIATED +
-  MONTH2 + DAY2 + STOP_DURATION_MINUTES + OFFICER_EXPLAINED_STOP_FLAG +
-  OFFICER_IN_UNIFORM_FLAG + ASK_FOR_CONSENT_FLG + CONSENT_GIVEN_FLG +
-  SUSPECT_HEIGHT + SUSPECT_WEIGHT + SUSPECT_BODY_BUILD_TYPE + SUSPECT_EYE_COLOR +
-  SUSPECT_HAIR_COLOR + STOP_LOCATION_PRECINCT
+
+### Regular Lasso regression (doesn't make so much sense I think)
 
 x <- model.matrix(form.basic, data = sqf.2023)
 # Extract the row indices by checking the row names of 'x'
@@ -113,7 +108,10 @@ lambda.lasso <- cv.glmnet(x = x, y = y, family = "binomial", alpha = 1)$lambda.m
 
 model.lasso <- glmnet(x = x, y = y, family = "binomial", alpha = 1, lambda = lambda.lasso)
 model.lasso$beta
+summary(model.lasso)
 
+
+### regular logistic regression
 
 
 # predict with this model on training data + test fairness defs
