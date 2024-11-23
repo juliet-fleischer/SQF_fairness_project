@@ -67,31 +67,48 @@ summary(model_grouplasso)
 
 
 ### --- Missing data imputation --- ###
+# create subset of the data
+sqf.2023.subset <- subset(sqf.2023, select = c("SUSPECT_ARRESTED_FLAG", protected.a, features))
+# impute missing data
 imp <- mice(sqf.2023.subset, m = 1)
 imputed_data <- complete(imp)
 
+# do an insensible and weird dichotomization of race
+imputed_data <- imputed_data |> 
+  mutate(race_group = case_when(
+    SUSPECT_RACE_DESCRIPTION %in% c("WHITE", "ASIAN / PACIFIC ISLANDER") ~ "p",
+    .default = "u"
+  ))
+
 
 ### --- Random Forest --- ###
-# create subset of the data
-sqf.2023.subset <- subset(sqf.2023, select = c(targets, protected.a, features))
+set.seed(513)
+
 # initialize a classification task
-tsk_sqf <- as_task_classif(sqf.2023.subset, target = "SUSPECT_ARRESTED_FLAG",
-                           id = "STOP_ID")
+tsk_sqf <- as_task_classif(imputed_data, target = "SUSPECT_ARRESTED_FLAG",
+                           positive = "1", id = "STOP_ID")
+# specify the PA
+tsk_sqf$col_roles$pta <- "race_group"
+# create train train split
+splits <- partition(tsk_sqf)
 # initialize a learner
-lrn_rf <- lrn("classif.ranger")
-# pass the task to the learner via train
-lrn_rf$train(tsk_sqf)
+p <- ncol(imputed_data) - 1
+lrn_rf <- lrn("classif.ranger", mtry = ceiling(p / 2), predict_type = "prob")
+# load accuracy measure
+measures <- msrs(c("classif.acc", "classif.bbrier"))
+# initialize fairness measure
+fairness_measures <- msrs(c("fairness.acc", "fairness.fnr",
+                            "fairness.fpr", "fairness.tnr", "fairness.tpr",
+                            "fairness.npv", "fairness.ppv", "fairness.fomr",
+                            "fairness.eod"))
+# train learner
+lrn_rf$train(tsk_sqf, row_ids = splits$train)
+# make predictions on test data
+predictions <- lrn_rf$predict(tsk_sqf, row_ids = splits$test)
+predictions$score(measures)
+predictions$confusion
 
-# initialize task
-
-
-
-
-
-
-
-
-
+predictions$score(fairness_measures, task = tsk_sqf)
 
 
 

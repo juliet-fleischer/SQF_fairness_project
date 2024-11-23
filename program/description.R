@@ -2,14 +2,14 @@
 
 
 # age
-ggplot(sqf.complete.2023, aes(x = SUSPECT_REPORTED_AGE)) +
+ggplot(sqf.2023, aes(x = SUSPECT_REPORTED_AGE)) +
   geom_histogram() +
   ggtitle("Age distribution") +
   xlab("Age") +
   ylab("Frequency")
 # geopgraphy
-table(sqf.complete.2023$STOP_LOCATION_BORO_NAME)
-sqf.complete.2023 |> 
+table(sqf.2023$STOP_LOCATION_BORO_NAME)
+sqf.2023 |> 
   group_by(STOP_LOCATION_BORO_NAME) |> 
   summarise(count = n()) |> 
   mutate(prop = count / sum(count)) |> 
@@ -19,9 +19,9 @@ sqf.complete.2023 |>
   xlab("Borough") +
   ylab("Relative Frequency")
 # sex
-table(sqf.complete.2023$SUSPECT_SEX) # extreme sec unbalance, 94% male and 6% female
+table(sqf.2023$SUSPECT_SEX) # extreme sec unbalance, 94% male and 6% female
 # race
-sqf.complete.2023 |> 
+sqf.2023 |> 
   group_by(SUSPECT_RACE_DESCRIPTION) |> 
   summarise(count = n()) |>
   mutate(prop = count / sum(count)) |>
@@ -33,14 +33,12 @@ sqf.complete.2023 |>
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
-
-
 # improve: write a function and use apply family to iteratively apply it
 prop.data <- list()
 for(a in protected.a[-1]) {
   prop.data[[a]] <- list()
   for (t in targets) {
-    p <- sqf.complete.2023 |> 
+    p <- sqf.2023 |> 
       mutate(a = factor(.data[[a]], levels = rev(levels(.data[[a]])))) |> 
       ggplot(aes(x = .data[[t]], fill = .data[[a]])) +
       geom_bar(position = "fill") +
@@ -48,7 +46,7 @@ for(a in protected.a[-1]) {
       theme_minimal()
     print(p)
     
-    prop.data[[a]][[t]] <- sqf.complete.2023 |> 
+    prop.data[[a]][[t]] <- sqf.2023 |> 
       group_by(.data[[t]], .data[[a]]) |> 
       summarise(count = n()) |>
       mutate(prop = count / sum(count))
@@ -92,27 +90,4 @@ sqf.2023 |>
   group_by(SUSPECT_SEX) |> 
   summarize(count = n()) |> 
   mutate(prop = count / sum(count))
-
-
-
-
-### Regular Lasso regression (doesn't make so much sense I think)
-
-x <- model.matrix(form.basic, data = sqf.2023)
-# Extract the row indices by checking the row names of 'x'
-used_indices <- as.numeric(rownames(x))
-# Subset y using the same indices
-y <- sqf.2023$WEAPON_FOUND_FLAG[used_indices]
-
-lambda.lasso <- cv.glmnet(x = x, y = y, family = "binomial", alpha = 1)$lambda.min
-
-model.lasso <- glmnet(x = x, y = y, family = "binomial", alpha = 1, lambda = lambda.lasso)
-model.lasso$beta
-summary(model.lasso)
-
-
-### regular logistic regression
-
-
-# predict with this model on training data + test fairness defs
 
