@@ -103,4 +103,11 @@ sqf.2023$RECORD_STATUS_CODE <- NULL
 # summary(sqf.complete.2023)
 # # Height is measured in feet
 # 
-# # check for
+# # check for duplicates
+# duplicates <- sqf.complete.2023[duplicated(sqf.complete.2023), ] # no duplicates present
+# 
+# # reduce the complete data to a set of reasonable covariables
+# selected.attr <- c("STOP_ID", targets, protected.a, "STOP_LOCATION_PRECINCT",
+#                    "SUSPECT_WEIGHT", "WEAPON_FOUND_FLAG")
+# sqf.complete.2023 <- sqf.complete.2023[, ..selected.attr]
+
