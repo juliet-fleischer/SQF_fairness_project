@@ -18,9 +18,9 @@ sqf.2023 |>
   ggtitle("Borough distribution") +
   xlab("Borough") +
   ylab("Relative Frequency")
-# sex
+# sex distribution
 table(sqf.2023$SUSPECT_SEX) # extreme sec unbalance, 94% male and 6% female
-# race
+# race distribution
 sqf.2023 |> 
   group_by(SUSPECT_RACE_DESCRIPTION) |> 
   summarise(count = n()) |>
@@ -34,6 +34,7 @@ sqf.2023 |>
 
 
 # improve: write a function and use apply family to iteratively apply it
+# description of all possible targets by race
 prop.data <- list()
 for(a in protected.a[-1]) {
   prop.data[[a]] <- list()
@@ -54,40 +55,51 @@ for(a in protected.a[-1]) {
 }
 
 
-# people stopped because suspected to have a weapon and whether they actually had a weapon
-sqf.2023[SUSPECTED_CRIME_DESCRIPTION == "CPW", sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N]
-
-sqf.2023[, .(prop = sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N), by = SUSPECT_RACE_DESCRIPTION][order(prop)]
-sqf.2023[, .(prop = sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N), by = SUSPECT_SEX]
+# descrpition of arrested by race and boro name
+ggplot(sqf.2023, aes(x = STOP_LOCATION_BORO_NAME, y = SUSPECT_ARRESTED_FLAG, fill = SUSPECT_RACE_DESCRIPTION)) +
+  geom_col()
 
 sqf.2023 |> 
-  filter(!is.na(SUSPECT_RACE_DESCRIPTION)) |> 
-  ggplot(aes(x = WEAPON_FOUND_FLAG, fill = SUSPECT_RACE_DESCRIPTION)) +
-  geom_bar()
-table(sqf.2023[WEAPON_FOUND_FLAG == 0, ]$SUSPECT_RACE_DESCRIPTION)
+  group_by(STOP_LOCATION_BORO_NAME, SUSPECT_RACE_DESCRIPTION) |>
+  summarise(count_arrested = sum(SUSPECT_ARRESTED_FLAG)) |>
+  group_by(STOP_LOCATION_BORO_NAME) |>
+  mutate(prop = count_arrested / sum(count_arrested)) |> View()
 
-sqf.2023 |> 
-  filter(WEAPON_FOUND_FLAG == 0) |> 
-  group_by(SUSPECT_RACE_DESCRIPTION) |> 
-  summarize(count = n()) |> 
-  mutate(prop = count / sum(count))
-
-sqf.2023 |> 
-  filter(WEAPON_FOUND_FLAG == 1) |> 
-  group_by(SUSPECT_RACE_DESCRIPTION) |> 
-  summarize(count = n()) |> 
-  mutate(prop = count / sum(count))
-
-
-sqf.2023 |> 
-  filter(WEAPON_FOUND_FLAG == 0) |> 
-  group_by(SUSPECT_SEX) |> 
-  summarize(count = n()) |> 
-  mutate(prop = count / sum(count))
-
-sqf.2023 |> 
-  filter(WEAPON_FOUND_FLAG == 1) |> 
-  group_by(SUSPECT_SEX) |> 
-  summarize(count = n()) |> 
-  mutate(prop = count / sum(count))
+# 
+# # people stopped because suspected to have a weapon and whether they actually had a weapon
+# sqf.2023[SUSPECTED_CRIME_DESCRIPTION == "CPW", sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N]
+# 
+# sqf.2023[, .(prop = sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N), by = SUSPECT_RACE_DESCRIPTION][order(prop)]
+# sqf.2023[, .(prop = sum(WEAPON_FOUND_FLAG, na.rm = TRUE) / .N), by = SUSPECT_SEX]
+# 
+# sqf.2023 |> 
+#   filter(!is.na(SUSPECT_RACE_DESCRIPTION)) |> 
+#   ggplot(aes(x = WEAPON_FOUND_FLAG, fill = SUSPECT_RACE_DESCRIPTION)) +
+#   geom_bar()
+# table(sqf.2023[WEAPON_FOUND_FLAG == 0, ]$SUSPECT_RACE_DESCRIPTION)
+# 
+# sqf.2023 |> 
+#   filter(WEAPON_FOUND_FLAG == 0) |> 
+#   group_by(SUSPECT_RACE_DESCRIPTION) |> 
+#   summarize(count = n()) |> 
+#   mutate(prop = count / sum(count))
+# 
+# sqf.2023 |> 
+#   filter(WEAPON_FOUND_FLAG == 1) |> 
+#   group_by(SUSPECT_RACE_DESCRIPTION) |> 
+#   summarize(count = n()) |> 
+#   mutate(prop = count / sum(count))
+# 
+# 
+# sqf.2023 |> 
+#   filter(WEAPON_FOUND_FLAG == 0) |> 
+#   group_by(SUSPECT_SEX) |> 
+#   summarize(count = n()) |> 
+#   mutate(prop = count / sum(count))
+# 
+# sqf.2023 |> 
+#   filter(WEAPON_FOUND_FLAG == 1) |> 
+#   group_by(SUSPECT_SEX) |> 
+#   summarize(count = n()) |> 
+#   mutate(prop = count / sum(count))
 

@@ -44,13 +44,12 @@ sqf.2023 <- sqf.2023 |>
 sqf.2023$STOP_FRISK_DATE <- as.POSIXct(sqf.2023$STOP_FRISK_DATE, tz = "EST")
 
 # convert alls Yes-No columns 
-attr.to.convert <- c(targets,"WEAPON_FOUND_FLAG")
 convertFactorNumeric <- function(data, col, levels, labels) {
   data[, (col) := factor(get(col), levels = levels, labels = labels)]
   data[, (col) := as.numeric(as.character(get(col)))]
 }
-for (a in attr.to.convert) {
-  convertFactorNumeric(sqf.2023, a, c("Y", "N"), c(1, 0))
+for (t in targets) {
+  convertFactorNumeric(sqf.2023, t, c("Y", "N"), c(1, 0))
 }
 
 sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("MALE", "FEMALE"), labels = c(1, 0))
@@ -74,6 +73,7 @@ sqf.2023$SUSPECT_BODY_BUILD_TYPE <- factor(sqf.2023$SUSPECT_BODY_BUILD_TYPE)
 sqf.2023$SUSPECT_EYE_COLOR <- factor(sqf.2023$SUSPECT_EYE_COLOR)
 sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
 sqf.2023$STOP_LOCATION_PRECINCT <- factor(sqf.2023$STOP_LOCATION_PRECINCT)
+sqf.2023$WEAPON_FOUND_FLAG <- factor(sqf.2023$WEAPON_FOUND_FLAG)
 
 
 
