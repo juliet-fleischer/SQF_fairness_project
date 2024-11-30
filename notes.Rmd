@@ -22,3 +22,27 @@ be careful about class-imbalance in one potential feature
 table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 ```
 
+
+# Pick up from here
+- text Bothmann the naming error (see overleaf)
+- do same classifier for another grouping of race, and see if the picture is the same
+for the current grouping in unprivileged (ppl of color) and privileged (other)
+the measures are unfair towards the privileged group! But i think there are several problems with this:
+1) we have way more data for the unprivileged groups
+More data means better predictions
+2) the data basically suffers from extreme selection bias because the fact that we have so many data from ppl of color is a representation of the unfairness itself
+
+- based on the feature importance race is a minor predictor for being arrested
+- I try out differerent groupings for race and grouping d based on skin colour yields the best classical performance metrics (can this be seen as an inidcator that skin colour could influence the decision process?)
+
+- bring the confusion-based fairness metrics in connection with the confusion matrix
+(can you define others based on it?)
+- move onto the Calibration fairness defs
+- do the same for another model with better traditional performance + see how
+the fairness metrics behave (change the features, change definition of PA; maybe
+we see that the definitions are extremely sensitive to how the PA is defined;
+I could limit myself to a subset of the data or dichotomise the PA in different
+ways to examine the effects)
+
+
+- maybe read literature about data imbalance and how it affects fairness metrics
