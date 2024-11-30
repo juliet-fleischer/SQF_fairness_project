@@ -13,14 +13,14 @@ targets <- c("SUSPECT_ARRESTED_FLAG", "SUMMONS_ISSUED_FLAG", "FRISKED_FLAG", "SE
 # PAs
 protected.a <- c("SUSPECT_REPORTED_AGE", "SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 
-features <- c("MONTH2", "DAY2",
+features <- c("MONTH2", "DAY2", "STOP_FRISK_TIME",
               "STOP_LOCATION_BORO_NAME", "LOCATION_IN_OUT_CODE", "STOP_DURATION_MINUTES",
               "SUSPECT_HEIGHT", "SUSPECT_WEIGHT", "SUSPECT_BODY_BUILD_TYPE",
               "SUSPECT_EYE_COLOR", "SUSPECT_HAIR_COLOR", "STOP_WAS_INITIATED",
               "OFFICER_EXPLAINED_STOP_FLAG", "OFFICER_IN_UNIFORM_FLAG",
-              "ASK_FOR_CONSENT_FLG", "CONSENT_GIVEN_FLG", "WEAPON_FOUND_FLAG")
+              "ASK_FOR_CONSENT_FLG", "CONSENT_GIVEN_FLG")
 
-# "STOP_LOCATION_PRECINCT", "STOP_FRISK_DATE", "STOP_FRISK_TIME"
+# "STOP_LOCATION_PRECINCT", "STOP_FRISK_DATE", "WEAPON_FOUND_FLAG"
 
 
 # go through each column an check whether it matches alpha or digit
@@ -75,18 +75,25 @@ sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
 sqf.2023$STOP_LOCATION_PRECINCT <- factor(sqf.2023$STOP_LOCATION_PRECINCT)
 sqf.2023$WEAPON_FOUND_FLAG <- factor(sqf.2023$WEAPON_FOUND_FLAG)
 
+# binning of stop time of the day
 
+# 6 - 12: AM
+# 12 - 18: PM
+# 18 - 22: evening
+# 22 - 6 : night
+# convert times to numeric values
+sqf.2023 <- sqf.2023 |> 
+  mutate(STOP_FRISK_TIME = sub(":", ".", substr(STOP_FRISK_TIME, 1, 5))) |> 
+  mutate(STOP_FRISK_TIME = round(as.numeric(STOP_FRISK_TIME))) |> 
+  mutate(STOP_FRISK_TIME = ifelse(STOP_FRISK_TIME == 24, 0, STOP_FRISK_TIME))
 
-
-# 
-# # Missing data handling
-# na.count <- apply(sqf.2023, 2, function(x) sum(is.na(x)))
-# # omit the columns that have more than 30% missing values
-# # (because no reasonable imputation possible, these are columns that are basically not important)
-# discard.cols <- names(sqf.2023)[(na.count / n) > 0.3]
-# sqf.2023[, (discard.cols):= NULL]
-# discard.cols.2 <- names(sqf.2023)[apply(sqf.2023, 2, function(x) sum(is.na(x))) > 0][1:4]
-# sqf.2023[, (discard.cols.2) := NULL]
+# bin time
+sqf.2023$STOP_FRISK_TIME <- cut(
+  sqf.2023$STOP_FRISK_TIME,
+  breaks = c(0, 6, 12, 18, 24),
+  labels = c("night", "AM", "PM", "evening"),
+  right = FALSE
+)
 
 # Identify columns with only one level
 which(sapply(lapply(sqf.2023, unique), length) == 1)
@@ -94,20 +101,4 @@ which(sapply(lapply(sqf.2023, unique), length) == 1)
 sqf.2023$YEAR2 <- NULL
 sqf.2023$RECORD_STATUS_CODE <- NULL
 
-
-# 
-# # complete case analysis based on already reduced data set
-# # sqf.complete.2023 <- sqf.2023[complete.cases(sqf.2023), ]
-# 
-# # check for outliers
-# summary(sqf.complete.2023)
-# # Height is measured in feet
-# 
-# # check for duplicates
-# duplicates <- sqf.complete.2023[duplicated(sqf.complete.2023), ] # no duplicates present
-# 
-# # reduce the complete data to a set of reasonable covariables
-# selected.attr <- c("STOP_ID", targets, protected.a, "STOP_LOCATION_PRECINCT",
-#                    "SUSPECT_WEIGHT", "WEAPON_FOUND_FLAG")
-# sqf.complete.2023 <- sqf.complete.2023[, ..selected.attr]
 
