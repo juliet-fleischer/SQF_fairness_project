@@ -12,6 +12,30 @@ imputed_data <- imputed_data |>
 
 race.grouping <- c("SUSPECT_RACE_DESCRIPTION", "race_group_a", "race_group_b", "race_group_c", "race_group_d")
 
+
+### --- univariate feature selection --- ###
+imputed_data_all <- imputed_data[, names(imputed_data) != "SUSPECT_RACE_DESCRIPTION"]
+
+# initialize a classification task
+tsk_sqf <- as_task_classif(imputed_data_all, target = "SUSPECT_ARRESTED_FLAG",
+                           positive = "1", id = "STOP_ID")
+# specify the PA
+tsk_sqf$col_roles$pta <- "race_group_d"
+
+# create train train split
+splits <- partition(tsk_sqf)
+
+# initialize a learner
+p <- ncol(imputed_data_all) - 1
+lrn_rf <- lrn("classif.ranger", mtry = ceiling(p / 2), predict_type = "prob", importance = "impurity")
+
+# goal is to see which of the race groupings gets the highest feature importance
+flt_importane <- flt("importance", learner = lrn_rf)
+flt_importane$calculate(tsk_sqf)
+as.data.table(flt_importane)
+
+
+# goal is to see which of the race groupings lead to the best performance
 classic.mrs <- list()
 for (g in race.grouping) {
   # remove the other features
@@ -42,18 +66,18 @@ which.max(classic.mrs$classif.auc)
 
 
 
-# work with one race group model
-# remove the other features
+### --- model training --- ###
+# based on the previous analysis decide on a race grouping and train the final model
 g <- "race_group_d"
 f.to.remove <- setdiff(race.grouping, g)
 imputed_data_g <- imputed_data[, !names(imputed_data) %in% f.to.remove]
-imputed_data_g$race_group_d <- factor(imputed_data_g$race_group_d)
+imputed_data_g[[g]]<- factor(imputed_data_g[[g]])
 
 # initialize a classification task
 tsk_sqf <- as_task_classif(imputed_data_g, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "STOP_ID")
 # specify the PA
-tsk_sqf$col_roles$pta <- "race_group_d"
+tsk_sqf$col_roles$pta <- g
 
 # create train train split
 splits <- partition(tsk_sqf)
@@ -66,4 +90,6 @@ lrn_rf <- lrn("classif.ranger", mtry = ceiling(p / 2), predict_type = "prob", im
 lrn_rf$train(tsk_sqf, row_ids = splits$train)
 # make predictions on test data
 predictions <- lrn_rf$predict(tsk_sqf, row_ids = splits$test)
+
+
 

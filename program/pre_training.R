@@ -6,3 +6,4 @@ sqf.2023.subset <- subset(sqf.2023, select = c("SUSPECT_ARRESTED_FLAG", protecte
 # impute missing data
 imp <- mice(sqf.2023.subset, m = 1)
 imputed_data <- complete(imp)
+
