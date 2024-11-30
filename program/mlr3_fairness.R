@@ -42,3 +42,9 @@ base_mrs_other <- list(
 calcGroupwiseMetrics(base_mrs_punitive, tsk_sqf)
 calcGroupwiseMetrics(base_mrs_assistive, tsk_sqf)
 calcGroupwiseMetrics(base_mrs_other, tsk_sqf)
+
+fairness_prediction_density(predictions, task = tsk_sqf)
+compare_metrics(predictions, fairness_msr_punitive, task = tsk_sqf)
+compare_metrics(predictions, fairness_msr_assistive, task = tsk_sqf)
+compare_metrics(predictions, fairness_mrs_other, task = tsk_sqf)
+

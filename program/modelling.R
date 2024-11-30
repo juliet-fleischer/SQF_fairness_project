@@ -66,18 +66,27 @@ which.max(classic.mrs$classif.auc)
 
 
 
-### --- model training --- ###
+### --- model training for [PA] as PA --- ###
 # based on the previous analysis decide on a race grouping and train the final model
-g <- "race_group_d"
-f.to.remove <- setdiff(race.grouping, g)
-imputed_data_g <- imputed_data[, !names(imputed_data) %in% f.to.remove]
-imputed_data_g[[g]]<- factor(imputed_data_g[[g]])
+PA <- "SUSPECT_SEX"
+
+if( PA == "SUSPECT_SEX") {
+  imputed_data_g <- imputed_data
+  tsk_sqf$col_roles$pta <- PA
+} else {
+  g <- "race_group_d"
+  f.to.remove <- setdiff(race.grouping, g)
+  imputed_data_g <- imputed_data[, !names(imputed_data) %in% f.to.remove]
+  imputed_data_g[[g]]<- factor(imputed_data_g[[g]])
+  tsk_sqf$col_roles$pta <- g
+}
+
 
 # initialize a classification task
 tsk_sqf <- as_task_classif(imputed_data_g, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "STOP_ID")
 # specify the PA
-tsk_sqf$col_roles$pta <- g
+tsk_sqf$col_roles$pta <- "SUSPECT_SEX"
 
 # create train train split
 splits <- partition(tsk_sqf)
@@ -92,4 +101,5 @@ lrn_rf$train(tsk_sqf, row_ids = splits$train)
 predictions <- lrn_rf$predict(tsk_sqf, row_ids = splits$test)
 
 
-
+measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
+predictions$score(measures, task = tsk_sqf)
