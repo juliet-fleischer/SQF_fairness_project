@@ -2,22 +2,6 @@ setDT(sqf.2023)
 n <- nrow(sqf.2023)
 sqf.2023[sqf.2023 == "(null)"] <- NA
 
-## TARGETS
-targets <- c("SUSPECT_ARRESTED_FLAG", "SUMMONS_ISSUED_FLAG", "FRISKED_FLAG", "SEARCHED_FLAG")
-
-# PAs
-protected.a <- c("SUSPECT_REPORTED_AGE", "SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
-
-features <- c("MONTH2", "DAY2", "STOP_FRISK_TIME",
-              "STOP_LOCATION_BORO_NAME", "LOCATION_IN_OUT_CODE", "STOP_DURATION_MINUTES",
-              "SUSPECT_HEIGHT", "SUSPECT_WEIGHT", "SUSPECT_BODY_BUILD_TYPE",
-              "SUSPECT_EYE_COLOR", "SUSPECT_HAIR_COLOR", "STOP_WAS_INITIATED",
-              "OFFICER_EXPLAINED_STOP_FLAG", "OFFICER_IN_UNIFORM_FLAG",
-              "ASK_FOR_CONSENT_FLG", "CONSENT_GIVEN_FLG")
-
-# "STOP_LOCATION_PRECINCT", "STOP_FRISK_DATE", "WEAPON_FOUND_FLAG"
-
-
 # go through each column an check whether it matches alpha or digit
 # if it matches digit, convert it to numeric
 col.names <- names(sqf.2023)[-c(2,3)]

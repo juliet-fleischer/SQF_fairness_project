@@ -25,12 +25,9 @@ table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 
 # Pick up from here
 - text Bothmann the naming error (see overleaf)
-- do same classifier for another grouping of race, and see if the picture is the same
-for the current grouping in unprivileged (ppl of color) and privileged (other)
-the measures are unfair towards the privileged group! But i think there are several problems with this:
-1) we have way more data for the unprivileged groups
-More data means better predictions
-2) the data basically suffers from extreme selection bias because the fact that we have so many data from ppl of color is a representation of the unfairness itself
+- look for implementation of further fairness metrics
+(calibration, individual fairness, ...)
+continue reading this otehr paper (nuances of fairness metrics ...)
 
 - based on the feature importance race is a minor predictor for being arrested
 - I try out differerent groupings for race and grouping d based on skin colour yields the best classical performance metrics (can this be seen as an inidcator that skin colour could influence the decision process?)
