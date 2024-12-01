@@ -27,7 +27,7 @@ table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 - text Bothmann the naming error (see overleaf)
 - look for implementation of further fairness metrics
 (calibration, individual fairness, ...)
-continue reading this otehr paper (nuances of fairness metrics ...)
+continue reading this other paper (nuances of fairness metrics ...)
 
 - based on the feature importance race is a minor predictor for being arrested
 - I try out differerent groupings for race and grouping d based on skin colour yields the best classical performance metrics (can this be seen as an inidcator that skin colour could influence the decision process?)

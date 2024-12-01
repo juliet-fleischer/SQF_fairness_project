@@ -12,4 +12,8 @@ library(checkmate)
 library(iml)
 
 
-sqf.2023 <- read
+sqf.2023 <- read_excel("data/sqf-2023.xlsx")
+imputed_data <- read_excel("data/imputed_data_frisked.xlsx")
+imputed_data_arrested <- read_excel("data/imputed_data_arrested.xlsx")
+source("program/data_cleaning.R")
+source("program/functions.R")
