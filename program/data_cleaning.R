@@ -27,9 +27,10 @@ convertFactorNumeric <- function(data, col, levels, labels) {
   data[, (col) := factor(get(col), levels = levels, labels = labels)]
   data[, (col) := as.numeric(as.character(get(col)))]
 }
-for (t in targets) {
-  convertFactorNumeric(sqf.2023, t, c("Y", "N"), c(1, 0))
-}
+
+convertFactorNumeric(sqf.2023, "FRISKED_FLAG", c("Y", "N"), c(1, 0))
+convertFactorNumeric(sqf.2023, "SEARCHED_FLAG", c("Y", "N"), c(1, 0))
+convertFactorNumeric(sqf.2023, "SUSPECT_ARRESTED_FLAG", c("Y", "N"), c(1, 0))
 
 sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("MALE", "FEMALE"), labels = c(1, 0))
 
