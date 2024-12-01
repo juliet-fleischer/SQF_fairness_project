@@ -1,4 +1,3 @@
-set.seed(513)
 ### --- Random Forest --- ###
 
 # possible dichotomizations of race
