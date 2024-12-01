@@ -2,57 +2,38 @@ setDT(sqf.2023)
 n <- nrow(sqf.2023)
 sqf.2023[sqf.2023 == "(null)"] <- NA
 
-
-# Identify columns with only one level
-which(sapply(lapply(sqf.2023, unique), length) == 1)
-# remove year column (as we only have 2023)
-sqf.2023[, 40:47 := NULL]
+# remove all officer columns
+pattern.officer <- "[:alpha:]*_OFFICER_[:alpha:]*"
+officer.cols <- grep(pattern.officer, names(sqf.2023))
+sqf.2023[, (officer.cols) := NULL]
+# remove all location columns except STOP_LOCATION_BORO_NAME
+pattern.location <- "[:alpha:]*_LOCATION_[:alpha:]*"
+location.cols <- grep(pattern.location, names(sqf.2023))
+sqf.2023[, (location.cols[-length(location.cols)]) := NULL]
+# remove all columns that start with PHYSICAL_FORCE
+pattern.force <- "PHYSICAL_FORCE[:alpha:]*"
+force.cols <- grep(pattern.force, names(sqf.2023))
+sqf.2023[, (force.cols) := NULL]
+# remove all columns without specifc pattern
 sqf.2023$YEAR2 <- NULL
 sqf.2023$STOP_FRISK_DATE <- NULL
 sqf.2023$RECORD_STATUS_CODE <- NULL
-# sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
-sqf.2023$ISSUING_OFFICER_COMMAND_CODE <- NULL
-sqf.2023$ISSUING_OFFICER_RANK <- NULL
-sqf.2023$SUPERVISING_OFFICER_COMMAND_CODE <- NULL
-sqf.2023$SUPERVISING_OFFICER_RANK <- NULL
+sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
 sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
 sqf.2023$JURISDICTION_CODE <- NULL
 sqf.2023$OFFICER_NOT_EXPLAINED_STOP_DESCRIPTION <- NULL
-sqf.2023$ID_CARD_IDENTIFIES_OFFICER_FLAG <- NULL
-sqf.2023$SHIELD_IDENTIFIES_OFFICER_FLAG <- NULL
-sqf.2023$VERBAL_IDENTIFIES_OFFICER_FLAG <- NULL
-sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
 sqf.2023$SUSPECT_OTHER_DESCRIPTION <- NULL
-sqf.2023$STOP_LOCATION_SECTOR_CODE <- NULL
-sqf.2023$STOP_LOCATION_APARTMENT <- NULL
-sqf.2023$STOP_LOCATION_FULL_ADDRESS <- NULL
-sqf.2023$STOP_LOCATION_STREET_NAME <- NULL
-sqf.2023$STOP_LOCATION_X <- NULL
-sqf.2023$STOP_LOCATION_Y <- NULL
-sqf.2023$STOP_LOCATION_PATROL_BORO_NAME <- NULL
-
 
 # go through each column an check whether it matches alpha or digit
 # if it matches digit, convert it to numeric
-col.names <- names(sqf.2023)[-c(2,3)]
-
+col.names <- names(sqf.2023)[-c(1,2)]
 # Apply the transformation to all columns that match the pattern
 sqf.2023[, (col.names) := lapply(.SD, function(x) {
   if (all(is.na(x) | grepl("[[:digit:]]+", x))) as.numeric(x) else x
 }), .SDcols = col.names]
 
-# remove levels that are very rare
-hair.color <- c("GRN", "PLE", "PNK", "ORG", "SDY")
-eye.color <- c("MAR", "MUL", "PNK", "OTH")
 
-sqf.2023 <- sqf.2023 |> 
-  filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
-  filter(!SUSPECT_EYE_COLOR %in% eye.color)
-
-# convert to date object
-sqf.2023$STOP_FRISK_DATE <- as.POSIXct(sqf.2023$STOP_FRISK_DATE, tz = "EST")
-
-# convert alls Yes-No columns 
+# convert all potential target columns to numeric
 convertFactorNumeric <- function(data, col, levels, labels) {
   data[, (col) := factor(get(col), levels = levels, labels = labels)]
   data[, (col) := as.numeric(as.character(get(col)))]
@@ -63,30 +44,27 @@ convertFactorNumeric(sqf.2023, "SEARCHED_FLAG", c("Y", "N"), c(1, 0))
 convertFactorNumeric(sqf.2023, "SUMMONS_ISSUED_FLAG", c("Y", "N"), c(1, 0))
 convertFactorNumeric(sqf.2023, "SUSPECT_ARRESTED_FLAG", c("Y", "N"), c(1, 0))
 
-sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("MALE", "FEMALE"), labels = c(1, 0))
-
+sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("FEMALE", "MALE"), labels = c(0, 1))
 sqf.2023$SUSPECT_RACE_DESCRIPTION <- factor(sqf.2023$SUSPECT_RACE_DESCRIPTION,
                                             levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
                                                        "WHITE","ASIAN / PACIFIC ISLANDER",
                                                        "MIDDLE EASTERN/SOUTHWEST ASIAN",
                                                        "AMERICAN INDIAN/ALASKAN NATIVE"))
-
 sqf.2023$STOP_LOCATION_BORO_NAME <- factor(sqf.2023$STOP_LOCATION_BORO_NAME)
 sqf.2023$LOCATION_IN_OUT_CODE <- factor(sqf.2023$LOCATION_IN_OUT_CODE)
 sqf.2023$STOP_WAS_INITIATED <- factor(sqf.2023$STOP_WAS_INITIATED)
 sqf.2023$MONTH2 <- factor(sqf.2023$MONTH2)
 sqf.2023$DAY2 <- factor(sqf.2023$DAY2)
-sqf.2023$OFFICER_EXPLAINED_STOP_FLAG <- factor(sqf.2023$OFFICER_EXPLAINED_STOP_FLAG)
-sqf.2023$OFFICER_IN_UNIFORM_FLAG <- factor(sqf.2023$OFFICER_IN_UNIFORM_FLAG)
-sqf.2023$ASK_FOR_CONSENT_FLG <- factor(sqf.2023$ASK_FOR_CONSENT_FLG)
-sqf.2023$CONSENT_GIVEN_FLG <- factor(sqf.2023$CONSENT_GIVEN_FLG)
 sqf.2023$SUSPECT_BODY_BUILD_TYPE <- factor(sqf.2023$SUSPECT_BODY_BUILD_TYPE)
 sqf.2023$SUSPECT_EYE_COLOR <- factor(sqf.2023$SUSPECT_EYE_COLOR)
 sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
-sqf.2023$STOP_LOCATION_PRECINCT <- factor(sqf.2023$STOP_LOCATION_PRECINCT)
-sqf.2023$WEAPON_FOUND_FLAG <- factor(sqf.2023$WEAPON_FOUND_FLAG)
-sqf.2023$OTHER_CONTRABAND_FLAG <- factor(sqf.2023$OTHER_CONTRABAND_FLAG)
-sqf.2023$FIREARM_FLAG <- factor(sqf.2023$FIREARM_FLAG)
+sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- factor(sqf.2023$SUSPECTED_CRIME_DESCRIPTION)
+sqf.2023$JURISDICTION_DESCRIPTION <- factor(sqf.2023$JURISDICTION_DESCRIPTION)
+sqf.2023$SUSPECT_ARREST_OFFENSE <- factor(sqf.2023$SUSPECT_ARREST_OFFENSE)
+sqf.2023$SUMMONS_OFFENSE_DESCRIPTION <- factor(sqf.2023$SUMMONS_OFFENSE_DESCRIPTION)
+# convert all the columns that end on FLAG or FLG to factor
+flag.cols <- grep("FLAG$|FLG$", names(sqf.2023))
+sqf.2023[, (flag.cols) := lapply(.SD, as.factor), .SDcols = flag.cols]
 
 # binning of stop time of the day
 
@@ -107,5 +85,3 @@ sqf.2023$STOP_FRISK_TIME <- cut(
   labels = c("night", "AM", "PM", "evening"),
   right = FALSE
 )
-
-# create a column that has "Y" if any contrband or weapon was found
