@@ -32,6 +32,8 @@ imputed_data_frisked[, (other.targets) := NULL]
 imputed_data_frisked[, (16:20) := NULL] # related to weapon found (only possible after frisk or search)
 imputed_data_frisked$ASK_FOR_CONSENT_FLG <- NULL
 imputed_data_frisked$CONSENT_GIVEN_FLG <- NULL
+imputed_data_frisked$BACKROUND_CIRCUMSTANCES_VIOLENT_CRIME_FLAG <- NULL
+imputed_data_frisked$SUSPECTS_ACTIONS_CONCEALED_POSSESSION_WEAPON_FLAG <- NULL
 # remove all columns related to search
 pattern.search <- "SEARCH_[:alpha:]*"
 search.cols <- grep(pattern.search, names(imputed_data_frisked))
