@@ -14,6 +14,10 @@ sqf.2023[, (location.cols[-length(location.cols)]) := NULL]
 pattern.force <- "PHYSICAL_FORCE[:alpha:]*"
 force.cols <- grep(pattern.force, names(sqf.2023))
 sqf.2023[, (force.cols) := NULL]
+# remove all columns relted to summons
+pattern.summons <- "SUMMONS[:alpha:]*"
+summons.cols <- grep(pattern.summons, names(sqf.2023))
+sqf.2023[, (summons.cols) := NULL]
 # remove all columns without specifc pattern
 sqf.2023$YEAR2 <- NULL
 sqf.2023$STOP_FRISK_DATE <- NULL
@@ -23,6 +27,14 @@ sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
 sqf.2023$JURISDICTION_CODE <- NULL
 sqf.2023$OFFICER_NOT_EXPLAINED_STOP_DESCRIPTION <- NULL
 sqf.2023$SUSPECT_OTHER_DESCRIPTION <- NULL
+sqf.2023$SUSPECT_ARREST_OFFENSE <- NULL
+sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- NULL
+
+# from column 23 to 42 set all the NAs to "N"
+sqf.2023[, (19:38) := lapply(.SD, function(x) {
+  ifelse(is.na(x), "N", x)
+}), .SDcols = 19:38]
+
 
 # go through each column an check whether it matches alpha or digit
 # if it matches digit, convert it to numeric
@@ -41,7 +53,6 @@ convertFactorNumeric <- function(data, col, levels, labels) {
 
 convertFactorNumeric(sqf.2023, "FRISKED_FLAG", c("Y", "N"), c(1, 0))
 convertFactorNumeric(sqf.2023, "SEARCHED_FLAG", c("Y", "N"), c(1, 0))
-convertFactorNumeric(sqf.2023, "SUMMONS_ISSUED_FLAG", c("Y", "N"), c(1, 0))
 convertFactorNumeric(sqf.2023, "SUSPECT_ARRESTED_FLAG", c("Y", "N"), c(1, 0))
 
 sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("FEMALE", "MALE"), labels = c(0, 1))
@@ -61,7 +72,6 @@ sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
 sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- factor(sqf.2023$SUSPECTED_CRIME_DESCRIPTION)
 sqf.2023$JURISDICTION_DESCRIPTION <- factor(sqf.2023$JURISDICTION_DESCRIPTION)
 sqf.2023$SUSPECT_ARREST_OFFENSE <- factor(sqf.2023$SUSPECT_ARREST_OFFENSE)
-sqf.2023$SUMMONS_OFFENSE_DESCRIPTION <- factor(sqf.2023$SUMMONS_OFFENSE_DESCRIPTION)
 # convert all the columns that end on FLAG or FLG to factor
 flag.cols <- grep("FLAG$|FLG$", names(sqf.2023))
 sqf.2023[, (flag.cols) := lapply(.SD, as.factor), .SDcols = flag.cols]
@@ -85,3 +95,13 @@ sqf.2023$STOP_FRISK_TIME <- cut(
   labels = c("night", "AM", "PM", "evening"),
   right = FALSE
 )
+
+# remove levels that are very rare
+hair.color <- c("GRN", "PLE", "PNK", "ORG", "SDY")
+eye.color <- c("MAR", "MUL", "PNK", "OTH")
+
+sqf.2023 <- sqf.2023 |> 
+  filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
+  filter(!SUSPECT_EYE_COLOR %in% eye.color)
+
+
