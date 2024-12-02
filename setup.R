@@ -19,5 +19,8 @@ source("program/functions.R")
 
 
 
-imputed_data <- read_excel("data/imputed_data_frisked.xlsx")
-imputed_data_arrested <- read_excel("data/imputed_data_arrested.xlsx")
+imputed_data_frisked <- read_excel("data/imputed_data_frisked.xlsx")
+imputed_data_searched <- read_excel("data/imputed_data_searched.xlsx")
+imputed_data_arrested <- read_excel("data/imputed_data_full.xlsx")
+
+# FIREARM_FLAG until SEARCH_BASIS_OUTLINE_FLAG set all the NA to "N"
