@@ -18,3 +18,4 @@ predictor_arrest <- Predictor$new(lrn_rf, data = arrest_x, y = arrest_y)
 
 importance_arrest <-  FeatureImp$new(predictor_arrest, loss = "ce")
 importance_arrest$plot()
+

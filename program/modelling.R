@@ -29,7 +29,7 @@ predictions <- lrn_rf$predict(tsk_frisk, row_ids = splits$test)
 
 ### --- arrested specific --- ###
 # remove ID column for training
-imputed_data_arrested <- imputed_data_full[, -1]
+imputed_data_arrested <- imputed_data_arrested[, -1]
 # initialize a classification task
 tsk_arrest <- as_task_classif(imputed_data_arrested, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "arrest")
@@ -38,14 +38,14 @@ tsk_arrest$col_roles$pta <- "SUSPECT_SEX"
 # create train train split
 splits <- partition(tsk_arrest)
 
-# resample for GE estimation
-rr <- resample(tsk_arrest, lrn_rf, cv5)
-rr$aggregate(measures)
-
 # train
 lrn_rf$train(tsk_arrest, row_ids = splits$train)
 # make predictions on test data
 predictions <- lrn_rf$predict(tsk_arrest, row_ids = splits$test)
+
+# resample for GE estimation
+rr <- resample(tsk_arrest, lrn_rf, cv5)
+rr$aggregate(measures)
 
 
 

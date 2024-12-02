@@ -45,5 +45,19 @@ other.targets <- setdiff(targets, "SEARCHED_FLAG")
 imputed_data_searched[, (other.targets) := NULL]
 imputed_data_searched[, (16:20) := NULL] # related to weapon found (only possible after frisk or search)
 
+# create subset for arrested as target
+imputed_data_arrested <- copy(imputed_data_full)
+other.targets <- setdiff(targets, "SUSPECT_ARRESTED_FLAG")
+imputed_data_arrested[, (other.targets) := NULL]
+imputed_data_arrested[, (16:20) := NULL] 
+imputed_data_arrested$ASK_FOR_CONSENT_FLG <- NULL
+imputed_data_arrested$CONSENT_GIVEN_FLG <- NULL
+# remove all columns related to search
+pattern.search <- "SEARCH_[:alpha:]*"
+search.cols <- grep(pattern.search, names(imputed_data_arrested))
+imputed_data_arrested[, (search.cols) := NULL]
 
-### --- univariate feature selection --- ###
+# imputed_data_frisked$BACKROUND_CIRCUMSTANCES_VIOLENT_CRIME_FLAG <- NULL
+# imputed_data_frisked$SUSPECTS_ACTIONS_CONCEALED_POSSESSION_WEAPON_FLAG <- NULL
+
+# put FRISKED_FLAG AND SEARCHED_FLAG as features in the arrested model?
