@@ -30,6 +30,8 @@ imputed_data_frisked <- copy(imputed_data_full)
 other.targets <- setdiff(targets, "FRISKED_FLAG")
 imputed_data_frisked[, (other.targets) := NULL]
 imputed_data_frisked[, (16:20) := NULL] # related to weapon found (only possible after frisk or search)
+imputed_data_frisked$ASK_FOR_CONSENT_FLG <- NULL
+imputed_data_frisked$CONSENT_GIVEN_FLG <- NULL
 # remove all columns related to search
 pattern.search <- "SEARCH_[:alpha:]*"
 search.cols <- grep(pattern.search, names(imputed_data_frisked))
@@ -40,3 +42,6 @@ imputed_data_searched <- copy(imputed_data_full)
 other.targets <- setdiff(targets, "SEARCHED_FLAG")
 imputed_data_searched[, (other.targets) := NULL]
 imputed_data_searched[, (16:20) := NULL] # related to weapon found (only possible after frisk or search)
+
+
+### --- univariate feature selection --- ###
