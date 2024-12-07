@@ -41,6 +41,11 @@ splits_arrested <- partition(tsk_arrest)
 lrn_rf$train(tsk_arrest, row_ids = splits_arrested$train)
 # make predictions on test data
 predictions_arrested <- lrn_rf$predict(tsk_arrest, row_ids = splits_arrested$test)
+predictions_dt <- as.data.table(predictions_arrested)
+pa.data <- imputed_data_arrested[splits_arrested$test, .(SUSPECT_SEX)]
+predictions_dt <- cbind(pa.data, predictions_dt)
+
+# get the PAs for the test rows
 
 # # resample for GE estimation
 # rr <- resample(tsk_arrest, lrn_rf, cv5)
