@@ -46,6 +46,14 @@ predictions_arrested <- lrn_rf$predict(tsk_arrest, row_ids = splits_arrested$tes
 # rr <- resample(tsk_arrest, lrn_rf, cv5)
 # rr$aggregate(measures)
 
+### --- ARRESTED with RACE as PA --- ###
+task_arrested_2 <- as_task_classif(imputed_data_arrested_2, target = "SUSPECT_ARRESTED_FLAG",
+                           positive = "1", id = "arrest")
+task_arrested_2$col_roles$pta <- "race_group"
+splits_arrested_2 <- partition(task_arrested_2)
+lrn_rf$train(task_arrested_2, row_ids = splits_arrested_2$train)
+predictions_arrested_2 <- lrn_rf$predict(task_arrested_2, row_ids = splits_arrested_2$test)
+
 ### --- searched specific --- ###
 imputed_data_searched <- imputed_data_searched[, -1]
 # initialize a classification task

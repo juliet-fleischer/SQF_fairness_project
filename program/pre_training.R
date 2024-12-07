@@ -24,7 +24,7 @@ imputed_data_full[, names(char.cols)[char.cols] := lapply(.SD, as.factor), .SDco
 # SUSPECT_EYE_COLOR
 # SUSPECT_HAIR_COLOR
 
-# create subset for frisked as target
+# create subset for FRISKED as target
 imputed_data_frisked <- copy(imputed_data_full)
 other.targets <- setdiff(targets, "FRISKED_FLAG")
 imputed_data_frisked[, (other.targets) := NULL]
@@ -38,13 +38,13 @@ pattern.search <- "SEARCH_[:alpha:]*"
 search.cols <- grep(pattern.search, names(imputed_data_frisked))
 imputed_data_frisked[, (search.cols) := NULL]
 
-# create subset for searched as target
+# create subset for SEARCHED as target
 imputed_data_searched <- copy(imputed_data_full)
 other.targets <- setdiff(targets, "SEARCHED_FLAG")
 imputed_data_searched[, (other.targets) := NULL]
 imputed_data_searched[, (16:20) := NULL] # related to weapon found (only possible after frisk or search)
 
-# create subset for arrested as target
+# create subset for ARRESTED as target
 imputed_data_arrested <- copy(imputed_data_full)
 other.targets <- setdiff(targets, "SUSPECT_ARRESTED_FLAG")
 imputed_data_arrested[, (other.targets) := NULL]
@@ -56,6 +56,10 @@ pattern.search <- "SEARCH_[:alpha:]*"
 search.cols <- grep(pattern.search, names(imputed_data_arrested))
 imputed_data_arrested[, (search.cols) := NULL]
 
+# possible dichotomizations of race
+imputed_data_arrested_2 <- imputed_data_arrested |> 
+  mutate(race_group = ifelse(SUSPECT_RACE_DESCRIPTION %in% c("BLACK", "BLACK HISPANIC"), "c", "w"))
+imputed_data_arrested_2$SUSPECT_RACE_DESCRIPTION <- NULL
 # imputed_data_frisked$BACKROUND_CIRCUMSTANCES_VIOLENT_CRIME_FLAG <- NULL
 # imputed_data_frisked$SUSPECTS_ACTIONS_CONCEALED_POSSESSION_WEAPON_FLAG <- NULL
 
