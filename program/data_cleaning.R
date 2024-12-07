@@ -1,3 +1,4 @@
+sqf.2023 <- read_excel("data/sqf-2023.xlsx")
 setDT(sqf.2023)
 n <- nrow(sqf.2023)
 sqf.2023[sqf.2023 == "(null)"] <- NA

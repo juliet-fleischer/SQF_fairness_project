@@ -1,19 +1,18 @@
-# create one complete imputed datasets including all targets and all possible
-# covariables (filter appropriately for training)
+imputed_data_full <- read_excel("data/imputed_data_full.xlsx")
+setDT(imputed_data_full)
 
 targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG")
 protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 
-### --- Missing data imputation --- ###
-na.count <- apply(sqf.2023, 2, function(x) sum(is.na(x))) / nrow(sqf.2023)
-na.count[which.max(na.count)]
-# create subset of the data for frisked as target
-# sqf.2023.subset <- subset(sqf.2023, select = c(targets, protected.a, features))
-# imputed missing data
-imp <- mice(sqf.2023, m = 1)
-imputed_data_full <- complete(imp)
-# imputed_data_full <- read_excel("data/imputed_data_full.xlsx")
-setDT(imputed_data_full)
+# some data preparation for the imputed data set
+# convert all the targets to numeric
+imputed_data_full[, (targets) := lapply(.SD, function(x) {
+  ifelse(x == "1", 1, 0)
+}), .SDcols = targets]
+
+char.cols <- sapply(imputed_data_full, is.character)
+imputed_data_full[, names(char.cols)[char.cols] := lapply(.SD, as.factor), .SDcols = names(char.cols)[char.cols]]
+
 # LOCATION_IN_OUT_CODE
 # JURISDICTION_DESCRIPTION
 # ASK_FOR_CONSENT_FLG
