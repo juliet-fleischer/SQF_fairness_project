@@ -19,3 +19,11 @@ predictor_arrest <- Predictor$new(lrn_rf, data = arrest_x, y = arrest_y)
 importance_arrest <-  FeatureImp$new(predictor_arrest, loss = "ce")
 importance_arrest$plot()
 
+
+# analyse feature importance for search task
+searched_x <- tsk_searched$data(rows = splits_searched$test, cols = tsk_searched$feature_names)
+searched_y <- tsk_searched$data(rows = splits_searched$test, cols = tsk_searched$target_names)
+predictor_searched <- Predictor$new(lrn_rf, data = searched_x, y = searched_y)
+
+importance_searched <- FeatureImp$new(predictor_searched, loss = "ce")
+importance_searched$plot()

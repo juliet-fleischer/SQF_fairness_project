@@ -11,7 +11,7 @@
 
 # example use
 
-calcGroupwiseMetrics <- function(base_mrs, task) {
+calcGroupwiseMetrics <- function(base_mrs, task, predictions) {
   # assert whether base_mrs is a list containing measure mlr3 objects, or a single mlr3 measure
   assert_task(task)
   # Create groupwise metrics

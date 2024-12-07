@@ -45,3 +45,20 @@ predictions_arrested <- lrn_rf$predict(tsk_arrest, row_ids = splits_arrested$tes
 # # resample for GE estimation
 # rr <- resample(tsk_arrest, lrn_rf, cv5)
 # rr$aggregate(measures)
+
+### --- searched specific --- ###
+imputed_data_searched <- imputed_data_searched[, -1]
+# initialize a classification task
+tsk_searched <- as_task_classif(imputed_data_searched, target = "SEARCHED_FLAG",
+                           positive = "1", id = "search")
+# specify the PA
+tsk_searched$col_roles$pta <- "SUSPECT_SEX"
+# create train train split
+splits_searched <- partition(tsk_searched)
+# train
+lrn_rf$train(tsk_searched, row_ids = splits_searched$train)
+# make predictions on test data
+predictions_searched <- lrn_rf$predict(tsk_searched, row_ids = splits_searched$test)
+
+
+    

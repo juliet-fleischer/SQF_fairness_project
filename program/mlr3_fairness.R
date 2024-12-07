@@ -46,6 +46,10 @@ calcGroupwiseMetrics(base_mrs_other, tsk_frisk, predictions_frisk)
 calcGroupwiseMetrics(base_mrs_punitive, tsk_arrest, predictions_arrested)
 calcGroupwiseMetrics(base_mrs_assistive, tsk_arrest, predictions_arrested)
 calcGroupwiseMetrics(base_mrs_other, tsk_arrest, predictions_arrested)
+
+calcGroupwiseMetrics(base_mrs_punitive, tsk_searched, predictions_searched)
+calcGroupwiseMetrics(base_mrs_assistive, tsk_searched, predictions_searched)
+calcGroupwiseMetrics(base_mrs_other, tsk_searched, predictions_searched)
 # 
 # fairness_prediction_density(predictions, task = tsk_sqf)
 # compare_metrics(predictions, fairness_msr_punitive, task = tsk_sqf)
