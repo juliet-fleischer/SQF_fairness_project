@@ -3,6 +3,10 @@ setDT(sqf.2023)
 n <- nrow(sqf.2023)
 sqf.2023[sqf.2023 == "(null)"] <- NA
 
+
+targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG")
+protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
+
 # remove all officer columns
 pattern.officer <- "[:alpha:]*_OFFICER_[:alpha:]*"
 officer.cols <- grep(pattern.officer, names(sqf.2023))
@@ -36,6 +40,9 @@ sqf.2023[, (19:38) := lapply(.SD, function(x) {
   ifelse(is.na(x), "N", x)
 }), .SDcols = 19:38]
 
+# convert all the columns that end on FLAG or FLG to factor
+flag.cols <- grep("FLAG$|FLG$", names(sqf.2023))
+sqf.2023[, (flag.cols) := lapply(.SD, as.factor), .SDcols = flag.cols]
 
 # go through each column an check whether it matches alpha or digit
 # if it matches digit, convert it to numeric
@@ -45,18 +52,12 @@ sqf.2023[, (col.names) := lapply(.SD, function(x) {
   if (all(is.na(x) | grepl("[[:digit:]]+", x))) as.numeric(x) else x
 }), .SDcols = col.names]
 
-
 # convert all potential target columns to numeric
-convertFactorNumeric <- function(data, col, levels, labels) {
-  data[, (col) := factor(get(col), levels = levels, labels = labels)]
-  data[, (col) := as.numeric(as.character(get(col)))]
-}
+sqf.2023[ , (targets) := lapply(.SD,function(x) { ifelse(x == "Y", 1, 0)}), .SDcols = targets]
+# convert sex to numeric 0 = female, 1 = male
+sqf.2023[, SUSPECT_SEX := ifelse(SUSPECT_SEX == "FEMALE", 0, 1)]
 
-convertFactorNumeric(sqf.2023, "FRISKED_FLAG", c("Y", "N"), c(1, 0))
-convertFactorNumeric(sqf.2023, "SEARCHED_FLAG", c("Y", "N"), c(1, 0))
-convertFactorNumeric(sqf.2023, "SUSPECT_ARRESTED_FLAG", c("Y", "N"), c(1, 0))
-
-sqf.2023$SUSPECT_SEX <- factor(sqf.2023$SUSPECT_SEX, levels = c("FEMALE", "MALE"), labels = c(0, 1))
+# create factor columns
 sqf.2023$SUSPECT_RACE_DESCRIPTION <- factor(sqf.2023$SUSPECT_RACE_DESCRIPTION,
                                             levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
                                                        "WHITE","ASIAN / PACIFIC ISLANDER",
@@ -73,9 +74,7 @@ sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
 sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- factor(sqf.2023$SUSPECTED_CRIME_DESCRIPTION)
 sqf.2023$JURISDICTION_DESCRIPTION <- factor(sqf.2023$JURISDICTION_DESCRIPTION)
 sqf.2023$SUSPECT_ARREST_OFFENSE <- factor(sqf.2023$SUSPECT_ARREST_OFFENSE)
-# convert all the columns that end on FLAG or FLG to factor
-flag.cols <- grep("FLAG$|FLG$", names(sqf.2023))
-sqf.2023[, (flag.cols) := lapply(.SD, as.factor), .SDcols = flag.cols]
+
 
 # binning of stop time of the day
 

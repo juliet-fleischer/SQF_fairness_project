@@ -64,3 +64,24 @@ sqf.2023 |>
   summarise(count_arrested = sum(SUSPECT_ARRESTED_FLAG)) |>
   group_by(STOP_LOCATION_BORO_NAME) |>
   mutate(prop = count_arrested / sum(count_arrested)) |> View()
+
+
+
+# proportion of frisked by sex in the imputed and original data is virtually the same
+# (so the imputed dataset is probably safe to use and doesn't introduce additional bias)
+glimpse(sqf.2023)
+xtabs(FRISKED_FLAG ~ SUSPECT_SEX, data = sqf.2023)
+imputed_data_frisked |> 
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(FRISKED_FLAG) / nrow(imputed_data_frisked))
+sqf.2023 |> 
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(FRISKED_FLAG) / nrow(sqf.2023))
+# proportion of arrested by sex in the imputed and original data is virtually the same
+# for arrested too
+imputed_data_arrested |> 
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(SUSPECT_ARRESTED_FLAG) / nrow(imputed_data_arrested))
+sqf.2023 |>
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(SUSPECT_ARRESTED_FLAG) / nrow(sqf.2023))
