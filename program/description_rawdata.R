@@ -73,15 +73,22 @@ glimpse(sqf.2023)
 xtabs(FRISKED_FLAG ~ SUSPECT_SEX, data = sqf.2023)
 imputed_data_frisked |> 
   group_by(SUSPECT_SEX) |> 
-  summarise(sum(FRISKED_FLAG) / nrow(imputed_data_frisked))
+  summarise(sum(FRISKED_FLAG) / n())
 sqf.2023 |> 
   group_by(SUSPECT_SEX) |> 
-  summarise(sum(FRISKED_FLAG) / nrow(sqf.2023))
+  summarise(sum(FRISKED_FLAG) / n())
 # proportion of arrested by sex in the imputed and original data is virtually the same
 # for arrested too
 imputed_data_arrested |> 
   group_by(SUSPECT_SEX) |> 
-  summarise(sum(SUSPECT_ARRESTED_FLAG) / nrow(imputed_data_arrested))
+  summarise(sum(SUSPECT_ARRESTED_FLAG) / n())
 sqf.2023 |>
   group_by(SUSPECT_SEX) |> 
-  summarise(sum(SUSPECT_ARRESTED_FLAG) / nrow(sqf.2023))
+  summarise(sum(SUSPECT_ARRESTED_FLAG) / n())
+# for searched
+sqf.2023 |> 
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(SEARCHED_FLAG) / n())
+imputed_data_searched |> 
+  group_by(SUSPECT_SEX) |> 
+  summarise(sum(SEARCHED_FLAG) / n())
