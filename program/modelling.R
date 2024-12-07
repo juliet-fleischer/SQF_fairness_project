@@ -18,14 +18,13 @@ tsk_frisk <- as_task_classif(imputed_data_frisked, target = "FRISKED_FLAG",
 # specify the PA
 tsk_frisk$col_roles$pta <- "SUSPECT_SEX"
 # create train train split
-splits <- partition(tsk_frisk)
-
-
+splits_frisk <- partition(tsk_frisk)
 
 # train
-lrn_rf$train(tsk_frisk, row_ids = splits$train)
+lrn_rf$train(tsk_frisk, row_ids = splits_frisk$train)
 # make predictions on test data
-predictions <- lrn_rf$predict(tsk_frisk, row_ids = splits$test)
+predictions_frisk <- lrn_rf$predict(tsk_frisk, row_ids = splits_frisk$test)
+
 
 ### --- arrested specific --- ###
 # remove ID column for training
@@ -36,30 +35,13 @@ tsk_arrest <- as_task_classif(imputed_data_arrested, target = "SUSPECT_ARRESTED_
 # specify the PA
 tsk_arrest$col_roles$pta <- "SUSPECT_SEX"
 # create train train split
-splits <- partition(tsk_arrest)
+splits_arrested <- partition(tsk_arrest)
 
 # train
-lrn_rf$train(tsk_arrest, row_ids = splits$train)
+lrn_rf$train(tsk_arrest, row_ids = splits_arrested$train)
 # make predictions on test data
-predictions <- lrn_rf$predict(tsk_arrest, row_ids = splits$test)
+predictions_arrested <- lrn_rf$predict(tsk_arrest, row_ids = splits_arrested$test)
 
-# resample for GE estimation
-rr <- resample(tsk_arrest, lrn_rf, cv5)
-rr$aggregate(measures)
-
-
-
-# specifyTask <- function(data, target, PA, id) {
-#   data <- data[, -1]
-#   tsk <- as_task_classif(data, target = target, positive = "1", id = id)
-#   tsk$col_roles$pta <- PA
-#   splits <- partition(tsk)
-# }
-
-
-
-# 
-# # goal is to see which of the race groupings gets the highest feature importance
-# flt_importane <- flt("importance", learner = lrn_rf)
-# flt_importane$calculate(tsk_sqf)
-# as.data.table(flt_importane)
+# # resample for GE estimation
+# rr <- resample(tsk_arrest, lrn_rf, cv5)
+# rr$aggregate(measures)

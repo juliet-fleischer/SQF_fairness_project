@@ -39,12 +39,17 @@ base_mrs_other <- list(
   bbrier = msr("classif.bbrier")
 )
 
-calcGroupwiseMetrics(base_mrs_punitive, tsk_frisk)
-calcGroupwiseMetrics(base_mrs_assistive, tsk_frisk)
-calcGroupwiseMetrics(base_mrs_other, tsk_frisk)
+calcGroupwiseMetrics(base_mrs_punitive, tsk_frisk, predictions_frisk)
+calcGroupwiseMetrics(base_mrs_assistive, tsk_frisk, predictions_frisk)
+calcGroupwiseMetrics(base_mrs_other, tsk_frisk, predictions_frisk)
 
-fairness_prediction_density(predictions, task = tsk_sqf)
-compare_metrics(predictions, fairness_msr_punitive, task = tsk_sqf)
-compare_metrics(predictions, fairness_msr_assistive, task = tsk_sqf)
-compare_metrics(predictions, fairness_mrs_other, task = tsk_sqf)
+calcGroupwiseMetrics(base_mrs_punitive, tsk_arrest, predictions_arrested)
+calcGroupwiseMetrics(base_mrs_assistive, tsk_arrest, predictions_arrested)
+calcGroupwiseMetrics(base_mrs_other, tsk_arrest, predictions_arrested)
+# 
+# fairness_prediction_density(predictions, task = tsk_sqf)
+# compare_metrics(predictions, fairness_msr_punitive, task = tsk_sqf)
+# compare_metrics(predictions, fairness_msr_assistive, task = tsk_sqf)
+# compare_metrics(predictions, fairness_mrs_other, task = tsk_sqf)
+
 
