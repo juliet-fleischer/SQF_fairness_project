@@ -39,7 +39,8 @@ sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
 sqf.2023$JURISDICTION_CODE <- NULL
 # sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- NULL
 
-
+# filter out complete cases
+sqf.2023 <- sqf.2023[complete.cases(sqf.2023), ]
 
 
 # from column 23 to 42 set all the NAs to "N"

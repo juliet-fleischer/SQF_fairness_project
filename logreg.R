@@ -32,8 +32,9 @@ sqf.2023[, (char.cols) := lapply(.SD, as.factor), .SDcols = char.cols]
 # fit a logistic regression with LASSO regularization
 set.seed(123)
 sqf.2023 <- droplevels(sqf.2023)
-sort(colSums(is.na(sqf.2023)))
+sort(colSums(is.na(complete.cases)))
 sqf.2023 <- na.omit(sqf.2023)
+sqf.2023$PHYSICAL_FORCE_VERBAL_INSTRUCTION_FLAG <- NULL
 
 x <- model.matrix(SUSPECT_ARRESTED_FLAG ~ ., data = sqf.2023)
 y <- sqf.2023$SUSPECT_ARRESTED_FLAG
@@ -46,4 +47,5 @@ summary(lasso.fit)
 coef(lasso.fit)
 
 res <- apply(sqf.2023, 2, function(x) (length(levels(x))))
+apply(sqf.2023, 2, \(x) length(unique(x)))
 which(res == 1)
