@@ -3,26 +3,33 @@ setDT(sqf.2023)
 n <- nrow(sqf.2023)
 sqf.2023[sqf.2023 == "(null)"] <- NA
 
+### --- Missing data analysis --- ###
+# count the missing values in each column
+na.count <- apply(sqf.2023, 2, function(x) sum(is.na(x))) / nrow(sqf.2023)
+sort(na.count)
+enough.data.cols <- names(which(na.count < 0.5))
+cols.to.keep <- sqf.2023[, names(sqf.2023) %in% enough.data.cols]
+sqf.2023 <- sqf.2023[, ..cols.to.keep]
 
 targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG")
 protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 
 # remove all officer columns
-pattern.officer <- "[:alpha:]*_OFFICER_[:alpha:]*"
-officer.cols <- grep(pattern.officer, names(sqf.2023))
-sqf.2023[, (officer.cols) := NULL]
-# remove all location columns except STOP_LOCATION_BORO_NAME
-pattern.location <- "[:alpha:]*_LOCATION_[:alpha:]*"
-location.cols <- grep(pattern.location, names(sqf.2023))
-sqf.2023[, (location.cols[-length(location.cols)]) := NULL]
+# pattern.officer <- "[:alpha:]*_OFFICER_[:alpha:]*"
+# officer.cols <- grep(pattern.officer, names(sqf.2023))
+# sqf.2023[, (officer.cols) := NULL]
+# # remove all location columns except STOP_LOCATION_BORO_NAME
+# pattern.location <- "[:alpha:]*_LOCATION_[:alpha:]*"
+# location.cols <- grep(pattern.location, names(sqf.2023))
+# sqf.2023[, (location.cols[-length(location.cols)]) := NULL]
 # remove all columns that start with PHYSICAL_FORCE
-pattern.force <- "PHYSICAL_FORCE[:alpha:]*"
-force.cols <- grep(pattern.force, names(sqf.2023))
-sqf.2023[, (force.cols) := NULL]
+# pattern.force <- "PHYSICAL_FORCE[:alpha:]*"
+# force.cols <- grep(pattern.force, names(sqf.2023))
+# sqf.2023[, (force.cols) := NULL]
 # remove all columns relted to summons
-pattern.summons <- "SUMMONS[:alpha:]*"
-summons.cols <- grep(pattern.summons, names(sqf.2023))
-sqf.2023[, (summons.cols) := NULL]
+# pattern.summons <- "SUMMONS[:alpha:]*"
+# summons.cols <- grep(pattern.summons, names(sqf.2023))
+# sqf.2023[, (summons.cols) := NULL]
 # remove all columns without specifc pattern
 sqf.2023$YEAR2 <- NULL
 sqf.2023$STOP_FRISK_DATE <- NULL
@@ -30,10 +37,10 @@ sqf.2023$RECORD_STATUS_CODE <- NULL
 sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
 sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
 sqf.2023$JURISDICTION_CODE <- NULL
-sqf.2023$OFFICER_NOT_EXPLAINED_STOP_DESCRIPTION <- NULL
-sqf.2023$SUSPECT_OTHER_DESCRIPTION <- NULL
-sqf.2023$SUSPECT_ARREST_OFFENSE <- NULL
-sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- NULL
+# sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- NULL
+
+
+
 
 # from column 23 to 42 set all the NAs to "N"
 sqf.2023[, (19:38) := lapply(.SD, function(x) {
