@@ -2,11 +2,24 @@
 
 # initialize a learner
 p <- ncol(imputed_data_frisked) - 1
-lrn_rf <- lrn("classif.ranger", mtry = ceiling(p / 2), predict_type = "prob", importance = "impurity")
+lrn_rf <- lrn("classif.ranger")
+lrn_rf_missing <- lrn("classif.random_tree")
 # construct a resampling strategy
 cv5 <- rsmp("cv", folds = 5)
 # set performance measures
 measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
+
+### ARRESTED full dataset ###
+tsk_arrested_full <- as_task_classif(sqf.2023, target = "SUSPECT_ARRESTED_FLAG",
+                                     positive = "1", id = "arrested w/ missing")
+# set PA
+tsk_arrested_full$col_roles$pta <- "SUSPECT_SEX"
+# split
+splits_arrested_full <- partition(tsk_arrested_full)
+# train
+lrn_rf_missing$train(tsk_arrested_full, row_ids = splits_arrested_full$train)
+# predict
+predictions_arrested_full <- lrn_rf_missing$predict(tsk_arrested_full, row_ids = splits_arrested_full$test)
 
 
 ### --- frisked specific --- ###
@@ -27,20 +40,19 @@ predictions_frisk <- lrn_rf$predict(tsk_frisk, row_ids = splits_frisk$test)
 
 
 ### --- arrested specific --- ###
-# remove ID column for training
-imputed_data_arrested <- imputed_data_arrested[, -1]
 # initialize a classification task
-tsk_arrest <- as_task_classif(imputed_data_arrested, target = "SUSPECT_ARRESTED_FLAG",
+tsk_arrested <- as_task_classif(sqf.2023.filtered, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "arrest")
 # specify the PA
-tsk_arrest$col_roles$pta <- "SUSPECT_SEX"
+tsk_arrested$col_roles$pta <- "SUSPECT_SEX"
 # create train train split
-splits_arrested <- partition(tsk_arrest)
-
+splits_arrested <- partition(tsk_arrested)
 # train
-lrn_rf$train(tsk_arrest, row_ids = splits_arrested$train)
+lrn_rf$train(tsk_arrested, row_ids = splits_arrested$train)
 # make predictions on test data
-predictions_arrested <- lrn_rf$predict(tsk_arrest, row_ids = splits_arrested$test)
+predictions_arrested <- lrn_rf$predict(tsk_arrested, row_ids = splits_arrested$test)
+
+
 predictions_dt <- as.data.table(predictions_arrested)
 pa.data <- imputed_data_arrested[splits_arrested$test, .(SUSPECT_SEX)]
 predictions_dt <- cbind(pa.data, predictions_dt)
@@ -52,10 +64,10 @@ predictions_dt <- cbind(pa.data, predictions_dt)
 # rr$aggregate(measures)
 
 ### --- ARRESTED with RACE as PA --- ###
-task_arrested_2 <- as_task_classif(imputed_data_arrested_2, target = "SUSPECT_ARRESTED_FLAG",
+task_arrested <- as_task_classif(sqf.2023.filtered, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "arrest")
-task_arrested_2$col_roles$pta <- "race_group"
-splits_arrested_2 <- partition(task_arrested_2)
+task_arrested$col_roles$pta <- "race_group"
+splits_arrested <- partition(task_arrested)
 lrn_rf$train(task_arrested_2, row_ids = splits_arrested_2$train)
 predictions_arrested_2 <- lrn_rf$predict(task_arrested_2, row_ids = splits_arrested_2$test)
 

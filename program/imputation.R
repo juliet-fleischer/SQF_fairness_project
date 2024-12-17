@@ -16,3 +16,4 @@ imp <- mice(sqf.2023, m = 1)
 imputed_data_full <- complete(imp)
 
 
+

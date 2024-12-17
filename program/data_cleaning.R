@@ -7,7 +7,14 @@ sqf.2023[sqf.2023 == "(null)"] <- NA
 # count the missing values in each column
 na.count <- apply(sqf.2023, 2, function(x) sum(is.na(x))) / nrow(sqf.2023)
 sort(na.count)
-enough.data.cols <- names(which(na.count < 0.5))
+
+# Count missing values per row
+row_missing <- rowSums(is.na(sqf.2023))
+# Summarize rows with different numbers of missing values
+table(row_missing)
+
+
+enough.data.cols <- names(which(na.count < 0.15))
 cols.to.keep <- sqf.2023[, names(sqf.2023) %in% enough.data.cols]
 sqf.2023 <- sqf.2023[, ..cols.to.keep]
 
@@ -34,19 +41,17 @@ protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 sqf.2023$YEAR2 <- NULL
 sqf.2023$STOP_FRISK_DATE <- NULL
 sqf.2023$RECORD_STATUS_CODE <- NULL
-sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
+# sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
 sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
-sqf.2023$JURISDICTION_CODE <- NULL
-# sqf.2023$SUSPECTED_CRIME_DESCRIPTION <- NULL
 
 # filter out complete cases
-sqf.2023 <- sqf.2023[complete.cases(sqf.2023), ]
+sqf.2023.filtered <- sqf.2023[complete.cases(sqf.2023), ]
 
-
-# from column 23 to 42 set all the NAs to "N"
-sqf.2023[, (19:38) := lapply(.SD, function(x) {
-  ifelse(is.na(x), "N", x)
-}), .SDcols = 19:38]
+# 
+# # from column 23 to 42 set all the NAs to "N"
+# sqf.2023[, (19:38) := lapply(.SD, function(x) {
+#   ifelse(is.na(x), "N", x)
+# }), .SDcols = 19:38]
 
 # convert all the columns that end on FLAG or FLG to factor
 flag.cols <- grep("FLAG$|FLG$", names(sqf.2023))
@@ -55,15 +60,20 @@ sqf.2023[, (flag.cols) := lapply(.SD, as.factor), .SDcols = flag.cols]
 # go through each column an check whether it matches alpha or digit
 # if it matches digit, convert it to numeric
 col.names <- names(sqf.2023)[-c(1,2)]
-# Apply the transformation to all columns that match the pattern
+# convert all numeric columns to numeric type
 sqf.2023[, (col.names) := lapply(.SD, function(x) {
   if (all(is.na(x) | grepl("[[:digit:]]+", x))) as.numeric(x) else x
 }), .SDcols = col.names]
+
 
 # convert all potential target columns to numeric
 sqf.2023[ , (targets) := lapply(.SD,function(x) { ifelse(x == "Y", 1, 0)}), .SDcols = targets]
 # convert sex to numeric 0 = female, 1 = male
 sqf.2023[, SUSPECT_SEX := ifelse(SUSPECT_SEX == "FEMALE", 0, 1)]
+
+# convert all remaining character columns to factor
+char.cols <- which(sapply(sqf.2023, is.character))
+sqf.2023[, (char.cols) := lapply(.SD, as.factor), .SDcols = char.cols]
 
 # create factor columns
 sqf.2023$SUSPECT_RACE_DESCRIPTION <- factor(sqf.2023$SUSPECT_RACE_DESCRIPTION,
@@ -72,14 +82,12 @@ sqf.2023$SUSPECT_RACE_DESCRIPTION <- factor(sqf.2023$SUSPECT_RACE_DESCRIPTION,
                                                        "MIDDLE EASTERN/SOUTHWEST ASIAN",
                                                        "AMERICAN INDIAN/ALASKAN NATIVE"))
 sqf.2023$STOP_LOCATION_BORO_NAME <- factor(sqf.2023$STOP_LOCATION_BORO_NAME)
-sqf.2023$LOCATION_IN_OUT_CODE <- factor(sqf.2023$LOCATION_IN_OUT_CODE)
 sqf.2023$STOP_WAS_INITIATED <- factor(sqf.2023$STOP_WAS_INITIATED)
 sqf.2023$MONTH2 <- factor(sqf.2023$MONTH2)
 sqf.2023$DAY2 <- factor(sqf.2023$DAY2)
 sqf.2023$SUSPECT_BODY_BUILD_TYPE <- factor(sqf.2023$SUSPECT_BODY_BUILD_TYPE)
 sqf.2023$SUSPECT_EYE_COLOR <- factor(sqf.2023$SUSPECT_EYE_COLOR)
 sqf.2023$SUSPECT_HAIR_COLOR <- factor(sqf.2023$SUSPECT_HAIR_COLOR)
-sqf.2023$JURISDICTION_DESCRIPTION <- factor(sqf.2023$JURISDICTION_DESCRIPTION)
 
 
 # binning of stop time of the day
