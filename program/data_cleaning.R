@@ -44,8 +44,6 @@ sqf.2023$RECORD_STATUS_CODE <- NULL
 # sqf.2023$DEMEANOR_OF_PERSON_STOPPED <- NULL
 sqf.2023$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
 
-# filter out complete cases
-sqf.2023.filtered <- sqf.2023[complete.cases(sqf.2023), ]
 
 # 
 # # from column 23 to 42 set all the NAs to "N"
@@ -118,4 +116,6 @@ sqf.2023 <- sqf.2023 |>
   filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
   filter(!SUSPECT_EYE_COLOR %in% eye.color)
 
+# filter out complete cases
+sqf.2023.filtered <- sqf.2023[complete.cases(sqf.2023), ]
 
