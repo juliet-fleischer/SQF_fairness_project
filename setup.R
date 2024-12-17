@@ -13,6 +13,9 @@ library(iml)
 library(fairml)
 library(linprog)
 library(CVXR)
+library(randomForest)
+library(mlr3extralearners)
+
 
 source("program/functions.R")
 source("program/data_cleaning.R")
