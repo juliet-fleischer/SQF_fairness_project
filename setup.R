@@ -1,5 +1,6 @@
 # setup script
 set.seed(024)
+options(java.parameters = "-Xmx10g") # Allocate 8 GB of memory (adjust as needed)
 library(data.table)
 library(readxl)
 library(ggplot2)
@@ -14,6 +15,7 @@ library(fairml)
 library(linprog)
 library(CVXR)
 library(gridExtra)
+library(rJava)
 # library(randomForest)
 # library(mlr3extralearners)
 # options(java.parameters = "-Xmx8G")  # Zuweisung auf 8 GB
