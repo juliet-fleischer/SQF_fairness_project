@@ -39,9 +39,9 @@ base_mrs_other <- list(
   bbrier = msr("classif.bbrier")
 )
 
-calcGroupwiseMetrics(base_mrs_punitive, tsk_arrested, predictions_arrested)
-calcGroupwiseMetrics(base_mrs_assistive, tsk_arrested, predictions_arrested)
-calcGroupwiseMetrics(base_mrs_other, tsk_arrested, predictions_arrested)
+calcGroupwiseMetrics(base_mrs_punitive, tsk_arrested_full, predictions_arrested_full)
+calcGroupwiseMetrics(base_mrs_assistive, tsk_arrested_full, predictions_arrested_full)
+calcGroupwiseMetrics(base_mrs_other, tsk_arrested_full, predictions_arrested_full)
 
 # Independence: 
 stat.parity <- predictions_dt[, .(sum(response == "1") / .N), by = "SUSPECT_SEX"]

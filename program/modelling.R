@@ -33,9 +33,9 @@ measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
 
 ### ARRESTED full dataset ###
 tsk_arrested_full <- as_task_classif(sqf, target = "SUSPECT_ARRESTED_FLAG",
-                                     positive = "1", id = "arrested w/ missing")
+                                     positive = "Y", id = "arrested w/ missing")
 # set PA
-tsk_arrested_full$col_roles$pta <- "SUSPECT_SEX"
+tsk_arrested_full$col_roles$pta <- "SUSPECT_RACE_DESCRIPTION"
 # split
 splits_arrested_full <- partition(tsk_arrested_full)
 # train

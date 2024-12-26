@@ -10,7 +10,7 @@ simulation.data$race_group <- droplevels(simulation.data$race_group)
 idx <- sample(1:nrow(simulation.data), size = nrow(simulation.data)/2)
 sample1 <- simulation.data[idx,]
 sample2 <- simulation.data[-idx,]
-sample2$SUSPECT_ARRESTED_FLAG <- NULL
+# sample2$SUSPECT_ARRESTED_FLAG <- NULL
 
 # train a random forrest on sample1 predicting arrest
 # initialize RF learner that handles missing values
@@ -28,6 +28,7 @@ pred_arrested_sample2 <- lrn_rf_missing$predict_newdata(sample2)
 pred_arrested_sample2 <- as.data.table(pred_arrested_sample2)
 # combine with sample2
 sample2 <- cbind(sample2, pred_arrested_sample2)
+sample2$truth <- NULL
 
 sample2 |> 
   group_by(race_group) |> 
@@ -66,8 +67,11 @@ results <- lapply(threshold.cols, function(tau_level) {
   # Clean up columns
   test.dat.tau[, `:=`(row_ids = NULL, prob.Y = NULL, prob.N = NULL, response = NULL, c0 = NULL)]
   
+  # subset the observations that were stopped acc to the synthetic tau column
+  test.dat.tau <- test.dat.tau[test.dat.tau[[tau_level]] == 1]
+  
   # Define task
-  tsk_tau <- as_task_classif(test.dat.tau, target = "truth", positive = "Y", id = tau_level)
+  tsk_tau <- as_task_classif(test.dat.tau, target = "SUSPECT_ARRESTED_FLAG", positive = "Y", id = tau_level)
   
   # Train and predict
   lrn_rf_missing$train(tsk_tau)
@@ -89,3 +93,30 @@ names(results) <- threshold.cols
 results
 
 
+
+
+results.log <- lapply(threshold.cols, function(tau_level) {
+  rm.tau <- setdiff(threshold.cols, tau_level)
+  test.dat.tau <- test.dat[, !..rm.tau, with = FALSE]
+  
+  # Clean up columns
+  test.dat.tau[, `:=`(row_ids = NULL, prob.Y = NULL, prob.N = NULL, response = NULL, c0 = NULL)]
+  
+  # subset the observations that were stopped acc to the synthetic tau column
+  test.dat.tau <- test.dat.tau[test.dat.tau[[tau_level]] == 1]
+  # get only the complete cases
+  test.dat.tau <- test.dat.tau[complete.cases(test.dat.tau)]
+  model.log <- glm(SUSPECT_ARRESTED_FLAG ~ ., data = test.dat.tau, family = binomial())
+  
+  # predict on same data with model.log
+  test.dat.tau$prob.Y <- predict(model.log, newdata = test.dat.tau, type = "response")
+  
+  # calculate the top 50% threshhold (the overall median of being predicted arrested)
+  threshold_50 <- median(test.dat.tau$prob.Y)
+  
+  # Subset individuals in the top 50%
+  top_50 <- test.dat.tau[prob.Y > threshold_50]
+  
+  # Calculate fraction of African Americans
+  mean(top_50$race_group == 1, na.rm = TRUE)
+})
