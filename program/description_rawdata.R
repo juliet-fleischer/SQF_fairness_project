@@ -1,6 +1,18 @@
 ## Descriptive Analysis
 
 
+# SEX
+sqf.2023 |> 
+  select(STOP_ID, SUSPECT_ARRESTED_FLAG, SUSPECT_SEX) |>
+  mutate(across(everything(), as.factor)) |> 
+  group_by(SUSPECT_ARRESTED_FLAG, SUSPECT_SEX) |> 
+  reframe(count = n()) |> 
+  mutate(prop = count / sum(count)) |> 
+  ggplot(aes(x = SUSPECT_SEX, y = prop, fill = SUSPECT_ARRESTED_FLAG)) +
+  geom_col(position = "dodge")
+  
+  
+
 # age
 ggplot(sqf.2023, aes(x = SUSPECT_REPORTED_AGE)) +
   geom_histogram() +

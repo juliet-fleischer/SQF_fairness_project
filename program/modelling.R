@@ -1,8 +1,30 @@
 ### --- Random Forest --- ###
 
 # initialize a learner
-p <- ncol(imputed_data_frisked) - 1
-lrn_rf <- lrn("classif.ranger")
+p <- ncol(sqf.2023.filtered) - 1
+lrn_rf <- lrn("classif.ranger", predict_type = "prob", positive = "1", id = "RF CC")
+
+### --- ARRESTED Complete Case Analysis --- ###
+# initialize a classification task
+tsk_arrested <- as_task_classif(sqf.2023.filtered[, -"STOP_ID"], target = "SUSPECT_ARRESTED_FLAG",
+                                positive = "1", id = "arrest")
+# specify the PA
+tsk_arrested$col_roles$pta <- "SUSPECT_SEX"
+# create train train split
+splits_arrested <- partition(tsk_arrested)
+# train
+lrn_rf$train(tsk_arrested, row_ids = splits_arrested$train)
+# make predictions on test data
+predictions_arrested <- lrn_rf$predict(tsk_arrested, row_ids = splits_arrested$test)
+
+
+predictions_dt <- as.data.table(predictions_arrested)
+pa.data <- imputed_data_arrested[splits_arrested$test, .(SUSPECT_SEX)]
+predictions_dt <- cbind(pa.data, predictions_dt)
+
+
+### ARRESTED w/ missing data ###
+
 lrn_rf_missing <- lrn("classif.random_forest_weka")
 # construct a resampling strategy
 cv5 <- rsmp("cv", folds = 5)
@@ -21,25 +43,6 @@ lrn_rf_missing$train(tsk_arrested_full, row_ids = splits_arrested_full$train)
 # predict
 predictions_arrested_full <- lrn_rf_missing$predict(tsk_arrested_full, row_ids = splits_arrested_full$test)
 
-
-
-### --- arrested specific --- ###
-# initialize a classification task
-tsk_arrested <- as_task_classif(sqf.2023.filtered, target = "SUSPECT_ARRESTED_FLAG",
-                                positive = "1", id = "arrest")
-# specify the PA
-tsk_arrested$col_roles$pta <- "SUSPECT_SEX"
-# create train train split
-splits_arrested <- partition(tsk_arrested)
-# train
-lrn_rf$train(tsk_arrested, row_ids = splits_arrested$train)
-# make predictions on test data
-predictions_arrested <- lrn_rf$predict(tsk_arrested, row_ids = splits_arrested$test)
-
-
-predictions_dt <- as.data.table(predictions_arrested)
-pa.data <- imputed_data_arrested[splits_arrested$test, .(SUSPECT_SEX)]
-predictions_dt <- cbind(pa.data, predictions_dt)
 
 ### --- frisked specific --- ###
 # remove ID column for training

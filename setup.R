@@ -13,10 +13,10 @@ library(iml)
 library(fairml)
 library(linprog)
 library(CVXR)
-library(randomForest)
-library(mlr3extralearners)
-options(java.parameters = "-Xmx8G")  # Zuweisung auf 8 GB
-library(RWeka)
+# library(randomForest)
+# library(mlr3extralearners)
+# options(java.parameters = "-Xmx8G")  # Zuweisung auf 8 GB
+# library(RWeka)
 
 
 source("program/functions.R")
