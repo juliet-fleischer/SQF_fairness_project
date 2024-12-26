@@ -1,12 +1,12 @@
 ### --- Random Forest --- ###
 
 # initialize a learner
-p <- ncol(sqf.2023.filtered) - 1
+p <- ncol(sqf.filtered) - 1
 lrn_rf <- lrn("classif.ranger", predict_type = "prob", positive = "1", id = "RF CC")
 
 ### --- ARRESTED Complete Case Analysis --- ###
 # initialize a classification task
-tsk_arrested <- as_task_classif(sqf.2023.filtered[, -"STOP_ID"], target = "SUSPECT_ARRESTED_FLAG",
+tsk_arrested <- as_task_classif(sqf.filtered[, -"STOP_ID"], target = "SUSPECT_ARRESTED_FLAG",
                                 positive = "1", id = "arrest")
 # specify the PA
 tsk_arrested$col_roles$pta <- "SUSPECT_SEX"
@@ -32,7 +32,7 @@ cv5 <- rsmp("cv", folds = 5)
 measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
 
 ### ARRESTED full dataset ###
-tsk_arrested_full <- as_task_classif(sqf.2023, target = "SUSPECT_ARRESTED_FLAG",
+tsk_arrested_full <- as_task_classif(sqf, target = "SUSPECT_ARRESTED_FLAG",
                                      positive = "1", id = "arrested w/ missing")
 # set PA
 tsk_arrested_full$col_roles$pta <- "SUSPECT_SEX"
@@ -69,7 +69,7 @@ predictions_frisk <- lrn_rf$predict(tsk_frisk, row_ids = splits_frisk$test)
 # rr$aggregate(measures)
 
 ### --- ARRESTED with RACE as PA --- ###
-task_arrested <- as_task_classif(sqf.2023.filtered, target = "SUSPECT_ARRESTED_FLAG",
+task_arrested <- as_task_classif(sqf.filtered, target = "SUSPECT_ARRESTED_FLAG",
                            positive = "1", id = "arrest")
 task_arrested$col_roles$pta <- "race_group"
 splits_arrested <- partition(task_arrested)

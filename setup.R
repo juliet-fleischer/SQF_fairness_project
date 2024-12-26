@@ -13,6 +13,7 @@ library(iml)
 library(fairml)
 library(linprog)
 library(CVXR)
+library(gridExtra)
 # library(randomForest)
 # library(mlr3extralearners)
 # options(java.parameters = "-Xmx8G")  # Zuweisung auf 8 GB
