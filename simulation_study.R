@@ -32,22 +32,49 @@ sample2$truth <- NULL
 
 sample2 |> 
   group_by(race_group) |> 
-  summarise(mean_arrest_prob = mean(prob.Y))
+  summarise(median_arrest_prob = median(prob.Y))
 
 # set race specific thresholds to predict SUSPECT_STOPPED
 # keep the threshold for white and middle eastern constant at c4 = 0.25
+target.tau <- seq(from = -0.1, to = 1, length.out = 10)
+cw <- seq(from = 0.3, to = 0.8, length.out = 10)
+cb <- -(target.tau-cw)
+cb
+threshold.df <- data.table(cw, cb)
+# create a list with 10 entries, each entry is a vector with two elements containing 
+# the ith element from cw and cb
 
-cw <- rep(0.25, 10)
-cb <- seq(from = 0.35, to = 0, length.out = 10)
-tau <- cw-cb
+
+stopped_cols <- paste0("stopped_tau", seq_along(target.tau))
+
+
+# create a new column that predicts 1 if prob.Y is over a certain threshold. the treshold
+# differs for black and white people and different pairs of thresholds are stored in threshold.df
+
+sample2[, race_group := ifelse(race_group == "BLACK", 1, 0)]
+for (i in 1:10) {
+  sample2[, paste0("stopped_tau", i) := ifelse(prob.Y > (cw[[i]] - race_group * target.tau[[i]]), 1, 0)]
+}
+
+sample2 |> 
+  group_by(race_group) |> 
+  summarise_at(.vars = stopped_cols, .funs = mean)
+
+sample2 |> 
+  summarise_at(.vars = stopped_cols, .funs = mean)
+
+
+
+
+#### problem with constant threshold for white people
 
 test.dat <- copy(sample2)
 test.dat$race_group <- ifelse(test.dat$race_group == "BLACK", 1, 0)
 # set baseline level to be stopped for white people
 test.dat$c0 <- median(test.dat$prob.Y)
 # calculate the thresholds
-threshold.list <- lapply(tau, function(t) test.dat$c0 - test.dat$race_group * t)
-#
+threshold.list <- lapply(target.tau, function(t) cw - test.dat$race_group * t)
+
 threshold.cols <- paste0("tau", seq_along(threshold.list))
 test.dat[, (threshold.cols) := lapply(threshold.list, function(l) { ifelse(prob.Y > l, 1, 0) } )]
 
@@ -66,57 +93,30 @@ results <- lapply(threshold.cols, function(tau_level) {
   
   # Clean up columns
   test.dat.tau[, `:=`(row_ids = NULL, prob.Y = NULL, prob.N = NULL, response = NULL, c0 = NULL)]
-  
+  browser()
   # subset the observations that were stopped acc to the synthetic tau column
   test.dat.tau <- test.dat.tau[test.dat.tau[[tau_level]] == 1]
   
-  # Define task
-  tsk_tau <- as_task_classif(test.dat.tau, target = "SUSPECT_ARRESTED_FLAG", positive = "Y", id = tau_level)
-  
-  # Train and predict
-  lrn_rf_missing$train(tsk_tau)
-  pred_tau <- lrn_rf_missing$predict(tsk_tau)
-  pred_tau <- as.data.table(pred_tau)
-  test.dat.tau[, `:=`(response = pred_tau$response,
-                      prob.Y = pred_tau$prob.Y)]
-
-  # calculate the top 50% threshhold (the overall median of being predicted arrested)
-  threshold_50 <- median(test.dat.tau$prob.Y)
-  
-  # Subset individuals in the top 50%
-  top_50 <- test.dat.tau[prob.Y > threshold_50]
-  
-  # Calculate fraction of African Americans
-  mean(top_50$race_group == 1, na.rm = TRUE)
+  # # Define task
+  # tsk_tau <- as_task_classif(test.dat.tau, target = "SUSPECT_ARRESTED_FLAG", positive = "Y", id = tau_level)
+  # 
+  # # Train and predict
+  # lrn_rf_missing$train(tsk_tau)
+  # pred_tau <- lrn_rf_missing$predict(tsk_tau)
+  # pred_tau <- as.data.table(pred_tau)
+  # test.dat.tau[, `:=`(response = pred_tau$response,
+  #                     prob.Y = pred_tau$prob.Y)]
+  # 
+  # # calculate the top 50% threshhold (the overall median of being predicted arrested)
+  # threshold_50 <- median(test.dat.tau$prob.Y)
+  # 
+  # # Subset individuals in the top 50%
+  # top_50 <- test.dat.tau[prob.Y > threshold_50]
+  # 
+  # # Calculate fraction of African Americans
+  # mean(top_50$race_group == 1, na.rm = TRUE)
 })
 names(results) <- threshold.cols
 results
 
 
-
-
-results.log <- lapply(threshold.cols, function(tau_level) {
-  rm.tau <- setdiff(threshold.cols, tau_level)
-  test.dat.tau <- test.dat[, !..rm.tau, with = FALSE]
-  
-  # Clean up columns
-  test.dat.tau[, `:=`(row_ids = NULL, prob.Y = NULL, prob.N = NULL, response = NULL, c0 = NULL)]
-  
-  # subset the observations that were stopped acc to the synthetic tau column
-  test.dat.tau <- test.dat.tau[test.dat.tau[[tau_level]] == 1]
-  # get only the complete cases
-  test.dat.tau <- test.dat.tau[complete.cases(test.dat.tau)]
-  model.log <- glm(SUSPECT_ARRESTED_FLAG ~ ., data = test.dat.tau, family = binomial())
-  
-  # predict on same data with model.log
-  test.dat.tau$prob.Y <- predict(model.log, newdata = test.dat.tau, type = "response")
-  
-  # calculate the top 50% threshhold (the overall median of being predicted arrested)
-  threshold_50 <- median(test.dat.tau$prob.Y)
-  
-  # Subset individuals in the top 50%
-  top_50 <- test.dat.tau[prob.Y > threshold_50]
-  
-  # Calculate fraction of African Americans
-  mean(top_50$race_group == 1, na.rm = TRUE)
-})
