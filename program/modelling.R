@@ -1,8 +1,26 @@
 ### --- Random Forest --- ###
-
 # initialize a learner
-p <- ncol(sqf.filtered) - 1
-lrn_rf <- lrn("classif.ranger", predict_type = "prob", positive = "1", id = "RF CC")
+p <- ncol(sqf) - 1
+lrn_rf_missing <- lrn("classif.random_forest_weka", predict_type = "prob") # can handle missings
+# construct a resampling strategy
+cv5 <- rsmp("cv", folds = 5)
+# set performance measures
+measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
+
+### ARRESTED full dataset ###
+tsk_arrested_full <- as_task_classif(sqf, target = "SUSPECT_ARRESTED_FLAG", response_type = "prob",
+                                     positive = "Y", id = "arrested w/ missing")
+# set PA
+tsk_arrested_full$col_roles$pta <- "SUSPECT_RACE_DESCRIPTION"
+# split
+splits_arrested_full <- partition(tsk_arrested_full)
+# train
+lrn_rf_missing$train(tsk_arrested_full, row_ids = splits_arrested_full$train)
+# predict
+predictions_arrested_full <- lrn_rf_missing$predict(tsk_arrested_full, row_ids = splits_arrested_full$test)
+predictions_dt <- as.data.table(predictions_arrested_full)
+predictions_dt$SUSPECT_RACE_DESCRIPTION <- sqf[predictions_dt$row_ids, SUSPECT_RACE_DESCRIPTION]
+
 
 ### --- ARRESTED Complete Case Analysis --- ###
 # initialize a classification task
@@ -21,28 +39,6 @@ predictions_arrested <- lrn_rf$predict(tsk_arrested, row_ids = splits_arrested$t
 predictions_dt <- as.data.table(predictions_arrested)
 pa.data <- imputed_data_arrested[splits_arrested$test, .(SUSPECT_SEX)]
 predictions_dt <- cbind(pa.data, predictions_dt)
-
-
-### ARRESTED w/ missing data ###
-
-lrn_rf_missing <- lrn("classif.random_forest_weka")
-# construct a resampling strategy
-cv5 <- rsmp("cv", folds = 5)
-# set performance measures
-measures <- msrs(c("classif.acc", "classif.bbrier", "classif.auc"))
-
-### ARRESTED full dataset ###
-tsk_arrested_full <- as_task_classif(sqf, target = "SUSPECT_ARRESTED_FLAG",
-                                     positive = "Y", id = "arrested w/ missing")
-# set PA
-tsk_arrested_full$col_roles$pta <- "SUSPECT_RACE_DESCRIPTION"
-# split
-splits_arrested_full <- partition(tsk_arrested_full)
-# train
-lrn_rf_missing$train(tsk_arrested_full, row_ids = splits_arrested_full$train)
-# predict
-predictions_arrested_full <- lrn_rf_missing$predict(tsk_arrested_full, row_ids = splits_arrested_full$test)
-
 
 ### --- frisked specific --- ###
 # remove ID column for training
