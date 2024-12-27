@@ -44,12 +44,12 @@ calcGroupwiseMetrics(base_mrs_assistive, tsk_arrested_full, predictions_arrested
 calcGroupwiseMetrics(base_mrs_other, tsk_arrested_full, predictions_arrested_full)
 
 # Independence: 
-stat.parity <- predictions_dt[, .(sum(response == "Y") / .N), by = "SUSPECT_RACE_DESCRIPTION"]
+stat.parity <- predictions_dt[, .(pred_arrest = sum(response == "Y") / .N), by = "SUSPECT_RACE_DESCRIPTION"][order(pred_arrest)]
 
 # Score-based metrics - Separation:
 # balance for positive/ negative class class
-blnc.f.pos.clss <- predictions_dt[, .(mean(prob.Y)), by = c("truth", "SUSPECT_RACE_DESCRIPTION")][truth == "Y"]
-blnc.f.neg.clss <- predictions_dt[, .(mean(prob.0)), by = c("truth", "SUSPECT_RACE_DESCRIPTION")][truth == "N"]
+blnc.f.pos.clss <- predictions_dt[, .(avg_score_P = mean(prob.Y)), by = c("truth", "SUSPECT_RACE_DESCRIPTION")][truth == "Y"][order(avg_score_P)]
+blnc.f.neg.clss <- predictions_dt[, .(avg_score_N = mean(prob.N)), by = c("truth", "SUSPECT_RACE_DESCRIPTION")][truth == "N"][order(avg_score_N)]
 
 # Score-based metrics - Sufficiency:
 # bin the prediction scores into categories from 0 to Y by 0.1

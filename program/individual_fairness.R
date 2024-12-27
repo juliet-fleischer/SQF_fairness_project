@@ -3,14 +3,14 @@
 task_train <- tsk_arrest$clone()
 
 # Remove the PA column for training
-task_train$select(setdiff(task_train$feature_names, "SUSPECT_SEX"))
+task_train$select(setdiff(task_train$feature_names, "SUSPECT_RACE_DESCRIPTION"))
 
 # Train the model on the modified task
 lrn_rf$train(task_train, row_ids = splits_arrested$train)
 
 # make a copy of the test data but with reversed sex column
 test.data.original <- copy(imputed_data_arrested[splits_arrested$test])
-# reverse the sex olumn
+# reverse the sex column
 test.data.reversed <- copy(test.data.original)
 test.data.reversed[, SUSPECT_SEX := ifelse(SUSPECT_SEX == "1", "0", "1")]
 # add ID column

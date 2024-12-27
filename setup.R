@@ -24,7 +24,7 @@ library(rJava)
 
 source("program/functions.R")
 source("program/data_cleaning.R")
-source("program/pre_training.R")
+# source("program/pre_training.R")
 
 
 # FIREARM_FLAG until SEARCH_BASIS_OUTLINE_FLAG set all the NA to "N"
