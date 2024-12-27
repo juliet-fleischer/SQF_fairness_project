@@ -23,7 +23,7 @@ table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 ```
 
 
-# Pick up from here
+
 - text Bothmann the naming error (see overleaf)
 - look for implementation of further fairness metrics
 (calibration, individual fairness, ...)
@@ -41,5 +41,7 @@ we see that the definitions are extremely sensitive to how the PA is defined;
 I could limit myself to a subset of the data or dichotomise the PA in different
 ways to examine the effects)
 
-
+# Pick up from here
+- put the smallest three categories of race together into one "other" category?
 - maybe read literature about data imbalance and how it affects fairness metrics
+

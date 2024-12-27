@@ -98,11 +98,11 @@ sqf$SUSPECT_BODY_BUILD_TYPE <- factor(sqf$SUSPECT_BODY_BUILD_TYPE)
 sqf$SUSPECT_EYE_COLOR <- factor(sqf$SUSPECT_EYE_COLOR)
 sqf$SUSPECT_HAIR_COLOR <- factor(sqf$SUSPECT_HAIR_COLOR)
 
-# # creating groups for the race variable
-# other_racegroup <- c("ASIAN / PACIFIC ISLANDER","AMERICAN INDIAN/ALASKAN NATIVE")
-# sqf[, race_group := ifelse(SUSPECT_RACE_DESCRIPTION %in% other_racegroup, "4", SUSPECT_RACE_DESCRIPTION)]
-# sqf$race_group <- factor(sqf$race_group, levels = c("1", "2", "3", "4", "6"),
-#                          labels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC","WHITE", "MIDDLE EASTERN/SOUTHWEST ASIAN"))
+# creating groups for the race variable
+other_racegroup <- c("ASIAN / PACIFIC ISLANDER","AMERICAN INDIAN/ALASKAN NATIVE", "MIDDLE EASTERN/SOUTHWEST ASIAN")
+sqf[, SUSPECT_RACE_DESCRIPTION := ifelse(SUSPECT_RACE_DESCRIPTION %in% other_racegroup, "OTHER", SUSPECT_RACE_DESCRIPTION)]
+sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION, levels = c("1", "2", "3", "4", "OTHER"),
+                         labels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC","WHITE", "OTHER"))
 
 # binning of stop time of the day
 # 6 - 12: AM

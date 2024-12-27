@@ -15,6 +15,11 @@ predictions$score(fairness_msr_assistive, task = tsk_frisk)
 fairness_mrs_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 predictions$score(fairness_mrs_other, task = tsk_frisk)
 
+# create a dichotomouse race column for showcasing the definitions in a
+# classical case in the presentation only
+unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
+predictions_dt[, PA_GROUP := ifelse(SUSPECT_RACE_DESCRIPTION %in% unprivileged, "unprivileged", "privileged")]
+predictions_dt$PA_GROUP <- factor(predictions_dt$PA_GROUP, levels = c("privileged", "unprivileged"), labels = c(0,1))
 
 # Defines punitive base measures
 base_mrs_punitive <- list(
@@ -39,12 +44,36 @@ base_mrs_other <- list(
   bbrier = msr("classif.bbrier")
 )
 
+# punitive measures
+metrics_list_1 <- list(
+  fpr = mlr3measures::acc,
+  tnr = mlr3measures::tnr,
+  ppv = mlr3measures::ppv,
+  fdr = mlr3measures::fdr,
+  fnr = mlr3measures::fnr,
+  tpr = mlr3measures::tpr,
+  npv = mlr3measures::npv,
+  fomr = mlr3measures::fomr
+)
+sapply(metrics_list_1, \(f) f(predictions_dt$truth, predictions_dt$response, positive = "Y"))
+
+# apply the whole list of metrics at once to the predictions_dt data table grouped by PA_GROUP
+predictions_dt[, lapply(metrics_list_1, \(f) f(truth, response, positive = "Y")), by = PA_GROUP]
+
+# mixed measures
+acc(truth, response)
+
 calcGroupwiseMetrics(base_mrs_punitive, tsk_arrested_full, predictions_arrested_full)
 calcGroupwiseMetrics(base_mrs_assistive, tsk_arrested_full, predictions_arrested_full)
 calcGroupwiseMetrics(base_mrs_other, tsk_arrested_full, predictions_arrested_full)
 
 # Independence: 
 stat.parity <- predictions_dt[, .(pred_arrest = sum(response == "Y") / .N), by = "SUSPECT_RACE_DESCRIPTION"][order(pred_arrest)]
+stat.parity.binary <- predictions_dt[, .(pred_arrest = sum(response == "Y") / .N), by = "PA_GROUP"][order(pred_arrest)]
+calcStatParity <- function(data, group, pos.label) {
+  data[, .(pred_arrest = sum(response == pos.label) / .N), by = group][order(pred_arrest)]
+}
+
 
 # Score-based metrics - Separation:
 # balance for positive/ negative class class
@@ -69,6 +98,10 @@ ggplot(calibration, aes(x = predicted_rate, y = observed_rate, color = SUSPECT_R
   geom_point() +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
   labs(title = "Well-Calibration Check", x = "Predicted Rate", y = "Observed Rate")
+
+
+
+
 
 
 
