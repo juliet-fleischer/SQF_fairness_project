@@ -17,6 +17,7 @@
 \usepackage{amsmath,amssymb} % math symbols
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tikz} % for DAGs
 \usepackage{hyperref} % for URLs
 \newcommand{\gray}{\rowcolor[gray]{.90}}
 \usepackage{verbatim}
@@ -115,29 +116,156 @@ belowskip = -1.2 \baselineskip,
 \section{Methoden für Fairness}
 
 \begin{frame}{Daten und Kontext}
-"begründeter Verdacht" ("reasonable suspicion") als Grund für Polizeikontrolle
-"wahrscheinliche Ursache" ("probable cause") als Grund für Festnahme
-mögliche Resultate:
-\item Keine weiteren Maßnahmen
-\item schnelle Abtastung (frisk)
-\item Durchsuchung (search)
-\item Festnahme (arrest)
-Kritik, dass Strategie diskriminierend ggü. Schwarzen und Latinos ist
-Modellieren des Entschiedungsprozesses für Festnahme mit RF
-race als protected attribute (PA)
+	\begin{itemize}
+		\item "begründeter Verdacht" ("reasonable suspicion") als Grund für Polizeikontrolle
+		\item "wahrscheinliche Ursache" ("probable cause") als Grund für Festnahme
+		\item Mögliche Resultate:
+		\begin{itemize}
+			\item Keine weiteren Maßnahmen
+			\item Schnelle Abtastung (frisk)
+			\item Durchsuchung (search)
+			\item Festnahme (arrest)
+		\end{itemize}
+		\item Kritik, dass Strategie diskriminierend gegenüber Schwarzen und Latinos ist
+		\item Modellieren des Entscheidungsprozesses für Festnahme mit RF
+		\item \texttt{race} als protected attribute (PA)
+	\end{itemize}
 \end{frame}
-
-\end{frame}
+	
 \begin{frame}
 	\frametitle{Fairness Definitionen}
-	
+	\begin{itemize}
+		\item Fairness Definitionen
+		\begin{itemize}
+			\item Gruppen Fairness/ Statistische Fairness
+			\item Individuelle Fairness
+			\item Kausale Fairness
+		\end{itemize}
+		\item Diskriminierung
+	\end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-        \frametitle{References}
-        \bibliographystyle{plain}
-        \bibliography{literature.bib}
+\begin{frame}
+	\frametitle{Gruppen Fairness}
+	Idee: Gruppen von Personen erfahren Diskriminierung aufgrund dieser Gruppenzugehörigkeit
+	Unterkategorien:
+	\begin{itemize}
+		\item Unabhängigkeit: $\hat{Y} \perp A$
+		\item Separierbarkeit: $\hat{Y} \perp A | Y$ 
+		\item Suffizienz: $Y \perp A | \hat{Y}$
+	\end{itemize}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Unabhängigkeit}
+	Statistical Parity
+	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Separierbarkeit}
+	Fokus liegt auf gleichen Fehlerraten
+	Herleitung anhand der Fehlermatrix
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c}
+	\toprule
+	 & $\hat{Y} = 1$ & $\hat{Y} = 0$ \\
+	\midrule
+	$Y = 1$ & True Positive (TP) & False Negative (FN) \\
+	$Y = 0$ & False Positive (FP) & True Negative (TN) \\
+	\bottomrule
+	\end{tabular}
+	\caption{Error Matrix}
+	\end{table}
+	% DAG for Separation
+	\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\node[draw, circle] (Y) at (0,0) {$Y$};
+		\node[draw, circle] (A) at (2,0) {$A$};
+		\node[draw, circle] (Yhat) at (-2,0) {$\hat{Y}$};
+		\draw[->] (Y) -- (A);
+		\draw[->] (Y) -- (Yhat);
+	\end{tikzpicture}
+	\caption{Simple Graphical Model}
+	\end{figure}
+	$$P(\hat{Y} = 1 | A = a, Y = y) = P(\hat{Y} = 1 | A = b, Y = y)$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Suffizienz}
+	Positive/negative Vorhersage soll die selbe Bedeutung für alle Gruppen haben
+	$$P(Y = 1 | A = a, \hat{Y} = \hat{y}) = P(Y = 1 | A = b, \hat{Y} = \hat{y})$$
+	Erweiterung davon bedingt auf den Score, nicht das Label: Calibration
+\end{frame}
+\begin{frame}
+	\frametitle{Advantages and Disadvantages}
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c}
+	\toprule
+	$+$ & $-$ \\
+	\midrule
+	Leicht verständlich & Infragmarginality \\
+	Leicht einzubauen in existierende Optimierungskriterien & Observational \\
+	\bottomrule
+	\end{tabular}
+	\caption{Advantages and Disadvantages}
+	\end{table}
+	--> Scheint erstmals sinvoller und simpler Ansatz zu sein. Schaut man etwas tiefer stellt sich
+	die Fragem ob die Metriken wirklich geeignet sind um Fairness zu erhöhen
+	Aktuelle Literatur weist darauf hin, dass sie eher Ausdruck der Zufallsverteilung
+	von $\hat{Y}, Y, A, X$ sind
+\end{frame}
+
+\begin{frame}
+    \frametitle{Individuelle Fairness}
+    \begin{enumerate}
+        \item Fairness through Unawareness (FTU) = Blinding
+        \begin{itemize}
+            \item Vorgehensvorschrift: PA soll nicht im Entscheidungsprozess verwendet werden
+            \item Keine eindeutige mathematische Definition, sondern verschiedene Ansätze zum Testen von FTU
+            \item Erweiterung: PA und alle Proxies dürfen nicht im Entscheidungsprozess verwendet werden
+        \end{itemize}
+        
+        \item Fairness through Awareness (FTA)
+        \begin{itemize}
+            \item Ähnlichkeit im Feature Space soll zu Ähnlichkeit im Prediction Space führen
+            \item Lipschitz-Kriterium:
+            \[
+            d(\hat{y_i}, \hat{y_j}) \leq \lambda d(x_i, x_j)
+            \]
+            \item Lässt sich in ein lineares Optimierungsproblem umformulieren
+            \item Definition des Distanzmaßes $d$ im Feature Space ist eine Herausforderung
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Kausale Fairness}
+	Ziel ist hier die kausalen Struktur der Daten zu verstehen
+	Fairness als pipeline Problem (Fairness + ML)
+	\begin{itemize}
+		\item Counterfactual Fairness
+		\item Definition über DAGs
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fairness Methoden}
+	\begin{itemize}
+		\item Preprocessing
+		Daten vor dem Training bearbeiten
+		\item Inprocessing
+		Trainingsprozess anpassen, Optimierungsproblem modifizieren
+		\item Postprocessing
+		Vorhersagen nach dem Training bearbeiten
+	\end{itemize}
+\end{frame}
+
+
 
 \end{document}
 
