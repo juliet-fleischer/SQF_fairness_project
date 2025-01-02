@@ -32,6 +32,18 @@ theme_scientific <- function(base_size = 14, base_family = "sans") {
     )
 }
 
+# 1 Daten
+# bar plot for race distribution with percentage points on top
+sqf |> 
+  group_by(SUSPECT_RACE_DESCRIPTION) |> 
+  summarize(count = n()) |> 
+  mutate(prop = count / sum(count)) |> 
+  ggplot(aes(x = SUSPECT_RACE_DESCRIPTION, y = prop)) +
+  geom_col() +
+  geom_text(aes(label = scales::percent(prop)), vjust = -0.5) +
+  theme_scientific()
+
+
 # mosaic plot for Independence
 predictions_dt |> 
   select(response, PA_GROUP) |>

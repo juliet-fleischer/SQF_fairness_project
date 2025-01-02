@@ -116,8 +116,26 @@ belowskip = -1.2 \baselineskip,
 \section{Quellen von Bias}
 \section{Methoden für Fairness}
 
+
+% Notationen zum abholen
+\begin{frame}
+	\frametitle{Notationen}
+	\begin{itemize}
+		\item $A$: Geschütztes Attribut
+		\item $X$: Merkmale (ohne A)
+		\item $Y$: Zielvariable
+		\item $\hat{Y}$: Vorhersage
+		\item $P$: Wahrscheinlichkeitsmaß
+		\item $E$: Menge von Merkmalen, die das Ergebnis beeinflussen
+	\end{itemize}
+\end{frame}
+
+% Überblick über die Daten
 \begin{frame}{Daten und Kontext}
 	\begin{itemize}
+		\item SQF Daten von NYPD aus 2023 mit 16,924 Stopps
+		\item Stop-and-frisk: Polizeistrategie die 1968 vom Supreme Court festgehalten wurde
+		\item 2011 Höhepunkt mit 685,724 Stopps 
 		\item "begründeter Verdacht" ("reasonable suspicion") als Grund für Polizeikontrolle
 		\item "wahrscheinliche Ursache" ("probable cause") als Grund für Festnahme
 		\item Mögliche Resultate:
@@ -130,9 +148,11 @@ belowskip = -1.2 \baselineskip,
 		\item Kritik, dass Strategie diskriminierend gegenüber Schwarzen und Latinos ist
 		\item Modellieren des Entscheidungsprozesses für Festnahme mit RF
 		\item \texttt{race} als protected attribute (PA)
+		\item \item Grafik von race distribution, vllt Grafik von Stops über die Jahre (Badr2022)
 	\end{itemize}
 \end{frame}
-	
+
+% Überblick Fairness Definitionen
 \begin{frame}
     \frametitle{Fairness Definitionen}
     \begin{itemize}
@@ -162,11 +182,11 @@ belowskip = -1.2 \baselineskip,
 \end{frame}
 
 
-
+% Gruppen Fairness
 \begin{frame}
 	\frametitle{Gruppen Fairness}
 	Idee: Gruppen von Personen erfahren Diskriminierung aufgrund dieser Gruppenzugehörigkeit
-	Unterkategorien:
+	definiert über die gemeinsame Verteilung von A, Y, $\hat{Y}$ und X
 	\begin{itemize}
 		\item Unabhängigkeit: $\hat{Y} \perp A$
 		\item Separierbarkeit: $\hat{Y} \perp A | Y$ 

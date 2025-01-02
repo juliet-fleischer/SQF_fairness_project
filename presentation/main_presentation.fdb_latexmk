@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1735833951 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1735833954 0
+["pdflatex"] 1735846883 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1735846887 0
   "../figures/lmu-background.pdf" 1735377963 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "../figures/lmu_logo.png" 1735377960 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
   "../figures/showcase_figure.png" 1735377969 15360 dbb8a4fb139caf651921fdd7f1aa3c4c ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1735833947 8785 fe06225dd53f7417c7333625abb146a2 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1735846883 9528 6554a0d026a89c7041aa514c273cc0a8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1587936753 3021 665788e9679767ade2a71155215d25e0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -259,11 +259,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main_presentation.aux" 1735833954 4065 93f2865e1e0a78909a355c28785b7e50 "pdflatex"
-  "main_presentation.nav" 1735833954 2250 0953de23db12dd5d7a1afc2d91613ac5 "pdflatex"
-  "main_presentation.out" 1735833954 134 ce711a2fa5e74e2646532053628f3018 "pdflatex"
-  "main_presentation.tex" 1735833947 8785 fe06225dd53f7417c7333625abb146a2 ""
-  "main_presentation.toc" 1735833954 250 b8ff6d649dcff46110113458fcf0ad2c "pdflatex"
+  "main_presentation.aux" 1735846887 4194 85b005e230699888339b5978acdde5e5 "pdflatex"
+  "main_presentation.nav" 1735846887 2343 f8ac48b1d1a19af29c15c228dff4dbf0 "pdflatex"
+  "main_presentation.out" 1735846887 134 ce711a2fa5e74e2646532053628f3018 "pdflatex"
+  "main_presentation.tex" 1735846883 9528 6554a0d026a89c7041aa514c273cc0a8 ""
+  "main_presentation.toc" 1735846887 250 b8ff6d649dcff46110113458fcf0ad2c "pdflatex"
   (generated)
   "main_presentation.aux"
   "main_presentation.log"
