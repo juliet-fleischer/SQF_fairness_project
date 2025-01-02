@@ -15,11 +15,7 @@ predictions$score(fairness_msr_assistive, task = tsk_frisk)
 fairness_mrs_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 predictions$score(fairness_mrs_other, task = tsk_frisk)
 
-# create a dichotomouse race column for showcasing the definitions in a
-# classical case in the presentation only
-unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
-predictions_dt[, PA_GROUP := ifelse(SUSPECT_RACE_DESCRIPTION %in% unprivileged, "unprivileged", "privileged")]
-predictions_dt$PA_GROUP <- factor(predictions_dt$PA_GROUP, levels = c("privileged", "unprivileged"), labels = c(0,1))
+
 
 # Defines punitive base measures
 base_mrs_punitive <- list(
