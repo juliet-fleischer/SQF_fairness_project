@@ -180,22 +180,22 @@ belowskip = -1.2 \baselineskip,
 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
 \end{frame}
 
+% Separation
 \begin{frame}
-	\frametitle{Separierbarkeit}
-	Fokus liegt auf gleichen Fehlerraten
-	Herleitung anhand der Fehlermatrix
+	\frametitle{Separation}
+	Fokus liegt auf gleichen Fehlerraten, Herleitung anhand der Fehlermatrix
 	\begin{table}[H]
-	\centering
-	\begin{tabular}{c|c|c}
-	\toprule
-	 & $\hat{Y} = 1$ & $\hat{Y} = 0$ \\
-	\midrule
-	$Y = 1$ & True Positive (TP) & False Negative (FN) \\
-	$Y = 0$ & False Positive (FP) & True Negative (TN) \\
-	\bottomrule
-	\end{tabular}
-	\caption{Error Matrix}
-	\end{table}
+		\centering
+		\begin{tabular}{c|c|c}
+		\toprule
+		 & $Y = 1$ & $Y = 0$ \\
+		\midrule
+		$ \hat{Y} = 1$ & True Positive (TP) & False Positive (FP) \\
+		$ \hat{Y} = 0$ & False Negative (FN) & True Negative (TN) \\
+		\bottomrule
+		\end{tabular}
+		\caption{Error Matrix}
+		\end{table}
 	% DAG for Separation
 	\begin{figure}[H]
 	\centering

@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{}
+\usepackage[T1]{fontenc}
+\title{Révision français}
+\author{Juliet Fleischer}
+\date{Januar 2025}
+
+\renewcommand{\baselinestretch}{0.2}
+
+\setlength{\hoffset}{-18pt}         
+\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{0pt} % Marge gauche sur pages paires
+\setlength{\marginparwidth}{54pt} % Largeur de note dans la marge
+\setlength{\textwidth}{481pt} % Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} % Bon pour DOS
+\setlength{\marginparsep}{7pt} % Séparation de la marge
+\setlength{\topmargin}{0pt} % Pas de marge en haut
+\setlength{\headheight}{13pt} % Haut de page
+\setlength{\headsep}{4pt} % Entre le haut de page et le texte
+\setlength{\footskip}{27pt} % Bas de page + séparation
+\setlength{\textheight}{720pt} % Hauteur de la zone de texte (25cm)
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath} % Load for \text command
+\usepackage{amsfonts} % Optional for additional math symbols
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem} % For compact lists
+
+\begin{document}
+
+\section*{Fairness Metrics}
+
+\subsection*{Independence}
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Statistical Parity (Demographic Parity)} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$
+    \end{itemize}
+
+    \item \textbf{Conditional Statistical Parity} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = 1 | E = e, A = a) = P(\hat{Y} = 1 | E = e, A = b)$
+        \item \textit{E is a set of legitimate features that may affect the outcome.}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Separation}
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Equalized Odds} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b)$ \newline
+        $\forall y \in \{0, 1\}$
+        \item \texttt{mlr3}: \texttt{fairness.equalized.odds} \newline
+        (Averages \texttt{fairness.fpr} and \texttt{fairness.tpr})
+    \end{itemize}
+
+    \item \textbf{Equal Opportunity} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$
+        \item \textit{Requires equal TPR and FNR to be satisfied at the same time.}
+        \item \texttt{mlr3}: \texttt{fairness.tpr}
+    \end{itemize}
+
+    \item \textbf{Predictive Equality} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ \newline
+        $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$
+        \item \textit{Requires equal FPR and TNR to be satisfied at the same time.}
+        \item \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Sufficiency}
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Overall Accuracy Equality} \hfill [XX]
+    \begin{itemize}
+        \item $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$
+        \item \texttt{mlr3}: \texttt{fairness.acc}
+    \end{itemize}
+
+    \item \textbf{Treatment Equality} \hfill [XX]
+    \begin{itemize}
+        \item $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
+    \end{itemize}
+\end{itemize}
+
+
+\end{document}
