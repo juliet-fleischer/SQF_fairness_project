@@ -4,6 +4,7 @@ options(java.parameters = "-Xmx10g") # Allocate 8 GB of memory (adjust as needed
 library(data.table)
 library(readxl)
 library(ggplot2)
+library(ggmosaic)
 library(pROC)
 library(tidyverse)
 library(mlr3verse)

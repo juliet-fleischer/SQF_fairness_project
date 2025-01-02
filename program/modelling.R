@@ -20,6 +20,11 @@ lrn_rf_missing$train(tsk_arrested_full, row_ids = splits_arrested_full$train)
 predictions_arrested_full <- lrn_rf_missing$predict(tsk_arrested_full, row_ids = splits_arrested_full$test)
 predictions_dt <- as.data.table(predictions_arrested_full)
 predictions_dt$SUSPECT_RACE_DESCRIPTION <- sqf[predictions_dt$row_ids, SUSPECT_RACE_DESCRIPTION]
+# create a dichotomouse race column for showcasing the definitions in a
+# classical case in the presentation only
+unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
+predictions_dt[, PA_GROUP := ifelse(SUSPECT_RACE_DESCRIPTION %in% unprivileged, "unprivileged", "privileged")]
+predictions_dt$PA_GROUP <- factor(predictions_dt$PA_GROUP, levels = c("privileged", "unprivileged"), labels = c(0,1))
 
 
 ### --- ARRESTED Complete Case Analysis --- ###

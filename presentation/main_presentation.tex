@@ -18,6 +18,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tikz} % for DAGs
+\usetikzlibrary{arrows.meta, positioning}
 \usepackage{hyperref} % for URLs
 \newcommand{\gray}{\rowcolor[gray]{.90}}
 \usepackage{verbatim}
@@ -133,17 +134,34 @@ belowskip = -1.2 \baselineskip,
 \end{frame}
 	
 \begin{frame}
-	\frametitle{Fairness Definitionen}
-	\begin{itemize}
-		\item Fairness Definitionen
-		\begin{itemize}
-			\item Gruppen Fairness/ Statistische Fairness
-			\item Individuelle Fairness
-			\item Kausale Fairness
-		\end{itemize}
-		\item Diskriminierung
-	\end{itemize}
+    \frametitle{Fairness Definitionen}
+    \begin{itemize}
+        \item Fairness Definitionen
+        \begin{itemize}
+            \item Gruppen Fairness/ Statistische Fairness
+            \item Individuelle Fairness
+            \item Kausale Fairness
+        \end{itemize}
+    \end{itemize}
+    
+    % Add annotations and arrows using TikZ
+    \begin{tikzpicture}[overlay, remember picture]
+        % Position for the "Entscheidung -|-> Ungleichheit" annotation
+        \node[align=left, anchor=west] at (10, 1) (stat-comment) {Entscheidung \\ $-\!\!\!-\!\!\!| \to$ \\ Ungleichheit};
+        
+        % Position for the "Merkmale -|-> Entscheidung" annotation
+        \node[align=left, anchor=west] at (5.5, -1) (relation-comment) {Merkmale \\ $-\!\!\!-\!\!\!| \to$ \\ Entscheidung};
+        
+        % Arrow from Gruppen Fairness to "Entscheidung -|-> Ungleichheit"
+        \draw[-{Latex}, thick] (2, 1.2) -- (stat-comment.west);
+        
+        % Arrow from Individuelle and Kausale Fairness to "Merkmale -|-> Entscheidung"
+        \draw[-{Latex}, thick] (2, 0) -- (relation-comment.west);
+        \draw[-{Latex}, thick] (2, -0.5) -- (relation-comment.west);
+    \end{tikzpicture}
 \end{frame}
+
+
 
 \begin{frame}
 	\frametitle{Gruppen Fairness}
@@ -264,7 +282,6 @@ belowskip = -1.2 \baselineskip,
 		Vorhersagen nach dem Training bearbeiten
 	\end{itemize}
 \end{frame}
-
 
 
 \end{document}
