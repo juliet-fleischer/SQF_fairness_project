@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{mehrabi2022}
+Ninareh Mehrabi, Fred Morstatter, Nripsuta Saxena, Kristina Lerman, and Aram Galstyan.
+\newblock A {{Survey}} on {{Bias}} and {{Fairness}} in {{Machine Learning}}.
+\newblock 54(6):1--35.
+
+\bibitem{verma2018}
+Sahil Verma and Julia Rubin.
+\newblock Fairness definitions explained.
+\newblock In {\em Proceedings of the {{International Workshop}} on {{Software Fairness}}}, pages 1--7. ACM.
+
+\end{thebibliography}

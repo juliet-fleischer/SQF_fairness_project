@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  6 JAN 2025 22:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  7 JAN 2025 08:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1228,30 +1228,37 @@ Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 357.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [15
 
-] (./main_presentation.toc)
+] (./main_presentation.bbl)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 360.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 363.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [16
 
+ </usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] (./main_presentation.toc)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 366.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [17
+
 ]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 369.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 375.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 369.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 375.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [17
+ [18
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 396.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 402.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [18
+ [19
 
 ]
 \tf@nav=\write6
@@ -1268,18 +1275,18 @@ Package rerunfilecheck Info: File `main_presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 62F6C2FFD78A6CD855B5BD42EBF21988;129.
  ) 
 Here is how much of TeX's memory you used:
- 30939 strings out of 476025
- 620723 string characters out of 5790017
+ 31003 strings out of 476025
+ 622853 string characters out of 5790017
  1863388 words of memory out of 5000000
- 50700 multiletter control sequences out of 15000+600000
+ 50757 multiletter control sequences out of 15000+600000
  676769 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,473b,1066s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main_presentation.pdf (18 pages, 5479613 bytes).
+Output written on main_presentation.pdf (19 pages, 5484805 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
