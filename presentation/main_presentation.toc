@@ -1,5 +1,6 @@
 \babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Daten und Kontext}{2}{0}{1}
-\beamer@sectionintoc {2}{Fairness Definitionen}{3}{0}{2}
-\beamer@sectionintoc {3}{Quellen von Bias}{4}{0}{3}
-\beamer@sectionintoc {4}{Methoden für Fairness}{5}{0}{4}
+\beamer@sectionintoc {1}{Quellen von Bias}{3}{0}{1}
+\beamer@sectionintoc {2}{Gruppen Fairness}{5}{0}{2}
+\beamer@sectionintoc {3}{Individuelle Fairness}{10}{0}{3}
+\beamer@sectionintoc {4}{Fairness Methoden}{13}{0}{4}
+\beamer@sectionintoc {5}{Extra Folien}{16}{0}{5}

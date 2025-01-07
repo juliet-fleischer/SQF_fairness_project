@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  2 JAN 2025 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  6 JAN 2025 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -638,14 +638,19 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count349
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen321
-\pgfarrowlength=\dimen322
-\pgfarrowwidth=\dimen323
-\pgfarrowlinewidth=\dimen324
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen321
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen322
+\pgfarrowlength=\dimen323
+\pgfarrowwidth=\dimen324
+\pgfarrowlinewidth=\dimen325
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks51
@@ -655,13 +660,13 @@ Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 Package: textpos 2022/07/23 v1.10.1
 Package textpos Info: choosing support for LaTeX3 on input line 60.
 \TP@textbox=\box83
-\TPHorizModule=\dimen325
-\TPVertModule=\dimen326
-\TP@margin=\dimen327
-\TP@absmargin=\dimen328
+\TPHorizModule=\dimen326
+\TPVertModule=\dimen327
+\TP@margin=\dimen328
+\TP@absmargin=\dimen329
 
 Grid set 16 x 16 = 28.45274pt x 16.00467pt
-\TPboxrulesize=\dimen329
+\TPboxrulesize=\dimen330
 \TP@tbargs=\toks53
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty
 Package: sourcesanspro 2018/05/19 v2.7 Adobe's Source Sans Pro typeface
@@ -812,19 +817,19 @@ File: ly1enc.dfu 2022/06/07 v1.3c UTF-8 support
    defining Unicode char U+FB06 (decimal 64262)
 )))) (/usr/local/texlive/2023/texmf-dist/tex/latex/cases/cases.sty
 Package: cases 2020/03/29 ver 3.2
-\numc@numwid=\dimen330
+\numc@numwid=\dimen331
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/03/12 v3.6j Customizing captions (AR)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
-\caption@tempdima=\dimen331
-\captionmargin=\dimen332
-\caption@leftmargin=\dimen333
-\caption@rightmargin=\dimen334
-\caption@width=\dimen335
-\caption@indent=\dimen336
-\caption@parindent=\dimen337
-\caption@hangindent=\dimen338
+\caption@tempdima=\dimen332
+\captionmargin=\dimen333
+\caption@leftmargin=\dimen334
+\caption@rightmargin=\dimen335
+\caption@width=\dimen336
+\caption@indent=\dimen337
+\caption@parindent=\dimen338
+\caption@hangindent=\dimen339
 Package caption Info: beamer document class detected.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption-beamer.sto
 File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to the beamer document classes (AR)
@@ -840,14 +845,14 @@ Package caption Info: Hyperref support is turned off
 \lst@gtempboxa=\box84
 \lst@token=\toks56
 \lst@length=\count354
-\lst@currlwidth=\dimen339
+\lst@currlwidth=\dimen340
 \lst@column=\count355
 \lst@pos=\count356
-\lst@lostspace=\dimen340
-\lst@width=\dimen341
+\lst@lostspace=\dimen341
+\lst@width=\dimen342
 \lst@newlines=\count357
 \lst@lineno=\count358
-\lst@maxwidth=\dimen342
+\lst@maxwidth=\dimen343
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count359
@@ -941,13 +946,13 @@ LaTeX Font Info:    ... okay on input line 86.
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count362
-\scratchdimen=\dimen343
+\scratchdimen=\dimen344
 \scratchbox=\box87
 \nofMPsegments=\count363
 \nofMParguments=\count364
 \everyMPshowfont=\toks57
 \MPscratchCnt=\count365
-\MPscratchDim=\dimen344
+\MPscratchDim=\dimen345
 \MPnumerator=\count366
 \makeMPintoPDFobject=\count367
 \everyMPtoPDFconversion=\toks58
@@ -1062,11 +1067,15 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/it' on input line 108.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
 (Font)              scaled to size 6.0pt on input line 108.
-<../figures/showcase_figure.png, id=18, 963.6pt x 542.025pt>
-File: ../figures/showcase_figure.png Graphic file (type png)
-<use ../figures/showcase_figure.png>
-Package pdftex.def Info: ../figures/showcase_figure.png  used on input line 108.
-(pdftex.def)             Requested size: 212.34094pt x 119.43608pt.
+<../figures/fairness_title.jpg, id=18, 4015.0pt x 6022.5pt>
+File: ../figures/fairness_title.jpg Graphic file (type jpg)
+<use ../figures/fairness_title.jpg>
+Package pdftex.def Info: ../figures/fairness_title.jpg  used on input line 108.
+(pdftex.def)             Requested size: 116.78816pt x 175.15346pt.
+
+Overfull \vbox (0.46115pt too high) detected at line 108
+ []
+
 <../figures/lmu-background.pdf, id=19, 963.6pt x 542.025pt>
 File: ../figures/lmu-background.pdf Graphic file (type pdf)
 <use ../figures/lmu-background.pdf>
@@ -1076,138 +1085,173 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 108.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 4.0pt on input line 108.
- [1
+[1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <../figures/lmu-background.pdf> <../figures/showcase_figure.png (PNG copy)>] (./main_presentation.toc)
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <../figures/lmu-background.pdf> <../figures/fairness_title.jpg>]
+<../figures/police_stop.jpg, id=38, 2810.5pt x 1874.00125pt>
+File: ../figures/police_stop.jpg Graphic file (type jpg)
+<use ../figures/police_stop.jpg>
+Package pdftex.def Info: ../figures/police_stop.jpg  used on input line 154.
+(pdftex.def)             Requested size: 173.33826pt x 115.55206pt.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 114.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 154.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 114.
-<../figures/lmu_logo.png, id=44, 2007.5pt x 1050.92625pt>
+(Font)              scaled to size 14.4pt on input line 154.
+<../figures/lmu_logo.png, id=39, 2007.5pt x 1050.92625pt>
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 114.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 154.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [2
 
- <../figures/lmu_logo.png>] (./main_presentation.toc)
+ <../figures/lmu_logo.png> <../figures/police_stop.jpg>] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 115.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 158.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [3
 
-] (./main_presentation.toc)
+]
+<../figures/bias_loop.png, id=66, 747.79375pt x 388.45125pt>
+File: ../figures/bias_loop.png Graphic file (type png)
+<use ../figures/bias_loop.png>
+Package pdftex.def Info: ../figures/bias_loop.png  used on input line 167.
+(pdftex.def)             Requested size: 303.3395pt x 157.57083pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 116.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [4
 
-] (./main_presentation.toc)
+ <../figures/bias_loop.png>] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 117.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 171.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [5
 
 ]
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 134.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 134.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 134.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 134.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 134.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 5.0pt on input line 134.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 134.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 134.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 190.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [6
 
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 162.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 226.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [7
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 175.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 264.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [8
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 181.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 273.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [9
 
-]
+] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 212.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 276.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [10
 
 ]
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 5.0pt on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 7.0pt on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 10.0pt on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 301.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 7.0pt on input line 301.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 219.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 301.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [11
 
 ]
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 238.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [12
+Overfull \hbox (28.40477pt too wide) in paragraph at lines 334--334
+ [][] 
+ []
 
-]
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 261.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 261.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 261.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 261.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 261.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 7.0pt on input line 261.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 261.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 334.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+[12
+
+] (./main_presentation.toc)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 336.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [13
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 272.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 346.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [14
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 284.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 357.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [15
+
+] (./main_presentation.toc)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 360.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [16
+
+]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 369.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 369.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [17
+
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 396.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [18
 
 ]
 \tf@nav=\write6
@@ -1221,21 +1265,21 @@ Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 284.
 
  (./main_presentation.aux)
 Package rerunfilecheck Info: File `main_presentation.out' has not changed.
-(rerunfilecheck)             Checksum: CE711A2FA5E74E2646532053628F3018;134.
+(rerunfilecheck)             Checksum: 62F6C2FFD78A6CD855B5BD42EBF21988;129.
  ) 
 Here is how much of TeX's memory you used:
- 30425 strings out of 476025
- 606546 string characters out of 5790017
+ 30939 strings out of 476025
+ 620723 string characters out of 5790017
  1863388 words of memory out of 5000000
- 50205 multiletter control sequences out of 15000+600000
- 676381 words of font info for 91 fonts, out of 8000000 for 9000
+ 50700 multiletter control sequences out of 15000+600000
+ 676769 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,473b,753s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,122p,473b,1066s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main_presentation.pdf (15 pages, 376626 bytes).
+Output written on main_presentation.pdf (18 pages, 5479613 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 84 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 235 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
