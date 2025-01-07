@@ -23,7 +23,7 @@ enough.data.cols <- names(which(na.count <= 0.2))
 cols.to.keep <- sqf[, names(sqf) %in% enough.data.cols]
 sqf <- sqf[, ..cols.to.keep]
 
-targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG")
+targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG", "SUMMONS_ISSUED_FLAG")
 protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 
 # remove all officer columns
@@ -133,4 +133,11 @@ sqf <- sqf |>
 
 # filter out complete cases
 sqf.filtered <- sqf[complete.cases(sqf), ]
+
+# create a column that is 1 if any of the targets columns is equal to "Y" and 0 otherwise
+# sqf$TARGET <- ifelse(rowSums(sqf[, ..targets] == "Y") > 0, "Y", "N")
+
+# remove targets columns from the data
+# sqf <- sqf[, -..targets]
+
 
