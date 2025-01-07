@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex main_presentation"] 1736271188 "main_presentation.aux" "main_presentation.bbl" "main_presentation" 1736271193 0
+["bibtex main_presentation"] 1736271188 "main_presentation.aux" "main_presentation.bbl" "main_presentation" 1736272402 0
   "./literature.bib" 1736235894 62048 dd09aa3e9f65d50e43ca6cd3d61edc82 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main_presentation.aux" 1736271192 5913 e3ee2c42b179f5824e82aa822d3c19d1 "pdflatex"
+  "main_presentation.aux" 1736272401 5913 e3ee2c42b179f5824e82aa822d3c19d1 "pdflatex"
   (generated)
   "main_presentation.bbl"
   "main_presentation.blg"
   (rewritten before read)
-["pdflatex"] 1736271188 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736271193 0
+["pdflatex"] 1736272398 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736272402 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
   "../figures/fairness_title.jpg" 1736233861 4446795 0bf6b9b83210c8b326c778906651f114 ""
   "../figures/lmu-background.pdf" 1735377963 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "../figures/lmu_logo.png" 1735377960 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
   "../figures/police_stop.jpg" 1736233861 587014 fb671c9c45794a1f3ba728374bff23ca ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736271182 12900 b4fa5bc5b7efc493c2e4d1cae3971d70 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736272398 12894 bda30a93dcfcbdebff3fe35d6359a58f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1587936753 3021 665788e9679767ade2a71155215d25e0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -272,12 +272,12 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main_presentation.aux" 1736271192 5913 e3ee2c42b179f5824e82aa822d3c19d1 "pdflatex"
+  "main_presentation.aux" 1736272401 5913 e3ee2c42b179f5824e82aa822d3c19d1 "pdflatex"
   "main_presentation.bbl" 1736271188 1506 236d8522825b5b903fc4d364701cd255 "bibtex main_presentation"
-  "main_presentation.nav" 1736271192 2957 5802a331db5bba85ec6772459d201e0b "pdflatex"
-  "main_presentation.out" 1736271192 129 62f6c2ffd78a6cd855b5bd42ebf21988 "pdflatex"
-  "main_presentation.tex" 1736271182 12900 b4fa5bc5b7efc493c2e4d1cae3971d70 ""
-  "main_presentation.toc" 1736271192 295 8e26009e6c9fc62dcc225e5cc42fc001 "pdflatex"
+  "main_presentation.nav" 1736272401 2957 5802a331db5bba85ec6772459d201e0b "pdflatex"
+  "main_presentation.out" 1736272401 129 62f6c2ffd78a6cd855b5bd42ebf21988 "pdflatex"
+  "main_presentation.tex" 1736272398 12894 bda30a93dcfcbdebff3fe35d6359a58f ""
+  "main_presentation.toc" 1736272401 295 8e26009e6c9fc62dcc225e5cc42fc001 "pdflatex"
   (generated)
   "main_presentation.aux"
   "main_presentation.log"
