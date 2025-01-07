@@ -12,7 +12,8 @@
 \usecolortheme[named=lmugreen]{structure}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage[english]{babel}
+% \usepackage[english]{babel}
+\usepackage[ngerman]{babel}  % Load German language support
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb} % math symbols
 \usepackage{graphicx}
@@ -76,7 +77,7 @@ belowskip = -1.2 \baselineskip,
 %\includegraphics[width=0.3\textwidth]{lmu_logo}
 \vspace*{-1cm}
 
-\title{Fairness in Machine Learning} 
+\title{Fair Machine Learning} 
 
 \author{Juliet Fleischer} % Your name
 \institute[LMU]{LMU} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -92,7 +93,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{column}{0.4\textwidth}
 		\vspace{3cm}
 		
-		\textbf{\textcolor{white}{\Large Fairness in Machine Learning}}
+		\textbf{\textcolor{white}{\Large Fair Machine Learning}}
 		\vspace{1cm}
 		
 		\textcolor{white}{\footnotesize Juliet Fleischer \\
@@ -185,40 +186,44 @@ belowskip = -1.2 \baselineskip,
 		\item Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
 		\item Vorhersageraten zwischen Gruppen sollen gleich sein
 	\end{itemize}
-	z.B. Demographic Parity \cite{verma2018} \\
+	z.B. Statistical Parity \cite{verma2018} \\
 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
 \end{frame}
 
 % Gruppen Fairness - Separation
-\begin{frame}[t]{Gleiche Fehlerraten zwischen Gruppen sind fair}
+\begin{frame}[t]{Fairness anhand der Fehlermatrix konstruieren}
 	\vspace*{0.3cm} % Adds small space below the title (optional)
 	\begin{table}
         \begin{tabular}{lll}
             \toprule
-            Independence & \color{orange}{Separation} & Sufficiency \\
+            Independence & \color{blue}{Separation} & \color{red}{Sufficiency} \\
             \midrule
-            $\hat{Y} \perp A$ & \color{orange}{$\hat{Y} \perp A | Y$} & $Y \perp A | \hat{Y}$\\
+            $\hat{Y} \perp A$ & \color{blue}{$\hat{Y} \perp A | Y$} & \color{red}{$Y \perp A | \hat{Y}$}\\
             \bottomrule
         \end{tabular}
     \end{table}
-	\begin{itemize}
-		\item Fokus auf gleichen Fehlerraten zwischen Gruppen
-	\end{itemize}
 	\begin{columns}
 		\column{0.5\textwidth}
-		\centering
-		z.B. Predictive Equality \cite{verma2018}
-		$$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$\\
-		$\Rightarrow gleiche FPR == gleiche FNR$
+		\raggedright  % Left-aligns text
+		\text{Separation:}
+		\begin{itemize}
+			\item Fokus auf gleichen Fehlerraten zwischen Gruppen, z.B. Predictive Equality \cite{verma2018}
+		\end{itemize}
+		$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$\\
+		\text{Sufficiency:}
+		\begin{itemize}
+			\item Zuverlässigkeit der Vorhersage soll gleich sein, z.B. Predictive Parity \cite{verma2018}
+		\end{itemize}
+		$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$
 		\column{0.5\textwidth}
 		\begin{center}
 			\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
 			\begin{tabular}{c|c|c|}
-				& \color{orange}\(Y = 0\) & \color{orange}\(Y = 1\) \\
+				& \color{blue}\(Y = 0\) & \color{blue}\(Y = 1\) \\
 				\hline
-				\(\hat{Y} = 0\) & TN & FN \\
+				\color{red}\(\hat{Y} = 0\) & TN & FN \\
 				\hline
-				\(\hat{Y} = 1\) & FP & TP \\
+				\color{red}\(\hat{Y} = 1\) & FP & TP \\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -228,7 +233,7 @@ belowskip = -1.2 \baselineskip,
 
 
 %Gruppen Fairness - Sufficiency
-\begin{frame}[t]{Gleiche Likelihoods zwischen Gruppen sind fair}
+\begin{frame}[t]{Zahlreiche Variationen von Gruppen-Metriken}
 	\vspace*{0.3cm} % Adds small space below the title (optional)
 	\begin{table}
 		\begin{tabular}{lll}
@@ -240,35 +245,20 @@ belowskip = -1.2 \baselineskip,
 		\end{tabular}
 	\end{table}
 	\begin{itemize}
-		\item Positive/negative Vorhersage soll die selbe Bedeutung für alle Gruppen haben
+		\item Sowohl Separation als auch Sufficiency können statt mit $\hat{Y}$ auch mit S definiert werden, z.B. Calibration 	$$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$$
+		\item oder Well-calibration $$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s) = s$$
 	\end{itemize}
-	\begin{columns}
-		\column{0.5\textwidth}
-		\centering
-		z.B. Predictive Parity \cite{verma2018}\\
-		\centering
-		$$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
-		\column{0.5\textwidth}
-		\begin{center}
-			\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
-			\begin{tabular}{c|c|c|}
-				& \(Y = 0\) & \(Y = 1\) \\
-				\hline
-				\color{orange}\(\hat{Y} = 0\) & TN & FN \\
-				\hline
-				\color{orange}\(\hat{Y} = 1\) & FP & TP \\
-				\hline
-			\end{tabular}
-		\end{center}
-	\end{columns}
+
 \end{frame}
 
 \begin{frame}{Gruppenmetriken im Überblick}
 	\begin{itemize}
-		\item Sufficiency nimmt Perspektive des Entscheidenden an
-		\item Separation gut, wenn Y objektive Wahrheit oder zuverlässig
-		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
+		\item "Sufficiency" nimmt Perspektive des Entscheidenden an
+		\item "Separation" gut, wenn Y durch einen objektiv wahren Prozess entstanden ist
+		\item "Independence" gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
 	\end{itemize}
+	\vspace*{0.5cm}
+	\centering
 	$\rightarrow$ normalerweise nicht miteinander vereinbar
 \end{frame}
 
@@ -283,55 +273,22 @@ belowskip = -1.2 \baselineskip,
     \begin{enumerate}
 		\item Fairness through Awareness (FTA)
         \begin{itemize}
-            \item Lipschitz-Kriterium:
+            \item Lipschitz-Kriterium\cite{castelnovo2022}:
             \[
-            d(\hat{y_i}, \hat{y_j}) \leq \lambda {\color{orange}{d}}(x_i, x_j)
-            \]
-            \item Lässt sich in ein lineares Optimierungsproblem umformulieren
-            \item Definition des {\color{orange}Distanzmaßes $d$} im Feature Space ist eine Herausforderung
+            d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda {\color{orange}{d_X}}(x_i, x_j)
+            \] 
+            \item Definition des {\color{orange}Distanzmaßes $d_X$} im Feature Space ist eine Herausforderung
         \end{itemize}
 
         \item Fairness through Unawareness (FTU) = Blinding
         \begin{itemize}
             \item Vorgehensvorschrift: PA soll nicht im Entscheidungsprozess verwendet werden
             \item Keine eindeutige mathematische Definition, sondern verschiedene Ansätze zum Testen von FTU
-            \item Problem der Proxis (Variablen, die mit PA hoch korreliert sind)
+            \item Problem der \textbf{Proxis} (Variablen, die mit PA hoch korreliert sind)
         \end{itemize}
     \end{enumerate}
 \end{frame}
 
-% Kausale Fairness
-\begin{frame}{Ist die Gruppenzugehörigkeit die Grund für die Festnahme? \\ - kausale Definitionen}
-    \begin{columns}
-        \column{0.4\textwidth}
-        \centering
-		\begin{tikzpicture}[node distance=3cm, >=stealth', thick]
-			% Nodes
-			\node (Race) [circle, draw, fill=blue!20] {Race};
-			\node (Precinct) [circle, draw, fill=yellow!20, right of=Race] {Precinct};
-			\node (Arrest) [circle, draw, fill=red!20, below of=Precinct] {Arrest};
-		
-			% Arrows
-			\draw[->] (Race) -- (Arrest);
-			\draw[->] (Precinct) -- (Arrest);
-		\end{tikzpicture}
-		
-        \column{0.4\textwidth}
-        \centering
-        {\small
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            Race & Precinct & Prior Offenses & Arrest \\
-            \hline
-            Black & 1 & Yes & Yes \\
-            White & 2 & No & No \\
-            Hispanic & 1 & Yes & No \\
-            Asian & 3 & No & No \\
-            \hline
-        \end{tabular}
-        }
-    \end{columns}
-\end{frame}
 
 \section{Fairness Methoden}
 % Fairness Methoden
@@ -353,7 +310,7 @@ belowskip = -1.2 \baselineskip,
 		\item SQF Datensatz in Fairness Literatur in vielen weiteren Fragen untersucht \cite{RambachanBBOEFW}, \cite{Kallus2018RUFMLPDa}, \cite{goel2016}
 	\end{itemize}
 	\vspace*{1cm}
-	\text{Fazit:} Fairness ist ein komplexes Thema, das Zusammenarbeit vieler Disziplinen erfordert
+	\text{Fazit:} \\ Fairness ist ein komplexes Thema, das Zusammenarbeit vieler Disziplinen erfordert \\ Es gibt (noch) nicht, die \textbf{eine} Definition von Fairness
 \end{frame}
 
 \begin{frame}[allowframebreaks]
@@ -399,6 +356,39 @@ belowskip = -1.2 \baselineskip,
             \bottomrule
         \end{tabular}
     \end{table}
+\end{frame}
+
+% Kausale Fairness
+\begin{frame}{Ist die Gruppenzugehörigkeit der Grund für die Festnahme? \\ - kausale Definitionen}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \centering
+		\begin{tikzpicture}[node distance=3cm, >=stealth', thick]
+			% Nodes
+			\node (Race) [circle, draw, fill=blue!20] {Race};
+			\node (Precinct) [circle, draw, fill=yellow!20, right of=Race] {Precinct};
+			\node (Arrest) [circle, draw, fill=red!20, below of=Precinct] {Arrest};
+		
+			% Arrows
+			\draw[->] (Race) -- (Arrest);
+			\draw[->] (Precinct) -- (Arrest);
+		\end{tikzpicture}
+		
+        \column{0.4\textwidth}
+        \centering
+        {\small
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Race & Precinct & Prior Offenses & Arrest \\
+            \hline
+            Black & 1 & Yes & Yes \\
+            White & 2 & No & No \\
+            Hispanic & 1 & Yes & No \\
+            Asian & 3 & No & No \\
+            \hline
+        \end{tabular}
+        }
+    \end{columns}
 \end{frame}
 
 
