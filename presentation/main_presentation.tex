@@ -18,7 +18,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tikz} % for DAGs
-\usetikzlibrary{arrows.meta, positioning}
+\usetikzlibrary{positioning, arrows, arrows.meta}
 \usepackage{hyperref} % for URLs
 \newcommand{\gray}{\rowcolor[gray]{.90}}
 \usepackage{verbatim}
@@ -34,7 +34,7 @@
 % ToC
 \AtBeginSection[]{
 	\begin{frame}[noframenumbering, plain]
-	\frametitle{Outline}
+	\frametitle{Agenda}
 	\setcounter{tocdepth}{1}
 	\tableofcontents[currentsection]
 \end{frame}
@@ -76,9 +76,9 @@ belowskip = -1.2 \baselineskip,
 %\includegraphics[width=0.3\textwidth]{lmu_logo}
 \vspace*{-1cm}
 
-\title{Your Title} 
+\title{Fairness in Machine Learning} 
 
-\author{Your Name} 
+\author{Juliet Fleischer} % Your name
 \institute[LMU]{LMU} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 
@@ -92,16 +92,16 @@ belowskip = -1.2 \baselineskip,
 	\begin{column}{0.4\textwidth}
 		\vspace{3cm}
 		
-		\textbf{\textcolor{white}{\Large Your Title}}
+		\textbf{\textcolor{white}{\Large Fairness in Machine Learning}}
 		\vspace{1cm}
 		
-		\textcolor{white}{\footnotesize Your Name \\
+		\textcolor{white}{\footnotesize Juliet Fleischer \\
 			\today}
 	\end{column}
 	\begin{column}{0.49\textwidth}
 		\vspace{2cm}
 		\begin{center}
-			\includegraphics[width=1\textwidth]{../figures/showcase_figure.png}
+			\includegraphics[width=0.55\textwidth]{../figures/fairness_title.jpg}
 		\end{center}
 	\end{column}
 \end{columns}
@@ -111,176 +111,294 @@ belowskip = -1.2 \baselineskip,
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
-\section{Daten und Kontext}
-\section{Fairness Definitionen}
-\section{Quellen von Bias}
-\section{Methoden für Fairness}
 
-\begin{frame}{Daten und Kontext}
-	\begin{itemize}
-		\item "begründeter Verdacht" ("reasonable suspicion") als Grund für Polizeikontrolle
-		\item "wahrscheinliche Ursache" ("probable cause") als Grund für Festnahme
-		\item Mögliche Resultate:
-		\begin{itemize}
-			\item Keine weiteren Maßnahmen
-			\item Schnelle Abtastung (frisk)
-			\item Durchsuchung (search)
-			\item Festnahme (arrest)
-		\end{itemize}
-		\item Kritik, dass Strategie diskriminierend gegenüber Schwarzen und Latinos ist
-		\item Modellieren des Entscheidungsprozesses für Festnahme mit RF
-		\item \texttt{race} als protected attribute (PA)
-	\end{itemize}
-\end{frame}
-	
-\begin{frame}
-    \frametitle{Fairness Definitionen}
+
+
+\begin{frame}{Ist die Entscheidung zur Festnahme fair?}
+    % Full-width text
     \begin{itemize}
-        \item Fairness Definitionen
-        \begin{itemize}
-            \item Gruppen Fairness/ Statistische Fairness
-            \item Individuelle Fairness
-            \item Kausale Fairness
-        \end{itemize}
+        \item Trainingsdaten: SQF Daten von NYPD aus 2023 mit 16,924 Stopps
+        \item Zielvariable: Festnahme (0 = keine Festnahme, 1 = Festnahme) 
+        \item \textbf{Protected Attribute}: Ethnie
     \end{itemize}
-    
-    % Add annotations and arrows using TikZ
-    \begin{tikzpicture}[overlay, remember picture]
-        % Position for the "Entscheidung -|-> Ungleichheit" annotation
-        \node[align=left, anchor=west] at (10, 1) (stat-comment) {Entscheidung \\ $-\!\!\!-\!\!\!| \to$ \\ Ungleichheit};
-        
-        % Position for the "Merkmale -|-> Entscheidung" annotation
-        \node[align=left, anchor=west] at (5.5, -1) (relation-comment) {Merkmale \\ $-\!\!\!-\!\!\!| \to$ \\ Entscheidung};
-        
-        % Arrow from Gruppen Fairness to "Entscheidung -|-> Ungleichheit"
-        \draw[-{Latex}, thick] (2, 1.2) -- (stat-comment.west);
-        
-        % Arrow from Individuelle and Kausale Fairness to "Merkmale -|-> Entscheidung"
-        \draw[-{Latex}, thick] (2, 0) -- (relation-comment.west);
-        \draw[-{Latex}, thick] (2, -0.5) -- (relation-comment.west);
-    \end{tikzpicture}
+
+    \vspace{0.5cm} % Adds some space between the text and the table/image
+
+    % Lower half: columns for table and image
+    \begin{columns}[c] % [c] centers the columns vertically
+        % First column: Table
+        \begin{column}{0.5\textwidth}
+            \centering
+            \scalebox{0.9}{ % Scale the table
+                \begin{tabular}{ll}
+                    \toprule
+                    race & prop\\
+                    \midrule
+                    \color{orange}{BLACK} & 58.61\%\\
+                    \color{orange}{WHITE HISPANIC} & 20.32\%\\
+                    \color{orange}{BLACK HISPANIC} & 10.13\%\\
+                    WHITE & 5.48\%\\
+                    OTHER & 2.67\%\\
+                    NA & 2.79\%\\
+                    \bottomrule
+                \end{tabular}
+            }
+        \end{column}
+
+        % Second column: Image
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{../figures/police_stop.jpg}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
 
-\begin{frame}
-	\frametitle{Gruppen Fairness}
-	Idee: Gruppen von Personen erfahren Diskriminierung aufgrund dieser Gruppenzugehörigkeit
-	Unterkategorien:
+\section{Quellen von Bias}
+% Quellen von Bias
+\begin{frame}{Woher kommt Bias?}
+	% insert an image
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
+		\caption{N. Mehrabi et. al, Quellen von Bias in Machine Learning Modellen}
+	\end{figure}
+\end{frame}
+
+
+
+\section{Gruppen Fairness}
+% Gruppen Fairness - Independence
+\begin{frame}[t]{Gleiche Vorhersageraten zwischen Gruppen sind fair} % [t] aligns content at the top
+    \vspace*{0.3cm} % Adds small space below the title (optional)
+	\begin{table}
+        \begin{tabular}{lll}
+            \toprule
+            \color{orange}{Independence} & Separation & Sufficiency \\
+            \midrule
+            \color{orange}{$\hat{Y} \perp A$} & $\hat{Y} \perp A | Y$ & $Y \perp A | \hat{Y}$\\
+            \bottomrule
+        \end{tabular}
+    \end{table}
 	\begin{itemize}
-		\item Unabhängigkeit: $\hat{Y} \perp A$
-		\item Separierbarkeit: $\hat{Y} \perp A | Y$ 
-		\item Suffizienz: $Y \perp A | \hat{Y}$
+		\item Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
+		\item Vorhersageraten zwischen Gruppen sollen gleich sein
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Unabhängigkeit}
-	Statistical Parity
+	z.B. Demographic Parity \\
 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
 \end{frame}
 
-\begin{frame}
-	\frametitle{Separierbarkeit}
-	Fokus liegt auf gleichen Fehlerraten
-	Herleitung anhand der Fehlermatrix
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{c|c|c}
-	\toprule
-	 & $\hat{Y} = 1$ & $\hat{Y} = 0$ \\
-	\midrule
-	$Y = 1$ & True Positive (TP) & False Negative (FN) \\
-	$Y = 0$ & False Positive (FP) & True Negative (TN) \\
-	\bottomrule
-	\end{tabular}
-	\caption{Error Matrix}
-	\end{table}
-	% DAG for Separation
-	\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-		\node[draw, circle] (Y) at (0,0) {$Y$};
-		\node[draw, circle] (A) at (2,0) {$A$};
-		\node[draw, circle] (Yhat) at (-2,0) {$\hat{Y}$};
-		\draw[->] (Y) -- (A);
-		\draw[->] (Y) -- (Yhat);
-	\end{tikzpicture}
-	\caption{Simple Graphical Model}
-	\end{figure}
-	$$P(\hat{Y} = 1 | A = a, Y = y) = P(\hat{Y} = 1 | A = b, Y = y)$$
+% Gruppen Fairness - Separation
+\begin{frame}[t]{Gleiche Fehlerraten zwischen Gruppen sind fair}
+	\vspace*{0.3cm} % Adds small space below the title (optional)
+	\begin{table}
+        \begin{tabular}{lll}
+            \toprule
+            Independence & \color{orange}{Separation} & Sufficiency \\
+            \midrule
+            $\hat{Y} \perp A$ & \color{orange}{$\hat{Y} \perp A | Y$} & $Y \perp A | \hat{Y}$\\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+	\begin{itemize}
+		\item Fokus auf gleichen Fehlerraten zwischen Gruppen
+	\end{itemize}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\centering
+		z.B. Predictive Equality
+		$$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$\\
+		$\Rightarrow gleiche FPR == gleiche FNR$
+		\column{0.5\textwidth}
+		\begin{center}
+			\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+			\begin{tabular}{c|c|c|}
+				& \color{orange}\(Y = 0\) & \color{orange}\(Y = 1\) \\
+				\hline
+				\(\hat{Y} = 0\) & TN & FN \\
+				\hline
+				\(\hat{Y} = 1\) & FP & TP \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{columns}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Suffizienz}
-	Positive/negative Vorhersage soll die selbe Bedeutung für alle Gruppen haben
-	$$P(Y = 1 | A = a, \hat{Y} = \hat{y}) = P(Y = 1 | A = b, \hat{Y} = \hat{y})$$
-	Erweiterung davon bedingt auf den Score, nicht das Label: Calibration
-\end{frame}
-\begin{frame}
-	\frametitle{Advantages and Disadvantages}
-	\begin{table}[H]
-	\centering
-	\begin{tabular}{c|c}
-	\toprule
-	$+$ & $-$ \\
-	\midrule
-	Leicht verständlich & Infragmarginality \\
-	Leicht einzubauen in existierende Optimierungskriterien & Observational \\
-	\bottomrule
-	\end{tabular}
-	\caption{Advantages and Disadvantages}
+
+
+%Gruppen Fairness - Sufficiency
+\begin{frame}[t]{Gleiche Likelihoods zwischen Gruppen sind fair}
+	\vspace*{0.3cm} % Adds small space below the title (optional)
+	\begin{table}
+		\begin{tabular}{lll}
+			\toprule
+			Independence & Separation & \color{orange}{Sufficiency} \\
+			\midrule
+			$\hat{Y} \perp A$ & $\hat{Y} \perp A | Y$ & \color{orange}{$Y \perp A | \hat{Y}$}\\
+			\bottomrule
+		\end{tabular}
 	\end{table}
-	--> Scheint erstmals sinvoller und simpler Ansatz zu sein. Schaut man etwas tiefer stellt sich
-	die Fragem ob die Metriken wirklich geeignet sind um Fairness zu erhöhen
-	Aktuelle Literatur weist darauf hin, dass sie eher Ausdruck der Zufallsverteilung
-	von $\hat{Y}, Y, A, X$ sind
+	\begin{itemize}
+		\item Positive/negative Vorhersage soll die selbe Bedeutung für alle Gruppen haben
+	\end{itemize}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\centering
+		z.B. Predictive Parity \\
+		\centering
+		$$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
+		\column{0.5\textwidth}
+		\begin{center}
+			\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+			\begin{tabular}{c|c|c|}
+				& \(Y = 0\) & \(Y = 1\) \\
+				\hline
+				\color{orange}\(\hat{Y} = 0\) & TN & FN \\
+				\hline
+				\color{orange}\(\hat{Y} = 1\) & FP & TP \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{columns}
 \end{frame}
 
+\begin{frame}{Gruppenmetriken im Überblick}
+	\begin{itemize}
+		\item Sufficiency nimmt Perspektive des Entscheidenden an
+		\item Separation gut, wenn Y objektive Wahrheit oder zuverlässig
+		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll
+	\end{itemize}
+	$\rightarrow$ normalerweise nicht miteinander vereinbar
+\end{frame}
+
+
+\section{Individuelle Fairness}
+% Individuelle Fairness
 \begin{frame}
-    \frametitle{Individuelle Fairness}
+    \frametitle{Gleicheit innerhalb der Gruppe vor Gleicheit zwischen Gruppen}
+	\begin{itemize}
+		\item Verständnis von Fairness: Fairness bedeutet, dass gleiche Personen gleich behandelt werden
+	\end{itemize}
     \begin{enumerate}
+		\item Fairness through Awareness (FTA)
+        \begin{itemize}
+            \item Lipschitz-Kriterium:
+            \[
+            d(\hat{y_i}, \hat{y_j}) \leq \lambda {\color{orange}{d}}(x_i, x_j)
+            \]
+            \item Lässt sich in ein lineares Optimierungsproblem umformulieren
+            \item Definition des {\color{orange}Distanzmaßes $d$} im Feature Space ist eine Herausforderung
+        \end{itemize}
+
         \item Fairness through Unawareness (FTU) = Blinding
         \begin{itemize}
             \item Vorgehensvorschrift: PA soll nicht im Entscheidungsprozess verwendet werden
             \item Keine eindeutige mathematische Definition, sondern verschiedene Ansätze zum Testen von FTU
-            \item Erweiterung: PA und alle Proxies dürfen nicht im Entscheidungsprozess verwendet werden
-        \end{itemize}
-        
-        \item Fairness through Awareness (FTA)
-        \begin{itemize}
-            \item Ähnlichkeit im Feature Space soll zu Ähnlichkeit im Prediction Space führen
-            \item Lipschitz-Kriterium:
-            \[
-            d(\hat{y_i}, \hat{y_j}) \leq \lambda d(x_i, x_j)
-            \]
-            \item Lässt sich in ein lineares Optimierungsproblem umformulieren
-            \item Definition des Distanzmaßes $d$ im Feature Space ist eine Herausforderung
+            \item Problem der Proxis (Variablen, die mit PA hoch korreliert sind)
         \end{itemize}
     \end{enumerate}
 \end{frame}
 
+% Kausale Fairness
+\begin{frame}{Ist die Gruppenzugehörigkeit die Grund für die Festnahme? \\ - kausale Definitionen}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \centering
+		\begin{tikzpicture}[node distance=3cm, >=stealth', thick]
+			% Nodes
+			\node (Race) [circle, draw, fill=blue!20] {Race};
+			\node (Precinct) [circle, draw, fill=yellow!20, right of=Race] {Precinct};
+			\node (Arrest) [circle, draw, fill=red!20, below of=Precinct] {Arrest};
+		
+			% Arrows
+			\draw[->] (Race) -- (Arrest);
+			\draw[->] (Precinct) -- (Arrest);
+		\end{tikzpicture}
+		
+        \column{0.4\textwidth}
+        \centering
+        {\small
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Race & Precinct & Prior Offenses & Arrest \\
+            \hline
+            Black & 1 & Yes & Yes \\
+            White & 2 & No & No \\
+            Hispanic & 1 & Yes & No \\
+            Asian & 3 & No & No \\
+            \hline
+        \end{tabular}
+        }
+    \end{columns}
+\end{frame}
 
+\section{Fairness Methoden}
+% Fairness Methoden
 \begin{frame}
-	\frametitle{Kausale Fairness}
-	Ziel ist hier die kausalen Struktur der Daten zu verstehen
-	Fairness als pipeline Problem (Fairness + ML)
+	\frametitle{Wie sorgen wir für algorithmische Fairness?}
 	\begin{itemize}
-		\item Counterfactual Fairness
-		\item Definition über DAGs
+		\item Preprocessing: Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation
+		\item Inprocessing: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
+		\item Postprocessing:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
+		\item Interpretable ML Methoden können hier auch sehr helfen!
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Fairness Methoden}
+% Fazit und Ausblick
+\begin{frame}{Wie geht es weiter?}
 	\begin{itemize}
-		\item Preprocessing
-		Daten vor dem Training bearbeiten
-		\item Inprocessing
-		Trainingsprozess anpassen, Optimierungsproblem modifizieren
-		\item Postprocessing
-		Vorhersagen nach dem Training bearbeiten
+		\item binäre Klassifikation, ein PA ist simpelster Fall
+		\item in Praxis eher mehrere PAs und vielfältige Aufgaben\\ $\rightarrow$ regression, unsupervised learning, ...
+		\item SQF Datensatz in Fairness Literatur in vielen weiteren Fragen untersucht
 	\end{itemize}
+	\vspace*{1cm}
+	\text{Fazit:} Fairness ist ein komplexes Thema, das Zusammenarbeit vieler Disziplinen erfordert
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\bibliographystyle{plain}
+	\bibliography{literature.bib}
+\end{frame}
+
+% Extra slides
+\section{Extra Folien}
+
+% Weitere Resourcen
+\begin{frame}{Ressourcen für Fairness in Machine Learning}
+    \begin{itemize}
+        \item Interaktives Tool: \url{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}
+        \item Einführung in Fairness mit mlr3.fairness: \url{https://journal.r-project.org/articles/RJ-2023-034/}
+        \item Fairness and Machine Learning Buch: \url{https://fairmlbook.org/}
+    \end{itemize}
+\end{frame}
+
+
+% Weitere Infos zu den Daten
+\begin{frame}{POC werden überproportional häufig gestoppt}
+    \text{Verteilung der Ethnie in NYC (2023)} \\
+    \url{https://www.census.gov/quickfacts/newyorkcitynewyork}
+
+    \vspace{0.3cm}  % Add some space before the table
+	% add a title above the table
+
+    \begin{table}
+        \centering  % Center the table
+		\caption{Verteilung der Ethnie in SQF Daten}
+        \begin{tabular}{ll}
+            \toprule
+            race & prop \\
+            \midrule
+            \color{orange}{BLACK} & 58.61\% \\
+            \color{orange}{WHITE HISPANIC} & 20.32\% \\
+            \color{orange}{BLACK HISPANIC} & 10.13\% \\
+            WHITE & 5.48\% \\
+            OTHER & 2.67\% \\
+            NA & 2.79\% \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
 \end{frame}
 
 
