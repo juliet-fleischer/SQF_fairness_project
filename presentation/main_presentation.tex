@@ -207,7 +207,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{columns}
 		\column{0.5\textwidth}
 		\centering
-		z.B. Predictive Equality
+		z.B. Predictive Equality \cite{verma2018}
 		$$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$\\
 		$\Rightarrow gleiche FPR == gleiche FNR$
 		\column{0.5\textwidth}
@@ -245,7 +245,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{columns}
 		\column{0.5\textwidth}
 		\centering
-		z.B. Predictive Parity \\
+		z.B. Predictive Parity \cite{verma2018}\\
 		\centering
 		$$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
 		\column{0.5\textwidth}
@@ -267,7 +267,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{itemize}
 		\item Sufficiency nimmt Perspektive des Entscheidenden an
 		\item Separation gut, wenn Y objektive Wahrheit oder zuverlässig
-		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll
+		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
 	\end{itemize}
 	$\rightarrow$ normalerweise nicht miteinander vereinbar
 \end{frame}
@@ -338,7 +338,7 @@ belowskip = -1.2 \baselineskip,
 \begin{frame}
 	\frametitle{Wie sorgen wir für algorithmische Fairness?}
 	\begin{itemize}
-		\item Preprocessing: Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation
+		\item Preprocessing \cite{caton2024}: Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation
 		\item Inprocessing: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
 		\item Postprocessing:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
 		\item Interpretable ML Methoden können hier auch sehr helfen!

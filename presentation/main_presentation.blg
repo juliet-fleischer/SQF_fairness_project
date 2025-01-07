@@ -3,48 +3,52 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_presentation.aux
 The style file: plain.bst
 Database file #1: literature.bib
+Warning--empty journal in castelnovo2022
+Warning--empty year in castelnovo2022
+Warning--empty journal in caton2024
+Warning--empty year in caton2024
 Warning--empty journal in mehrabi2022
 Warning--empty year in mehrabi2022
 Warning--empty year in verma2018
-You've used 2 entries,
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            509 strings with 4348 characters,
-and the built_in function-call counts, 811 in all, are:
-= -- 77
-> -- 41
+            520 strings with 4665 characters,
+and the built_in function-call counts, 1536 in all, are:
+= -- 141
+> -- 87
 < -- 1
-+ -- 17
-- -- 14
-* -- 63
-:= -- 134
-add.period$ -- 7
-call.type$ -- 2
-change.case$ -- 13
++ -- 36
+- -- 30
+* -- 129
+:= -- 257
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 30
-empty$ -- 60
-format.name$ -- 14
-if$ -- 166
+cite$ -- 11
+duplicate$ -- 52
+empty$ -- 108
+format.name$ -- 30
+if$ -- 304
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 19
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 23
+num.names$ -- 8
+pop$ -- 37
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 23
 quote$ -- 0
-skip$ -- 19
+skip$ -- 32
 stack$ -- 0
-substring$ -- 43
+substring$ -- 82
 swap$ -- 7
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
-warning$ -- 3
-while$ -- 9
-width$ -- 3
-write$ -- 22
-(There were 3 warnings)
+type$ -- 16
+warning$ -- 7
+while$ -- 16
+width$ -- 5
+write$ -- 40
+(There were 7 warnings)

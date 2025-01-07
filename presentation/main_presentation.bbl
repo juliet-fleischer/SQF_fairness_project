@@ -1,5 +1,15 @@
 \begin{thebibliography}{1}
 
+\bibitem{castelnovo2022}
+Alessandro Castelnovo, Riccardo Crupi, Greta Greco, Daniele Regoli, Ilaria~Giuseppina Penco, and Andrea~Claudio Cosentini.
+\newblock A clarification of the nuances in the fairness metrics landscape.
+\newblock 12(1):4209.
+
+\bibitem{caton2024}
+Simon Caton and Christian Haas.
+\newblock Fairness in {{Machine Learning}}: {{A Survey}}.
+\newblock 56(7):1--38.
+
 \bibitem{mehrabi2022}
 Ninareh Mehrabi, Fred Morstatter, Nripsuta Saxena, Kristina Lerman, and Aram Galstyan.
 \newblock A {{Survey}} on {{Bias}} and {{Fairness}} in {{Machine Learning}}.
