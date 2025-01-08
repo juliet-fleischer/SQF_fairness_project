@@ -24,7 +24,7 @@ table(sqf.complete.2023$SUMMONS_ISSUED_FLAG)
 
 
 
-- text Bothmann the naming error (see overleaf)
+-  naming error (see overleaf)
 - look for implementation of further fairness metrics
 (calibration, individual fairness, ...)
 continue reading this other paper (nuances of fairness metrics ...)
