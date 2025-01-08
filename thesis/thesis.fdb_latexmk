@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex thesis"] 1733773835 "thesis.aux" "thesis.bbl" "thesis" 1733774427 0
-  "./citations.bib" 1733773552 8311 caf25bf7e8b2cec191e35d27e026fe4d ""
+["bibtex thesis"] 1736325206 "thesis.aux" "thesis.bbl" "thesis" 1736325212 0
+  "../literature.bib" 1736235894 62048 dd09aa3e9f65d50e43ca6cd3d61edc82 ""
   "./dcu.bst" 1733765490 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1733774426 1220 37250ab39a44a12b3025ac7ef4b934f0 "pdflatex"
+  "thesis.aux" 1736325211 1127 a5c87a8f252adb1a4752d2d72ffdd6af "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1733774420 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1733774427 0
+["pdflatex"] 1736325206 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1736325212 0
   "../figures/sigillum.png" 1733764644 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1733774420 7866 886c2ddf76c53aef61fb89f105e5b768 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1736325192 7874 2a8ed8355738f4628dd7baa07b719c16 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -150,15 +150,15 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "chapters/intro.tex" 1733765690 156 11e0d1bdda1b267fddca6615dbea6744 ""
+  "chapters/intro.tex" 1736325192 123 01d69ed92e45bea3987a2f3a840368a3 ""
   "shortcuts.tex" 1733764376 6160 10d5572ffc53a1976007dade8cced089 ""
-  "thesis.aux" 1733774426 1220 37250ab39a44a12b3025ac7ef4b934f0 "pdflatex"
-  "thesis.bbl" 1733773836 438 0d91b707796586b93142f12e62220f32 "bibtex thesis"
-  "thesis.lof" 1733774426 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.lot" 1733774426 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.out" 1733774426 245 d03c6df7a813764ba17045835c3556e3 "pdflatex"
-  "thesis.tex" 1733774420 7866 886c2ddf76c53aef61fb89f105e5b768 ""
-  "thesis.toc" 1733774426 144 e0782ecfd6531f836bda207c0d2fbd22 "pdflatex"
+  "thesis.aux" 1736325211 1127 a5c87a8f252adb1a4752d2d72ffdd6af "pdflatex"
+  "thesis.bbl" 1736325206 320 f9732b8cda562f6a82677a811fa528f6 "bibtex thesis"
+  "thesis.lof" 1736325211 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.lot" 1736325211 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.out" 1736325211 245 d03c6df7a813764ba17045835c3556e3 "pdflatex"
+  "thesis.tex" 1736325192 7874 2a8ed8355738f4628dd7baa07b719c16 ""
+  "thesis.toc" 1736325211 144 e0782ecfd6531f836bda207c0d2fbd22 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"

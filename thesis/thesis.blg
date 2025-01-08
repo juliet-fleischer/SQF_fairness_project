@@ -2,18 +2,18 @@ This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: dcu.bst
-Database file #1: citations.bib
+Database file #1: ../literature.bib
 You've used 1 entry,
             2921 wiz_defined-function locations,
-            645 strings with 5024 characters,
-and the built_in function-call counts, 6040 in all, are:
-= -- 1004
-> -- 70
+            643 strings with 4860 characters,
+and the built_in function-call counts, 2879 in all, are:
+= -- 449
+> -- 47
 < -- 0
-+ -- 489
-- -- 21
-* -- 533
-:= -- 1195
++ -- 202
+- -- 14
+* -- 241
+:= -- 613
 add.period$ -- 2
 call.type$ -- 1
 change.case$ -- 14
@@ -21,26 +21,26 @@ chr.to.int$ -- 1
 cite$ -- 1
 duplicate$ -- 14
 empty$ -- 32
-format.name$ -- 24
-if$ -- 1084
+format.name$ -- 20
+if$ -- 510
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 1
-newline$ -- 7
-num.names$ -- 11
-pop$ -- 1
+newline$ -- 8
+num.names$ -- 10
+pop$ -- 5
 preamble$ -- 1
 purify$ -- 15
 quote$ -- 0
-skip$ -- 15
+skip$ -- 11
 stack$ -- 0
-substring$ -- 1440
-swap$ -- 2
+substring$ -- 604
+swap$ -- 1
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 4
 warning$ -- 0
-while$ -- 22
+while$ -- 23
 width$ -- 0
-write$ -- 17
+write$ -- 16

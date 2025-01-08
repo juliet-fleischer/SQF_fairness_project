@@ -1,7 +1,8 @@
 \begin{thebibliography}{xx}
 
-\harvarditem[Battleday et~al.]{Battleday, Peterson \harvardand\ Griffiths}{2020}{battledayCapturingHumanCategorization2020a}
-Battleday, R.~M., Peterson, J.~C. \harvardand\ Griffiths, T.~L.  \harvardyearleft 2020\harvardyearright .
-\newblock Capturing human categorization of natural images by combining deep networks and cognitive models, {\em Nature Communications} {\bf 11}(1):~5418.
+\harvarditem{Caton \harvardand\ Haas}{n.d.}{caton2024}
+Caton, S. \harvardand\ Haas, C.  \harvardyearleft n.d.\harvardyearright .
+\newblock Fairness in {{Machine Learning}}: {{A Survey}},  {\bf 56}(7):~1--38.
+\newline\harvardurl{https://dl.acm.org/doi/10.1145/3616865}
 
 \end{thebibliography}
