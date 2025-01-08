@@ -41,7 +41,50 @@ we see that the definitions are extremely sensitive to how the PA is defined;
 I could limit myself to a subset of the data or dichotomise the PA in different
 ways to examine the effects)
 
-# Pick up from here
-- put the smallest three categories of race together into one "other" category?
-- maybe read literature about data imbalance and how it affects fairness metrics
+# Thesis planning
+
+## idea 1
+Intro:
+ADMs, fairness, COMPAS debate, tranisition to SQF data, questions around the data so far
+Contributions of the thesis:
+- synthesising how fairness has been studied for this data
+- compare and come to a conclusion which is the best one?
+Chapters:
+- background and context of the data
+- SQF Fairness for arrest (Through Lens of Causality, Data Transparency)
+Lets take a step back and say that the discrimination is the stop itself. This also makes
+more sense in the context of an ADM that should help us decide whether to stop someone in the first place (for higher hitrates and more fairness)
+- SQF Fairness for weapon detection (Residual Unfairness, Bias in Bias out, maybe Precinct or Prejudice and Selective labels problem)
+- comparison
+How are selective labels and differential sampling bias related?
+Why don't we simply say the fact that so many more black people are stopped than white people
+given a completely different race distribution in overall NYC is enough evidence for racial bias?
+Because could be that crime rates are really higher among blacks, ...?
+
+Conclusion:
+- know the type of bias in your situation, this should affect the fairness
+analysis you do (choice of definition and method)
+
+
+
+
+## idea 2
+Intro:
+ADMs, fairness, COMPAS debate, tranisition to SQF data, plethora of fairness metrics
+Contributions of the thesis:
+- we examine how different fairness definitions work in this context
+- conclude which ones are most suitable
+Chapters:
+- intro to fairness definitions and data situation and task
+- Group metrics on SQF
+- Individual metrics on SQF
+- maybe causal metrics on SQF
+Conlusion:
+- be aware of what each fairness definition comes with and know your data + context
+to asses whether the definition is suitable
+
+
+
+
+
 
