@@ -1,5 +1,4 @@
-library(ggplot2)
-library(grid)
+set.seed(024)
 
 # what is the key message of the slide?
 # use my titles to communicate the message of the slide
@@ -53,14 +52,14 @@ table1 <- sqf |>
   mutate(prop = scales::percent(prop)) |> 
   select(SUSPECT_RACE_DESCRIPTION, prop) |>
   rename("race" = "SUSPECT_RACE_DESCRIPTION")
-latex.table.1 <- kable(table1, format = "latex", booktabs = TRUE)
+latex.table.1 <- kableExtra::kable(table1, format = "latex", booktabs = TRUE)
 
 
 # 2 Gruppen Fairness
 # extract ten different observations of each group at random for our visualizations
 sample_dt <- predictions_dt |> 
   group_by(PA_GROUP) |> 
-  sample_n(30)
+  sample_n(10)
 
 # Gruppen Fainress - Independence
 sample_dt |> 
