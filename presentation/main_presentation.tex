@@ -293,6 +293,39 @@ belowskip = -1.2 \baselineskip,
 % Extra slides
 \section{Extra Folien}
 
+% Anmerkungen zu Observational Fairness Metriken
+\begin{frame}{Kritik und Anmerkungen zu Observational Fairness Metriken}
+	\begin{itemize}
+		\item Gruppen Metriken spiegeln einfach Verteilung von Y, A, $\hat{Y}$, X in den Daten wider
+		\item Accuracy und Fairness Trade-Off
+		\item Folgen von Fairness Interventionen nicht sicher - profitiert die geschützte Gruppe?
+	\end{itemize}
+\end{frame}
+
+% Kausale Fairness
+\begin{frame}{Ist die Gruppenzugehörigkeit der Grund für die Festnahme? \\ - kausale Definitionen}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \centering
+		\begin{tikzpicture}[node distance=3cm, >=stealth', thick]
+			% Nodes
+			\node (Race) [circle, draw, fill=blue!20] {Race};
+			\node (Precinct) [circle, draw, fill=yellow!20, right of=Race] {Precinct};
+			\node (Arrest) [circle, draw, fill=red!20, below of=Precinct] {Arrest};
+		
+			% Arrows
+			\draw[->] (Race) -- (Arrest);
+			\draw[->] (Precinct) -- (Arrest);
+		\end{tikzpicture}
+		
+        \column{0.4\textwidth}
+		\begin{itemize}
+			\item Gruppen Fairness: FACE, FACT (on avverage or on conditional average level)
+			\item Individuelle Fairness: counterfactual fairness, path-based fairness
+		\end{itemize}
+    \end{columns}
+\end{frame}
+
 % Weitere Resourcen
 \begin{frame}{Ressourcen für Fairness in Machine Learning}
     \begin{itemize}
@@ -329,38 +362,7 @@ belowskip = -1.2 \baselineskip,
     \end{table}
 \end{frame}
 
-% Kausale Fairness
-\begin{frame}{Ist die Gruppenzugehörigkeit der Grund für die Festnahme? \\ - kausale Definitionen}
-    \begin{columns}
-        \column{0.4\textwidth}
-        \centering
-		\begin{tikzpicture}[node distance=3cm, >=stealth', thick]
-			% Nodes
-			\node (Race) [circle, draw, fill=blue!20] {Race};
-			\node (Precinct) [circle, draw, fill=yellow!20, right of=Race] {Precinct};
-			\node (Arrest) [circle, draw, fill=red!20, below of=Precinct] {Arrest};
-		
-			% Arrows
-			\draw[->] (Race) -- (Arrest);
-			\draw[->] (Precinct) -- (Arrest);
-		\end{tikzpicture}
-		
-        \column{0.4\textwidth}
-        \centering
-        {\small
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            Race & Precinct & Prior Offenses & Arrest \\
-            \hline
-            Black & 1 & Yes & Yes \\
-            White & 2 & No & No \\
-            Hispanic & 1 & Yes & No \\
-            Asian & 3 & No & No \\
-            \hline
-        \end{tabular}
-        }
-    \end{columns}
-\end{frame}
+
 
 
 \end{document}

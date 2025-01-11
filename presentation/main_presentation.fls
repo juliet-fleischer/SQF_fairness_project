@@ -1795,6 +1795,12 @@ INPUT main_presentation.toc
 INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
+INPUT ../figures/lmu_logo.png
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -1804,9 +1810,6 @@ INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
-INPUT ../figures/lmu_logo.png
-INPUT ../figures/lmu_logo.png
-INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png
 INPUT ../figures/lmu_logo.png

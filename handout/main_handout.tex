@@ -1,90 +1,86 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{}
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\title{Révision français}
-\author{Juliet Fleischer}
-\date{Januar 2025}
-
-\renewcommand{\baselinestretch}{0.2}
-
-\setlength{\hoffset}{-18pt}         
-\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
-\setlength{\evensidemargin}{0pt} % Marge gauche sur pages paires
-\setlength{\marginparwidth}{54pt} % Largeur de note dans la marge
-\setlength{\textwidth}{481pt} % Largeur de la zone de texte (17cm)
-\setlength{\voffset}{-18pt} % Bon pour DOS
-\setlength{\marginparsep}{7pt} % Séparation de la marge
-\setlength{\topmargin}{0pt} % Pas de marge en haut
-\setlength{\headheight}{13pt} % Haut de page
-\setlength{\headsep}{4pt} % Entre le haut de page et le texte
-\setlength{\footskip}{27pt} % Bas de page + séparation
-\setlength{\textheight}{720pt} % Hauteur de la zone de texte (25cm)
-
 \usepackage{natbib}
 \usepackage{graphicx}
-\usepackage{amsmath} % Load for \text command
-\usepackage{amsfonts} % Optional for additional math symbols
+\usepackage{amsmath} % For math commands
+\usepackage{amsfonts} % For additional math symbols
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{enumitem} % For compact lists
+\usepackage{fancyhdr} % For custom header and footer
+
+% Minimalistic header
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{\small Juliet Fleischer \hfill Januar 2025}  % Left-aligned header with name and date
+
+% Margins and layout adjustments
+\setlength{\hoffset}{-18pt}
+\setlength{\oddsidemargin}{0pt} 
+\setlength{\evensidemargin}{0pt}
+\setlength{\marginparwidth}{54pt}
+\setlength{\textwidth}{481pt}
+\setlength{\voffset}{-18pt}
+\setlength{\marginparsep}{7pt}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{12pt}  % Minimal height for the header
+\setlength{\headsep}{10pt}  % Space between header and text
+\setlength{\footskip}{27pt}
+\setlength{\textheight}{720pt}
 
 \begin{document}
 
-\section*{Fairness Metrics}
+\section{(Some) Fairness Metrics}
 
 \subsection*{Independence}
 \begin{itemize}[leftmargin=2em]
-    \item \textbf{Statistical Parity (Demographic Parity)} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$
-    \end{itemize}
-
-    \item \textbf{Conditional Statistical Parity} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = 1 | E = e, A = a) = P(\hat{Y} = 1 | E = e, A = b)$
-        \item \textit{E is a set of legitimate features that may affect the outcome.}
-    \end{itemize}
+    \item Statistical Parity/Demographic Parity: $P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$
+    \item Conditional Statistical Parity: $P(\hat{Y} = 1 | E = e, A = a) = P(\hat{Y} = 1 | E = e, A = b)$ \\ \textit{E is a set of legitimate features that may affect the outcome.}
 \end{itemize}
 
 \subsection*{Separation}
 \begin{itemize}[leftmargin=2em]
-    \item \textbf{Equalized Odds} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b)$ \newline
-        $\forall y \in \{0, 1\}$
-        \item \texttt{mlr3}: \texttt{fairness.equalized.odds} \newline
-        (Averages \texttt{fairness.fpr} and \texttt{fairness.tpr})
-    \end{itemize}
-
-    \item \textbf{Equal Opportunity} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$
-        \item \textit{Requires equal TPR and FNR to be satisfied at the same time.}
-        \item \texttt{mlr3}: \texttt{fairness.tpr}
-    \end{itemize}
-
-    \item \textbf{Predictive Equality} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ \newline
-        $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$
-        \item \textit{Requires equal FPR and TNR to be satisfied at the same time.}
-        \item \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
-    \end{itemize}
+    \item Equalized Odds: $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$ \\ \texttt{mlr3}: \texttt{fairness.equalized.odds}
+    \item Equal Opportunity/ False negative error rate balance: $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.tpr}
+    \item Predictive Equality/ False positive error rate balance: $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ or \\ $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
+    \item Treatment Equality: $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
 \end{itemize}
 
 \subsection*{Sufficiency}
 \begin{itemize}[leftmargin=2em]
-    \item \textbf{Overall Accuracy Equality} \hfill [XX]
-    \begin{itemize}
-        \item $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$
-        \item \texttt{mlr3}: \texttt{fairness.acc}
-    \end{itemize}
-
-    \item \textbf{Treatment Equality} \hfill [XX]
-    \begin{itemize}
-        \item $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
-    \end{itemize}
+    \item Predictive parity/ outcome test: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.ppv}
+    \item Equal true negative rate: $P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.npv}
+    \item Equal false omissionr rate*: $P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fomr}
+    \item Equal false discovery rate*: $P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$ 
+    \item Conditional use accuracy equality: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b) \land P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$
 \end{itemize}
 
+\subsection*{Score-based}
+\begin{itemize}
+    \item Calibration: $P(Y = 1 | S = s, A = a) = P(Y = 1 | S = s, A = b)$
+    \item Well-calibration: $P(Y = 1 | S = s, A = a) = P(Y = 1 | S = s, A = b) = s$
+    \item Balance for positive class: $E(S \mid Y = 1, A = a) = E(S \mid Y = 1, A = b)$
+    \item Balance for negative class: $E(S \mid Y = 0, A = a) = E(S \mid Y = 0, A = b)$
+\end{itemize}
+\subsection*{Other}
+\begin{itemize}
+    \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \\ \texttt{mlr3}: \texttt{fairness.acc}
+\end{itemize}
+
+* not officially defined in any of the three papers, but following the same principles as all confusion matrix based metrics
+% Verma RUbin, Surveys, mlr3 vignette
+
+% Fairness Methoden
+\section{Fairness Methods}
+\begin{itemize}
+    \item Preprocessing
+    \item Inprocessing
+    \item Postprocessing
+\end{itemize}
+
+\section{Sources of bias and the feedback loop}
+
+% Sources
 
 \end{document}
