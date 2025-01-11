@@ -1,14 +1,14 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{natbib}
 \usepackage{graphicx}
-\usepackage{amsmath} % For math commands
-\usepackage{amsfonts} % For additional math symbols
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{enumitem} % For compact lists
-\usepackage{fancyhdr} % For custom header and footer
+\usepackage{amsmath}  % Math support
+\usepackage{amsfonts} % Extra math symbols
+\usepackage{booktabs} % For tables
+\usepackage{array}    % Table formatting
+\usepackage{enumitem} % Compact lists
+\usepackage{fancyhdr} % For custom header
+\usepackage[backend=biber,style=authoryear]{biblatex}  % For citations and bibliography
 
 % Minimalistic header
 \pagestyle{fancy}
@@ -25,13 +25,18 @@
 \setlength{\marginparsep}{7pt}
 \setlength{\topmargin}{0pt}
 \setlength{\headheight}{12pt}  % Minimal height for the header
+\setlength{\headwidth}{490pt}
 \setlength{\headsep}{10pt}  % Space between header and text
 \setlength{\footskip}{27pt}
 \setlength{\textheight}{720pt}
 
+% Bibliography file
+\addbibresource{../literature.bib}  % Your exported .bib file
+
+
 \begin{document}
 
-\section{(Some) Fairness Metrics}
+\section{Fairness Metrics \parencite{verma2018}}
 
 \subsection*{Independence}
 \begin{itemize}[leftmargin=2em]
@@ -73,14 +78,29 @@
 
 % Fairness Methoden
 \section{Fairness Methods}
+% insert image
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/fairness_methods.png}
+    \caption{Fairness methods can be applied at different stages of the machine learning pipeline\parencite{caton2024}.}
+\end{figure}
 \begin{itemize}
-    \item Preprocessing
-    \item Inprocessing
-    \item Postprocessing
+    \item Preprocessing: Resampling, Transformation, etc.
+    \item Inprocessing: Regularisation and Constraint Optimisation, Adversarial Learning, etc.
+    \item Postprocessing: Thresholding, Calibration, etc.
 \end{itemize}
 
 \section{Sources of bias and the feedback loop}
+% insert image
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
+    \caption{Bias can come into the process at any stage of the data, algorithm, and user feedback loop\parencite{mehrabi2022}.}
+\end{figure} 
 
-% Sources
+% References
+\renewcommand{\bibfont}{\scriptsize}  % Set bibliography font size globally
+\printbibliography
+
 
 \end{document}
