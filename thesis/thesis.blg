@@ -1,46 +1,15 @@
-This is BibTeX, Version 0.99d (TeX Live 2023)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: thesis.aux
-The style file: dcu.bst
-Database file #1: ../literature.bib
-You've used 1 entry,
-            2921 wiz_defined-function locations,
-            643 strings with 4860 characters,
-and the built_in function-call counts, 2879 in all, are:
-= -- 449
-> -- 47
-< -- 0
-+ -- 202
-- -- 14
-* -- 241
-:= -- 613
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 14
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 14
-empty$ -- 32
-format.name$ -- 20
-if$ -- 510
-int.to.chr$ -- 5
-int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 10
-pop$ -- 5
-preamble$ -- 1
-purify$ -- 15
-quote$ -- 0
-skip$ -- 11
-stack$ -- 0
-substring$ -- 604
-swap$ -- 1
-text.length$ -- 14
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 23
-width$ -- 0
-write$ -- 16
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[144] biber-darwin:340> INFO - === Sat Jan 11, 2025, 21:41:03
+[174] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[330] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
+[353] Biber.pm:4419> INFO - Processing section 0
+[371] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
+[382] bibtex.pm:1713> INFO - LaTeX decoding ...
+[503] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
+[603] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[603] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[603] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[603] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[606] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[608] bbl.pm:763> INFO - Output to thesis.bbl

@@ -19,6 +19,7 @@
 \usepackage{pdfpages}
 \usepackage{datetime}
 
+
 \input{shortcuts.tex}
 
 \usepackage{longtable}
@@ -58,7 +59,9 @@ bindingoffset = 0mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
 \usepackage{xcolor}
-\usepackage[round, comma]{natbib}
+% \usepackage[round, comma]{natbib}
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{../literature.bib}
 \usepackage{fancyhdr}
 \newcommand{\changefont}{%
     \fontsize{8}{11}\selectfont
@@ -201,6 +204,9 @@ support have been invaluable to me and I am very grateful for that.
 \input{chapters/intro.tex}
 \newpage
 
+% \includeonly{chapters/introduction.tex, chapters/results.tex}
+% include{}
+
 % \section{Data}
 % \label{Data}
 % \input{Chapter/Data.tex}
@@ -237,8 +243,9 @@ Data, code and illustrations are available in electronic form. \bigskip
 % ------------------------------------------------------------------------------
 
 \RaggedRight
-\bibliography{../literature.bib}
-\bibliographystyle{dcu}
+% \bibliography{../literature.bib}
+% \bibliographystyle{dcu}
+\printbibliography
 \newpage
 % ------------------------------------------------------------------------------
 % DECLARATION OF AUTHORSHIP-----------------------------------------------------

@@ -1,8 +1,78 @@
-\begin{thebibliography}{xx}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\harvarditem{Caton \harvardand\ Haas}{n.d.}{caton2024}
-Caton, S. \harvardand\ Haas, C.  \harvardyearleft n.d.\harvardyearright .
-\newblock Fairness in {{Machine Learning}}: {{A Survey}},  {\bf 56}(7):~1--38.
-\newline\harvardurl{https://dl.acm.org/doi/10.1145/3616865}
 
-\end{thebibliography}
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{verma2018}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=83905e77def6a8cd568f21d89ce43fc8}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Sahil},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e668b98b45e06d4af2230904d870f6e8}{%
+           family={Rubin},
+           familyi={R\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Gothenburg Sweden}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \strng{fullhash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \strng{bibnamehash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \strng{authorbibnamehash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \strng{authornamehash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \strng{authorfullhash}{d2d267df27eeb3b8c2bbbf8ae4b7ef30}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Algorithm fairness has started to attract the attention of researchers in AI, Software Engineering and Law communities, with more than twenty different notions of fairness proposed in the last few years. Yet, there is no clear agreement on which definition to apply in each situation. Moreover, the detailed differences between multiple definitions are difficult to grasp. To address this issue, this paper collects the most prominent definitions of fairness for the algorithmic classification problem, explains the rationale behind these definitions, and demonstrates each of them on a single unifying case-study. Our analysis intuitively explains why the same case can be considered fair according to some definitions and unfair according to others.}
+      \field{booktitle}{Proceedings of the {{International Workshop}} on {{Software Fairness}}}
+      \field{isbn}{978-1-4503-5746-3}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{Fairness Definitions Explained}
+      \field{urlday}{16}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1145/3194770.3194776
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Verma2018Fde/Verma und Rubin - 2018 - Fairness definitions explained.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
