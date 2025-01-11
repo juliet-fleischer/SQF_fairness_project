@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  11 JAN 2025 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  11 JAN 2025 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1273,13 +1273,28 @@ Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 314.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 [14
 
-]
-No file "main_presentation Kopie".bbl.
+] (./main_presentation Kopie.bbl)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
 Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 320.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
-[15
+ [15
+
+ </usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 320.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [16
+
+
+]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 320.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [17
+
 
 ]
 No file "main_presentation Kopie".toc.
@@ -1287,7 +1302,7 @@ File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
 Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 323.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
-[16
+[18
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 332.
@@ -1298,14 +1313,14 @@ File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
 Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 332.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [17
+ [19
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
 Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 359.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [18
+ [20
 
 ]
 Overfull \hbox (28.40477pt too wide) in paragraph at lines 392--392
@@ -1316,7 +1331,7 @@ File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
 Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 392.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
-[19
+[21
 
 ]
 \tf@nav=\write6
@@ -1333,6 +1348,9 @@ Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 392.
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
 Package rerunfilecheck Warning: File `"main_presentation Kopie".out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
@@ -1342,18 +1360,18 @@ Package rerunfilecheck Info: Checksums for `"main_presentation Kopie".out':
 (rerunfilecheck)             After:  62F6C2FFD78A6CD855B5BD42EBF21988;129.
  ) 
 Here is how much of TeX's memory you used:
- 30987 strings out of 476025
- 620928 string characters out of 5790017
+ 31060 strings out of 476025
+ 623046 string characters out of 5790017
  1864388 words of memory out of 5000000
- 50758 multiletter control sequences out of 15000+600000
+ 50817 multiletter control sequences out of 15000+600000
  696005 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,481b,1065s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on "main_presentation Kopie.pdf" (19 pages, 4855604 bytes).
+Output written on "main_presentation Kopie.pdf" (21 pages, 4862774 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 238 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

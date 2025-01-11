@@ -40,6 +40,14 @@
 	\tableofcontents[currentsection]
 \end{frame}
 }
+\newcommand{\FirstAgendaSlide}{
+  \begin{frame}[plain]
+    \frametitle{Agenda}
+    \setcounter{tocdepth}{1}
+    \tableofcontents[sectionstyle=show/show, pausesubsections=false]
+  \end{frame}
+}
+
 
 % Remove navigation 
 \beamertemplatenavigationsymbolsempty
@@ -91,7 +99,7 @@ belowskip = -1.2 \baselineskip,
 \begin{frame}
 \begin{columns}
 	\begin{column}{0.4\textwidth}
-		\vspace{3cm}
+		\vspace{2.5cm}
 		
 		\textbf{\textcolor{white}{\Large Fair Machine Learning}}
 		\vspace{1cm}
@@ -100,7 +108,7 @@ belowskip = -1.2 \baselineskip,
 			\today}
 	\end{column}
 	\begin{column}{0.49\textwidth}
-		\vspace{2cm}
+		\vspace{3cm}
 		\begin{center}
 			\includegraphics[width=0.55\textwidth]{../figures/fairness_title.jpg}
 		\end{center}
@@ -112,40 +120,24 @@ belowskip = -1.2 \baselineskip,
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
+\FirstAgendaSlide
+
 
 \section{Gruppen Fairness}
-\begin{frame}{Ist die Entscheidung zur Festnahme fair?}
+\begin{frame}{Ist die Vorhersage fair?}
     % Full-width text
     \begin{itemize}
-		\item Ziel: Polizei helfen vorherzusagenm ob Person eine Waffe trägt
-        \item Trainingsdaten: Stop, Question, Frisk Daten von NYPD
-        \item Zielvariable: Waffe gefunden  (0 = Keine Waffe, 1 = Waffe)
-        \item \textbf{Protected Attribute}: Ethnie
+		\item<1-> Ziel: Kriminalitätsrate reduzieren
+        \item<2-> Trainingsdaten: vergangene Polizeistops
+        \item<3-> Zielvariable: Straftat begangen  (0 = Nein, 1 = Ja)
+        \item<4-> \textbf{Protected Attribute}: Ethnie
     \end{itemize}
-
-    \vspace{0.5cm} % Adds some space between the text and the table/image
-
-    % Lower half: columns for table and image
-    \begin{columns}[c] % [c] centers the columns vertically
-        % First column: Table
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item an image to illustrate
-			\end{itemize}
-		\end{column}
-        % Second column: Image
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{../figures/bias_loop.png}
-        \end{column}
-    \end{columns}
 \end{frame}
 
 
 
 % Gruppen Fairness - Independence
 \begin{frame}[t]{Gleiche Vorhersageraten zwischen Gruppen sind fair} % [t] aligns content at the top
-    \vspace*{0.3cm} % Adds small space below the title (optional)
 	\begin{table}
         \begin{tabular}{lll}
             \toprule
@@ -156,16 +148,14 @@ belowskip = -1.2 \baselineskip,
         \end{tabular}
     \end{table}
 	\begin{itemize}
-		\item Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
-		\item Vorhersageraten zwischen Gruppen sollen gleich sein
+		\item<2-> Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
+		\item<3-> Vorhersageraten zwischen Gruppen sollen gleich sein
+		\item<4-> z.B. Statistical Parity 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$ %  \cite{verma2018}
 	\end{itemize}
-	z.B. Statistical Parity \\ %  \cite{verma2018}
-	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
 \end{frame}
 
 % Gruppen Fairness - Separation
 \begin{frame}[t]{Fairness anhand der Fehlermatrix konstruieren}
-	\vspace*{0.3cm} % Adds small space below the title (optional)
 	\begin{table}
         \begin{tabular}{lll}
             \toprule
@@ -178,28 +168,26 @@ belowskip = -1.2 \baselineskip,
 	\begin{columns}
 		\column{0.5\textwidth}
 		\raggedright  % Left-aligns text
-		\text{Separation:}
 		\begin{itemize}
-			\item Fokus auf gleichen Fehlerraten zwischen Gruppen, z.B. Predictive Equality %\cite{verma2018}
+			\item<2-> \textbf{Separation:} Fokus auf gleichen Fehlerraten zwischen Gruppen
+			\item<4-> z.B. Predictive Equality $$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$ %\cite{verma2018}
+			\item<5-> \textbf{Sufficiency:} Zuverlässigkeit der Vorhersage soll gleich sein% \cite{verma2018}
+			\item<6-> z.B. Predictive Parity  $$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
 		\end{itemize}
-		$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$\\
-		\text{Sufficiency:}
-		\begin{itemize}
-			\item Zuverlässigkeit der Vorhersage soll gleich sein, z.B. Predictive Parity % \cite{verma2018}
-		\end{itemize}
-		$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$
 		\column{0.5\textwidth}
-		\begin{center}
-			\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
-			\begin{tabular}{c|c|c|}
-				& \color{blue}\(Y = 0\) & \color{blue}\(Y = 1\) \\
-				\hline
-				\color{red}\(\hat{Y} = 0\) & TN & FN \\
-				\hline
-				\color{red}\(\hat{Y} = 1\) & FP & TP \\
-				\hline
-			\end{tabular}
-		\end{center}
+		\onslide<3->{
+			\begin{center}
+				\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+				\begin{tabular}{c|c|c|}
+					& \color{blue}\(Y = 0\) & \color{blue}\(Y = 1\) \\
+					\hline
+					\color{red}\(\hat{Y} = 0\) & TN & FN \\
+					\hline
+					\color{red}\(\hat{Y} = 1\) & FP & TP \\
+					\hline
+				\end{tabular}
+			\end{center}
+		}
 	\end{columns}
 \end{frame}
 
@@ -207,19 +195,18 @@ belowskip = -1.2 \baselineskip,
 
 %Gruppen Fairness - Sufficiency
 \begin{frame}[t]{Zahlreiche Variationen von Gruppen-Metriken}
-	\vspace*{0.3cm} % Adds small space below the title (optional)
 	\begin{table}
 		\begin{tabular}{lll}
 			\toprule
-			Independence & Separation & \color{orange}{Sufficiency} \\
+			Independence & Separation & {Sufficiency} \\
 			\midrule
-			$\hat{Y} \perp A$ & $\hat{Y} \perp A | Y$ & \color{orange}{$Y \perp A | \hat{Y}$}\\
+			$\hat{Y} \perp A$ & $\hat{Y} \perp A | Y$ & {$Y \perp A | \hat{Y}$}\\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	\begin{itemize}
-		\item Sowohl Separation als auch Sufficiency können statt mit $\hat{Y}$ auch mit S definiert werden, z.B. Calibration 	$$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$$
-		\item oder Well-calibration $$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s) = s$$
+		\item<2-> Sowohl Separation als auch Sufficiency können statt mit $\hat{Y}$ auch mit S definiert werden, z.B. Calibration 	$$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$$
+		\item<3-> oder Well-calibration $$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s) = s$$
 	\end{itemize}
 
 \end{frame}
@@ -231,8 +218,10 @@ belowskip = -1.2 \baselineskip,
 		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll % \cite{castelnovo2022}
 	\end{itemize}
 	\vspace*{0.5cm}
-	\centering
-	$\rightarrow$ normalerweise nicht miteinander vereinbar
+	\onslide<2->{
+		\centering
+		$\Rightarrow$ normalerweise nicht miteinander vereinbar
+	}
 \end{frame}
 
 
@@ -244,20 +233,19 @@ belowskip = -1.2 \baselineskip,
 		\item Verständnis von Fairness: Fairness bedeutet, dass gleiche Personen gleich behandelt werden
 	\end{itemize}
     \begin{enumerate}
-		\item Fairness through Awareness (FTA)
+		\item<2-> Fairness through Awareness (FTA)
         \begin{itemize}
-            \item Lipschitz-Kriterium %\cite{castelnovo2022}:
+            \item<3-> Lipschitz-Kriterium %\cite{castelnovo2022}:
             \[
             d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda {\color{orange}{d_X}}(x_i, x_j)
             \] 
-            \item Definition des {\color{orange}Distanzmaßes $d_X$} im Feature Space ist eine Herausforderung
+            \item<4-> Definition des {\color{orange}Distanzmaßes $d_X$} im Feature Space ist eine Herausforderung
         \end{itemize}
-
-        \item Fairness through Unawareness (FTU) = Blinding
+        \item<5-> Fairness through Unawareness (FTU) = Blinding
         \begin{itemize}
-            \item Vorgehensvorschrift: PA soll nicht im Entscheidungsprozess verwendet werden
-            \item Keine eindeutige mathematische Definition, sondern verschiedene Ansätze zum Testen von FTU
-            \item Problem der \textbf{Proxis} (Variablen, die mit PA hoch korreliert sind)
+            \item<6-> Vorgehensvorschrift: PA soll nicht im Entscheidungsprozess verwendet werden
+            \item<7-> Keine eindeutige mathematische Definition, sondern verschiedene Ansätze zum Testen von FTU
+            \item<8-> Problem der \textbf{Proxis} (Variablen, die mit PA hoch korreliert sind)
         \end{itemize}
     \end{enumerate}
 \end{frame}
@@ -268,33 +256,32 @@ belowskip = -1.2 \baselineskip,
 \begin{frame}
 	\frametitle{Wie sorgen wir für algorithmische Fairness?}
 	\begin{itemize}
-		\item Preprocessing : Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation %\cite{caton2024}
-		\item Inprocessing: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
-		\item Postprocessing:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
-		\item Interpretable ML Methoden können hier auch sehr helfen!
+		\item<1-> Preprocessing : Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation %\cite{caton2024}
+		\item<2-> Inprocessing: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
+		\item<3-> Postprocessing:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
+		\item<4-> Interpretable ML Methoden können hier auch sehr helfen!
 	\end{itemize}
 \end{frame}
 
 
-\section{Quellen von Bias}
+\section{Bias und die Feedback Loop}
 % Quellen von Bias
 \begin{frame}{Woher kommt Bias?}
 	% insert an image
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
-		\caption{Quellen von Bias in Machine Learning Modellen} % \cite{mehrabi2022}
+		\caption{Quellen von Bias in der Daten, Nutzer, Algorithmus Feedback Loop} % \cite{mehrabi2022}
 	\end{figure}
 \end{frame}
 
 % Fazit und Ausblick
 \begin{frame}{Wie geht es weiter?}
 	\begin{itemize}
-		\item binäre Klassifikation, ein PA ist simpelster Fall
-		\item in Praxis eher mehrere PAs und vielfältige Aufgaben\\ $\rightarrow$ regression, unsupervised learning, ...
+		\item<1-> binäre Klassifikation, ein PA ist simpelster Fall
+		\item<2-> in Praxis eher mehrere PAs und vielfältige Aufgaben\\ $\rightarrow$ regression, unsupervised learning, ...
+		\item<3-> Es gibt (noch) nicht, die \textbf{eine} Definition von Fairness
 	\end{itemize}
-	\vspace*{1cm}
-	\text{Fazit:} \\ Fairness ist ein komplexes Thema, das Zusammenarbeit vieler Disziplinen erfordert \\ Es gibt (noch) nicht, die \textbf{eine} Definition von Fairness
 \end{frame}
 
 % \begin{frame}[allowframebreaks]

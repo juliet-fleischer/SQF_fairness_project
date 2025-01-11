@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1736591152 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736591158 0
+["pdflatex"] 1736599751 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736599757 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
-  "../figures/fairness_title.jpg" 1736233861 4446795 0bf6b9b83210c8b326c778906651f114 ""
+  "../figures/fairness_title.jpg" 1736599632 4931848 0c18dbc9ffd1d50b8fc7473322f88753 ""
   "../figures/lmu-background.pdf" 1735377963 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "../figures/lmu_logo.png" 1735377960 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736591147 12300 c96844c8d31826cff3067ce790db71da ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736599751 11757 b8f7f24360cdcc7673b804d4947be669 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1587936753 3021 665788e9679767ade2a71155215d25e0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -263,11 +263,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main_presentation.aux" 1736591157 4699 8293c63edb63d4b32d497e1f47d8509c "pdflatex"
-  "main_presentation.nav" 1736591157 2681 148723ef597aa222aa184df412957118 "pdflatex"
-  "main_presentation.out" 1736591157 126 1559016d9663026618347bb0a6979c3b "pdflatex"
-  "main_presentation.tex" 1736591147 12300 c96844c8d31826cff3067ce790db71da ""
-  "main_presentation.toc" 1736591157 295 00fd15de82482938a260ca71e0613178 "pdflatex"
+  "main_presentation.aux" 1736599756 4883 12c2404848f4a53b72ee161fefa625e2 "pdflatex"
+  "main_presentation.nav" 1736599756 2818 4a297189b2db3706b7a2ea24d1c7f339 "pdflatex"
+  "main_presentation.out" 1736599753 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main_presentation.tex" 1736599751 11757 b8f7f24360cdcc7673b804d4947be669 ""
+  "main_presentation.toc" 1736599756 306 ba67763aac95ed3d483ba7b43f105ce9 "pdflatex"
   (generated)
   "main_presentation.aux"
   "main_presentation.log"
