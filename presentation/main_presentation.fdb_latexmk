@@ -1,18 +1,10 @@
 # Fdb version 4
-["bibtex main_presentation"] 1736324262 "main_presentation.aux" "main_presentation.bbl" "main_presentation" 1736324263 2
-  "../literature.bib" 1736235894 62048 dd09aa3e9f65d50e43ca6cd3d61edc82 ""
-  "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main_presentation.aux" 1736324262 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  (generated)
-  "main_presentation.bbl"
-  "main_presentation.blg"
-  (rewritten before read)
-["pdflatex"] 1736324257 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736324262 2
+["pdflatex"] 1736591152 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736591158 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
   "../figures/fairness_title.jpg" 1736233861 4446795 0bf6b9b83210c8b326c778906651f114 ""
   "../figures/lmu-background.pdf" 1735377963 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "../figures/lmu_logo.png" 1735377960 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736324257 12871 70e69db075380b6c107ca230e65c22a8 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" 1736591147 12300 c96844c8d31826cff3067ce790db71da ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1587936753 3021 665788e9679767ade2a71155215d25e0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -255,7 +247,6 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/sourcesanspro/T1SourceSansPro-TLF.fd" 1587936753 6595 d29a190e70dfce87f0c64c45977f2f94 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty" 1587936753 6172 8007ee7cf6262667ed58bbed36a42c35 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/textpos/textpos.sty" 1658612320 12842 35403bda336a71a37a5edc37b78e3ec3 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/.tex" 1654720880 1386 460f979020f33d0d7e4a76360c803835 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/enumerate.sty" 1654720880 3468 46ba9177f0f0a79fe79845d3eebff113 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty" 1667332637 7392 f19cdc68ae9f1190dbd54eee6d29fb7c ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict" 1596662134 3535 7dc96051305a7e943219126c49c44cd6 ""
@@ -272,12 +263,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main_presentation.aux" 1736324262 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "main_presentation.bbl" 1736324263 0 d41d8cd98f00b204e9800998ecf8427e "bibtex main_presentation"
-  "main_presentation.nav" 1736324261 2957 5802a331db5bba85ec6772459d201e0b "pdflatex"
-  "main_presentation.out" 0 -1 0 "pdflatex"
-  "main_presentation.tex" 1736324257 12871 70e69db075380b6c107ca230e65c22a8 ""
-  "main_presentation.toc" 0 -1 0 "pdflatex"
+  "main_presentation.aux" 1736591157 4699 8293c63edb63d4b32d497e1f47d8509c "pdflatex"
+  "main_presentation.nav" 1736591157 2681 148723ef597aa222aa184df412957118 "pdflatex"
+  "main_presentation.out" 1736591157 126 1559016d9663026618347bb0a6979c3b "pdflatex"
+  "main_presentation.tex" 1736591147 12300 c96844c8d31826cff3067ce790db71da ""
+  "main_presentation.toc" 1736591157 295 00fd15de82482938a260ca71e0613178 "pdflatex"
   (generated)
   "main_presentation.aux"
   "main_presentation.log"

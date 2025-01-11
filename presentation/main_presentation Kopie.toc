@@ -1,0 +1,6 @@
+\babel@toc {ngerman}{}\relax 
+\beamer@sectionintoc {1}{Quellen von Bias}{3}{0}{1}
+\beamer@sectionintoc {2}{Gruppen Fairness}{5}{0}{2}
+\beamer@sectionintoc {3}{Individuelle Fairness}{10}{0}{3}
+\beamer@sectionintoc {4}{Fairness Methoden}{12}{0}{4}
+\beamer@sectionintoc {5}{Extra Folien}{16}{0}{5}
