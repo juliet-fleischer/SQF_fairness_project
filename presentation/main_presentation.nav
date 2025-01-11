@@ -42,19 +42,26 @@
 \headcommand {\beamer@framepages {39}{41}}
 \headcommand {\beamer@sectionpages {37}{41}}
 \headcommand {\beamer@subsectionpages {37}{41}}
-\headcommand {\sectionentry {5}{Extra Folien}{42}{Extra Folien}{0}}
-\headcommand {\slideentry {5}{0}{1}{42/42}{}{0}}
+\headcommand {\sectionentry {5}{Literatur}{42}{Literatur}{0}}
+\headcommand {\slideentry {5}{0}{0}{42/42}{}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\slideentry {5}{0}{2}{43/43}{}{0}}
-\headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {5}{0}{3}{44/44}{}{0}}
+\headcommand {\slideentry {5}{0}{0}{42/43}{}{0}}
+\headcommand {\beamer@framepages {42}{43}}
+\headcommand {\beamer@sectionpages {37}{43}}
+\headcommand {\beamer@subsectionpages {37}{43}}
+\headcommand {\sectionentry {6}{Extra Folien}{44}{Extra Folien}{0}}
+\headcommand {\slideentry {6}{0}{1}{44/44}{}{0}}
 \headcommand {\beamer@framepages {44}{44}}
-\headcommand {\slideentry {5}{0}{4}{45/45}{}{0}}
+\headcommand {\slideentry {6}{0}{2}{45/45}{}{0}}
 \headcommand {\beamer@framepages {45}{45}}
-\headcommand {\slideentry {5}{0}{5}{46/46}{}{0}}
+\headcommand {\slideentry {6}{0}{3}{46/46}{}{0}}
 \headcommand {\beamer@framepages {46}{46}}
-\headcommand {\beamer@partpages {1}{46}}
-\headcommand {\beamer@subsectionpages {42}{46}}
-\headcommand {\beamer@sectionpages {42}{46}}
-\headcommand {\beamer@documentpages {46}}
-\headcommand {\gdef \inserttotalframenumber {15}}
+\headcommand {\slideentry {6}{0}{4}{47/47}{}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {6}{0}{5}{48/48}{}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\beamer@partpages {1}{48}}
+\headcommand {\beamer@subsectionpages {44}{48}}
+\headcommand {\beamer@sectionpages {44}{48}}
+\headcommand {\beamer@documentpages {48}}
+\headcommand {\gdef \inserttotalframenumber {17}}

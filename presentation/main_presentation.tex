@@ -20,12 +20,15 @@
 \usepackage{float}
 \usepackage{tikz} % for DAGs
 \usetikzlibrary{positioning, arrows, arrows.meta}
+\usepackage[backend=biber,style=numeric]{biblatex}  % Numeric citations
 \usepackage{hyperref} % for URLs
 \newcommand{\gray}{\rowcolor[gray]{.90}}
 \usepackage{verbatim}
 \usepackage{textpos} % logo position
 \usepackage[default]{sourcesanspro} % font type
 \usepackage{cases} % math cases
+
+\addbibresource{../literature.bib}  % Your exported .bib file
 
 % Caption
 \usepackage{caption}
@@ -150,7 +153,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{itemize}
 		\item<2-> Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
 		\item<3-> Vorhersageraten zwischen Gruppen sollen gleich sein
-		\item<4-> z.B. Statistical Parity 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$ %  \cite{verma2018}
+		\item<4-> z.B. Statistical Parity \cite{verma2018} 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$ % 
 	\end{itemize}
 \end{frame}
 
@@ -170,9 +173,9 @@ belowskip = -1.2 \baselineskip,
 		\raggedright  % Left-aligns text
 		\begin{itemize}
 			\item<2-> \textbf{Separation:} Fokus auf gleichen Fehlerraten zwischen Gruppen
-			\item<4-> z.B. Predictive Equality $$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$ %\cite{verma2018}
-			\item<5-> \textbf{Sufficiency:} Zuverlässigkeit der Vorhersage soll gleich sein% \cite{verma2018}
-			\item<6-> z.B. Predictive Parity  $$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
+			\item<4-> z.B. Predictive Equality \cite{verma2018} $$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$
+			\item<5-> \textbf{Sufficiency:} Zuverlässigkeit der Vorhersage soll gleich sein
+			\item<6-> z.B. Predictive Parity \cite{verma2018} $$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
 		\end{itemize}
 		\column{0.5\textwidth}
 		\onslide<3->{
@@ -213,9 +216,9 @@ belowskip = -1.2 \baselineskip,
 
 \begin{frame}{Gruppenmetriken im Überblick}
 	\begin{itemize}
-		\item Sufficiency nimmt Perspektive des Entscheidenden an
-		\item Separation gut, wenn Y durch einen objektiv wahren Prozess entstanden ist
-		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll % \cite{castelnovo2022}
+		\item Sufficiency nimmt Perspektive des Entscheidenden an \cite{castelnovo2022}
+		\item Separation gut, wenn Y durch einen objektiv wahren Prozess entstanden ist \cite{castelnovo2022}
+		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
 	\end{itemize}
 	\vspace*{0.5cm}
 	\onslide<2->{
@@ -233,9 +236,9 @@ belowskip = -1.2 \baselineskip,
 		\item Verständnis von Fairness: Fairness bedeutet, dass gleiche Personen gleich behandelt werden
 	\end{itemize}
     \begin{enumerate}
-		\item<2-> Fairness through Awareness (FTA)
+		\item<2-> Fairness through Awareness \cite{dwork2012} (FTA)
         \begin{itemize}
-            \item<3-> Lipschitz-Kriterium %\cite{castelnovo2022}:
+            \item<3-> Lipschitz-Kriterium \cite{castelnovo2022}:
             \[
             d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda {\color{orange}{d_X}}(x_i, x_j)
             \] 
@@ -256,9 +259,9 @@ belowskip = -1.2 \baselineskip,
 \begin{frame}
 	\frametitle{Wie sorgen wir für algorithmische Fairness?}
 	\begin{itemize}
-		\item<1-> Preprocessing : Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation %\cite{caton2024}
-		\item<2-> Inprocessing: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
-		\item<3-> Postprocessing:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
+		\item<1-> Preprocessing \cite{caton2024}: Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation
+		\item<2-> Inprocessing \cite{caton2024}: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
+		\item<3-> Postprocessing \cite{caton2024}:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
 		\item<4-> Interpretable ML Methoden können hier auch sehr helfen!
 	\end{itemize}
 \end{frame}
@@ -271,7 +274,7 @@ belowskip = -1.2 \baselineskip,
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
-		\caption{Quellen von Bias in der Daten, Nutzer, Algorithmus Feedback Loop} % \cite{mehrabi2022}
+		\caption{Quellen von Bias in der Daten, Nutzer, Algorithmus Feedback Loop \cite{mehrabi2022}}
 	\end{figure}
 \end{frame}
 
@@ -284,11 +287,10 @@ belowskip = -1.2 \baselineskip,
 	\end{itemize}
 \end{frame}
 
-% \begin{frame}[allowframebreaks]
-% 	\frametitle{Referenzen}
-% 	\bibliographystyle{plain}
-% 	\bibliography{../literature.bib}
-% \end{frame}
+\begin{frame}[allowframebreaks]
+	\frametitle{Referenzen}
+	\printbibliography
+\end{frame}
 
 % Extra slides
 \section{Extra Folien}
@@ -296,7 +298,7 @@ belowskip = -1.2 \baselineskip,
 % Anmerkungen zu Observational Fairness Metriken
 \begin{frame}{Kritik und Anmerkungen zu Observational Fairness Metriken}
 	\begin{itemize}
-		\item Gruppen Metriken spiegeln einfach Verteilung von Y, A, $\hat{Y}$, X in den Daten wider
+		\item Gruppen Metriken spiegeln einfach Verteilung von Y, A, $\hat{Y}$, X in den Daten wider \cite{corbett-davies}
 		\item Accuracy und Fairness Trade-Off
 		\item Folgen von Fairness Interventionen nicht sicher - profitiert die geschützte Gruppe?
 	\end{itemize}
@@ -320,8 +322,8 @@ belowskip = -1.2 \baselineskip,
 		
         \column{0.4\textwidth}
 		\begin{itemize}
-			\item Gruppen Fairness: FACE, FACT (on avverage or on conditional average level)
-			\item Individuelle Fairness: counterfactual fairness, path-based fairness
+			\item Gruppen Fairness: FACE, FACT (on avverage or on conditional average level) \cite{Zafar2017PPNFC}
+			\item Individuelle Fairness: counterfactual fairness, path-based fairness \cite{kusner}
 		\end{itemize}
     \end{columns}
 \end{frame}
