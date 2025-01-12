@@ -9,6 +9,7 @@
 \usepackage{enumitem} % Compact lists
 \usepackage{fancyhdr} % For custom header
 \usepackage[backend=biber,style=authoryear]{biblatex}  % For citations and bibliography
+\usepackage{amssymb} % For independence symbol
 
 % Minimalistic header
 \pagestyle{fancy}
@@ -38,13 +39,13 @@
 
 \section{Fairness Metrics \parencite{verma2018}}
 
-\subsection*{Independence}
+\subsection*{Independence $\hat{Y} \perp A$}
 \begin{itemize}[leftmargin=2em]
-    \item Statistical Parity/Demographic Parity: $P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$
-    \item Conditional Statistical Parity: $P(\hat{Y} = 1 | E = e, A = a) = P(\hat{Y} = 1 | E = e, A = b)$ \\ \textit{E is a set of legitimate features that may affect the outcome.}
+    \item Statistical Parity/Demographic Parity: $P(\hat{Y} = 1 \mid A = a) = P(\hat{Y} = 1 \mid A = b)$
+    \item Conditional Statistical Parity: $P(\hat{Y} = 1 \mid E = e, A = a) = P(\hat{Y} = 1 \mid E = e, A = b)$ \\ \textit{E is a set of legitimate features that may affect the outcome.}
 \end{itemize}
 
-\subsection*{Separation}
+\subsection*{Separation $\hat{Y} \perp A \mid Y$}
 \begin{itemize}[leftmargin=2em]
     \item Equalized Odds: $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$ \\ \texttt{mlr3}: \texttt{fairness.equalized.odds}
     \item Equal Opportunity/ False negative error rate balance: $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.tpr}
@@ -52,7 +53,7 @@
     \item Treatment Equality: $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
 \end{itemize}
 
-\subsection*{Sufficiency}
+\subsection*{Sufficiency $Y \perp A \mid \hat{Y}$}
 \begin{itemize}[leftmargin=2em]
     \item Predictive parity/ outcome test: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.ppv}
     \item Equal true negative rate: $P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.npv}
