@@ -11,13 +11,12 @@ Applied on the SQF data this could translate as follows. First of all, the inter
 no longer desirable and we can interpreate scores as riskscores $G_g^{E}$. This means a high thresholds for being classified as $\hat{Y} = 1$ is desirable, a low
 threshold is undesirable. We assume that officers were more lenient to stop black individuals, which means that the scores (probability of actually having committed crime) in the training population
 of black people are lower than the scores of the target population of black people.
-$G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for black people*(???). When we apply the algorithm
-to the target populaiton we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
+$G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for black people(???) \footnote{Why do we learn a lower threshold for black people. Maybe something like this happens: So when a group is super leniently stopped we will have many truly innocent and few truly guilty.}
+When we apply the algorithm to the target populaiton we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
 were selected more strictly. This means that the scores of white people in the training population are higher than the scores of white people in the target population.
 $G_w^{Z=1} \succeq G_w^{T=1}$. This means we will learn a high threshold for white people. When we apply the algorithm to the target population we will be less likely to classify white
 people as $\hat{Y} = 1$ because the threshold is so high. -- Still unsrue if this makes sense, if a transfered it correctly.
 
-* Why do we learn a lower threshold for black people. Maybe something like this happens: So when a group is super leniently stopped we will have many truly innocent and few truly guilty.
 For the other group we have many truly guilty and less truly innocent. When now 80\% of truly guilty are classified as guilty in the advantaged group then we would want want 80\% of
 the truly guilty to be correctly labelled as guilty in the disadvantaged group. This would only results in lowering the threshold for the disadvantaged group
 (so making it easier to predict them as guilty) if we predicted low risk scores for truly guilty people in the disadvantaged group

@@ -19,6 +19,180 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{castelnovo2022}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=6c3ab60bce254137083c6d7874df46ed}{%
+           family={Castelnovo},
+           familyi={C\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a2c7ac5ae0109270013f7cbf8cc88405}{%
+           family={Crupi},
+           familyi={C\bibinitperiod},
+           given={Riccardo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4db8aa9f51517be9fd795e6356b71550}{%
+           family={Greco},
+           familyi={G\bibinitperiod},
+           given={Greta},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=61e621245c669c73fbaa0363f74bc2df}{%
+           family={Regoli},
+           familyi={R\bibinitperiod},
+           given={Daniele},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ddef8f8c0b16e1c67d2d2a34de1f878}{%
+           family={Penco},
+           familyi={P\bibinitperiod},
+           given={Ilaria\bibnamedelima Giuseppina},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8033a196d6f40ea8138545d3d46fcc1}{%
+           family={Cosentini},
+           familyi={C\bibinitperiod},
+           given={Andrea\bibnamedelima Claudio},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0d3312aef79e31263c1a2b638623053a}
+      \strng{fullhash}{da8eb7772746823d2c9b597e7cd92623}
+      \strng{bibnamehash}{0d3312aef79e31263c1a2b638623053a}
+      \strng{authorbibnamehash}{0d3312aef79e31263c1a2b638623053a}
+      \strng{authornamehash}{0d3312aef79e31263c1a2b638623053a}
+      \strng{authorfullhash}{da8eb7772746823d2c9b597e7cd92623}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract In recent years, the problem of addressing fairness in machine learning (ML) and automatic decision making has attracted a lot of attention in the scientific communities dealing with artificial intelligence. A plethora of different definitions of fairness in ML have been proposed, that consider different notions of what is a ``fair decision'' in situations impacting individuals in the population. The precise differences, implications and ``orthogonality'' between these notions have not yet been fully analyzed in the literature. In this work, we try to make some order out of this zoo of definitions.}
+      \field{issn}{2045-2322}
+      \field{journaltitle}{Scientific Reports}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{A Clarification of the Nuances in the Fairness Metrics Landscape}
+      \field{urlday}{23}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{4209}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41598-022-07939-1
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Castelnovo2022cnfmlb/Castelnovo et al. - 2022 - A clarification of the nuances in the fairness metrics landscape.pdf
+      \endverb
+    \endentry
+    \entry{caton2024}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1e2b4a1204b7e8f7c7d379a22d93c699}{%
+           family={Caton},
+           familyi={C\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df5dadd2d3fbb65e0e1641bab398afcd}{%
+           family={Haas},
+           familyi={H\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{fullhash}{5533b0453780985b76fdb63a216864f2}
+      \strng{bibnamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authorbibnamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authornamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authorfullhash}{5533b0453780985b76fdb63a216864f2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{When Machine Learning technologies are used in contexts that affect citizens, companies as well as researchers need to be confident that there will not be any unexpected social implications, such as bias towards gender, ethnicity, and/or people with disabilities. There is significant literature on approaches to mitigate bias and promote fairness, yet the area is complex and hard to penetrate for newcomers to the domain. This article seeks to provide an overview of the different schools of thought and approaches that aim to increase the fairness of Machine Learning. It organizes approaches into the widely accepted framework of pre-processing, in-processing, and post-processing methods, subcategorizing into a further 11 method areas. Although much of the literature emphasizes binary classification, a discussion of fairness in regression, recommender systems, and unsupervised learning is also provided along with a selection of currently available open source libraries. The article concludes by summarizing open challenges articulated as five dilemmas for fairness research.}
+      \field{issn}{0360-0300, 1557-7341}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{7}
+      \field{shorttitle}{Fairness in {{Machine Learning}}}
+      \field{title}{Fairness in {{Machine Learning}}: {{A Survey}}}
+      \field{urlday}{23}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{56}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
+      \verb{doi}
+      \verb 10.1145/3616865
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Caton2024FMLSb/Caton und Haas - 2024 - Fairness in Machine Learning A Survey.pdf
+      \endverb
+    \endentry
+    \entry{corbett-davies}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=341a17b1faf8ad74034822ff2f891742}{%
+           family={{Corbett-Davies}},
+           familyi={C\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc87d955c84b91ba3d881af1c1a93666}{%
+           family={Gaebler},
+           familyi={G\bibinitperiod},
+           given={Johann\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4b30e51359854c0d89aa15a6279a424}{%
+           family={Nilforoshan},
+           familyi={N\bibinitperiod},
+           given={Hamed},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85bd24ef7b2a76727f6692bb1bd9d048}{%
+           family={Shroff},
+           familyi={S\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=769c0f637707fcc5e9ebb71ce29eb5d1}{%
+           family={Goel},
+           familyi={G\bibinitperiod},
+           given={Sharad},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{fullhash}{4544570fa35bc719cb1465901595a433}
+      \strng{bibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authorbibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authornamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
+      \field{langid}{english}
+      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
+      \endverb
+    \endentry
     \entry{kallus}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2db96cc54afe3fe8c684be53af54a7bf}{%

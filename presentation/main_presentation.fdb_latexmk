@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main_presentation"] 1736613604 "main_presentation.bcf" "main_presentation.bbl" "main_presentation" 1736613624 0
-  "../literature.bib" 1736611518 59230 025f428dbdc261a482ef8ba35c59fe05 ""
+["biber main_presentation"] 1736700815 "main_presentation.bcf" "main_presentation.bbl" "main_presentation" 1736700820 0
+  "../literature.bib" 1736700819 61769 c6778cf5c803b876f19ea077f22ef908 ""
   "main_presentation.bcf" 1736613624 111351 a65b381b5f7bde162579e3b9ce919adc "pdflatex"
   (generated)
   "main_presentation.bbl"
   "main_presentation.blg"
   (rewritten before read)
-["pdflatex"] 1736613619 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736613624 0
+["pdflatex"] 1736613619 "/Users/julietfleischer/Documents/NYPD_SQF_data/presentation/main_presentation.tex" "main_presentation.pdf" "main_presentation" 1736700820 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
   "../figures/fairness_title.jpg" 1736599632 4931848 0c18dbc9ffd1d50b8fc7473322f88753 ""
   "../figures/lmu-background.pdf" 1735377963 66051 db0b87484d5e254e6f8288c8895b57e1 ""
@@ -291,7 +291,7 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "main_presentation.aux" 1736613624 9550 8220e600d26d06c0fdeb4979d7178d84 "pdflatex"
-  "main_presentation.bbl" 1736613609 26149 72d3a0f482b938dc8128e3a5f0b41d2c "biber main_presentation"
+  "main_presentation.bbl" 1736700820 26149 72d3a0f482b938dc8128e3a5f0b41d2c "biber main_presentation"
   "main_presentation.nav" 1736613624 3249 f87cbb6a2e017f616a9974d7b56e442f "pdflatex"
   "main_presentation.out" 1736613621 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "main_presentation.run.xml" 1736613624 2429 00730639592fede4aebc93cda681d2fc "pdflatex"
