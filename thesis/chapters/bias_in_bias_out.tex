@@ -1,0 +1,33 @@
+\section*{Bias in, bias out - an alternative perspective}
+
+\cite{RambachanBBOEFW} take a different perspective on the problem of biased training data than \cite{kallus}.
+The mechanism they describe works as follows I think!!?): 
+
+Black people are more leniently stopped, leading to higher stopping rates in for black people in the training data, meaning
+more training data for this group. Because we stop black peopel more leniently, we record nany innocent black people in our data.
+In \cite{kallus} this would lead to a lower learned threshold* for black individuals. Applied
+on the target population this would mean that we would predict too many false positive. The threshold estimated from the training 
+data is so low that we classify to many people as guilty because in the target populations the scores are actually higher and meet the threshold easily.
+In \cite{RambachanBBOEFW} they say that by stopping (searching, they actually talk about searching, not stopping) black people so leniently, our sample for black people comes actually pretty
+close to the target population.
+In other words, the training data for black people is pretty close to the target data for black people, which means that our classifier will work well on the
+target population for black people.
+
+To summarise, in \cite{kallus} bias against a group results in a less representative sample. In \cite{RambachanBBOEFW} bias against a group results in a more representative sample.
+
+* first this leads to lower risk scores for black individuals. And then via fairness adjustments (e.g. for equalized odds) this leads to lower thresholds for black individuals.
+
+
+\textbf{Theorem 1}
+The prediction for african americans is weakly decreasing in tau. This means, as tau increases (so racial bias increases), the expected value for Y gets actually lower,
+so closer to zero, so less often predicted to have a contraband. What is happening? Higher tau means lower searching threshold for african americans.
+So the data for african americans becomes "more noisy", more and more innocent people come into our sample, so we predict lower risk for african americans. 
+In \cite{RambachanBBOEFW} paper this translates to a more representative training data for african americans and thus also better performance on the general population of african americans.
+In \cite{kallus} paper the mechanisms is the same, we also estimate lower risks cores for african americans, but then sth else happens.
+I think in Kallus we then do a fairness intervention that leads us to setting a LOWER threshold for african americans, meaning we predict them as
+guilty more easily to achieve the same FPR as in the other group. I think in kallus they first formulate it in the strict way, where the police is so biased against african americans
+that the stopped african americans are LESS likely to actually have a weapon than the general population. But they relax this setting afterwards.
+
+
+What happens if we train the logistic classifier (to predict weapon yes no) on the SQF as is (Kallus), don’t do a post processing fairness intervention (NO Hardt et. al)
+and test the classifier on the target population (that is created via the weighing method of Kallus and Zhou)? I think according to \cite{RambachanBBOEFW} we should observe bias reversal.

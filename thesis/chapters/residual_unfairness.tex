@@ -1,0 +1,39 @@
+\section*{Residual Unfairness}
+Preposition 2:
+For group a the scores of the target population are always strictly higher than
+of the training population. This means that we will learn a comparatevily low threshold for group a.
+When we employ the algorithm in the target population, group a member will receive the positive outcome
+ more easily (receive benefit of the doubt) because the thresholds is so low. For gorup b
+ the opposite is true. The scores in the training data are really high compared to the overall population.
+ This means we learn a high threshold for group b. When the system is applied on the whole population it will
+ be harder for a random person from group b to receive the advantage because their threshold is so high.
+Applied on the SQF data this could translate as follows. First of all, the interpretation shifts. $\hat{Y} = 1$ is 
+no longer desirable and we can interpreate scores as riskscores $G_g^{E}$. This means a high thresholds for being classified as $\hat{Y} = 1$ is desirable, a low
+threshold is undesirable. We assume that officers were more lenient to stop black individuals, which means that the scores (probability of actually having committed crime) in the training population
+of black people are lower than the scores of the target population of black people.
+$G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for black people*(???). When we apply the algorithm
+to the target populaiton we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
+were selected more strictly. This means that the scores of white people in the training population are higher than the scores of white people in the target population.
+$G_w^{Z=1} \succeq G_w^{T=1}$. This means we will learn a high threshold for white people. When we apply the algorithm to the target population we will be less likely to classify white
+people as $\hat{Y} = 1$ because the threshold is so high. -- Still unsrue if this makes sense, if a transfered it correctly.
+
+* Why do we learn a lower threshold for black people. Maybe something like this happens: So when a group is super leniently stopped we will have many truly innocent and few truly guilty.
+For the other group we have many truly guilty and less truly innocent. When now 80\% of truly guilty are classified as guilty in the advantaged group then we would want want 80\% of
+the truly guilty to be correctly labelled as guilty in the disadvantaged group. This would only results in lowering the threshold for the disadvantaged group
+(so making it easier to predict them as guilty) if we predicted low risk scores for truly guilty people in the disadvantaged group
+ Because for equal opportunity we are only looking at the people who were really guilty. So we are basically saying that the large proportion of truly
+ innocent people in our sample of the disadvantaged leads to lower risk scores even in the truly guilty group of the disadvantaged (like a spill over effect).
+ Only then it would make sense to say that a fairness intervention would compensate by setting lower thresholds for the disadvantaged group. Is this happening? 
+
+Chaper 6: Case study on SQF data
+Their main message is always, bias in, bias out. fairness interventions, done on the trainign data are not enough, if your sample is biased, your model will be biased (even after fairness interventions).
+They show this in the following way. The goal is to predict innocence of an individual. Such an ADM could help officers
+decide who to stop in the first place. The SQF data serves as training data and is naturally censored. The censoring process is that we only
+observe innocence of a person if they were stopped. But the decision to stop someone could be based on a biased decision policy.
+So we have our censored training data (SQF data). We know that this training data is not representative of the population of NYC in general defined via
+location specific variables. Kallus and Zhou use train a logistic regression classifier on the SQF data as is and use post-processing proposed
+by Hardt et al. to ensure Equal Opportunity or Equalized Odds. They use their a weighing technique (proposed by them and inspired by propensity score matching)
+to simulate the target population. The fairness intervention in the training population produces group-specific thresholds that are then applied to the target population.
+They use these fairness-adjusted threshold for the target population and still observe unfairness.
+
+But of course they observe unfairness because the fairness intervention they do is a post-processing step and doesn't modifiy the classifier. What am i not getting here?

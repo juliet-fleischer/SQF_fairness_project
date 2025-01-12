@@ -53,7 +53,7 @@ Chapters:
 - background and context of the data
 - SQF Fairness for arrest (Through Lens of Causality, Data Transparency)
 Lets take a step back and say that the discrimination is the stop itself. This also makes
-more sense in the context of an ADM that should help us decide whether to stop someone in the first place (for higher hitrates and more fairness)
+more sense in the context of an ADM that should help us decide whether to stop someone in the first place (for higher hit-crates and more fairness)
 - SQF Fairness for weapon detection (Residual Unfairness, Bias in Bias out, maybe Precinct or Prejudice and Selective labels problem)
 - comparison
 How are selective labels and differential sampling bias related?
@@ -65,7 +65,26 @@ Conclusion:
 - know the type of bias in your situation, this should affect the fairness
 analysis you do (choice of definition and method)
 
+## idea 1 (refinec)
+General Flow of Your Seminar Thesis:
+Introduction:
 
+Overview of fairness in machine learning.
+Brief context of the Stop, Question, and Frisk (SQF) dataset.
+Theoretical Challenges of Fair ML:
+
+Paper 1 (Kallus & Zhou, 2018): Introduce residual unfairness and "bias from biased data."
+Empirical Evaluation of Bias in the SQF Dataset:
+
+Paper 2 (Rambachan & Roth, 2019): Examine whether SQF-trained algorithms necessarily produce biased outcomes.
+Contextualize this within your understanding of the SQF dataset structure and fairness definitions (e.g., demographic parity, equalized odds).
+Detection and Mitigation of Bias:
+
+Paper 3 (Ravishankar et al., 2023): Introduce tools for detecting and mitigating sampling bias in datasets like SQF.
+Conclusion:
+
+Recap the insights gained from each paper.
+Summarize the current state of research and potential avenues for further work, e.g., refining models for fairness without sacrificing predictive performance.
 
 
 ## idea 2
