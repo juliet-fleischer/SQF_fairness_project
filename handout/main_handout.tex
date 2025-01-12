@@ -10,6 +10,7 @@
 \usepackage{fancyhdr} % For custom header
 \usepackage[backend=biber,style=authoryear]{biblatex}  % For citations and bibliography
 \usepackage{amssymb} % For independence symbol
+\usepackage{hyperref} % For linking footnotes
 
 % Minimalistic header
 \pagestyle{fancy}
@@ -57,8 +58,8 @@
 \begin{itemize}[leftmargin=2em]
     \item Predictive parity/ outcome test: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.ppv}
     \item Equal true negative rate: $P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.npv}
-    \item Equal false omissionr rate*: $P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fomr}
-    \item Equal false discovery rate*: $P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$ 
+    \item Equal false omission rate\footnote{not officially defined in any of the three papers, but following the same principles as all confusion matrix based metrics}\label{fn:confusion_metrics}: $P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fomr}
+    \item Equal false discovery rate\footref{fn:confusion_metrics}: $P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$ 
     \item Conditional use accuracy equality: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b) \land P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$
 \end{itemize}
 
@@ -73,8 +74,6 @@
 \begin{itemize}
     \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \\ \texttt{mlr3}: \texttt{fairness.acc}
 \end{itemize}
-
-* not officially defined in any of the three papers, but following the same principles as all confusion matrix based metrics
 % Verma RUbin, Surveys, mlr3 vignette
 
 % Fairness Methoden
