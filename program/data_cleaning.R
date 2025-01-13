@@ -1,3 +1,4 @@
+
 sqf <- read_excel("data/sqf-2023.xlsx")
 setDT(sqf)
 n <- nrow(sqf)
@@ -7,7 +8,7 @@ sqf[sqf == "(null)"] <- NA
 # count the missing values in each column
 na.count <- apply(sqf, 2, function(x) sum(is.na(x))) / nrow(sqf)
 na.count.df <- as.data.frame(na.count)
-# sort the na.count into equidistant bins with 20% steps by using the cat function
+# For plotting: sort the na.count into equidistant bins with 20% steps by using the cat function
 na.count.df$na.count.binned <- cut(na.count.df$na.count, breaks = seq(0, 1, 0.2),
                                    labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%"),
                                    include.lowest = TRUE)
@@ -43,24 +44,33 @@ protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
 # summons.cols <- grep(pattern.summons, names(sqf))
 # sqf[, (summons.cols) := NULL]
 # remove all columns without specifc pattern
-sqf$YEAR2 <- NULL
-sqf$STOP_FRISK_DATE <- NULL
+
+
+# sqf$YEAR2 <- NULL
+# sqf$STOP_FRISK_DATE <- NULL
 sqf$STOP_ID <- NULL
-sqf$RECORD_STATUS_CODE <- NULL
-sqf$DEMEANOR_OF_PERSON_STOPPED <- NULL
-sqf$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
-sqf$STOP_LOCATION_X <- NULL
-sqf$STOP_LOCATION_Y <- NULL
-sqf$STOP_LOCATION_FULL_ADDRESS <- NULL
-sqf$STOP_LOCATION_PATROL_BORO_NAME <- NULL
+# sqf$RECORD_STATUS_CODE <- NULL
+# sqf$DEMEANOR_OF_PERSON_STOPPED <- NULL
+# sqf$SUPERVISING_ACTION_CORRESPONDING_ACTIVITY_LOG_ENTRY_REVIEWED <- NULL
+# sqf$STOP_LOCATION_X <- NULL
+# sqf$STOP_LOCATION_Y <- NULL
+# sqf$STOP_LOCATION_FULL_ADDRESS <- NULL
+# sqf$STOP_LOCATION_PATROL_BORO_NAME <- NULL
 # sqf$STOP_LOCATION_STREET_NAME <- NULL
 
+# convert times to numeric values
+sqf <- sqf |> 
+  mutate(STOP_FRISK_TIME = sub(":", ".", substr(STOP_FRISK_TIME, 1, 5))) |> 
+  mutate(STOP_FRISK_TIME = round(as.numeric(STOP_FRISK_TIME))) |> 
+  mutate(STOP_FRISK_TIME = ifelse(STOP_FRISK_TIME == 24, 0, STOP_FRISK_TIME))
 
-# 
-# # from column 23 to 42 set all the NAs to "N"
-# sqf[, (19:38) := lapply(.SD, function(x) {
-#   ifelse(is.na(x), "N", x)
-# }), .SDcols = 19:38]
+# bin time
+sqf$STOP_FRISK_TIME <- cut(
+  sqf$STOP_FRISK_TIME,
+  breaks = c(0, 6, 12, 18, 24),
+  labels = c("night", "AM", "PM", "evening"),
+  right = FALSE
+)
 
 # convert all the columns that end on FLAG or FLG to factor
 flag.cols <- grep("FLAG$|FLG$", names(sqf))
@@ -109,19 +119,7 @@ sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION, levels = c(
 # 12 - 18: PM
 # 18 - 22: evening
 # 22 - 6 : night
-# convert times to numeric values
-sqf <- sqf |> 
-  mutate(STOP_FRISK_TIME = sub(":", ".", substr(STOP_FRISK_TIME, 1, 5))) |> 
-  mutate(STOP_FRISK_TIME = round(as.numeric(STOP_FRISK_TIME))) |> 
-  mutate(STOP_FRISK_TIME = ifelse(STOP_FRISK_TIME == 24, 0, STOP_FRISK_TIME))
 
-# bin time
-sqf$STOP_FRISK_TIME <- cut(
-  sqf$STOP_FRISK_TIME,
-  breaks = c(0, 6, 12, 18, 24),
-  labels = c("night", "AM", "PM", "evening"),
-  right = FALSE
-)
 
 # remove levels that are very rare
 hair.color <- c("GRN", "PLE", "PNK", "ORG", "SDY")
@@ -130,14 +128,5 @@ eye.color <- c("MAR", "MUL", "PNK", "OTH")
 sqf <- sqf |> 
   filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
   filter(!SUSPECT_EYE_COLOR %in% eye.color)
-
-# filter out complete cases
-sqf.filtered <- sqf[complete.cases(sqf), ]
-
-# create a column that is 1 if any of the targets columns is equal to "Y" and 0 otherwise
-# sqf$TARGET <- ifelse(rowSums(sqf[, ..targets] == "Y") > 0, "Y", "N")
-
-# remove targets columns from the data
-# sqf <- sqf[, -..targets]
 
 

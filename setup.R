@@ -1,6 +1,6 @@
 # setup script
 set.seed(024)
-options(java.parameters = "-Xmx10g") # Allocate 8 GB of memory (adjust as needed)
+options(java.parameters = "-Xmx12g") # Allocate 8 GB of memory (adjust as needed)
 library(data.table)
 library(readxl)
 library(ggplot2)
@@ -33,4 +33,5 @@ source("program/data_cleaning.R")
 # 
 # imputed_data_arrested$SUSPECT_ARRESTED_FLAG <- as.numeric(imputed_data_arrested$SUSPECT_ARRESTED_FLAG)
 # imputed_data_arrested$FRISKED_FLAG <- as.numeric(imputed_data_arrested$FRISKED_FLAG)
+
 

@@ -1,4 +1,3 @@
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
@@ -123,22 +122,23 @@ belowskip = -1.2 \baselineskip,
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
-\FirstAgendaSlide
 
 
-\section{Gruppen Fairness}
+
+
 \begin{frame}{Ist die Vorhersage fair?}
     % Full-width text
     \begin{itemize}
-		\item<1-> Ziel: Kriminalitätsrate reduzieren
-        \item<2-> Trainingsdaten: vergangene Polizeistops
-        \item<3-> Zielvariable: Straftat begangen  (0 = Nein, 1 = Ja)
-        \item<4-> \textbf{Protected Attribute}: Ethnie
+		\item<1-> Ziel: Kriminalitätsrate in NYC reduzieren
+		\item<2-> Zielvariable: Straftat begangen  (0 = Nein, 1 = Ja)
+        \item<3-> Trainingsdaten: vergangene Polizeistops
+        \item<4-> Problem: Daten könnten vergangene Diskriminierung widerspiegeln (racial profiling,...) \\ $\Rightarrow$ Wie können wir sicherstellen, dass der Algorithmus gerecht entscheidet?
     \end{itemize}
 \end{frame}
 
+\FirstAgendaSlide
 
-
+\section{Gruppen Fairness}
 % Gruppen Fairness - Independence
 \begin{frame}[t]{Gleiche Vorhersageraten zwischen Gruppen sind fair} % [t] aligns content at the top
 	\begin{table}
@@ -152,9 +152,17 @@ belowskip = -1.2 \baselineskip,
     \end{table}
 	\begin{itemize}
 		\item<2-> Verständnis von Fairness: Personen erfahren aufgrund ihrer Gruppenzugehörigkeit Diskriminierung
-		\item<3-> Vorhersageraten zwischen Gruppen sollen gleich sein
-		\item<4-> z.B. Statistical Parity \cite{verma2018} 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$ % 
+		\item<3-> Gruppenzugehörigkeit über \textbf{Protected Attribute (PA)} definiert
+		\item<4-> Vorhersageraten zwischen Gruppen sollen gleich sein
+		\item<6-> z.B. Statistical Parity \cite{verma2018} 	$$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$ % 
 	\end{itemize}
+	\vspace*{-6cm}
+	% include graphic only in frame 5
+	\onslide<5>{
+		\begin{center}
+			\includegraphics[width=0.6\textwidth]{../figures/independence_02.png}
+		\end{center}
+	}
 \end{frame}
 
 % Gruppen Fairness - Separation
@@ -173,12 +181,12 @@ belowskip = -1.2 \baselineskip,
 		\raggedright  % Left-aligns text
 		\begin{itemize}
 			\item<2-> \textbf{Separation:} Fokus auf gleichen Fehlerraten zwischen Gruppen
-			\item<4-> z.B. Predictive Equality \cite{verma2018} $$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$
-			\item<5-> \textbf{Sufficiency:} Zuverlässigkeit der Vorhersage soll gleich sein
-			\item<6-> z.B. Predictive Parity \cite{verma2018} $$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
+			\item<5-> z.B. Predictive Equality \cite{verma2018} $$P(\hat{Y} = 1 | A = a, Y = 0) = P(\hat{Y} = 1 | A = b, Y = 0)$$
+			\item<6-> \textbf{Sufficiency:} Zuverlässigkeit der Vorhersage soll gleich sein
+			\item<7-> z.B. Predictive Parity \cite{verma2018} $$P(Y = 1 | A = a, \hat{Y} = 1) = P(Y = 1 | A = b, \hat{Y} = 1)$$
 		\end{itemize}
 		\column{0.5\textwidth}
-		\onslide<3->{
+		\onslide<4->{
 			\begin{center}
 				\renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
 				\begin{tabular}{c|c|c|}
@@ -192,12 +200,36 @@ belowskip = -1.2 \baselineskip,
 			\end{center}
 		}
 	\end{columns}
+	\vspace*{-9cm}
+	% include graphic only in frame 3
+		\onslide<3>{
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{../figures/separation_01.png}
+			\end{center}
+		}
 \end{frame}
 
 
 
-%Gruppen Fairness - Sufficiency
-\begin{frame}[t]{Zahlreiche Variationen von Gruppen-Metriken}
+% %Gruppen Fairness - Sufficiency
+% \begin{frame}[t]{Zahlreiche Variationen von Gruppen-Metriken}
+% 	\begin{table}
+% 		\begin{tabular}{lll}
+% 			\toprule
+% 			Independence & Separation & {Sufficiency} \\
+% 			\midrule
+% 			$\hat{Y} \perp A$ & $\hat{Y} \perp A | Y$ & {$Y \perp A | \hat{Y}$}\\
+% 			\bottomrule
+% 		\end{tabular}
+% 	\end{table}
+% 	\begin{itemize}
+% 		\item<2-> Sowohl Separation als auch Sufficiency können statt mit $\hat{Y}$ auch mit S definiert werden, z.B. Calibration 	$$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$$
+% 		\item<3-> oder Well-calibration $$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s) = s$$
+% 	\end{itemize}
+
+% \end{frame}
+
+\begin{frame}{Gruppenmetriken im Überblick}
 	\begin{table}
 		\begin{tabular}{lll}
 			\toprule
@@ -208,20 +240,13 @@ belowskip = -1.2 \baselineskip,
 		\end{tabular}
 	\end{table}
 	\begin{itemize}
-		\item<2-> Sowohl Separation als auch Sufficiency können statt mit $\hat{Y}$ auch mit S definiert werden, z.B. Calibration 	$$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$$
-		\item<3-> oder Well-calibration $$P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s) = s$$
-	\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Gruppenmetriken im Überblick}
-	\begin{itemize}
-		\item Sufficiency nimmt Perspektive des Entscheidenden an \cite{castelnovo2022}
-		\item Separation gut, wenn Y durch einen objektiv wahren Prozess entstanden ist \cite{castelnovo2022}
-		\item Independence gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
+		\item<2-> Zahlreiche Variationen von Gruppen-Metriken \\ z.B. Calibration $P(Y = 1 | A = a, S = s) = P(Y = 1 | A = b, S = s)$
+		\item<3-> Sufficiency nimmt Perspektive des Entscheidenden an \cite{castelnovo2022}
+		\item<4-> Separation gut, wenn Y durch einen objektiv wahren Prozess entstanden ist \cite{castelnovo2022}
+		\item<5-> Independence gut, wenn Form der Gleicheit erzwungen werden soll \cite{castelnovo2022}
 	\end{itemize}
 	\vspace*{0.5cm}
-	\onslide<2->{
+	\onslide<5->{
 		\centering
 		$\Rightarrow$ normalerweise nicht miteinander vereinbar
 	}
@@ -260,7 +285,7 @@ belowskip = -1.2 \baselineskip,
 	\frametitle{Wie sorgen wir für algorithmische Fairness?}
 	\begin{itemize}
 		\item<1-> Preprocessing \cite{caton2024}: Daten vor dem Training bearbeiten \\ z.B. (Re-)Sampling, Transformation
-		\item<2-> Inprocessing \cite{caton2024}: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B.Regulasierung
+		\item<2-> Inprocessing \cite{caton2024}: Trainingsprozess anpassen, Optimierungsproblem modifizieren \\ z.B. Regulasierung
 		\item<3-> Postprocessing \cite{caton2024}:Vorhersagen nach dem Training bearbeiten \\ z.B. Thresholding
 		\item<4-> Interpretable ML Methoden können hier auch sehr helfen!
 	\end{itemize}
@@ -281,8 +306,8 @@ belowskip = -1.2 \baselineskip,
 % Fazit und Ausblick
 \begin{frame}{Wie geht es weiter?}
 	\begin{itemize}
-		\item<1-> binäre Klassifikation, ein PA ist simpelster Fall
-		\item<2-> in Praxis eher mehrere PAs und vielfältige Aufgaben\\ $\rightarrow$ regression, unsupervised learning, ...
+		\item<1-> Binäre Klassifikation, ein PA ist simpelster Fall
+		\item<2-> In Praxis eher mehrere PAs und vielfältige Aufgaben\\ $\rightarrow$ regression, unsupervised learning, ...
 		\item<3-> Es gibt (noch) nicht, die \textbf{eine} Definition von Fairness
 	\end{itemize}
 \end{frame}
@@ -322,7 +347,7 @@ belowskip = -1.2 \baselineskip,
 		
         \column{0.4\textwidth}
 		\begin{itemize}
-			\item Gruppen Fairness: FACE, FACT (on avverage or on conditional average level) \cite{Zafar2017PPNFC}
+			\item Gruppen Fairness: FACE, FACT (on average or on conditional average level) \cite{Zafar2017PPNFC}
 			\item Individuelle Fairness: counterfactual fairness, path-based fairness \cite{kusner}
 		\end{itemize}
     \end{columns}
