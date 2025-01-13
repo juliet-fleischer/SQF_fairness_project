@@ -2,3 +2,7 @@
 *.Rproj
 .DS_Store
 .Rhistory
+
+# Large datasets
+data/2004.csv
+data/2011.csv
