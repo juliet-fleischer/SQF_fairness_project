@@ -174,3 +174,15 @@ rocobj1 <- roc(subset(predictions_dt, PA_GROUP == 1)$truth, subset(predictions_d
 rocobj0 <- roc(subset(predictions_dt, PA_GROUP == 0)$truth, subset(predictions_dt, PA_GROUP == 0)$prob.Y)
 ggroc(list(PA_0 = rocobj0, PA_1 = rocobj1)) +
   theme_scientific()
+
+# 
+# # export graphics
+# 
+# ggsave("figures/independence_01.png", plot = plot1, width = 150, height = 150, dpi= 300, units = "mm",
+#        bg = "white")
+# ggsave("figures/independence_02.png", plot = plot2, width = 150, height = 150, units = "mm",
+#        bg = "white")
+# 
+# ggsave("figures/separation_01.png", plot = plot4, width = 150, height = 150,dpi= 300, units = "mm",
+#        bg = "white")
+

@@ -67,11 +67,20 @@ analysis you do (choice of definition and method)
 
 ## idea 1 (refinec)
 General Flow of Your Seminar Thesis:
-Introduction:
 
-Overview of fairness in machine learning.
-Brief context of the Stop, Question, and Frisk (SQF) dataset.
-Theoretical Challenges of Fair ML:
+Part 1
+Fairness metrics in ML: Group, Individual, Causality - intuition, nuances, running example?, mention extentions to LLMs, NNs, ...
+Fairness methods: Pre, In, Post - idea, example (but not so in detail)
+Feedback Loop + context: bringing metrics and methods together and explaining that data context and data quality is important
+--> make all the argument I want to make in general
+
+Part 2
+Context of the Stop, Question, and Frisk (SQF) dataset
+Problem that comes with SQF
+How normal fairness metrics work in this context and what they show
+How the literature tackles this problem
+--> illustrate my arguments from part 1 with SQF dataset
+
 
 Paper 1 (Kallus & Zhou, 2018): Introduce residual unfairness and "bias from biased data."
 Empirical Evaluation of Bias in the SQF Dataset:

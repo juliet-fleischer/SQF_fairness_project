@@ -15,11 +15,20 @@ p1 <- ggplot(na.count.df, aes(x = na.count.binned, fill = color_code)) +
 p2 <- ggplot(sqf, aes(x = SUSPECT_RACE_DESCRIPTION, fill = SUSPECT_ARRESTED_FLAG)) +
   geom_bar(position = "dodge") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-p3 <- ggplot(sqf, aes(x = SUSPECT_RACE_DESCRIPTION, fill = SUSPECT_ARRESTED_FLAG)) +
+p3a <- ggplot(sqf, aes(x = SUSPECT_RACE_DESCRIPTION, fill = SUSPECT_ARRESTED_FLAG)) +
   geom_bar(position = "fill") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("True label by race of the whole dataset")
 # put p2 and p3 next to each other in one plot panel
 grid.arrange(p2, p3, ncol = 2)
+p3b <- ggplot(predictions_dt, aes(x = SUSPECT_RACE_DESCRIPTION, fill = response)) +
+  geom_bar(position = "fill") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Predictions by race of the test dataset")
+ggplot(predictions_dt, aes(x = SUSPECT_RACE_DESCRIPTION, fill = truth)) +
+  geom_bar(position = "fill") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("True label by race of the test dataset")
 
 # put the proportion of each race group in the sample against the ethnic distribution og NYC
 # in general
