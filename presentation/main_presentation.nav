@@ -1,65 +1,65 @@
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\slideentry {0}{0}{2}{2/5}{}{0}}
-\headcommand {\beamer@framepages {2}{5}}
-\headcommand {\slideentry {0}{0}{3}{6/6}{}{0}}
-\headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@sectionpages {1}{6}}
-\headcommand {\beamer@subsectionpages {1}{6}}
-\headcommand {\sectionentry {1}{Gruppen Fairness}{7}{Gruppen Fairness}{0}}
-\headcommand {\slideentry {1}{0}{1}{7/7}{}{0}}
+\headcommand {\slideentry {0}{0}{2}{2/6}{}{0}}
+\headcommand {\beamer@framepages {2}{6}}
+\headcommand {\slideentry {0}{0}{3}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {1}{0}{2}{8/13}{}{0}}
-\headcommand {\beamer@framepages {8}{13}}
-\headcommand {\slideentry {1}{0}{3}{14/20}{}{0}}
-\headcommand {\beamer@framepages {14}{20}}
-\headcommand {\slideentry {1}{0}{4}{21/25}{}{0}}
-\headcommand {\beamer@framepages {21}{25}}
-\headcommand {\beamer@sectionpages {7}{25}}
-\headcommand {\beamer@subsectionpages {7}{25}}
-\headcommand {\sectionentry {2}{Individuelle Fairness}{26}{Individuelle Fairness}{0}}
-\headcommand {\slideentry {2}{0}{1}{26/26}{}{0}}
-\headcommand {\beamer@framepages {26}{26}}
-\headcommand {\slideentry {2}{0}{2}{27/34}{}{0}}
-\headcommand {\beamer@framepages {27}{34}}
-\headcommand {\beamer@sectionpages {26}{34}}
-\headcommand {\beamer@subsectionpages {26}{34}}
-\headcommand {\sectionentry {3}{Fairness Methoden}{35}{Fairness Methoden}{0}}
-\headcommand {\slideentry {3}{0}{1}{35/35}{}{0}}
-\headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {3}{0}{2}{36/39}{}{0}}
-\headcommand {\beamer@framepages {36}{39}}
-\headcommand {\beamer@sectionpages {35}{39}}
-\headcommand {\beamer@subsectionpages {35}{39}}
-\headcommand {\sectionentry {4}{Bias und die Feedback Loop}{40}{Bias und die Feedback Loop}{0}}
-\headcommand {\slideentry {4}{0}{1}{40/40}{}{0}}
-\headcommand {\beamer@framepages {40}{40}}
-\headcommand {\slideentry {4}{0}{2}{41/41}{}{0}}
+\headcommand {\beamer@sectionpages {1}{7}}
+\headcommand {\beamer@subsectionpages {1}{7}}
+\headcommand {\sectionentry {1}{Gruppen Fairness}{8}{Gruppen Fairness}{0}}
+\headcommand {\slideentry {1}{0}{1}{8/8}{}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{0}{2}{9/14}{}{0}}
+\headcommand {\beamer@framepages {9}{14}}
+\headcommand {\slideentry {1}{0}{3}{15/21}{}{0}}
+\headcommand {\beamer@framepages {15}{21}}
+\headcommand {\slideentry {1}{0}{4}{22/26}{}{0}}
+\headcommand {\beamer@framepages {22}{26}}
+\headcommand {\beamer@sectionpages {8}{26}}
+\headcommand {\beamer@subsectionpages {8}{26}}
+\headcommand {\sectionentry {2}{Individuelle Fairness}{27}{Individuelle Fairness}{0}}
+\headcommand {\slideentry {2}{0}{1}{27/27}{}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {2}{0}{2}{28/35}{}{0}}
+\headcommand {\beamer@framepages {28}{35}}
+\headcommand {\beamer@sectionpages {27}{35}}
+\headcommand {\beamer@subsectionpages {27}{35}}
+\headcommand {\sectionentry {3}{Fairness Methoden}{36}{Fairness Methoden}{0}}
+\headcommand {\slideentry {3}{0}{1}{36/36}{}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {3}{0}{2}{37/40}{}{0}}
+\headcommand {\beamer@framepages {37}{40}}
+\headcommand {\beamer@sectionpages {36}{40}}
+\headcommand {\beamer@subsectionpages {36}{40}}
+\headcommand {\sectionentry {4}{Bias und die Feedback Loop}{41}{Bias und die Feedback Loop}{0}}
+\headcommand {\slideentry {4}{0}{1}{41/41}{}{0}}
 \headcommand {\beamer@framepages {41}{41}}
-\headcommand {\slideentry {4}{0}{3}{42/44}{}{0}}
-\headcommand {\beamer@framepages {42}{44}}
-\headcommand {\beamer@sectionpages {40}{44}}
-\headcommand {\beamer@subsectionpages {40}{44}}
-\headcommand {\sectionentry {5}{Literatur}{45}{Literatur}{0}}
-\headcommand {\slideentry {5}{0}{0}{45/45}{}{0}}
-\headcommand {\beamer@framepages {45}{45}}
-\headcommand {\slideentry {5}{0}{0}{45/46}{}{0}}
-\headcommand {\beamer@framepages {45}{46}}
-\headcommand {\beamer@sectionpages {40}{46}}
-\headcommand {\beamer@subsectionpages {40}{46}}
-\headcommand {\sectionentry {6}{Extra Folien}{47}{Extra Folien}{0}}
-\headcommand {\slideentry {6}{0}{1}{47/47}{}{0}}
-\headcommand {\beamer@framepages {47}{47}}
-\headcommand {\slideentry {6}{0}{2}{48/48}{}{0}}
+\headcommand {\slideentry {4}{0}{2}{42/42}{}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {4}{0}{3}{43/45}{}{0}}
+\headcommand {\beamer@framepages {43}{45}}
+\headcommand {\beamer@sectionpages {41}{45}}
+\headcommand {\beamer@subsectionpages {41}{45}}
+\headcommand {\sectionentry {5}{Literatur}{46}{Literatur}{0}}
+\headcommand {\slideentry {5}{0}{0}{46/46}{}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {5}{0}{0}{46/47}{}{0}}
+\headcommand {\beamer@framepages {46}{47}}
+\headcommand {\beamer@sectionpages {41}{47}}
+\headcommand {\beamer@subsectionpages {41}{47}}
+\headcommand {\sectionentry {6}{Extra Folien}{48}{Extra Folien}{0}}
+\headcommand {\slideentry {6}{0}{1}{48/48}{}{0}}
 \headcommand {\beamer@framepages {48}{48}}
-\headcommand {\slideentry {6}{0}{3}{49/49}{}{0}}
+\headcommand {\slideentry {6}{0}{2}{49/49}{}{0}}
 \headcommand {\beamer@framepages {49}{49}}
-\headcommand {\slideentry {6}{0}{4}{50/50}{}{0}}
+\headcommand {\slideentry {6}{0}{3}{50/50}{}{0}}
 \headcommand {\beamer@framepages {50}{50}}
-\headcommand {\slideentry {6}{0}{5}{51/51}{}{0}}
+\headcommand {\slideentry {6}{0}{4}{51/51}{}{0}}
 \headcommand {\beamer@framepages {51}{51}}
-\headcommand {\beamer@partpages {1}{51}}
-\headcommand {\beamer@subsectionpages {47}{51}}
-\headcommand {\beamer@sectionpages {47}{51}}
-\headcommand {\beamer@documentpages {51}}
+\headcommand {\slideentry {6}{0}{5}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\beamer@partpages {1}{52}}
+\headcommand {\beamer@subsectionpages {48}{52}}
+\headcommand {\beamer@sectionpages {48}{52}}
+\headcommand {\beamer@documentpages {52}}
 \headcommand {\gdef \inserttotalframenumber {16}}

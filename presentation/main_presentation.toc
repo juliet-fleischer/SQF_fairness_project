@@ -1,6 +1,6 @@
 \babel@toc {ngerman}{}\relax 
-\beamer@sectionintoc {1}{Gruppen Fairness}{7}{0}{1}
-\beamer@sectionintoc {2}{Individuelle Fairness}{26}{0}{2}
-\beamer@sectionintoc {3}{Fairness Methoden}{35}{0}{3}
-\beamer@sectionintoc {4}{Bias und die Feedback Loop}{40}{0}{4}
-\beamer@sectionintoc {6}{Extra Folien}{47}{0}{5}
+\beamer@sectionintoc {1}{Gruppen Fairness}{8}{0}{1}
+\beamer@sectionintoc {2}{Individuelle Fairness}{27}{0}{2}
+\beamer@sectionintoc {3}{Fairness Methoden}{36}{0}{3}
+\beamer@sectionintoc {4}{Bias und die Feedback Loop}{41}{0}{4}
+\beamer@sectionintoc {6}{Extra Folien}{48}{0}{5}

@@ -69,6 +69,51 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Caton2024FMLSb/Caton und Haas - 2024 - Fairness in Machine Learning A Survey.pdf
       \endverb
     \endentry
+    \entry{kusner}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=37d0d7a3ba0cb7a7253c7b690ce4e8c6}{%
+           family={Kusner},
+           familyi={K\bibinitperiod},
+           given={Matt\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b072a1ed2f750bfeecb0466a94cc478f}{%
+           family={Loftus},
+           familyi={L\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c40407f768dd3e8b296a11750ad77f41}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4047ee6235adca502c24f37317e79d8e}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{fullhash}{31480a6997ada758f14a82daae7e9c2d}
+      \strng{bibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authorbibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authornamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authorfullhash}{31480a6997ada758f14a82daae7e9c2d}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
+      \field{langid}{english}
+      \field{title}{Counterfactual {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/KusnerCF/Kusner et al. - Counterfactual Fairness.pdf
+      \endverb
+    \endentry
     \entry{mehrabi2022}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=e49a830517defa430474d9c2b5c22d83}{%
@@ -187,6 +232,67 @@
       \endverb
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Verma2018Fde/Verma und Rubin - 2018 - Fairness definitions explained.pdf
+      \endverb
+    \endentry
+    \entry{Zafar2017PPNFC}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=651ed744d2d757bbdb4ef8519fdb9745}{%
+           family={Zafar},
+           familyi={Z\bibinitperiod},
+           given={Muhammad\bibnamedelima Bilal},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86077c699c3bcb4f9fecce395f1e6f41}{%
+           family={Valera},
+           familyi={V\bibinitperiod},
+           given={Isabel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a189b5a8e9f39b81e8445433ec383ff6}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0d02e39696f2420a11d3ee706088466b}{%
+           family={Gummadi},
+           familyi={G\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89be134d6b955c508c4267860047bdd9}{%
+           family={Weller},
+           familyi={W\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{fullhash}{8a150b1f890c166a574abb59887dff31}
+      \strng{bibnamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authorbibnamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authornamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authorfullhash}{8a150b1f890c166a574abb59887dff31}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The adoption of automated, data-driven decision making in an ever expanding range of applications has raised concerns about its potential unfairness towards certain social groups. In this context, a number of recent studies have focused on defining, detecting, and removing unfairness from data-driven decision systems. However, the existing notions of fairness, based on parity (equality) in treatment or outcomes for different social groups, tend to be quite stringent, limiting the overall decision making accuracy. In this paper, we draw inspiration from the fair-division and envy-freeness literature in economics and game theory and propose preference-based notions of fairness -- given the choice between various sets of decision treatments or outcomes, any group of users would collectively prefer its treatment or outcomes, regardless of the (dis)parity as compared to the other groups. Then, we introduce tractable proxies to design margin-based classifiers that satisfy these preference-based notions of fairness. Finally, we experiment with a variety of synthetic and real-world datasets and show that preference-based fairness allows for greater decision accuracy than parity-based fairness.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{From {{Parity}} to {{Preference-based Notions}} of {{Fairness}} in {{Classification}}}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Zafar2017PPNFC/Zafar et al. - 2017 - From Parity to Preference-based Notions of Fairness in Classification.pdf
       \endverb
     \endentry
   \enddatalist

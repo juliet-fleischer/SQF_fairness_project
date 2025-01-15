@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  13 JAN 2025 14:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  15 JAN 2025 21:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1342,93 +1342,85 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <../figures/lmu-background.pdf> <../figures/fairness_title.jpg>]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 137.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 138.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 137.
+(Font)              scaled to size 14.4pt on input line 138.
 <../figures/lmu_logo.png, id=34, 2007.5pt x 1050.92625pt>
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 137.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 138.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [2
 
  <../figures/lmu_logo.png>]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 137.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 138.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [3
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 137.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 138.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [4
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 137.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 138.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [5
 
-] (./main_presentation.toc)
+]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 139.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 138.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [6
 
 ] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 141.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [7
 
+] (./main_presentation.toc)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 142.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [8
+
 ]
-<../figures/independence_02.png, id=93, 426.6339pt x 426.6339pt>
+<../figures/independence_02.png, id=99, 426.6339pt x 426.6339pt>
 File: ../figures/independence_02.png Graphic file (type png)
 <use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (26.38841pt too high) detected at line 166
- []
-
-[8
-
- <../figures/independence_02.png>]
-File: ../figures/independence_02.png Graphic file (type png)
-<use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
-(pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
-
-Overfull \vbox (26.38841pt too high) detected at line 166
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [9
 
-]
+ <../figures/independence_02.png>]
 File: ../figures/independence_02.png Graphic file (type png)
 <use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (26.38841pt too high) detected at line 166
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [10
@@ -1436,14 +1428,14 @@ Overfull \vbox (26.38841pt too high) detected at line 166
 ]
 File: ../figures/independence_02.png Graphic file (type png)
 <use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (26.38841pt too high) detected at line 166
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [11
@@ -1451,14 +1443,14 @@ Overfull \vbox (26.38841pt too high) detected at line 166
 ]
 File: ../figures/independence_02.png Graphic file (type png)
 <use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (26.38841pt too high) detected at line 166
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [12
@@ -1466,445 +1458,460 @@ Overfull \vbox (26.38841pt too high) detected at line 166
 ]
 File: ../figures/independence_02.png Graphic file (type png)
 <use ../figures/independence_02.png>
-Package pdftex.def Info: ../figures/independence_02.png  used on input line 166.
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 166.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (26.38841pt too high) detected at line 166
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [13
 
 ]
-Overfull \hbox (20.96779pt too wide) detected at line 210
-\T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
- []
-
-
-Overfull \hbox (20.96779pt too wide) detected at line 210
-\T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
- []
-
-<../figures/separation_01.png, id=141, 426.6339pt x 426.6339pt>
-File: ../figures/separation_01.png Graphic file (type png)
-<use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+File: ../figures/independence_02.png Graphic file (type png)
+<use ../figures/independence_02.png>
+Package pdftex.def Info: ../figures/independence_02.png  used on input line 167.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 167.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (26.38841pt too high) detected at line 167
  []
 
 [14
 
- <../figures/separation_01.png>]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+]
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
+<../figures/separation_01.png, id=147, 426.6339pt x 426.6339pt>
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [15
 
-]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+ <../figures/separation_01.png>]
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [16
 
 ]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [17
 
 ]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [18
 
 ]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [19
 
 ]
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.96779pt too wide) detected at line 210
+Overfull \hbox (20.96779pt too wide) detected at line 211
 \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
  []
 
 File: ../figures/separation_01.png Graphic file (type png)
 <use ../figures/separation_01.png>
-Package pdftex.def Info: ../figures/separation_01.png  used on input line 210.
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
 (pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 210.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (22.27097pt too high) detected at line 210
+Overfull \vbox (22.27097pt too high) detected at line 211
  []
 
 [20
 
 ]
+Overfull \hbox (20.96779pt too wide) detected at line 211
+\T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 ([] = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; \T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 0\OT1/cmss/m/n/10.95 )
+ []
+
+
+Overfull \hbox (20.96779pt too wide) detected at line 211
+\T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 a\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 ) = \T1/SourceSansPro-TLF/regular/it/10.95 P\OT1/cmss/m/n/10.95 (\T1/SourceSansPro-TLF/regular/it/10.95 Y \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OMS/cmsy/m/n/10.95 j\T1/SourceSansPro-TLF/regular/it/10.95 A \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/it/10.95 b\OML/cmm/m/it/10.95 ; [] \OT1/cmss/m/n/10.95 = \T1/SourceSansPro-TLF/regular/n/10.95 1\OT1/cmss/m/n/10.95 )
+ []
+
+File: ../figures/separation_01.png Graphic file (type png)
+<use ../figures/separation_01.png>
+Package pdftex.def Info: ../figures/separation_01.png  used on input line 211.
+(pdftex.def)             Requested size: 260.00905pt x 260.01193pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 253.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [21
+
+Overfull \vbox (22.27097pt too high) detected at line 211
+ []
+
+[21
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 253.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 254.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [22
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 253.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 254.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [23
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 253.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 254.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [24
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 253.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 254.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [25
+
+]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 254.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [26
 
 ] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 256.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [26
-
-]
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 5.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 7.0pt on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 279.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 279.
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 257.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [27
 
 ]
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 5.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 7.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 10.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 7.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 10.0pt on input line 280.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [28
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [29
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [30
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [31
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [32
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [33
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 279.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [34
-
-] (./main_presentation.toc)
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 282.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [35
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 292.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 280.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [35
+
+] (./main_presentation.toc)
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 283.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [36
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 292.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 293.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [37
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 292.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 293.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [38
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 292.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 293.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [39
+
+]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 293.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [40
 
 ] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 295.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 296.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [40
+ [41
 
 ]
-<../figures/bias_loop.png, id=382, 567.11874pt x 324.21124pt>
+<../figures/bias_loop.png, id=389, 567.11874pt x 324.21124pt>
 File: ../figures/bias_loop.png Graphic file (type png)
 <use ../figures/bias_loop.png>
-Package pdftex.def Info: ../figures/bias_loop.png  used on input line 304.
+Package pdftex.def Info: ../figures/bias_loop.png  used on input line 305.
 (pdftex.def)             Requested size: 303.3395pt x 173.41914pt.
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 304.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 305.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [41
+ [42
 
  <../figures/bias_loop.png>]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 313.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [42
-
-]
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 313.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 314.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [43
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 313.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 314.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [44
 
 ]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 314.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [45
+
+]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/sc' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/sc' on input line 318.
+(Font)              `T1/SourceSansPro-TLF/regular/sc' on input line 319.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/sc' will be
-(Font)              scaled to size 10.95pt on input line 318.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 318.
+(Font)              scaled to size 10.95pt on input line 319.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 319.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 318.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 319.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [45
+ [46
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_4jropk.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 318.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 319.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [46
+ [47
 
 
 ] (./main_presentation.toc)
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 321.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [47
-
-]
-File: ../figures/lmu_logo.png Graphic file (type png)
-<use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 330.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 322.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [48
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 354.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 331.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [49
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 363.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 355.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [50
 
 ]
 File: ../figures/lmu_logo.png Graphic file (type png)
 <use ../figures/lmu_logo.png>
-Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 390.
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 364.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [51
+
+]
+File: ../figures/lmu_logo.png Graphic file (type png)
+<use ../figures/lmu_logo.png>
+Package pdftex.def Info: ../figures/lmu_logo.png  used on input line 391.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [52
 
 ]
 \tf@nav=\write7
@@ -1924,18 +1931,18 @@ Package logreq Info: Writing requests to 'main_presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38304 strings out of 476025
- 770658 string characters out of 5790017
+ 38306 strings out of 476025
+ 770677 string characters out of 5790017
  1866388 words of memory out of 5000000
  57917 multiletter control sequences out of 15000+600000
  696411 words of font info for 96 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  128i,15n,122p,1734b,2459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main_presentation.pdf (51 pages, 5617468 bytes).
+Output written on main_presentation.pdf (52 pages, 5556418 bytes).
 PDF statistics:
- 546 PDF objects out of 1000 (max. 8388607)
- 449 compressed objects within 5 object streams
- 117 named destinations out of 1000 (max. 500000)
+ 552 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
+ 119 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

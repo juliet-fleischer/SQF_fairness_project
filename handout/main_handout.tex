@@ -50,16 +50,16 @@
 \begin{itemize}[leftmargin=2em]
     \item Equalized Odds: $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$
     \item Equal Opportunity/ False negative error rate balance: $P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$ or $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fnr}, \texttt{fairness.tpr}
-    \item Predictive Equality/ False positive error rate balance: $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ or \\ $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
+    \item Predictive Equality/ False positive error rate balance: $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ or $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
     \item Treatment Equality: $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
-    \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \\ \texttt{mlr3}: \texttt{fairness.acc}
+    \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \texttt{mlr3}: \texttt{fairness.acc}
 \end{itemize}
 
 \subsection*{Sufficiency $Y \perp A \mid \hat{Y}$}
 \begin{itemize}[leftmargin=2em]
     \item Predictive parity/ outcome test: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.ppv}
     \item Equal true negative rate: $P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.npv}
-    \item Equal false omission rate\footnote{not officially defined in any of the three papers, but following the same principles as all confusion matrix based metrics}\label{fn:confusion_metrics}: $P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fomr}
+    \item Equal false omission rate\footnote{not officially defined in the referenced papers, but implemented in mlr3.fairness and/or following the same principles as all confusion matrix based metrics}\label{fn:confusion_metrics}: $P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fomr}
     \item Equal false discovery rate\footref{fn:confusion_metrics}: $P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$ 
     \item Conditional use accuracy equality: $P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b) \land P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$
 \end{itemize}
@@ -72,11 +72,18 @@
     \item Balance for negative class: $E(S \mid Y = 0, A = a) = E(S \mid Y = 0, A = b)$
 \end{itemize}
 
-\subsection*{Individual fairness}
+\subsection*{Individual Fairness}
+\textbf{Fairness through Awareness (FTA)}: 
+$d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda d_X(x_i, x_j)$ \\
+$d_Y$: distance in the prediction space; $d_X$: distance feature space; $\lambda$: controls degree to which similar individuals (based on $d_X$) receive similar predictions (based on $d_Y$)\\
+\noindent
+\textbf{Fairness through Unawareness (FTU)} (Blinding): 
+Avoiding explicit use PA during training; extension is suppression: avoid explicit use of PA and proxies
 
 \subsection*{Causality-based notions}
-    
-\end{itemize}
+\textbf{Group-level}: FACE, FACT (on average or on conditional average level) \parencite{Zafar2017PPNFC}\\
+\textbf{Individual-level}: counterfactual fairness, path-based fairness \parencite{kusner} 
+
 % Verma RUbin, Surveys, mlr3 vignette
 
 % Fairness Methoden
@@ -84,21 +91,15 @@
 % insert image
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{../figures/fairness_methods.png}
-    \caption{Fairness methods can be applied at different stages of the machine learning pipeline\parencite{caton2024}.}
+    \includegraphics[width=0.6\textwidth]{../figures/fairness_methods.png}
+    \caption{Fairness methods can be applied at different stages of the machine learning pipeline \parencite{caton2024}.}
 \end{figure}
-\begin{itemize}
-    \item Preprocessing: Resampling, Transformation, etc.
-    \item Inprocessing: Regularisation and Constraint Optimisation, Adversarial Learning, etc.
-    \item Postprocessing: Thresholding, Calibration, etc.
-\end{itemize}
-
 \section{Sources of bias and the feedback loop}
 % insert image
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
-    \caption{Bias can come into the process at any stage of the data, algorithm, and user feedback loop\parencite{mehrabi2022}.}
+    \includegraphics[width=0.6\textwidth]{../figures/bias_loop.png}
+    \caption{Bias can come into the process at any stage of the data, algorithm, and user feedback loop \parencite{mehrabi2022}.}
 \end{figure} 
 
 % References

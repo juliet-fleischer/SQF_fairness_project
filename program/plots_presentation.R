@@ -186,3 +186,30 @@ ggroc(list(PA_0 = rocobj0, PA_1 = rocobj1)) +
 # ggsave("figures/separation_01.png", plot = plot4, width = 150, height = 150,dpi= 300, units = "mm",
 #        bg = "white")
 
+# Load necessary library
+library(ggplot2)
+
+# Create the data frame
+set.seed(42) # For reproducibility
+data <- data.frame(
+  group = c(rep("white", 7), rep("people of color", 10)),
+  score = c(
+    runif(3, 0, 0.5),  # 3 white people with scores below 0.5
+    runif(4, 0.5, 1),  # 4 white people with scores above 0.5
+    runif(5, 0, 0.6),  # 5 people of color with scores below 0.6
+    runif(5, 0.6, 1)   # 5 people of color with scores above 0.6
+  )
+)
+
+# Plot the data
+ggplot(data, aes(x = group, y = score, color = group)) +
+  geom_jitter(width = 0.2, size = 3) +  # Jittered points for better visibility
+  labs(
+    title = "Score Distribution by Group",
+    x = "Group",
+    y = "Score"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")  # Remove legend if not needed
+
+
