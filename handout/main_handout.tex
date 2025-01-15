@@ -48,10 +48,11 @@
 
 \subsection*{Separation $\hat{Y} \perp A \mid Y$}
 \begin{itemize}[leftmargin=2em]
-    \item Equalized Odds: $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$ \\ \texttt{mlr3}: \texttt{fairness.equalized.odds}
-    \item Equal Opportunity/ False negative error rate balance: $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.tpr}
+    \item Equalized Odds: $P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$
+    \item Equal Opportunity/ False negative error rate balance: $P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$ or $P(\hat{Y} = 1 | Y = 1, A = a) = P(\hat{Y} = 1 | Y = 1, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fnr}, \texttt{fairness.tpr}
     \item Predictive Equality/ False positive error rate balance: $P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$ or \\ $P(\hat{Y} = 0 | Y = 0, A = a) = P(\hat{Y} = 0 | Y = 0, A = b)$ \\ \texttt{mlr3}: \texttt{fairness.fpr}, \texttt{fairness.tnr}
     \item Treatment Equality: $\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$
+    \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \\ \texttt{mlr3}: \texttt{fairness.acc}
 \end{itemize}
 
 \subsection*{Sufficiency $Y \perp A \mid \hat{Y}$}
@@ -70,9 +71,11 @@
     \item Balance for positive class: $E(S \mid Y = 1, A = a) = E(S \mid Y = 1, A = b)$
     \item Balance for negative class: $E(S \mid Y = 0, A = a) = E(S \mid Y = 0, A = b)$
 \end{itemize}
-\subsection*{Other}
-\begin{itemize}
-    \item Overall Accuracy Equality: $P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$ \\ \texttt{mlr3}: \texttt{fairness.acc}
+
+\subsection*{Individual fairness}
+
+\subsection*{Causality-based notions}
+    
 \end{itemize}
 % Verma RUbin, Surveys, mlr3 vignette
 

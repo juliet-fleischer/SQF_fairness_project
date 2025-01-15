@@ -1,15 +1,15 @@
 # Fdb version 4
-["biber main_handout"] 1736703650 "main_handout.bcf" "main_handout.bbl" "main_handout" 1736704020 0
-  "../literature.bib" 1736700819 61769 c6778cf5c803b876f19ea077f22ef908 ""
-  "main_handout.bcf" 1736704019 108082 527d17b6b9341d8ea9faa295cd14eb11 "pdflatex"
+["biber main_handout"] 1736955435 "main_handout.bcf" "main_handout.bbl" "main_handout" 1736955464 0
+  "../literature.bib" 1736955434 62151 6a5cf63fd294243ca37746e2db6318c8 ""
+  "main_handout.bcf" 1736955463 108082 527d17b6b9341d8ea9faa295cd14eb11 "pdflatex"
   (generated)
   "main_handout.bbl"
   "main_handout.blg"
   (rewritten before read)
-["pdflatex"] 1736704017 "/Users/julietfleischer/Documents/NYPD_SQF_data/handout/main_handout.tex" "main_handout.pdf" "main_handout" 1736704020 0
+["pdflatex"] 1736955462 "/Users/julietfleischer/Documents/NYPD_SQF_data/handout/main_handout.tex" "main_handout.pdf" "main_handout" 1736955464 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
   "../figures/fairness_methods.png" 1736608031 259965 a52a3a9d421308aed990c303016cba73 ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/handout/main_handout.tex" 1736704014 5137 057c7a00dbd77fee583e60e5a874ed54 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/handout/main_handout.tex" 1736955434 5227 393ae31cd3bc879e7fc4e009c35f747f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -149,11 +149,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main_handout.aux" 1736704019 2241 fbf54547f3445bb9226ef866ef58586d "pdflatex"
-  "main_handout.bbl" 1736703655 10506 6d855000cb0aed309591345b70d382c5 "biber main_handout"
-  "main_handout.out" 1736704019 551 17f938d3b985cd544c6b30d15c14993b "pdflatex"
-  "main_handout.run.xml" 1736704019 2370 3bc650f5737ee62a17e421f8254cb9ac "pdflatex"
-  "main_handout.tex" 1736704014 5137 057c7a00dbd77fee583e60e5a874ed54 ""
+  "main_handout.aux" 1736955463 2241 fbf54547f3445bb9226ef866ef58586d "pdflatex"
+  "main_handout.bbl" 1736955462 10506 6d855000cb0aed309591345b70d382c5 "biber main_handout"
+  "main_handout.out" 1736955463 551 17f938d3b985cd544c6b30d15c14993b "pdflatex"
+  "main_handout.run.xml" 1736955463 2370 3bc650f5737ee62a17e421f8254cb9ac "pdflatex"
+  "main_handout.tex" 1736955434 5227 393ae31cd3bc879e7fc4e009c35f747f ""
   (generated)
   "main_handout.aux"
   "main_handout.bcf"
