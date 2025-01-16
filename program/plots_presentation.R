@@ -190,26 +190,82 @@ ggroc(list(PA_0 = rocobj0, PA_1 = rocobj1)) +
 library(ggplot2)
 
 # Create the data frame
-set.seed(42) # For reproducibility
+set.seed(204) # For reproducibility
 data <- data.frame(
   group = c(rep("white", 7), rep("people of color", 10)),
   score = c(
     runif(3, 0, 0.5),  # 3 white people with scores below 0.5
     runif(4, 0.5, 1),  # 4 white people with scores above 0.5
-    runif(5, 0, 0.6),  # 5 people of color with scores below 0.6
-    runif(5, 0.6, 1)   # 5 people of color with scores above 0.6
+    runif(5, 0, 0.7),  # 5 people of color with scores below 0.6
+    runif(5, 0.7, 1)   # 5 people of color with scores above 0.6
   )
 )
+# Add the true_label column
+data$true_label <- c(
+  # White group
+  c(0, 0, 1),        # 2 out of 3 with score < 0.5 get 0, 1 gets 1
+  c(1, 1, 0, 0),     # 1 out of 4 with score > 0.5 gets 0, 2 get 1
+  
+  # People of color group
+  c(1, 0, 0, 0, 0),  # 1 out of 5 with score < 0.7 gets 1
+  c(0, 0, 0, 1, 1)   # 2 out of 5 with score > 0.6 get 1
+)
+
+# Check the updated dataset
+print(data)
+
 
 # Plot the data
-ggplot(data, aes(x = group, y = score, color = group)) +
-  geom_jitter(width = 0.2, size = 3) +  # Jittered points for better visibility
+data |> 
+  mutate(group = ifelse(group == "white", 0, 1)) |>
+  mutate(true_label = factor(true_label, levels = c(0, 1))) |>
+  ggplot(aes(x = group, y = score, color = true_label)) +
+  geom_jitter(width = 0.2, size = 6) +  # Jittered points for better visibility
   labs(
-    title = "Score Distribution by Group",
-    x = "Group",
+    title = "",
+    x = "",
     y = "Score"
   ) +
-  theme_minimal() +
-  theme(legend.position = "none")  # Remove legend if not needed
+  scale_x_continuous(
+    breaks = c(0, 1),  # Specify where to place ticks
+    labels = c("Weiß", "People of Color")  # Specify what the tick labels should say
+  ) +
+  geom_segment(aes(x = min(group) - 0.2, xend = mean(group) - 0.3, y = 0.48, yend = 0.48), 
+               linetype = "dashed", linewidth = 1) +  # Increased line thickness
+  geom_segment(aes(x = mean(group) + 0.1, xend = max(group) + 0.3, y = 0.52, yend = 0.52), 
+               linetype = "dashed", linewidth = 1) +  # Increased line thickness
+  scale_color_manual(
+    name = "wahres label",  # Legend title
+    values = c("1" = "#007A88", "0" = "salmon"),  # Custom colors
+    labels = c("Straftat", "keine Straftat")  # Custom labels
+  ) +
+  theme_scientific()
+ggsave("figures/separation_01.png", width = 150, height = 150, dpi= 300, units = "mm",
+       bg = "white")
 
-
+data |> 
+  mutate(group = ifelse(group == "white", 0, 1)) |>
+  mutate(true_label = factor(true_label, levels = c(0, 1))) |>
+  ggplot(aes(x = group, y = score, color = true_label)) +
+  geom_jitter(width = 0.2, size = 6) +  # Jittered points for better visibility
+  labs(
+    title = "",
+    x = "",
+    y = "Score"
+  ) +
+  scale_x_continuous(
+    breaks = c(0, 1),  # Specify where to place ticks
+    labels = c("Weiß", "People of Color")  # Specify what the tick labels should say
+  ) +
+  geom_segment(aes(x = min(group) - 0.2, xend = mean(group) - 0.3, y = 0.18, yend = 0.18), 
+               linetype = "dashed", linewidth = 1) +  # Increased line thickness
+  geom_segment(aes(x = mean(group) + 0.1, xend = max(group) + 0.3, y = 0.60, yend = 0.60), 
+               linetype = "dashed", linewidth = 1) +  # Increased line thickness
+  scale_color_manual(
+    name = "wahres label",  # Legend title
+    values = c("1" = "#007A88", "0" = "salmon"),  # Custom colors
+    labels = c("Straftat", "keine Straftat")  # Custom labels
+  ) +
+  theme_scientific()
+ggsave("figures/independence_02.png", width = 150, height = 150, dpi= 300, units = "mm",
+       bg = "white")
