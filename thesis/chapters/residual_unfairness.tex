@@ -1,4 +1,23 @@
 \section*{Residual Unfairness}
+The second part of this paper deals with a real worl application of fairness in machine learning. We decided to look at the Stop, Question, and Frisk dataset from the New York Police Department (NYPD). The dataset has been used in fairness research before and illustrates intersting insights and limitations of traditional fairness metrics in their standalone version.
+We will first provide some background information about the dataset. In the context of the data the problem of selction bias will be of major importance. We look at two paper that have formalised the concept of fairness under this condition and compare them with another paper that ignores the subtle context of the data.
+
+Problem they identify: Censored data
+
+
+Residual Unfairness \cite{kallus} concepts defined in the paper:
+Disparate benefit of the doubt: one group gets an advantage over the other by historically repeated better treatment of the group
+Equal opportunity and Equalised odds --> from this they define "Inequity of Opportunity" to quantify fairness
+First-order stochastic dominance (Def. 3): one group has consistently higher probability scores than the other
+Strong disparate benefit of the doubt; Strong disparate benefit of the doubt,  strict;
+Weak disparate benefit of the doubt, strict; Weak disparate benefit of the doubt on disparately endowed groups
+
+Currently I understand it as follows:
+The different disparate benfits of the doubt fromalise different historical treatment of groupds.
+We distinguish two groups in our population, a (advantaged) and b (disadvantaged). Within each group a and b we further dinstiguish between training population (Z=1) and target population (T=1).
+My current understanding for Preposition 2: Some propositions now illustrate the scenario, in which repreated deiscriminatory treatment looks like this: For group a the scores in the training population are strictly lower than the scores in the target population. For group b the scores in the training population are strictly higher than in the atrget population. The consequence is that the classifier learn on average low scores for group a, resulting in lenient treatment of group a (which is beneficial in this scenario, $\hat{Y} = 1$ is desired). For group b the opposite mechanism occures, resulting in stricter treatment of group b.
+My current understanding for proposition 3: When we design a classifier that that satisfies equal opportunity as fairness criterion under the situation described by preposition 2, then the classifier will not satisfy their definition of fainress/ will show Inequity of opportunity
+
 Preposition 2:
 For group a the scores of the target population are always strictly higher than
 of the training population. This means that we will learn a comparatevily low threshold for group a.
@@ -24,7 +43,7 @@ the truly guilty to be correctly labelled as guilty in the disadvantaged group. 
  innocent people in our sample of the disadvantaged leads to lower risk scores even in the truly guilty group of the disadvantaged (like a spill over effect).
  Only then it would make sense to say that a fairness intervention would compensate by setting lower thresholds for the disadvantaged group. Is this happening? 
 
-Chaper 6: Case study on SQF data
+Chapter 6: Case study on SQF data
 Their main message is always, bias in, bias out. fairness interventions, done on the trainign data are not enough, if your sample is biased, your model will be biased (even after fairness interventions).
 They show this in the following way. The goal is to predict innocence of an individual. Such an ADM could help officers
 decide who to stop in the first place. The SQF data serves as training data and is naturally censored. The censoring process is that we only

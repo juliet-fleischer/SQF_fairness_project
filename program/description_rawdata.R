@@ -30,12 +30,14 @@ ggplot(predictions_dt, aes(x = SUSPECT_RACE_DESCRIPTION, fill = truth)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ggtitle("True label by race of the test dataset")
 
+
 # put the proportion of each race group in the sample against the ethnic distribution og NYC
 # in general
 t1 <- sqf |> 
   group_by(SUSPECT_RACE_DESCRIPTION) |> 
   summarise(n = n()) |> 
   mutate(prop = n / sum(n))
+
 
 
 # SEX

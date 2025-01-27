@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'JF_FairML_slides.blg'
+[89] biber-darwin:340> INFO - === Thu Jan 16, 2025, 22:00:25
+[111] Biber.pm:419> INFO - Reading 'JF_FairML_slides.bcf'
+[212] Biber.pm:979> INFO - Found 8 citekeys in bib section 0
+[229] Biber.pm:4419> INFO - Processing section 0
+[242] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
+[247] bibtex.pm:1713> INFO - LaTeX decoding ...
+[327] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
+[452] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[452] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[452] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[452] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[460] bbl.pm:660> INFO - Writing 'JF_FairML_slides.bbl' with encoding 'UTF-8'
+[467] bbl.pm:763> INFO - Output to JF_FairML_slides.bbl

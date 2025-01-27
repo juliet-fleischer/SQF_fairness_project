@@ -133,46 +133,51 @@
     \entry{corbett-davies}{article}{}
       \name{author}{5}{}{%
         {{hash=341a17b1faf8ad74034822ff2f891742}{%
-           family={{Corbett-Davies}},
-           familyi={C\bibinitperiod},
+           family={Corbett-Davies},
+           familyi={C\bibinithyphendelim D\bibinitperiod},
            given={Sam},
            giveni={S\bibinitperiod}}}%
-        {{hash=dc87d955c84b91ba3d881af1c1a93666}{%
-           family={Gaebler},
-           familyi={G\bibinitperiod},
-           given={Johann\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=a4b30e51359854c0d89aa15a6279a424}{%
-           family={Nilforoshan},
-           familyi={N\bibinitperiod},
-           given={Hamed},
-           giveni={H\bibinitperiod}}}%
-        {{hash=85bd24ef7b2a76727f6692bb1bd9d048}{%
-           family={Shroff},
-           familyi={S\bibinitperiod},
-           given={Ravi},
-           giveni={R\bibinitperiod}}}%
+        {{hash=250834340733e5e9b8d29ca5401b996e}{%
+           family={Pierson},
+           familyi={P\bibinitperiod},
+           given={Emma},
+           giveni={E\bibinitperiod}}}%
+        {{hash=bd01724f6ff8de6f73c9c78729610ea7}{%
+           family={Feller},
+           familyi={F\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
         {{hash=769c0f637707fcc5e9ebb71ce29eb5d1}{%
            family={Goel},
            familyi={G\bibinitperiod},
            given={Sharad},
            giveni={S\bibinitperiod}}}%
+        {{hash=5461eb4106d6d32ad5d7934e94e7ebda}{%
+           family={Huq},
+           familyi={H\bibinitperiod},
+           given={Aziz},
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{fullhash}{4544570fa35bc719cb1465901595a433}
+      \strng{fullhash}{d6da5770664d2a378c2490132d6a5658}
       \strng{bibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
       \strng{authorbibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
       \strng{authornamehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
+      \strng{authorfullhash}{d6da5770664d2a378c2490132d6a5658}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
+      \field{abstract}{The quantification of fairness in predictive algorithms has received much recent attention, but the literature is replete with conflicting definitions and objectives. In this paper, we show that these competing notions of fairness can be unified by recognizing that fairness metrics encode different implicit choices about the relative harms of different kinds of classification errors. We then formalize these trade-offs in a probabilistic model, and highlight the inherent tension between traditional measures of classification performance and notions of fairness.}
+      \field{journaltitle}{Journal of Machine Learning Research}
       \field{langid}{english}
-      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
+      \field{title}{The Measure and Mismeasure of Fairness}
+      \field{volume}{24}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 117}
+      \range{pages}{117}
       \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-Davies/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
       \endverb
     \endentry
     \entry{dwork2012}{inproceedings}{}
@@ -239,7 +244,7 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Dwork2012Faa/Dwork et al. - 2012 - Fairness through awareness.pdf
       \endverb
     \endentry
-    \entry{kusner}{article}{}
+    \entry{kusner}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=37d0d7a3ba0cb7a7253c7b690ce4e8c6}{%
            family={Kusner},
@@ -262,6 +267,9 @@
            given={Ricardo},
            giveni={R\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
       \strng{namehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
       \strng{fullhash}{31480a6997ada758f14a82daae7e9c2d}
       \strng{bibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
@@ -272,9 +280,13 @@
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
+      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it is the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
+      \field{booktitle}{Advances in Neural Information Processing Systems 30 (NeurIPS 2017)}
       \field{langid}{english}
-      \field{title}{Counterfactual {{Fairness}}}
+      \field{title}{Counterfactual Fairness}
+      \field{year}{2017}
+      \field{pages}{4066\bibrangedash 4076}
+      \range{pages}{11}
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/KusnerCF/Kusner et al. - Counterfactual Fairness.pdf
       \endverb

@@ -112,6 +112,10 @@ Conlusion:
 to asses whether the definition is suitable
 
 
+# pick up from here
+calculate the propensity weights for each group of borough and race
+implement the linear program from hardt et al
+summarize results
 
 
 
