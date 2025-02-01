@@ -113,6 +113,10 @@ to asses whether the definition is suitable
 
 
 # pick up from here
+use chatgpt to brainstorm how i could work with the data
+--> idk if i can replicate this paper, i dont get the math behind hardt et al.
+--> but i got the theory behind the residual fairness paper, so i can outline this def
+
 calculate the propensity weights for each group of borough and race
 implement the linear program from hardt et al
 summarize results

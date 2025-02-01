@@ -1,7 +1,7 @@
 ### --- Random Forest --- ###
 # initialize a learner
 p <- ncol(sqf) - 1
-lrn_rf_missing <- lrn("classif.random_forest_weka", predict_type = "prob") # can handle missings
+lrn_rf_missing <- lrn("classif.rpart", predict_type = "prob") # can handle missings
 # construct a resampling strategy
 cv5 <- rsmp("cv", folds = 5)
 # set performance measures
@@ -23,8 +23,8 @@ predictions_dt$SUSPECT_RACE_DESCRIPTION <- sqf[predictions_dt$row_ids, SUSPECT_R
 # create a dichotomouse race column for showcasing the definitions in a
 # classical case in the presentation only
 unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
-predictions_dt[, PA_GROUP := ifelse(SUSPECT_RACE_DESCRIPTION %in% unprivileged, "unprivileged", "privileged")]
-predictions_dt$PA_GROUP <- factor(predictions_dt$PA_GROUP, levels = c("privileged", "unprivileged"), labels = c(0,1))
+predictions_dt[, PA_GROUP := ifelse(SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")]
+predictions_dt$PA_GROUP <- factor(predictions_dt$PA_GROUP, levels = c("White", "POC"), labels = c(0,1))
 
 
 ### --- ARRESTED Complete Case Analysis --- ###

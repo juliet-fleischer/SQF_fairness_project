@@ -1,8 +1,12 @@
 \section*{Residual Unfairness}
-The second part of this paper deals with a real worl application of fairness in machine learning. We decided to look at the Stop, Question, and Frisk dataset from the New York Police Department (NYPD). The dataset has been used in fairness research before and illustrates intersting insights and limitations of traditional fairness metrics in their standalone version.
-We will first provide some background information about the dataset. In the context of the data the problem of selction bias will be of major importance. We look at two paper that have formalised the concept of fairness under this condition and compare them with another paper that ignores the subtle context of the data.
+The main message of this paper is that it is not that easy to adjust for fairness, when the data the algorithm learns from is biased. Ensuring Equal Opportunity or Equalized Odds on the training data does not generalize to the target population. The paper proposes a way to estimate the TRP and FPR in the target population. This is useful, when the fairness methods depends on the FPR and/or TPR. 
 
-Problem they identify: Censored data
+This translates as follows to SQF. The police officer decides to stop an individual and this decision might be based on prejudice against certain groups. Further information, such as the possesion of a weapon or the arrestment of a person, is naturally only made on people who were stopped.
+This means our training data does not represent the population we want to use the algorithm on, i.e. the stopped individuals are not representative for the population of NYC at a whole. $rightarrow$ compare race distributions or borough distributions (or both)
+
+\cite{kallus} defines fairness via equal opportunity or equalised odds. They argue that even after fairness adjustments on the training population, such as thresholding, discrimination in the target population will remain.
+Thus they design a way to estimate the true positive rate and false positive rate of the target population based on training data. A method that uses the TPR and FPR of the data (such as the method proposed by \cite{hardt2016}) can use these adjusted estimations instead and like this ensure fairness on the target population.
+
 
 
 Residual Unfairness \cite{kallus} concepts defined in the paper:
@@ -34,7 +38,7 @@ $G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for bl
 When we apply the algorithm to the target populaiton we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
 were selected more strictly. This means that the scores of white people in the training population are higher than the scores of white people in the target population.
 $G_w^{Z=1} \succeq G_w^{T=1}$. This means we will learn a high threshold for white people. When we apply the algorithm to the target population we will be less likely to classify white
-people as $\hat{Y} = 1$ because the threshold is so high. -- Still unsrue if this makes sense, if a transfered it correctly.
+people as $\hat{Y} = 1$ because the threshold is so high. -- Still unsure if this makes sense, if a transfered it correctly.
 
 For the other group we have many truly guilty and less truly innocent. When now 80\% of truly guilty are classified as guilty in the advantaged group then we would want want 80\% of
 the truly guilty to be correctly labelled as guilty in the disadvantaged group. This would only results in lowering the threshold for the disadvantaged group

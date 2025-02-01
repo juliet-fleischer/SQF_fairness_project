@@ -1,0 +1,35 @@
+\subsection*{Stop, Question, and Frisk data}
+We will now give an overview of how the SQF dataset has been studied in the fair ML literature thus far.
+Since x the stop, question, and frisk practice is implemented in New York City. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
+The stop can result in a i) frisk (a pat-down of the person's outer clothing)
+ii) a search iii) a summon iv) an arrest. After a stop was made, the officer is required to fill out a form
+documenting the stop. This data is published yearly by the NYPD. Stop and Frisk practice during 2004 to 2012 has been deemed as unconstitutional.
+
+We will train a random forest classifier on complete cases and compare the performance and fairness to a preprocessing, inprocessing, and postprocessing method using the mlr3fairness package in R.
+
+
+The raw dataset consists of 16971 observations and 82 variables. We first discarded all the variables that had more than 20\% missing values.
+34 variables remain that provide us with information about the stop and demographic information about the person. From this reduced dataset we filter out the complete cases and end up with 12039 observations.
+Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
+but training missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some of the fairness methods later on.
+(many fairness methods can not deal with missing data, especially in the protected attribute, which makes sense, since they base their decision on it). 
+
+We decide for race as PA and dichotomise the attribute by grouping "Black", "Black Hispanic", and "White Hispanic" into the "PoC" group and "White", "Asian Pacific", etc. into the "White" group.
+Of course, this is an oversimplification of the situation that we make to adjust our situation to the common binary classification, binary PA scenario in the fairness literature.
+As preprocessing method we implement reweighing, as inprocessing we the fairzlrm learner and for postprocessing we establish Equalised odds by {\color{red} {look up how the three work under the hood}}.
+Fig. x plots the performance measured by accuracy on the x-axis and the fairness measured by the absolute difference in TPR and FPR between groups (equalized odds) on the y-axis. A classifier that is fair and accurate would be in the bottom right corner.
+
+This is all good and insightful, but actually the picture for this data is more complex.
+The data introduced three main challenges: selection bias; missing data; class imbalance.
+
+We reviewed paper that address the first of these challenges, since the SQF data is typically used to illustrate this challenge (not the other ones).
+% - number of stops conducted but with background information who governed at that time (see Obsidian)
+% - transparent explanation of feature selection (similar to Data Transparanecy paper)
+% - distribution of race in SQF data vs NYC
+% - grouping to black, white, black hispanic, white hispanic, others --> arrestment rates vin these groups
+
+Arrestment rate description by race
+There is the highest arrestment rate among white people and the lowest arrestment rate for black hispanic people
+which at first glance could seem like there is no racial bias against people of color. In contrast, the high arrestment rate
+suggest bias against white people. But the alternative explanation is that white people are selected more carefully,
+leading to a higher proportion of white people that actually did something to arrest them.

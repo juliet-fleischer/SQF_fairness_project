@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber thesis"] 1736962686 "thesis.bcf" "thesis.bbl" "thesis" 1736962938 0
-  "../literature.bib" 1736955434 62151 6a5cf63fd294243ca37746e2db6318c8 ""
-  "thesis.bcf" 1736962938 109362 570ab3d3845c82ea0c1cfdfd9f54652d "pdflatex"
+["biber thesis"] 1738429504 "thesis.bcf" "thesis.bbl" "thesis" 1738429531 0
+  "../literature.bib" 1738405651 64974 8b1c64d9c7367b12fea5b654a1779009 ""
+  "thesis.bcf" 1738429531 109751 c5cc90eadcad51fba4d5de7d554d4451 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1736962933 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1736962938 0
+["pdflatex"] 1738429524 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1738429531 0
   "../figures/sigillum.png" 1733764644 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1736957232 6874 6eddc97bec96223f94ff098f200fb8ce ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1738428514 6910 a7ae8e5e1d56ff4d97509e67753505ce ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -201,18 +201,19 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "chapters/bias_in_bias_out.tex" 1736702394 4585 b089d603c9a0c3c3e62747e68bfec83e ""
-  "chapters/fairness_metrics.tex" 1736962933 20266 b365ed161bd611b3113cdf5db43e6ac0 ""
+  "chapters/fairness_metrics.tex" 1738428280 15877 e6fa8066b1b24b69897688d1e6074e25 ""
   "chapters/intro.tex" 1736941433 3589 d9e400d6112d3baf11b276dcbafe1ce0 ""
-  "chapters/residual_unfairness.tex" 1736702388 4724 6f98e73c18b39108b4645218cd82a480 ""
+  "chapters/residual_unfairness.tex" 1738429496 8100 2a6161af1dfd6f66dc24bcc38d223e21 ""
+  "chapters/sqf_case_study.tex" 1738429496 3806 2412b4981261f0d4f6c910dbc8f32bb9 ""
   "shortcuts.tex" 1733764376 6160 10d5572ffc53a1976007dade8cced089 ""
-  "thesis.aux" 1736962938 3708 703983dfb9ca91d6f555742f9f668b87 "pdflatex"
-  "thesis.bbl" 1736962690 18714 2132842e9245dfe034caf5b779ebd4f8 "biber thesis"
-  "thesis.lof" 1736962938 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.lot" 1736962938 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.out" 1736962938 245 d03c6df7a813764ba17045835c3556e3 "pdflatex"
-  "thesis.run.xml" 1736962938 2328 dccbf272416d14cc777fe47ba9a0b396 "pdflatex"
-  "thesis.tex" 1736957232 6874 6eddc97bec96223f94ff098f200fb8ce ""
-  "thesis.toc" 1736962938 144 e0782ecfd6531f836bda207c0d2fbd22 "pdflatex"
+  "thesis.aux" 1738429531 4530 88ecbf00ae1460ac6ecd35658c883b06 "pdflatex"
+  "thesis.bbl" 1738429509 32633 201ee64838d5f3fc76709ba6f34c93ad "biber thesis"
+  "thesis.lof" 1738429530 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.lot" 1738429530 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.out" 1738429531 245 d03c6df7a813764ba17045835c3556e3 "pdflatex"
+  "thesis.run.xml" 1738429531 2328 46ecddacfa3796d02ad480a586c24558 "pdflatex"
+  "thesis.tex" 1738428514 6910 a7ae8e5e1d56ff4d97509e67753505ce ""
+  "thesis.toc" 1738429531 144 e0782ecfd6531f836bda207c0d2fbd22 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

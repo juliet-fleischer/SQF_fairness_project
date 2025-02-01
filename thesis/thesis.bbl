@@ -193,6 +193,123 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
       \endverb
     \endentry
+    \entry{fernando2021}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=a76fb73b9ba9f02e8cf50125940b9600}{%
+           family={Fernando},
+           familyi={F\bibinitperiod},
+           given={Martínez-Plumed},
+           giveni={M\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0517a7c7351570d28e2489aea09522a0}{%
+           family={Cèsar},
+           familyi={C\bibinitperiod},
+           given={Ferri},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=305a43227c9783317c09fbb0971d41ac}{%
+           family={David},
+           familyi={D\bibinitperiod},
+           given={Nieves},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e870ee962f97ec3db26189c582bfed2d}{%
+           family={José},
+           familyi={J\bibinitperiod},
+           given={Hernández-Orallo},
+           giveni={H\bibinithyphendelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{481f96f5fd56976107d5db0082c5ef6c}
+      \strng{fullhash}{8314c0fc68ea6f434737c6e15b22912c}
+      \strng{bibnamehash}{481f96f5fd56976107d5db0082c5ef6c}
+      \strng{authorbibnamehash}{481f96f5fd56976107d5db0082c5ef6c}
+      \strng{authornamehash}{481f96f5fd56976107d5db0082c5ef6c}
+      \strng{authorfullhash}{8314c0fc68ea6f434737c6e15b22912c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Nowadays, there is an increasing concern in machine learning about the causes underlying unfair decision making, that is, algorithmic decisions discriminating some groups over others, especially with groups that are defined over protected attributes, such as gender, race and nationality. Missing values are one frequent manifestation of all these latent causes: protected groups are more reluctant to give information that could be used against them, sensitive information for some groups can be erased by human operators, or data acquisition may simply be less complete and systematic for minority groups. However, most recent techniques, libraries and experimental results dealing with fairness in machine learning have simply ignored missing data. In this paper, we present the first comprehensive analysis of the relation between missing values and algorithmic fairness for machine learning: (1) we analyse the sources of missing data and bias, mapping the common causes, (2) we find that rows containing missing values are usually fairer than the rest, which should discourage the consideration of missing values as the uncomfortable ugly data that different techniques and libraries for handling algorithmic bias get rid of at the first occasion, (3) we study the trade-off between performance and fairness when the rows with missing values are used (either because the technique deals with them directly or by imputation methods), and (4) we show that the sensitivity of six different machine-learning techniques to missing values is usually low, which reinforces the view that the rows with missing data contribute more to fairness through the other, nonmissing, attributes. We end the paper with a series of recommended procedures about what to do with missing data when aiming for fair decision making.}
+      \field{issn}{1098-111X}
+      \field{journaltitle}{International Journal of Intelligent Systems}
+      \field{langid}{english}
+      \field{number}{7}
+      \field{shorttitle}{Missing the Missing Values}
+      \field{title}{Missing the Missing Values: {{The}} Ugly Duckling of Fairness in Machine Learning}
+      \field{urlday}{10}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{36}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{3217\bibrangedash 3258}
+      \range{pages}{42}
+      \verb{doi}
+      \verb 10.1002/int.22415
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Fernando2021Mmvudfml/Fernando et al. - 2021 - Missing the missing values The ugly duckling of fairness in machine learning.pdf;/Users/julietfleischer/Zotero/storage/WDUPKMWG/int.html
+      \endverb
+      \keyw{algorithmic bias,confirmation bias,data imputation,fairness,missing values,sample bias,survey bias}
+    \endentry
+    \entry{hardt2016}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=e771760b6d0d33f8b4dfd907d8d57ac2}{%
+           family={Hardt},
+           familyi={H\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0b481f252064438215c11421a5d102f}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0b481f252064438215c11421a5d102f}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=34451c97b5a5bad6fcb6513573d1f94d}{%
+           family={Srebro},
+           familyi={S\bibinitperiod},
+           given={Nati},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{6715d12818335ad532b3aa871d63dcdf}
+      \strng{fullhash}{c715d0ea2bb8e9a21473cec75024f752}
+      \strng{bibnamehash}{6715d12818335ad532b3aa871d63dcdf}
+      \strng{authorbibnamehash}{6715d12818335ad532b3aa871d63dcdf}
+      \strng{authornamehash}{6715d12818335ad532b3aa871d63dcdf}
+      \strng{authorfullhash}{c715d0ea2bb8e9a21473cec75024f752}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a criterion for discrimination against a specified sensitive attribute in supervised learning, where the goal is to predict some target based on available features. Assuming data about the predictor, target, and membership in the protected group are available, we show how to optimally adjust any learned predictor so as to remove discrimination according to our definition. Our framework also improves incentives by shifting the cost of poor classification from disadvantaged groups to the decision maker, who can respond by improving the classification accuracy.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{Equality of {{Opportunity}} in {{Supervised Learning}}}
+      \field{urlday}{27}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{volume}{29}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/hardt2016/Hardt et al. - 2016 - Equality of Opportunity in Supervised Learning.pdf
+      \endverb
+    \endentry
     \entry{kallus}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2db96cc54afe3fe8c684be53af54a7bf}{%
@@ -224,6 +341,51 @@
       \field{title}{Residual {{Unfairness}} in {{Fair Machine Learning}} from {{Prejudiced Data}}}
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/kallus/Kallus und Zhou - Residual Unfairness in Fair Machine Learning from Prejudiced Data.pdf
+      \endverb
+    \endentry
+    \entry{kusner}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=37d0d7a3ba0cb7a7253c7b690ce4e8c6}{%
+           family={Kusner},
+           familyi={K\bibinitperiod},
+           given={Matt\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b072a1ed2f750bfeecb0466a94cc478f}{%
+           family={Loftus},
+           familyi={L\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c40407f768dd3e8b296a11750ad77f41}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4047ee6235adca502c24f37317e79d8e}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{fullhash}{31480a6997ada758f14a82daae7e9c2d}
+      \strng{bibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authorbibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authornamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
+      \strng{authorfullhash}{31480a6997ada758f14a82daae7e9c2d}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
+      \field{langid}{english}
+      \field{title}{Counterfactual {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/KusnerCF/Kusner et al. - Counterfactual Fairness.pdf
       \endverb
     \endentry
     \entry{RambachanBBOEFW}{article}{}
@@ -310,6 +472,67 @@
       \endverb
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Verma2018Fde/Verma und Rubin - 2018 - Fairness definitions explained.pdf
+      \endverb
+    \endentry
+    \entry{Zafar2017PPNFC}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=651ed744d2d757bbdb4ef8519fdb9745}{%
+           family={Zafar},
+           familyi={Z\bibinitperiod},
+           given={Muhammad\bibnamedelima Bilal},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86077c699c3bcb4f9fecce395f1e6f41}{%
+           family={Valera},
+           familyi={V\bibinitperiod},
+           given={Isabel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a189b5a8e9f39b81e8445433ec383ff6}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0d02e39696f2420a11d3ee706088466b}{%
+           family={Gummadi},
+           familyi={G\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89be134d6b955c508c4267860047bdd9}{%
+           family={Weller},
+           familyi={W\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{fullhash}{8a150b1f890c166a574abb59887dff31}
+      \strng{bibnamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authorbibnamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authornamehash}{5a3b59ce7c7b687c4ebf7f069fab18c2}
+      \strng{authorfullhash}{8a150b1f890c166a574abb59887dff31}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The adoption of automated, data-driven decision making in an ever expanding range of applications has raised concerns about its potential unfairness towards certain social groups. In this context, a number of recent studies have focused on defining, detecting, and removing unfairness from data-driven decision systems. However, the existing notions of fairness, based on parity (equality) in treatment or outcomes for different social groups, tend to be quite stringent, limiting the overall decision making accuracy. In this paper, we draw inspiration from the fair-division and envy-freeness literature in economics and game theory and propose preference-based notions of fairness -- given the choice between various sets of decision treatments or outcomes, any group of users would collectively prefer its treatment or outcomes, regardless of the (dis)parity as compared to the other groups. Then, we introduce tractable proxies to design margin-based classifiers that satisfy these preference-based notions of fairness. Finally, we experiment with a variety of synthetic and real-world datasets and show that preference-based fairness allows for greater decision accuracy than parity-based fairness.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{From {{Parity}} to {{Preference-based Notions}} of {{Fairness}} in {{Classification}}}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Zafar2017PPNFC/Zafar et al. - 2017 - From Parity to Preference-based Notions of Fairness in Classification.pdf
       \endverb
     \endentry
   \enddatalist

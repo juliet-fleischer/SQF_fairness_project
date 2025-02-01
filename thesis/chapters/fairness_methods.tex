@@ -1,0 +1,18 @@
+\subsection*{Fairness methods}
+Another question fair machine learning deals with is how algorithms can be adjusted such that they fullfil one of the above fairness metrics.
+Depending on when they take place in the machine learning pipeline, we distinguish between preprocessing, inprocessing or postprocessing methods.
+Preprocessing methods have the idea that the data should be modified before training, so that the algorithm learns on "corrected" data. Reweighing observations before training is an example for a preprocessing method, that we will use in our case study in chapter x.
+In Processing methods modify the optimisation criterion, such that a it also accounts for a chosen fairness metric. Introducing a regularization term to the loss function is one example of such modifications.
+Postprocessing methods work with black box algorithms, just like preprocessing methods. We only need the predictions from the model to adjust them so that again a chosen fairness metric is fullfilled. One example for this is thresholding, where we set group specific thresholds to re-classify the data after training. We will discuss a post-processing approach by \cite{hardt2016} in a following chapter.
+
+\subsection*{Bias}
+We want to end this general introduction into fair machine learning by outlining the context in which the algorithm is usually embedded. On this note we also advice practitioners to think about the source of bias that could be present in your situation, as this \textit{should} influence how fairness is defined and what fairness adjustments are appropriate. This will motivate the potential difficulties that can arise when implementing fairness in the real world.
+\cite{caton2024} describe the situation as follows. The algorithm is embedded in a feedback loop with the user and data.
+We as a society make decision, which reflect our reality. We make our reality measurable by collecting data. The algorithm learns from this data and makes predictions, on which we base new decisions. 
+At each of these three points bias can be introduced into the process and, above all, bias can also be reinforced in the course of this process.
+In the context of the Stop, Question, and Frisk data, historical bias and selection bias are probably the most relevant sources of bias.
+Historical bias can shows itself in different ways. In our case it would mean that we assume that some people in our data have repeatedly experienced discrimination in terms of being arrested.
+Selection bias refers to the fact that the data is not representative of the population of New York City, because the decision to stop someone is based on a biased decision policy.
+
+
+
