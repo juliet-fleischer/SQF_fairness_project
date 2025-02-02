@@ -1,11 +1,36 @@
+
+# Attempt to estimate the joint distribution of X,A for the target population
+
+# 1. Target population (T = 1) ----
+target_pop <- lapply(1:5, \(i) assign(paste0("data_", i), read_xlsx("data/target_pop_data.xlsx", sheet = i)))
+names(target_pop) <- c("Brooklyn", "Manhattan", "Bronx", "Queens", "Staten Island")
+# for each tibble in target_pop select only the first three columns
+target_pop <- lapply(target_pop, \(x) select(x, 1:2))
+# rename the columns for each tibble
+target_pop <- lapply(target_pop, function(x) {
+  colnames(x) <- c("group", "count")
+  return(x)
+})
+# bind everything together to one data frame
+target_pop <- do.call(rbind, lapply(names(target_pop), \(x) cbind(target_pop[[x]], borough = x)))
+# remove the total population rows for each borough
+target_pop <- target_pop |> 
+  filter(group != "Total population") |>
+  mutate(count = as.numeric(count)) 
+
 # description for reduced data
+p4 <- ggplot(complete_cases, aes(x = STOP_LOCATION_BORO_NAME, fill = SUSPECT_RACE_DESCRIPTION)) +
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(title = "Distribution of stops by borough",
+       x = "Borough",
+       y = "Proportion of stops")
 
-ggplot(imputed_data_g, aes(x = race_group_a, y = SUSPECT_ARRESTED_FLAG)) +
-  geom_col()
+p5 <- ggplot(target_pop, aes(x = borough, y = count, fill = group)) +
+  geom_col(position = "fill") +
+  theme_minimal() +
+  labs(title = "Distribution of arrests by age",
+       x = "Age",
+       y = "Proportion of arrests")
 
-imputed_data_g |> 
-  group_by(race_group_a) |> 
-  summarise(n = n(), prop = mean(SUSPECT_ARRESTED_FLAG))
 
-crime.desc <- complete_cases[, .N, by = SUSPECTED_CRIME_DESCRIPTION]
-crime.desc <- crime.desc[order(-N)]

@@ -135,3 +135,27 @@ unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
 complete_cases$PA_GROUP <- ifelse(complete_cases$SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")
 # complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
+
+# initilizing fairness metrics
+# Defines punitive base measures
+base_mrs_punitive <- list(
+  fpr = msr("classif.fpr"),
+  tnr = msr("classif.tnr"),
+  ppv = msr("classif.ppv"),
+  fdr = msr("classif.fdr")
+)
+
+# Define multiple base measures
+base_mrs_assistive <- list(
+  fnr = msr("classif.fnr"),
+  tpr = msr("classif.tpr"),
+  npv = msr("classif.npv"),
+  fomr = msr("classif.fomr")
+)
+
+# define mixed base measures
+base_mrs_other <- list(
+  acc = msr("classif.acc"),
+  auc = msr("classif.auc"),
+  bbrier = msr("classif.bbrier")
+)

@@ -24,6 +24,8 @@ calcGroupwiseMetrics <- function(base_mrs, task, predictions) {
   print(groupwise_results_df)
 }
 
+
+
 getFairnessAudit <- function(learner, task, splits) {
   # initialize results list
   res <- list()

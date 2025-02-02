@@ -38,19 +38,27 @@ fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 fairness_audit_rf <- getFairnessAudit(learner = lrn_rf, task = task_arrest, splits = cc.splits)
 p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest)
 p2_rf <- compare_metrics(fairness_audit_rf$prediction,
-                         msrs(c("fairness.fpr", "fairness.tpr", "fairness.eod", "fairness.acc")),
+                         msrs(c("fairness.ppv", "fairness.fpr", "fairness.eod", "fairness.acc")),
                       task = task_arrest)
 
+calcGroupwiseMetrics(base_mrs_assistive, task_arrest, fairness_audit_rf$predictions)
+fairness_audit_rf$fairness_metrics
+
 # 3. Experiment ----
-lrns = list(lrn_rpart, l1, l2, l3)
+lrns = list(lrn_rf, l1, l2, l3)
 bmr = benchmark(benchmark_grid(task_arrest, lrns, rsmp("cv", folds = 5)))
 meas = msrs(c("classif.acc", "fairness.eod"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
-fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.eod"),
-                           accuracy_measure = msr("classif.acc")) +
+p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.ppv"),
+                           accuracy_measure = msr("classif.ce")) +
   ggplot2::scale_color_viridis_d("Learner") +
   ggplot2::theme_minimal()
+
+# distribution of Y | A
+ggplot(complete_cases, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
+  geom_bar(position = "fill")
+complete_cases[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
 
 # 4. Limitations ----
 # estimate the tpr on the target population with the method from Kallus and Zhou
