@@ -116,6 +116,8 @@ to asses whether the definition is suitable
 use chatgpt to brainstorm how i could work with the data
 --> idk if i can replicate this paper, i dont get the math behind hardt et al.
 --> but i got the theory behind the residual fairness paper, so i can outline this def
+--> current approach would be to work with the data in a simplified way (complete cases, binary PA) and use the pipelines implemented by mlr3
+--> then argue in the expansion/limitation what is wrong with this approach
 
 calculate the propensity weights for each group of borough and race
 implement the linear program from hardt et al

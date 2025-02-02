@@ -130,4 +130,8 @@ sqf <- sqf |>
   filter(!SUSPECT_HAIR_COLOR %in% hair.color) |>
   filter(!SUSPECT_EYE_COLOR %in% eye.color)
 
+complete_cases <- sqf[complete.cases(sqf), ]
+unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
+complete_cases$PA_GROUP <- ifelse(complete_cases$SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")
+complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
