@@ -23,3 +23,20 @@ calcGroupwiseMetrics <- function(base_mrs, task, predictions) {
   # Inspect results
   print(groupwise_results_df)
 }
+
+getFairnessAudit <- function(learner, task, splits) {
+  # initialize results list
+  res <- list()
+  learner$train(task, splits$train)
+  pred <- learner$predict(task, splits$test)
+  res1 <- pred$score(fairness_msr_other, task = task)
+  res2 <- pred$score(fairness_msr_punitive, task = task)
+  res3 <- pred$score(fairness_msr_assistive, task = task)
+  list(
+    predictions = pred,
+    fairness_metrics = data.frame(
+      Metric = c(names(fairness_msr_other), names(fairness_msr_punitive), names(fairness_msr_assistive)),
+      Value = c(res1, res2, res3)
+    )
+  )
+}

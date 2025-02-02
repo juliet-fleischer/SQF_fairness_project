@@ -1,22 +1,31 @@
 \subsection*{Stop, Question, and Frisk data}
+\textbf{Background}
 We will now give an overview of how the SQF dataset has been studied in the fair ML literature thus far.
 Since x the stop, question, and frisk practice is implemented in New York City. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 The stop can result in a i) frisk (a pat-down of the person's outer clothing)
 ii) a search iii) a summon iv) an arrest. After a stop was made, the officer is required to fill out a form
 documenting the stop. This data is published yearly by the NYPD. Stop and Frisk practice during 2004 to 2012 has been deemed as unconstitutional.
 
-We will train a random forest classifier on complete cases and compare the performance and fairness to a preprocessing, inprocessing, and postprocessing method using the mlr3fairness package in R.
-
-
+\textbf{mlr3fairness experiments}
+% - fairness metrics (table) for dichotomised race and for full race grouping in appendix.
+% - fairness methods (inspired by the article)
 The raw dataset consists of 16971 observations and 82 variables. We first discarded all the variables that had more than 20\% missing values.
 34 variables remain that provide us with information about the stop and demographic information about the person. From this reduced dataset we filter out the complete cases and end up with 12039 observations.
 Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
 but training missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some of the fairness methods later on.
 (many fairness methods can not deal with missing data, especially in the protected attribute, which makes sense, since they base their decision on it). 
+We train a random forest classifier on the complete cases and compare the performance and fairness to a preprocessing, inprocessing, and postprocessing method using the mlr3fairness package in R.
+% Reweighing: https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_reweighing.html?utm_source=chatgpt.com#format
+% Fair logistic regression: https://rdrr.io/cran/mlr3fairness/man/mlr_learners_classif.fairzlrm.html?utm_source=chatgpt.com
+% EOd: https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_equalized_odds.html?utm_source=chatgpt.com
+% mlr3book: https://mlr3book.mlr-org.com/chapters/chapter14/algorithmic_fairness.html?utm_source=chatgpt.com#bias-and-fairness
+% https://mlr3fairness.mlr-org.com/#debiasing-methods
 
 We decide for race as PA and dichotomise the attribute by grouping "Black", "Black Hispanic", and "White Hispanic" into the "PoC" group and "White", "Asian Pacific", etc. into the "White" group.
 Of course, this is an oversimplification of the situation that we make to adjust our situation to the common binary classification, binary PA scenario in the fairness literature.
 As preprocessing method we implement reweighing, as inprocessing we the fairzlrm learner and for postprocessing we establish Equalised odds by {\color{red} {look up how the three work under the hood}}.
+mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
+The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by the theory of Zafar et. al. This method optimises for statistical parity. The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalized odds constraints.
 Fig. x plots the performance measured by accuracy on the x-axis and the fairness measured by the absolute difference in TPR and FPR between groups (equalized odds) on the y-axis. A classifier that is fair and accurate would be in the bottom right corner.
 
 This is all good and insightful, but actually the picture for this data is more complex.

@@ -1,6 +1,4 @@
-library(mlr3)
-library(mlr3pipelines)
-library(data.table)
+
 
 # Load the data
 data2011 <- fread("data/2004.csv")
@@ -16,20 +14,31 @@ data2011 <- data2011[, -..na.cols]
 char.cols <- sapply(data2011, is.character)
 data2011[, (names(char.cols)[char.cols]) := lapply(.SD, as.factor), .SDcols = names(char.cols)[char.cols]]
 
+# remove a few unnecessary columns
+data2011$stinter <- NULL
+data2011$addrtyp <- NULL
+data2011$premname <- NULL
+data2011$recstat <- NULL
+data2011$year <- NULL
+
+# filter out the complete cases
+data.cc <- data2011[complete.cases(data2011), ]
+
+# dichotomise the race attribute
+data.cc$pa_group <- ifelse(data.cc$race %in% c("B", "Q", "P"), "PoC", "White")
+
 # Define a PipeOp to convert character columns to factors
 # po_char_to_factor <- po("colapply", applicator = as.factor, affect_columns = selector_type("character"))
 
-# Define the learner
-lrn_rf_missing <- lrn("classif.random_forest_weka", predict_type = "prob")
 # Create a Task
-task.2011 <-  as_task_classif(data2011, target = "arstmade", response_type = "prob",
-                              positive = "Y", id = "arrested w/ missing")
+task.2011 <-  as_task_classif(data.cc, target = "arstmade", response_type = "prob",
+                              positive = "Y", id = "arrested")
 task.2011$col_roles$pta <- "race"
 splits.2011 <- partition(task.2011)
-lrn_rf_missing$train(task.2011, row_ids = splits.2011$train)
-predictions.2011 <- lrn_rf_missing$predict(task.2011, row_ids = splits.2011$test)
-predictions_dt <- as.data.table(predictions_arrested_full)
-predictions_dt$race <- sqf[predictions_dt$row_ids, race]
+lrn_rf$train(task.2011, row_ids = splits.2011$train)
+predictions.2011 <- lrn_rf$predict(task.2011, row_ids = splits.2011$test)
+predictions_dt <- as.data.table(predictions.2011)
+predictions_dt$race <- data.cc[predictions_dt$row_ids, race]
 
 calcGroupwiseMetrics(base_mrs_punitive, task.2011, predictions.2011)
 calcGroupwiseMetrics(base_mrs_assistive, task.2011, predictions.2011)

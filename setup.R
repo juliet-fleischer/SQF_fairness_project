@@ -3,31 +3,23 @@ set.seed(024)
 options(java.parameters = "-Xmx12g") # Allocate 8 GB of memory (adjust as needed)
 library(data.table)
 library(readxl)
-library(ggplot2)
 library(ggmosaic)
 library(pROC)
 library(tidyverse)
-library(mlr3verse)
 library(mlr3fairness)
 library(mlr3measures)
 library(mlr3learners)
 library(mlr3pipelines)
 library(checkmate)
 library(iml)
-library(fairml)
-library(linprog)
-library(CVXR)
+# library(CVXR) # this package also uses the "%>>%" operator - be careful when loading it with mlr3pipelines
+# library(conflicted) shows conflicts when operators defined by mutiple packages are used
 library(gridExtra)
 library(rJava)
-# library(randomForest)
-# library(mlr3extralearners)
-# options(java.parameters = "-Xmx8G")  # Zuweisung auf 8 GB
-# library(RWeka)
 
 
 source("program/functions.R")
 source("program/data_cleaning.R")
-# source("program/pre_training.R")
 
 
 # FIREARM_FLAG until SEARCH_BASIS_OUTLINE_FLAG set all the NA to "N"

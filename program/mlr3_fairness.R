@@ -12,8 +12,8 @@ fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
 predictions$score(fairness_msr_assistive, task = tsk_frisk)
 
 # in between
-fairness_mrs_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
-predictions$score(fairness_mrs_other, task = tsk_frisk)
+fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
+predictions$score(fairness_mrs_other, task = task)
 
 
 

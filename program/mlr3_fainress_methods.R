@@ -1,37 +1,60 @@
-# load learners
+# 1. Preparations ----
+
+# regular learner
 lrn_rf = lrn("classif.ranger", predict_type = "prob")
 lrn_rf$id = "ranger_rf"
-# lrn_rf$train(task, row_ids = partition(task, ratio = 0.8)$train)
-# lrn_rf$predict(task, row_ids = partition(task, ratio = 0.8)$test)
 
-l1 = as_learner(po("reweighing_wts") %>>% lrn("classif.rpart"))
+# Preprocessing: reweighing
+l1 = as_learner(mlr3pipelines::`%>>%`(po("reweighing_wts"), lrn("classif.rpart")))
 l1$id = "reweight"
 
+# Postprocessing: Equalized Odds
 l2 = as_learner(po("learner_cv", lrn("classif.ranger")) %>>%
                   po("EOd"))
 l2$id = "EOd"
 
-# preprocess by collapsing factors
+# Inprocessing: fair logistic regression
 l3 = as_learner(po("collapsefactors") %>>% lrn("classif.fairzlrm"))
 l3$id = "fairzlrm"
 
-# load task and subset by rows and columns
-task = as_task_classif(complete_cases, target = "SUSPECT_ARRESTED_FLAG",
+# define a task_arrest
+task_arrest = as_task_classif(complete_cases, target = "SUSPECT_ARRESTED_FLAG",
                        positive = "Y", response_type = "prob")
-task$set_col_roles("PA_GROUP", "pta")
+task_arrest$set_col_roles("PA_GROUP", "pta")
+cc.splits <- partition(task_arrest)
 
-# run experiment
-lrns = list(lrn_rf, l1, l2, l3)
-bmr = benchmark(benchmark_grid(task, lrns, rsmp("cv", folds = 2))) # should be 5
+
+# 2. Fairness Auditing ----
+# 2.1 Fairness metrics ----
+# punitive
+fairness_msr_punitive <- msrs(c("fairness.fpr","fairness.tnr","fairness.ppv"))
+# assistive
+fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
+                                 "fairness.fomr"))
+# in between
+fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
+
+# 2.2 regular RF ----
+fairness_audit_rf <- getFairnessAudit(learner = lrn_rf, task = task_arrest, splits = cc.splits)
+p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest)
+p2_rf <- compare_metrics(fairness_audit_rf$prediction,
+                         msrs(c("fairness.fpr", "fairness.tpr", "fairness.eod", "fairness.acc")),
+                      task = task_arrest)
+
+# 3. Experiment ----
+lrns = list(lrn_rpart, l1, l2, l3)
+bmr = benchmark(benchmark_grid(task_arrest, lrns, rsmp("cv", folds = 5)))
 meas = msrs(c("classif.acc", "fairness.eod"))
-bmr$aggregate(meas)[,
-                    .(learner_id, classif.acc, fairness.equalized_odds)]
+bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
 fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.eod"),
-                           accuracy_measure = msr("classif.ce")) +
+                           accuracy_measure = msr("classif.acc")) +
   ggplot2::scale_color_viridis_d("Learner") +
   ggplot2::theme_minimal()
 
+# 4. Limitations ----
+# estimate the tpr on the target population with the method from Kallus and Zhou
+# and compare it to this tpr
 
 # in the graph low and right is good
 

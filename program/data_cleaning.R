@@ -133,5 +133,5 @@ sqf <- sqf |>
 complete_cases <- sqf[complete.cases(sqf), ]
 unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
 complete_cases$PA_GROUP <- ifelse(complete_cases$SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")
-complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
+# complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
