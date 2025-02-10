@@ -113,17 +113,24 @@ to asses whether the definition is suitable
 
 
 # pick up from here
-replicating the mlr3fairness pipeline doesn't really make sense here
-I could not dichotomize but keep all of the race groups and see if there are greater disparities --> the fairness adjustment won't be straight forward though
---> Do they work for non-binary PA?
-
-text bothmann again for advice
-
+describe the results, compare 2021 and 2011 data
+continue theoretical explanation based on papers
 maybe also bring sth from iml into it (what we discussed during the seminar presentations with FI)
 --> unconditional FI for statistical parity
 
-The problem is that usual group fairness metrics do not show racial discrimination okay but the other papers would explain these results, it is just that i cannot show the things from the other papers on the data but only explain their reasoning
-Did I really estimate the tpr on the target pop correctly? because it said that it would be HIGHER on the target population than on training - this basically cannot be
 
+## mlr3 inconsistencies
+heißt "fairness.cv" nach außen aber die id wenn man msr("fairness.cv") aufruft ist fairness.pp; laut Beschreibung sollte es demographic parity sein, d.h. die absolute differenz in positive predictive ratios across groups (Independence).
+Der Name nach außen hin sollte also geändert werden, zu "fairness.cv" (was auch immer das heißt)
+oder, mMn klarer, zu "fairness.dp" oder "fairness.sp" für demographic parity/statistical parity
 
+"fairness.pp" und msr("fairness.pp") == fairness.predictive_parity. predictive parity sagt, dass in beiden Gruppen der Anteil von positiv vorhergesagten Individuen, die wirklich positiv sind gleich sein soll (Sufficiency).
+Laut mlr3 Beschreibung ist es "Predictive Parity: Mean of absolute differences between ppv and npv across groups",
+aber das was da beschreiben wird ist nicht die predictive parity.
 
+"fairness.ppv" und msr("fairness.ppv") == fairness.ppv ist laut Bescheibung die absolute Differenz in positive predictive values acorss groups, was genau die predictive parity ist.
+
+d.h. fairness.pp als "Mean of absolute differences between ppv and npv across groups"
+(laut Beschreibung) ist gerade also etwas anderes als predictive parity. Es bringt gerade
+ppv und npv zusammen und ist somit eine Mischung von predictive parity und predictive equality 
+(beides sufficiency)
