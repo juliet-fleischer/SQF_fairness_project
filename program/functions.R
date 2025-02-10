@@ -30,12 +30,12 @@ getFairnessAudit <- function(learner, task, splits) {
   # initialize results list
   res <- list()
   learner$train(task, splits$train)
-  pred <- learner$predict(task, splits$test)
-  res1 <- pred$score(fairness_msr_other, task = task)
-  res2 <- pred$score(fairness_msr_punitive, task = task)
-  res3 <- pred$score(fairness_msr_assistive, task = task)
+  pred_test <- learner$predict(task, splits$test)
+  res1 <- pred_test$score(fairness_msr_other, task = task)
+  res2 <- pred_test$score(fairness_msr_punitive, task = task)
+  res3 <- pred_test$score(fairness_msr_assistive, task = task)
   list(
-    predictions = pred,
+    predictions = pred_test,
     fairness_metrics = data.frame(
       Metric = c(names(fairness_msr_other), names(fairness_msr_punitive), names(fairness_msr_assistive)),
       Value = c(res1, res2, res3)

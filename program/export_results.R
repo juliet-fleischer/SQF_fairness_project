@@ -7,3 +7,11 @@ ggsave("figures/sqf_case_study_plot2.png", p2_rf, width = 10, height = 6, units 
 ggsave("figures/sqf_case_study_plot3.png", p3, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
 ggsave("figures/sqf_case_study_plot4.png", p4, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
 ggsave("figures/sqf_case_study_plot5.png", p5, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
+
+# unconditional race distirbution in target vs train data
+ggsave("figures/sqf_case_study_plot6.png", p8, width = 10, height = 6, units = "in", dpi = 300, bg = "white") # race distribution
+ggsave("figures/sqf_case_study_plot7.png", p1_combined, width = 10, height = 6, units = "in", dpi = 300, bg = "white") # score densities
+ggsave("figures/sqf_case_study_plot8.png", p2_combined, width = 10, height = 6, units = "in", dpi = 300, bg = "white") # metrics comparison
+
+# 3. models ----
+saveRDS(lrn_rf, file = "program/trained_rf_2011.rds")

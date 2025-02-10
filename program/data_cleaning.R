@@ -96,11 +96,6 @@ char.cols <- which(sapply(sqf, is.character))
 sqf[, (char.cols) := lapply(.SD, as.factor), .SDcols = char.cols]
 
 # create factor columns
-sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
-                                            levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
-                                                       "WHITE","ASIAN / PACIFIC ISLANDER",
-                                                       "MIDDLE EASTERN/SOUTHWEST ASIAN",
-                                                       "AMERICAN INDIAN/ALASKAN NATIVE"))
 sqf$STOP_LOCATION_BORO_NAME <- factor(sqf$STOP_LOCATION_BORO_NAME)
 sqf$STOP_WAS_INITIATED <- factor(sqf$STOP_WAS_INITIATED)
 sqf$MONTH2 <- factor(sqf$MONTH2)
@@ -110,11 +105,19 @@ sqf$SUSPECT_EYE_COLOR <- factor(sqf$SUSPECT_EYE_COLOR)
 sqf$SUSPECT_HAIR_COLOR <- factor(sqf$SUSPECT_HAIR_COLOR)
 
 # creating groups for the race variable
-other_racegroup <- c("ASIAN / PACIFIC ISLANDER","AMERICAN INDIAN/ALASKAN NATIVE", "MIDDLE EASTERN/SOUTHWEST ASIAN")
+sqf$SUSPECT_RACE_DESCRIPTION <- as.character(sqf$SUSPECT_RACE_DESCRIPTION)
+other_racegroup <- c("AMERICAN INDIAN/ALASKAN NATIVE", "MIDDLE EASTERN/SOUTHWEST ASIAN")
 sqf[, SUSPECT_RACE_DESCRIPTION := ifelse(SUSPECT_RACE_DESCRIPTION %in% other_racegroup, "OTHER", SUSPECT_RACE_DESCRIPTION)]
-sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION, levels = c("1", "2", "3", "4", "OTHER"),
-                         labels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC","WHITE", "OTHER"))
-
+sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
+                                       levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
+                                                  "WHITE", "ASIAN / PACIFIC ISLANDER", "OTHER"),
+                         labels = c("Black", "Hispanic", "Black", "White", "Asian", "Other"))
+# 
+# sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
+#                                        levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
+#                                                   "WHITE","ASIAN / PACIFIC ISLANDER",
+#                                                   "MIDDLE EASTERN/SOUTHWEST ASIAN",
+#                                                   "AMERICAN INDIAN/ALASKAN NATIVE"))
 # binning of stop time of the day
 # 6 - 12: AM
 # 12 - 18: PM
@@ -131,8 +134,9 @@ sqf <- sqf |>
   filter(!SUSPECT_EYE_COLOR %in% eye.color)
 
 complete_cases <- sqf[complete.cases(sqf), ]
-unprivileged <- c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC")
+unprivileged <- c("Black", "Hispanic", "Black")
 complete_cases$PA_GROUP <- ifelse(complete_cases$SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")
+complete_cases$PA_GROUP <- factor(complete_cases$PA_GROUP)
 # complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
 

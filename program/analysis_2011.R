@@ -1,7 +1,12 @@
+theme_set(
+  theme_minimal()
+)
 
-
+# 1. Prepartions ----
 # Load the data
-data2011 <- fread("data/2004.csv")
+data2011 <- fread("data/2011.csv")
+# Import the trained model
+lrn_rf_2011 <- readRDS("trained_rf_2011.rds")
 
 # convert all empty entries "" into NA
 data2011[data2011 == ""] <- NA
@@ -25,21 +30,40 @@ data2011$year <- NULL
 data.cc <- data2011[complete.cases(data2011), ]
 
 # dichotomise the race attribute
-data.cc$pa_group <- ifelse(data.cc$race %in% c("B", "Q", "P"), "PoC", "White")
+data.cc$pa_group <- ifelse(data.cc$race %in% c("B", "Q", "P"), "POC", "White")
 
 # Define a PipeOp to convert character columns to factors
 # po_char_to_factor <- po("colapply", applicator = as.factor, affect_columns = selector_type("character"))
 
+# 2. Training + Prediction  ----
 # Create a Task
 task.2011 <-  as_task_classif(data.cc, target = "arstmade", response_type = "prob",
                               positive = "Y", id = "arrested")
-task.2011$col_roles$pta <- "race"
+task.2011$col_roles$pta <- "pa_group"
 splits.2011 <- partition(task.2011)
-lrn_rf$train(task.2011, row_ids = splits.2011$train)
-predictions.2011 <- lrn_rf$predict(task.2011, row_ids = splits.2011$test)
+# lrn_rf$train(task.2011, row_ids = splits.2011$train)
+predictions.2011 <- lrn_rf_2011$predict(task.2011, row_ids = splits.2011$test)
 predictions_dt <- as.data.table(predictions.2011)
-predictions_dt$race <- data.cc[predictions_dt$row_ids, race]
+predictions_dt$pa_group <- data.cc[predictions_dt$row_ids, pa_group]
 
+# 3. Fairness Audit ----
 calcGroupwiseMetrics(base_mrs_punitive, task.2011, predictions.2011)
 calcGroupwiseMetrics(base_mrs_assistive, task.2011, predictions.2011)
 calcGroupwiseMetrics(base_mrs_other, task.2011, predictions.2011)
+
+predictions.2011$score(fairness_msr_assistive, task = task.2011)
+predictions.2011$score(fairness_msr_punitive, task = task.2011)
+predictions.2011$score(fairness_msr_other, task = task.2011)
+
+p9_rf_2011 <- fairness_prediction_density(predictions.2011, task = task.2011) +
+  xlim(0, 0.1) +
+  theme_minimal()
+p10_rf_2011 <- compare_metrics(predictions.2011,
+                msrs(c("fairness.ppv", "fairness.acc", "fairness.eod", "fairness.fpr")),
+                task = task.2011) +
+  ylim(0, 0.04)
+
+## 3.1 Combines 2011 and 2021 analysis ----
+p1_combined <- p1_rf / p9_rf_2011
+p2_combined <- p2_rf + p10_rf_2011
+

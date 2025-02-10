@@ -36,13 +36,19 @@ fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 
 # 2.2 regular RF ----
 fairness_audit_rf <- getFairnessAudit(learner = lrn_rf, task = task_arrest, splits = cc.splits)
-p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest)
+p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest) + theme_minimal()
 p2_rf <- compare_metrics(fairness_audit_rf$prediction,
-                         msrs(c("fairness.ppv", "fairness.fpr", "fairness.eod", "fairness.acc")),
-                      task = task_arrest)
+                         msrs(c("fairness.ppv", "fairness.acc", "fairness.eod", "fairness.fpr")),
+                      task = task_arrest) + ylim(0, 0.04)
 
 calcGroupwiseMetrics(base_mrs_assistive, task_arrest, fairness_audit_rf$predictions)
+calcGroupwiseMetrics(base_mrs_punitive, task_arrest, fairness_audit_rf$predictions)
+calcGroupwiseMetrics(base_mrs_other, task_arrest, fairness_audit_rf$predictions)
 fairness_audit_rf$fairness_metrics
+
+
+fairness_prediction_density(predictions.2011, task = task.2011)
+
 
 # 3. Experiment ----
 lrns = list(lrn_rf, l1, l2, l3)
