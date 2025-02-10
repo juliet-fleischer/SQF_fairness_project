@@ -29,12 +29,12 @@ When we compare the race distribution of NYC to the race distribution in the SQF
     \caption{Density of predicted probabilities both groups.}
     \label{fig:fairness_density}
 \end{figure}
-We want to train a binary classifier on the SQF data that predicts the arrestment of a person. To adjust our situation to the common binary classification, binary PA scenario in the fairness literature, we
-dichotomise the race attribute by grouping "Black", "Black Hispanic", and "White Hispanic" into the "PoC" group and "White", "Asian Pacific", etc. into the "White" group. \footnote{This, of course, is an oversimplification of the scenario and we know that this grouping can be critisised from a social science standpoint. We see this as a compromise to keep things straight forward. more nuanced scenarios can be addressed in future work.} 
-We train a regular random forest and make a fairness audit, measuring fairness with various group metrics implemented in mlr3fairness.
-Measured by these group metrics the random forest classifier is already relatively fair. There are minor differences between groups, but exact equality cannot be expected in practice, thus it is common to allow for a certain margin of error.
-Especially the error rates (fnr, fpr) are very similar between groups, thus Separation seems to be satisfied overall. Sufficiency metrics have larger differences, though they are still minor. From \autoref{fig:fairness_metrics_barplot} we can directly see that the the positive predictive value has a relatively large difference between groups, while the false positive rate is basically the same between groups. Also the accuracy is very similar.
-
+The idea is to model the decision to arrest a person with a binary random forest classifier. To adjust our situation to the common binary classification, binary PA scenario in the fairness literature, we
+dichotomise the race attribute by grouping "Black", "Black Hispanic", and "White Hispanic" into the "PoC" group and "White", "Asian Pacific", etc. into the "White" group. \footnote{This, of course, is an oversimplification of the scenario and we know that this grouping can be critisised from a social science standpoint. We see this as a compromise to keep things straight forward. More nuanced scenarios can be addressed in future work.} 
+We train a regular random forest on the complete cases and conduct a fairness audit, measuring fairness with various group metrics implemented in mlr3fairness.
+Measured by these group metrics the random forest classifier is already fair. There are minor differences between groups, but exact equality cannot be expected in practice, thus it is common to allow for a certain margin of error.
+Especially the error rates (fnr, fpr) are very similar between groups, thus Separation seems to be satisfied overall. Sufficiency metrics have larger differences, though they are still minor. From \autoref{fig:fairness_metrics_barplot} we can directly see that the positive predictive value has a relatively large difference between groups, while the false positive rate is practically the same between groups (Separation). It comes to no surprise that equalised odds, which is based on error rates, is satisfied. Finally, the accuracy between groups is not as equal as the error rates are, but the absolute difference is still smaller than 0.05, which is a common $\epsilon$ to choose.
+Given that the classifier is fair from a group perspective, it does not make sense to experiment with any of the implemented fairness methods in mlr3. At most, we could try to address the disparities in sufficiency metrics, but the common methods in the package are designed to address concerns with independence or separation.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot2.png}
@@ -42,7 +42,12 @@ Especially the error rates (fnr, fpr) are very similar between groups, thus Sepa
     \label{fig:fairness_metrics_barplot}
 \end{figure}
 
-\textbf{Fairness Experiment}
+As mentioned earlier, the SQF practice from 2004 to 2012 was deemed unconstitutional. In the following years the number of stops reduced drastically. Since we worked with the latest data to date from 2021, it raises the question whether an algorithm trained on data from the 2004 to 2012 period shows different results.
+We therefore trained another random forest classifier on 2011 data. 2011 is the year with the most stops. With 657027 complete cases we have more than 50 times more stops than in 2021.
+2011 data has substantially more low-risk stops and interestingly racial disparities are even smaller than for the 2021 data.
+
+
+% \textbf{Fairness Experiment}
 % - fairness metrics (table) for dichotomised race and for full race grouping in appendix.
 % - fairness methods (inspired by the article)
 
@@ -52,21 +57,19 @@ Especially the error rates (fnr, fpr) are very similar between groups, thus Sepa
 % mlr3book: https://mlr3book.mlr-org.com/chapters/chapter14/algorithmic_fairness.html?utm_source=chatgpt.com#bias-and-fairness
 % https://mlr3fairness.mlr-org.com/#debiasing-methods
 
-Despite the algorithm being already really fair according to group metrics, we want to examine the effect of different fairness methods.
-mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
-The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity. The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
-Fig. x plots the classifier's performance (measured by accuracy) on the x-axis and the fairness (measured by ppv) on the y-axis. A classifier that is fair and accurate would be in the bottom right corner.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot3.png}
-    \caption{Performance and fairness of different classifiers.}
-    \label{fig:fairness_performance}
-\end{figure}
-% This all does not really make sense: the classifier performs worst for Sufficiency metrics but the fairness adjustments I make are all for Separtion or Independence
+
+% mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
+% The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
 
 
-This is all good and insightful, but actually the picture for this data is more complex.
-The data introduced three main challenges: selection bias; missing data; class imbalance.
+Our fairness audit did not show any substantial disparities in fairness metrics. Does this mean the classifier is fair?
+It is easy to come to such quick solutions, especially if fairness is not the major concern of the practitioners but more of a nuisance criterion that should be fulfilled. However, to truly ensure a fair practice, it is crucial to look at the context in which the algorithm is embedded.
+
+\subsubsection*{Feedback loop}
+Usually fairness is a concern in the first place, because the algorithm should be implemented as a decision support system. As such it could influence if someone gets admitted to a college, gets a loan or is released from prison. We can think of the algorithm being embedded in a loop with data and the user.
+We make the circumstances of a decision measurable by collecting data. The algorithm learns from this data to make an optimal prediction, on which the decision-makers base their judgement on. At each step of this loop, bias can be introduced in the process and even be amplified as the algorithm influences decision-making on a large scale.
+This means that every fairness project comes with the task to understand where the data comes from and how exactly the algorithm will be deployed in practice. For the rest of this paper, we will concern ourselves with the data part of the loop, since this is highly relevant for the SQF data.
+% The data introduced three main challenges: selection bias; missing data; class imbalance.
 
 We reviewed paper that address the first of these challenges, since the SQF data is typically used to illustrate this challenge (not the other ones).
 % - number of stops conducted but with background information who governed at that time (see Obsidian)

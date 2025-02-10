@@ -1,5 +1,12 @@
-\section*{Residual Unfairness}
-The paper deals with the well-known problem of "bias in, bias out". It specifically looks at the case in which observations are collected by a biased decision policy. Therefore the paper distinguishes between the training population and the target population. The training population is our sample while the target population is the population we want to use the algorithm on. 
+\section*{Residual Unfairness/ Fairness as a two stage problem}
+The paper deals with the well-known problem of "bias in, bias out". It specifically looks at the case in which observations are collected by a biased decision policy. Therefore, the paper distinguishes between the training population and the target population. The training population is our sample while the target population is the population we want to use the algorithm on. 
+\autoref{fig:race_distributions} shows that selection bias might be at play in the decision of stopping a suspect.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot6.png}
+    \caption{Comparison of race distribution in the training and target population.}
+    \label{fig:race_distributions}
+\end{figure}
 
 % The main message of this paper is that it is not that easy to adjust for fairness, when the data the algorithm learns from is biased. Ensuring Equal Opportunity or Equalized Odds on the training data does not generalize to the target population. The paper proposes a way to estimate the TRP and FPR in the target population. This is useful, when the fairness methods depends on the FPR and/or TPR. 
 
@@ -29,7 +36,7 @@ Preposition 2:
 For group a the scores of the target population are always strictly higher than
 of the training population. This means that we will learn a comparatevily low threshold for group a.
 When we employ the algorithm in the target population, group a member will receive the positive outcome
- more easily (receive benefit of the doubt) because the thresholds is so low. For gorup b
+ more easily (receive benefit of the doubt) because the thresholds is so low. For group b
  the opposite is true. The scores in the training data are really high compared to the overall population.
  This means we learn a high threshold for group b. When the system is applied on the whole population it will
  be harder for a random person from group b to receive the advantage because their threshold is so high.
