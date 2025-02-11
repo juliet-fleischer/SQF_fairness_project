@@ -2,10 +2,9 @@ theme_set(
   theme_minimal()
 )
 
-# Attempt to estimate the joint distribution of X,A for the target population
 
+# Import target population data ----
 # The data is from NYC Population FactFinder
-# 1. Target population (T = 1) ----
 target_pop <- lapply(1:5, \(i) assign(paste0("data_", i), read_xlsx("data/target_pop_data.xlsx", sheet = i)))
 names(target_pop) <- c("Brooklyn", "Manhattan", "Bronx", "Queens", "Staten Island")
 # for each tibble in target_pop select only the first three columns
@@ -29,21 +28,19 @@ target_pop <- target_pop |>
                            labels = c("Black", "Hispanic", "White", "Asian", "Other")))
 target_pop$count <- as.integer(gsub("\\.", "", target_pop$count))
 
+# Target population vs. 2021 ----
 # description for reduced data
 p4 <- ggplot(complete_cases, aes(x = STOP_LOCATION_BORO_NAME, fill = SUSPECT_RACE_DESCRIPTION)) +
   geom_bar(position = "fill") +
-  theme_minimal() +
-  labs(title = "Distribution of stops by borough",
-       x = "Borough",
+  labs(title = "SQF 2021",
+       x = "",
        y = "Proportion of stops")
 
 p5 <- ggplot(target_pop, aes(x = borough, y = count, fill = group)) +
   geom_col(position = "fill") +
-  theme_minimal() +
-  labs(title = "Distribution of arrests by age",
-       x = "Age",
+  labs(title = "target population",
+       x = "",
        y = "Proportion of arrests")
-
 
 p6 <- ggplot(complete_cases, aes(x = SUSPECT_RACE_DESCRIPTION)) +
   geom_bar() +
@@ -56,4 +53,17 @@ p7 <- target_pop |>
   xlab("Race distribution in NYC according to 2020 census")
 # put p6 and p7 underneath each other
 p8 <- p6 / p7
+
+# 2011 data ----
+p11 <- ggplot(complete_cases_2011, aes(x = city, fill = race)) +
+  geom_bar(position = "fill") +
+  labs(title = "SQF 2011",
+       x = "",
+       y = "Proportion of stops")
+
+p12 <- ggplot(complete_cases_2011, aes(x = race)) +
+  geom_bar() +
+  xlab("Race distribution in SQF data 2011") + # make readable y axis without scientific notation
+  scale_y_continuous(labels = scales::comma)
+
 

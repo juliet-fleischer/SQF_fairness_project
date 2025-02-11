@@ -2,36 +2,9 @@ theme_set(
   theme_minimal()
 )
 
-# 1. Prepartions ----
-# Load the data
-data2011 <- fread("data/2011.csv")
-# Import the trained model
-lrn_rf_2011 <- readRDS("trained_rf_2011.rds")
-
-# convert all empty entries "" into NA
-data2011[data2011 == ""] <- NA
-
-na.count <- colSums(is.na(data2011))
-na.cols <- which(na.count/ nrow(data2011) > 0.2)
-data2011 <- data2011[, -..na.cols]
-
-# convert all columns of type "character" to factor with data.table
-char.cols <- sapply(data2011, is.character)
-data2011[, (names(char.cols)[char.cols]) := lapply(.SD, as.factor), .SDcols = names(char.cols)[char.cols]]
-
-# remove a few unnecessary columns
-data2011$stinter <- NULL
-data2011$addrtyp <- NULL
-data2011$premname <- NULL
-data2011$recstat <- NULL
-data2011$year <- NULL
-
-# filter out the complete cases
-data.cc <- data2011[complete.cases(data2011), ]
-
-# dichotomise the race attribute
-data.cc$pa_group <- ifelse(data.cc$race %in% c("B", "Q", "P"), "POC", "White")
-
+# 1. Data description ----
+ggplot(data.cc, aes(x = race)) +
+  geom_bar()
 # Define a PipeOp to convert character columns to factors
 # po_char_to_factor <- po("colapply", applicator = as.factor, affect_columns = selector_type("character"))
 

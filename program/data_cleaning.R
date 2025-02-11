@@ -1,4 +1,4 @@
-
+# 2021 data ----
 sqf <- read_excel("data/sqf-2023.xlsx")
 setDT(sqf)
 n <- nrow(sqf)
@@ -140,7 +140,46 @@ complete_cases$PA_GROUP <- factor(complete_cases$PA_GROUP)
 # complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
 
-# initilizing fairness metrics
+# 2011 data ----
+data2011 <- fread("data/2011.csv")
+# Import the trained model
+lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
+
+# convert all empty entries "" into NA
+data2011[data2011 == ""] <- NA
+
+na.count <- colSums(is.na(data2011))
+na.cols <- which(na.count/ nrow(data2011) > 0.2)
+data2011 <- data2011[, -..na.cols]
+
+# convert all columns of type "character" to factor with data.table
+char.cols <- sapply(data2011, is.character)
+data2011[, (names(char.cols)[char.cols]) := lapply(.SD, as.factor), .SDcols = names(char.cols)[char.cols]]
+
+# remove a few unnecessary columns
+data2011$stinter <- NULL
+data2011$addrtyp <- NULL
+data2011$premname <- NULL
+data2011$recstat <- NULL
+data2011$year <- NULL
+
+# identify NA entries
+data2011[race == "U", race := NA]
+# Remove unused levels from the 'race' factor
+data2011[, race := droplevels(race)]
+
+# filter out the complete cases
+complete_cases_2011 <- data2011[complete.cases(data2011), ]
+
+# adjust the level of race to align with 2021 data and target population
+complete_cases_2011$race <- factor(complete_cases_2011$race, levels = c("B", "Q", "P", "W", "A", "I", "Z"),
+                        labels = c("Black", "Hispanic", "Black", "White", "Asian", "Other", "Other"))
+
+# dichotomise the race attribute
+complete_cases_2011$pa_group <- ifelse(complete_cases_2011$race %in% c("Black", "Hispanic"), "POC", "White")
+
+
+# Fairness metrics ----
 # Defines punitive base measures
 base_mrs_punitive <- list(
   fpr = msr("classif.fpr"),
