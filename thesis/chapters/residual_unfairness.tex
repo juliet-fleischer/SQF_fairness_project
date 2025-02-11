@@ -1,5 +1,13 @@
-\section*{Residual Unfairness/ Fairness as a two stage problem}
-The paper deals with the well-known problem of "bias in, bias out". It specifically looks at the case in which observations are collected by a biased decision policy. Therefore, the paper distinguishes between the training population and the target population. The training population is our sample while the target population is the population we want to use the algorithm on. 
+\section*{Sources of bias in the SQF data}
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{../figures/selection_bias.png}
+    \caption{Selection bias in the SQF data.}
+    \label{fig:selection_bias}
+\end{figure}
+The major concern that has been identified in the literature for SQF data is how the data is generated in the first place. In their paper "Residual Unfairness" \cite{kallus} conceptualise the problem as shown in \autoref{fig:selection_bias}.
+We define a person by their sensitive feature (A) and non-sensitive features (X). For each person in the population of interest a police officer decides whether to stop them or not. Based on this biased decision policy people are included in the sample (Z = 1) or they are not (Z = 0). But naturally we only observe further information on the people that were stopped. Only for them we can know the outcome of a stop, which constitutes the target of a classificaiton task.
+\cite{kallus} distinguish between target population and training population in such scenarios. The target population is the one on which we want to use the ADM on while the training population are the observations the biased decision policy chose to include in the sample and on which the algorithm is trained.
+In the SQF data we can see this form of bias by comparing the race distribution of NYC to the race distribution in the SQF data. From \autoref{fig:race_distributions} it is clear that in terms of race the SQF data does not represent the general population of the city. We can see that white people form the majority of the population in NYC, but only make up a tiny fraction of SQF stops. Black people in contrast are the third-largest ethnic group in NYC while they exceed any other group in the SQF data by far.
 \autoref{fig:race_distributions} shows that selection bias might be at play in the decision of stopping a suspect.
 \begin{figure}
     \centering
@@ -8,15 +16,14 @@ The paper deals with the well-known problem of "bias in, bias out". It specifica
     \label{fig:race_distributions}
 \end{figure}
 
+To get a more nuanced picture we also plot the true arrestment rate per ethnic group in the SQF 2023 data and find that White and Asian people have the highest arrestment rates and black people the lowest. This supports the argument that black people are stopped more leniently and there is a biased decision policy in place. The question is now how such biases can be addressed in fairness practice and why the group metrics did not detect any unfairness in our algorithm.
 % The main message of this paper is that it is not that easy to adjust for fairness, when the data the algorithm learns from is biased. Ensuring Equal Opportunity or Equalized Odds on the training data does not generalize to the target population. The paper proposes a way to estimate the TRP and FPR in the target population. This is useful, when the fairness methods depends on the FPR and/or TPR. 
+Why the group metrics did not show any unfairness in the algorithm can be answered ins a straight forward way. Group metrics offer a rather isolated view on fairness. They assess disparities in algorithimic predictions between protected groups rather than measuring the fairness of a whole situation. Thus, group metrics are not designed to detect selection bias. They work with the joint distribution of $Y, A, X, \hat{Y}$ and do not take any additional information into account. When we rely on the true label $Y$ (Separation) to detect unfairness but the true label itself is not reliabel (generated via an objective truth), then the group metrics cannot show this \cite{castelnovo2022}.
 
-The problem setting translates to SQF as follows. The police officer decides to stop an individual and this decision might be based on prejudice against certain groups. Further information, such as the possesion of a weapon or the arrestment of a person, is naturally only made on people who were stopped.
-This means our training data does not represent the population we want to use the algorithm on, i.e. the stopped individuals are not representative for the population of NYC at a whole. $rightarrow$ compare race distributions or borough distributions (or both)
-
-
+\section{Residual Unfairness}
+The main methological goal of fairness methods designed to address biased samples is to prevent the problem of "bias in, bias out".
 \cite{kallus} defines fairness via equal opportunity or equalised odds. They argue that even after fairness adjustments on the training population, such as thresholding, discrimination in the target population will remain.
 Thus they design a way to estimate the true positive rate and false positive rate of the target population based on training data. A method that uses the TPR and FPR of the data (such as the method proposed by \cite{hardt2016}) can use these adjusted estimations instead and like this ensure fairness on the target population.
-
 
 
 Residual Unfairness \cite{kallus} concepts defined in the paper:
@@ -41,11 +48,11 @@ When we employ the algorithm in the target population, group a member will recei
  This means we learn a high threshold for group b. When the system is applied on the whole population it will
  be harder for a random person from group b to receive the advantage because their threshold is so high.
 Applied on the SQF data this could translate as follows. First of all, the interpretation shifts. $\hat{Y} = 1$ is 
-no longer desirable and we can interpreate scores as riskscores $G_g^{E}$. This means a high thresholds for being classified as $\hat{Y} = 1$ is desirable, a low
+no longer desirable and we can interpret scores as riskscores $G_g^{E}$. This means a high thresholds for being classified as $\hat{Y} = 1$ is desirable, a low
 threshold is undesirable. We assume that officers were more lenient to stop black individuals, which means that the scores (probability of actually having committed crime) in the training population
 of black people are lower than the scores of the target population of black people.
 $G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for black people(???) \footnote{Why do we learn a lower threshold for black people. Maybe something like this happens: So when a group is super leniently stopped we will have many truly innocent and few truly guilty.}
-When we apply the algorithm to the target populaiton we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
+When we apply the algorithm to the target population we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
 were selected more strictly. This means that the scores of white people in the training population are higher than the scores of white people in the target population.
 $G_w^{Z=1} \succeq G_w^{T=1}$. This means we will learn a high threshold for white people. When we apply the algorithm to the target population we will be less likely to classify white
 people as $\hat{Y} = 1$ because the threshold is so high. -- Still unsure if this makes sense, if a transfered it correctly.

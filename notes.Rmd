@@ -113,8 +113,8 @@ to asses whether the definition is suitable
 
 
 # pick up from here
-describe the results, compare 2021 and 2011 data
-continue theoretical explanation based on papers
+continue theoretical explanation based on papers (formulate Residual unfairness
+clearer; do more in depth into Bias in Bias out paper)
 maybe also bring sth from iml into it (what we discussed during the seminar presentations with FI)
 --> unconditional FI for statistical parity
 

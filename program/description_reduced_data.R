@@ -50,9 +50,16 @@ p7 <- target_pop |>
   summarise(count = sum(count)) |>
   ggplot(aes(x = group, y = count)) +
   geom_col() +
-  xlab("Race distribution in NYC according to 2020 census")
+  xlab("Race distribution in NYC according to 2020 census") +
+  scale_y_continuous(labels = scales::comma)
 # put p6 and p7 underneath each other
 p8 <- p6 / p7
+
+ggplot(complete_cases, aes(x = SUSPECT_RACE_DESCRIPTION, fill = SUSPECT_ARRESTED_FLAG)) +
+  geom_bar(position = "fill") +
+  labs(title = "SQF 2021",
+       x = "",
+       y = "Proportion of arrests")
 
 # 2011 data ----
 p11 <- ggplot(complete_cases_2011, aes(x = city, fill = race)) +
@@ -65,5 +72,11 @@ p12 <- ggplot(complete_cases_2011, aes(x = race)) +
   geom_bar() +
   xlab("Race distribution in SQF data 2011") + # make readable y axis without scientific notation
   scale_y_continuous(labels = scales::comma)
+
+ggplot(complete_cases_2011, aes(x = race, fill = arstmade)) +
+  geom_bar(position = "fill") +
+  labs(title = "SQF 2011",
+       x = "",
+       y = "Proportion of arrests")
 
 
