@@ -19,7 +19,9 @@ library(rJava)
 
 
 source("program/functions.R")
-source("program/data_cleaning.R")
+data2011 <- readRDS("data/data2011.rds")
+data2023 <- readRDS("data/data2023.rds")
+# source("program/data_cleaning.R")
 
 
 # FIREARM_FLAG until SEARCH_BASIS_OUTLINE_FLAG set all the NA to "N"

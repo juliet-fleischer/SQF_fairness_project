@@ -18,7 +18,7 @@ l3 = as_learner(po("collapsefactors") %>>% lrn("classif.fairzlrm"))
 l3$id = "fairzlrm"
 
 # define a task_arrest
-task_arrest = as_task_classif(complete_cases, target = "SUSPECT_ARRESTED_FLAG",
+task_arrest = as_task_classif(data2023, target = "SUSPECT_ARRESTED_FLAG",
                        positive = "Y", response_type = "prob")
 task_arrest$set_col_roles("PA_GROUP", "pta")
 cc.splits <- partition(task_arrest)
@@ -62,9 +62,9 @@ p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.ppv"),
   ggplot2::theme_minimal()
 
 # distribution of Y | A
-ggplot(complete_cases, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
+ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
   geom_bar(position = "fill")
-complete_cases[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
+data2023[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
 
 # 4. Limitations ----
 # estimate the tpr on the target population with the method from Kallus and Zhou

@@ -16,32 +16,44 @@ In the SQF data we can see this form of bias by comparing the race distribution 
     \label{fig:race_distributions}
 \end{figure}
 
-To get a more nuanced picture we also plot the true arrestment rate per ethnic group in the SQF 2023 data and find that White and Asian people have the highest arrestment rates and black people the lowest. This supports the argument that black people are stopped more leniently and there is a biased decision policy in place. The question is now how such biases can be addressed in fairness practice and why the group metrics did not detect any unfairness in our algorithm.
+To get a more nuanced picture we also plot the true arrestment rate per ethnic group in the SQF 2023 data and find that White and Asian people have the highest arrestment rates and black people the lowest. This supports the argument that black people are stopped more leniently and there is a biased decision policy in place. The questions now are why the group metrics did not detect any unfairness in our algorithm and how such biases can be addressed in fairness practice.
 % The main message of this paper is that it is not that easy to adjust for fairness, when the data the algorithm learns from is biased. Ensuring Equal Opportunity or Equalized Odds on the training data does not generalize to the target population. The paper proposes a way to estimate the TRP and FPR in the target population. This is useful, when the fairness methods depends on the FPR and/or TPR. 
 Why the group metrics did not show any unfairness in the algorithm can be answered ins a straight forward way. Group metrics offer a rather isolated view on fairness. They assess disparities in algorithimic predictions between protected groups rather than measuring the fairness of a whole situation. Thus, group metrics are not designed to detect selection bias. They work with the joint distribution of $Y, A, X, \hat{Y}$ and do not take any additional information into account. When we rely on the true label $Y$ (Separation) to detect unfairness but the true label itself is not reliabel (generated via an objective truth), then the group metrics cannot show this \cite{castelnovo2022}.
+To answer the second question we use the following chapter to examine two papers that propose methods to address selection bias in fairness practice and have explicity used the SQF data as a case study.
 
 \section{Residual Unfairness}
-The main methological goal of fairness methods designed to address biased samples is to prevent the problem of "bias in, bias out".
-\cite{kallus} defines fairness via equal opportunity or equalised odds. They argue that even after fairness adjustments on the training population, such as thresholding, discrimination in the target population will remain.
-Thus they design a way to estimate the true positive rate and false positive rate of the target population based on training data. A method that uses the TPR and FPR of the data (such as the method proposed by \cite{hardt2016}) can use these adjusted estimations instead and like this ensure fairness on the target population.
+We already outlined the formal problem setting in \cite{kallus} in \autoref{fig:selection_bias}. The main message of the paper supports the saying "bias in, bias out". They argue that fairness adjustments on the training population do not ensure fairness in the target population. Fairness is defined via equal opportunity or equalised odds. They propose to modify a post-processing method to deal with selection bias.
+
+% Notation and problem setting
+The paper uses the following notation: $A$ is the binary sensitive attribute, $X$ are the non-sensitive attributes, $Y$ is the target, $\hat{Y}$ is the prediction, $Z$ is the decision of the biased inclusion policy ($Z= 1$ means the subject is included into the training population). $T$ indicated whether a person is in the target population ($T = 1$) means that we want to use the trained algorithm on the person. $\hat{R} \in [0,1]$ is the prediction score.
+The problem depicted in \autoref{fig:selection_bias} can be now expressed as follows. We only have knowledge about $X, A, Y | Z = 1$ while we do not know $X, A, Y | Z = 0$. 
+
+% Fairness definition
+The paper defines fairness via equal opportunity or equalised odds. Recall that equal opportunity demands that the false positive rate is the same across groups, i.e. $P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$. But requiring equal false negative rates across groups is the same a requiring equal true positive rates across groups since $P(\hat{Y} = 0 | Y = 1, A = a) = 1 - P(\hat{Y} = 1 | Y = 1, A = a)$.
+The paper uses a thresholding classifier, if the prediction score exceeds a certain threshold the positive value for the target is predicted. This allows us express the false negative rate and the true positive rate of a group $a$ with respect to an event $E$ via the cummulative distibution function. $F_a^E = P(\hat{R} \leq \theta | Y = 1, A = a, E)$. Note that we condition on the truly positive subject in the sample. In the SQF case this would mean that we only look at people that were truly arrested.
+The truly arrested that have a predicted probability $\hat{R} \leq \theta$ are wrongly classified as not-arrested, while the ones for whom $\hat{R} > \theta$ are correctly classified as arrested. $F_a^Z$ gives us nothing other than the false negative rate in the training population and $F_a^T$ is the false negative rate in the target population.
+So when we want to define an equal opportunity classifier on the training population we require $F_a^Z(\theta_a) = F_b^Z(\theta_b)$ to hold. 
+
+% Definition of fair classifier 
+An optimal derived equal opportunity classifier can then be defined as $\hat{Y} = I(\hat{R} > \theta_A)$ and $F_a^Z(\theta_a) = F_b^Z(\theta_b)$ for all groups a,b. In words, the classifier predicts the positive outcome with a group-specific threshold for each member of the group while this group specific threshold is set in such a way that equal opportunity on the training data is fulfilled. We will not go into detail of how one finds such a classifier but refer to \cite{hardt2016} who propose a post-processing method to derive the optimal thresholds for each group. 
+
+With the definition of fairness as equal opportunity (equal tpr/fnr across groups) we can in turn define unfairness as inequity of opportunity. This describes nothing other than the difference in true positive rates between groups, i.e. \(\epsilon_{a,b}^E = P(\hat{Y} = 1 | Y = 1, A = a, E) - P(\hat{Y} = 1 | Y = 1, A = b, E)\). $\epsilon_{a,b}^{T=1} > 0$ shows discrimination against group b, since this means that the true positive rate for group b is lower than for group a.
+When we construct an equal opportunity classifier (via some fairness intervention) then $\epsilon_{a,b}^{Z=1} = 0$ holds for this classifier. This also means that any inequity of opportunity that might show in the target population cannot be explained via existing ineuqities between groups in the training population but via existing differences in the training and the target population. So it is unfairness that gets introduced when we try to generalize our algorithm to the population it was not trained on. \cite{kallus} call this residual unfairness, since this is unfairness remaining event after fairness adjustments.
+
+% Scenarios of discrimination
+\subsubsection*{Strong disparate benefit of the doubt}
+To fully understand the results of the paper, we additionally introduce the concept of stochastic dominance, originating from decision theory. Let $F, G$ be two cummulative distribution functions. Then $G$ first order stochastically dominates $F \preceq G$ when $F(\theta) \geq G(\theta)$ $\forall\theta$. Recall that G and F are cummulative distribution functions. So first order stochastic dominance of G over F, smaller values of G for each input value $\theta$, that the population described by the CDF of G consistently has higher probability values than population F. Their probability mass is concentrated towards the higher input values thus the cummulative distribution function is small for small input values.
+Equipped with these definitions the paper constructs difference scenarios of (un)fairness. The bottom line always is that equal opportunity in the training population does not guarantee equal opportunity in the target population.
+
+% Scenario 1: Strong disparat benefit of the doubt (Prop. 2)
+For the first discrimination scenario we assume the following:
+$F_a^{Z=1} \preceq F_a^{T=1} and F_a^{Z=1} \succeq F_a^{T=1}$ and at least one of the equalities does not hold (either $F_a^{Z=1} \ne F_a^{T=1}$ or $F_b^{Z=1} \ne F_b^{T=1}$ or both).
+In words this means for group a, the target population first order stochastically dominates the training population. The truly positive individuals in group a consistently have lower scores than the ones in the target population. The score is the predicted probability of receiving the positive outcome. When for group a we have more people with low probabilites for the favourable outcome in our sample, then this means that group a member were more leniently introduced into the sample. The paper says that group a members recevied more "benefit of the doubt".
+For the SQF scenario we reverse things. $\hat{Y} = 1$ is no longer desirable and we can interpret scores as riskscores $G_g^{E}$. So the score describes the probability for receiving the undesirable outcome. The proposition can be reformulated by switching the order signs.
+Suppose that $G_a^{Z=1} \preceq G_a^{T=1}$ and $G_b^{Z=1} \preceq G_b^{T=1}$ while at least one of the equalities does not hold i.e. $G_a^{Z=1} \ne G_a^{T=1}$ or $G_b^{Z=1} \ne G_b^{T=1}$ or both. Then every derived equal opportunity classifier has nonnegative inequity of opportunity for group b relative to group a $\epsilon_{a,b}^{T=1} \geq 0$ and at least one derived equal opportunity classifier will have a strictly positive inequity of opportunity disadvantaging group b relative to group a $\epsilon_{a,b}^{T=1} > 0$.
+In the context of SQF this means that group a members were stopped more carefully while group b members were stopped leniently. This aligns with the fact that the sqf data records considerably more stops for black people than white people. In this case the propositions of the paper will show us again that even after adjusting for equal error rates, the classifier will disadvantage group b when applied to the target population.
 
 
-Residual Unfairness \cite{kallus} concepts defined in the paper:
-Disparate benefit of the doubt: one group gets an advantage over the other by historically repeated better treatment of the group
-Equal opportunity and Equalised odds --> from this they define "Inequity of Opportunity" to quantify fairness
-First-order stochastic dominance (Def. 3): one group has consistently higher probability scores than the other
-Strong disparate benefit of the doubt; Strong disparate benefit of the doubt,  strict;
-Weak disparate benefit of the doubt, strict; Weak disparate benefit of the doubt on disparately endowed groups
-
-Currently I understand it as follows:
-The different disparate benfits of the doubt fromalise different historical treatment of groups.
-We distinguish two groups in our population, a (advantaged) and b (disadvantaged). Within each group a and b we further dinstiguish between training population (Z=1) and target population (T=1).
-My current understanding for Preposition 2: Some propositions now illustrate the scenario, in which repreated deiscriminatory treatment looks like this: For group a the scores in the training population are strictly lower than the scores in the target population. For group b the scores in the training population are strictly higher than in the atrget population. The consequence is that the classifier learn on average low scores for group a, resulting in lenient treatment of group a (which is beneficial in this scenario, $\hat{Y} = 1$ is desired). For group b the opposite mechanism occures, resulting in stricter treatment of group b.
-My current understanding for proposition 3: When we design a classifier that that satisfies equal opportunity as fairness criterion under the situation described by preposition 2, then the classifier will not satisfy their definition of fainress/ will show Inequity of opportunity
-
-Preposition 2:
-For group a the scores of the target population are always strictly higher than
-of the training population. This means that we will learn a comparatevily low threshold for group a.
 When we employ the algorithm in the target population, group a member will receive the positive outcome
  more easily (receive benefit of the doubt) because the thresholds is so low. For group b
  the opposite is true. The scores in the training data are really high compared to the overall population.
@@ -50,8 +62,10 @@ When we employ the algorithm in the target population, group a member will recei
 Applied on the SQF data this could translate as follows. First of all, the interpretation shifts. $\hat{Y} = 1$ is 
 no longer desirable and we can interpret scores as riskscores $G_g^{E}$. This means a high thresholds for being classified as $\hat{Y} = 1$ is desirable, a low
 threshold is undesirable. We assume that officers were more lenient to stop black individuals, which means that the scores (probability of actually having committed crime) in the training population
-of black people are lower than the scores of the target population of black people.
-$G_b^{Z=1} \preceq G_b^{T=1}$. This means we will learn a lower threshold for black people(???) \footnote{Why do we learn a lower threshold for black people. Maybe something like this happens: So when a group is super leniently stopped we will have many truly innocent and few truly guilty.}
+of black people are lower than the scores of the target population of black people $G_b^{Z=1} \preceq G_b^{T=1}$.
+
+
+
 When we apply the algorithm to the target population we will be more likely to classify black people as $\hat{Y} = 1$ because the threshold is so low. White people, on the other hand,
 were selected more strictly. This means that the scores of white people in the training population are higher than the scores of white people in the target population.
 $G_w^{Z=1} \succeq G_w^{T=1}$. This means we will learn a high threshold for white people. When we apply the algorithm to the target population we will be less likely to classify white

@@ -13,5 +13,7 @@ ggsave("figures/sqf_case_study_plot6.png", p8, width = 10, height = 6, units = "
 ggsave("figures/sqf_case_study_plot7.png", p1_combined, width = 10, height = 6, units = "in", dpi = 300, bg = "white") # score densities
 ggsave("figures/sqf_case_study_plot8.png", p2_combined, width = 10, height = 6, units = "in", dpi = 300, bg = "white") # metrics comparison
 
-# 3. models ----
+# 3. models and data ----
+saveRDS(complete_cases, file = "data/data2023.rds")
+saveRDS(complete_cases_2011, file = "data/data2011.rds")
 saveRDS(lrn_rf, file = "program/trained_rf_2011.rds")

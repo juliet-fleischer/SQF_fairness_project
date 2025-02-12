@@ -2,22 +2,16 @@ theme_set(
   theme_minimal()
 )
 
-# 1. Data description ----
-ggplot(data.cc, aes(x = race)) +
-  geom_bar()
-# Define a PipeOp to convert character columns to factors
-# po_char_to_factor <- po("colapply", applicator = as.factor, affect_columns = selector_type("character"))
-
-# 2. Training + Prediction  ----
+# 1. Training + Prediction  ----
 # Create a Task
-task.2011 <-  as_task_classif(data.cc, target = "arstmade", response_type = "prob",
+task.2011 <-  as_task_classif(data2011, target = "arstmade", response_type = "prob",
                               positive = "Y", id = "arrested")
 task.2011$col_roles$pta <- "pa_group"
 splits.2011 <- partition(task.2011)
 # lrn_rf$train(task.2011, row_ids = splits.2011$train)
 predictions.2011 <- lrn_rf_2011$predict(task.2011, row_ids = splits.2011$test)
 predictions_dt <- as.data.table(predictions.2011)
-predictions_dt$pa_group <- data.cc[predictions_dt$row_ids, pa_group]
+predictions_dt$pa_group <- data2011[predictions_dt$row_ids, pa_group]
 
 # 3. Fairness Audit ----
 calcGroupwiseMetrics(base_mrs_punitive, task.2011, predictions.2011)
