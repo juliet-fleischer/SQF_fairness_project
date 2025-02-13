@@ -1,4 +1,27 @@
 # 1. Preparations ----
+# Fairness metrics ----
+# Defines punitive base measures
+base_mrs_punitive <- list(
+  fpr = msr("classif.fpr"),
+  tnr = msr("classif.tnr"),
+  ppv = msr("classif.ppv"),
+  fdr = msr("classif.fdr")
+)
+
+# Define multiple base measures
+base_mrs_assistive <- list(
+  fnr = msr("classif.fnr"),
+  tpr = msr("classif.tpr"),
+  npv = msr("classif.npv"),
+  fomr = msr("classif.fomr")
+)
+
+# define mixed base measures
+base_mrs_other <- list(
+  acc = msr("classif.acc"),
+  auc = msr("classif.auc"),
+  bbrier = msr("classif.bbrier")
+)
 
 # regular learner
 lrn_rf = lrn("classif.ranger", predict_type = "prob")
@@ -35,7 +58,9 @@ fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
 fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 
 # 2.2 regular RF ----
-fairness_audit_rf <- getFairnessAudit(learner = lrn_rf, task = task_arrest, splits = cc.splits)
+lrn_rf$train(task_arrest, cc.splits$train)
+preds_2023 <- lrn_rf$predict(task_arrest, cc.splits$test)
+fairness_audit_rf <- getFairnessAudit(preds_2023, task_arrest)
 p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest) + theme_minimal()
 p2_rf <- compare_metrics(fairness_audit_rf$prediction,
                          msrs(c("fairness.ppv", "fairness.acc", "fairness.eod", "fairness.fpr")),
@@ -46,25 +71,24 @@ calcGroupwiseMetrics(base_mrs_punitive, task_arrest, fairness_audit_rf$predictio
 calcGroupwiseMetrics(base_mrs_other, task_arrest, fairness_audit_rf$predictions)
 fairness_audit_rf$fairness_metrics
 
+fairness_prediction_density(preds_2023, task = task_arrest)
 
-fairness_prediction_density(predictions.2011, task = task.2011)
-
-
-# 3. Experiment ----
-lrns = list(lrn_rf, l1, l2, l3)
-bmr = benchmark(benchmark_grid(task_arrest, lrns, rsmp("cv", folds = 5)))
-meas = msrs(c("classif.acc", "fairness.eod"))
-bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
-
-p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.ppv"),
-                           accuracy_measure = msr("classif.ce")) +
-  ggplot2::scale_color_viridis_d("Learner") +
-  ggplot2::theme_minimal()
-
-# distribution of Y | A
-ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
-  geom_bar(position = "fill")
-data2023[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
+# 
+# # 3. Experiment ----
+# lrns = list(lrn_rf, l1, l2, l3)
+# bmr = benchmark(benchmark_grid(task_arrest, lrns, rsmp("cv", folds = 5)))
+# meas = msrs(c("classif.acc", "fairness.eod"))
+# bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
+# 
+# p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.ppv"),
+#                            accuracy_measure = msr("classif.ce")) +
+#   ggplot2::scale_color_viridis_d("Learner") +
+#   ggplot2::theme_minimal()
+# 
+# # distribution of Y | A
+# ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
+#   geom_bar(position = "fill")
+# data2023[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
 
 # 4. Limitations ----
 # estimate the tpr on the target population with the method from Kallus and Zhou

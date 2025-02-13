@@ -28,7 +28,7 @@ target_pop <- target_pop |>
   
 
 # 2. Training population (Z = 1) ----
-train_pop <- complete_cases |> 
+train_pop <- data2023 |> 
   group_by(STOP_LOCATION_BORO_NAME, PA_GROUP) |>
   mutate(STOP_LOCATION_BORO_NAME = as.character(STOP_LOCATION_BORO_NAME)) |>
   summarise(n = n()) |>
@@ -50,32 +50,32 @@ weight_df <- weight_df |>
 
 # 4. Match the weights
 # have to get the PREDICITON of the people to count tp or fp
-complete_cases_weights <- complete_cases |> 
+data2023_weights <- data2023 |> 
   left_join(weight_df, by = c("STOP_LOCATION_BORO_NAME", "PA_GROUP")) |>
   mutate(weight = ifelse(is.na(weight), 0, weight))
 # predict on the whole dataset
-train_preds <- lrn_rf$predict(task_arrest, row_ids = complete_cases_weights$row_ids)
-train_preds <- as.data.table(train_preds)
+train_preds_2023 <- lrn_rf$predict(task_arrest, row_ids = data2023_weights$row_ids)
+train_preds_2023 <- as.data.table(train_preds_2023)
 # combine the predictions with the data
-complete_cases_weights <- cbind(complete_cases_weights, train_preds)
-d1 <- complete_cases_weights[truth == "Y" & response == "Y", .N,
+data2023_weights <- cbind(data2023_weights, train_preds_2023)
+d1 <- data2023_weights[truth == "Y" & response == "Y", .N,
                        by = c("PA_GROUP", "STOP_LOCATION_BORO_NAME", "weight")][order(PA_GROUP, STOP_LOCATION_BORO_NAME)]
 
 d1 |> 
   group_by(PA_GROUP) |>
   summarise(numerator = sum(weight * N))
 
-d2 <- complete_cases_weights[truth == "Y", .N,
+d2 <- data2023_weights[truth == "Y", .N,
                              by = c("PA_GROUP", "STOP_LOCATION_BORO_NAME", "weight")][order(PA_GROUP, STOP_LOCATION_BORO_NAME)]
 
 d2 |>
   group_by(PA_GROUP) |>
   summarise(denominator = sum(weight * N))
 
-# match the weights to observations in complete_cases df
+# match the weights to observations in data2023 df
 # multiply the weights by counts and get the fpr for one PA_group
 
-poc_positives <- complete_cases_weights[PA_GROUP == "POC" & truth == "Y"]
+poc_positives <- data2023_weights[PA_GROUP == "POC" & truth == "Y"]
 poc_numerator <- sum(poc_positives$weight[poc_positives$response == "Y"])
 poc_denominator <- sum(poc_positives$weight)
 poc_tpr <- poc_numerator / poc_denominator

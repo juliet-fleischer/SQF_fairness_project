@@ -21,6 +21,7 @@ library(rJava)
 source("program/functions.R")
 data2011 <- readRDS("data/data2011.rds")
 data2023 <- readRDS("data/data2023.rds")
+# lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
 # source("program/data_cleaning.R")
 
 

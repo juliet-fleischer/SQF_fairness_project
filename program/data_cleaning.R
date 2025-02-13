@@ -179,26 +179,3 @@ complete_cases_2011$race <- factor(complete_cases_2011$race, levels = c("B", "Q"
 complete_cases_2011$pa_group <- ifelse(complete_cases_2011$race %in% c("Black", "Hispanic"), "POC", "White")
 
 
-# Fairness metrics ----
-# Defines punitive base measures
-base_mrs_punitive <- list(
-  fpr = msr("classif.fpr"),
-  tnr = msr("classif.tnr"),
-  ppv = msr("classif.ppv"),
-  fdr = msr("classif.fdr")
-)
-
-# Define multiple base measures
-base_mrs_assistive <- list(
-  fnr = msr("classif.fnr"),
-  tpr = msr("classif.tpr"),
-  npv = msr("classif.npv"),
-  fomr = msr("classif.fomr")
-)
-
-# define mixed base measures
-base_mrs_other <- list(
-  acc = msr("classif.acc"),
-  auc = msr("classif.auc"),
-  bbrier = msr("classif.bbrier")
-)
