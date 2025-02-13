@@ -142,57 +142,6 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Caton2024FMLSb/Caton und Haas - 2024 - Fairness in Machine Learning A Survey.pdf
       \endverb
     \endentry
-    \entry{corbett-davies}{article}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=341a17b1faf8ad74034822ff2f891742}{%
-           family={{Corbett-Davies}},
-           familyi={C\bibinitperiod},
-           given={Sam},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dc87d955c84b91ba3d881af1c1a93666}{%
-           family={Gaebler},
-           familyi={G\bibinitperiod},
-           given={Johann\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a4b30e51359854c0d89aa15a6279a424}{%
-           family={Nilforoshan},
-           familyi={N\bibinitperiod},
-           given={Hamed},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=85bd24ef7b2a76727f6692bb1bd9d048}{%
-           family={Shroff},
-           familyi={S\bibinitperiod},
-           given={Ravi},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=769c0f637707fcc5e9ebb71ce29eb5d1}{%
-           family={Goel},
-           familyi={G\bibinitperiod},
-           given={Sharad},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{fullhash}{4544570fa35bc719cb1465901595a433}
-      \strng{bibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{authorbibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{authornamehash}{5a8687cd6a4a9ab3df98cc3620677781}
-      \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labeldatesource}{nodate}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
-      \field{langid}{english}
-      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
-      \endverb
-    \endentry
     \entry{fernando2021}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=a76fb73b9ba9f02e8cf50125940b9600}{%

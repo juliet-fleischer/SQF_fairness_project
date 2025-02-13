@@ -1,10 +1,14 @@
 \section*{Bias in, bias out - an alternative perspective}
 
-\cite{RambachanBBOEFW} take a different perspective on the problem of biased training data than \cite{kallus}.
-The mechanism they describe works as follows I think!!?): 
+A potential answer can be found in \cite{RambachanBBOEFW}. They take a different perspective on the problem of biased training data than \cite{kallus} and question the "bias in, bia out" mechanism.
+
+In short: It actually depends on the outcome and the training sample whether the discrminiation of the previously discriminated (bias interhitance) exists. In some cases it can actuall come to the opposite effect, which they call bias reversal.
+The mechanism is as follows: the historically discriminated groups is very represented in the sample as being included is an act of discrimination itself. This means we have more training data for the disadvantaged group, they resemble the target population more, as they were more leniently included, and thus the classifier generalised better to the disadvanteged group.
+When we collect more data for the group, we come closer to the target population and our classifier will work better on the target population for the group with more data.
+
 
 Black people are more leniently stopped, leading to higher stopping rates in for black people in the training data, meaning
-more training data for this group. Because we stop black peopel more leniently, we record nany innocent black people in our data.
+more training data for this group. Because we stop black peopel more leniently, we record many innocent black people in our data.
 In \cite{kallus} this would lead to a lower learned threshold \footnote{first this leads to lower risk scores for black individuals. And then via fairness adjustments (e.g. for equalized odds) this leads to lower thresholds for black individuals.}
 for black individuals. Applied on the target population this would mean that we would predict too many false positive. The threshold estimated from the training 
 data is so low that we classify to many people as guilty because in the target populations the scores are actually higher and meet the threshold easily.
@@ -25,18 +29,6 @@ I think in Kallus we then do a fairness intervention that leads us to setting a 
 guilty more easily to achieve the same FPR as in the other group. I think in kallus they first formulate it in the strict way, where the police is so biased against african americans
 that the stopped african americans are LESS likely to actually have a weapon than the general population. But they relax this setting afterwards.
 
-
-
-My big questions is is these two papers are actually contradicting each other. I think they do not.
-What both are essentially saying is that if the distribution of the target in training and target population is different,
-then there will be a problem. \cite{kallus} looks at the situation in which training and target datahave different distributions
-in both groups. In the stricter scenario the difference in target and train exists for both gorups and is going in opposite directions
-(e.g. train of a is underestimation and train of b is overestimation). In the relaxed scenario the difference in target
-and train exists for both groups but goes in the same direction, I think is is just more severe for the disadvantaged group.
-In \cite{RambachanBBOEFW} we say that our limited sample is not biased necesariliy in itself in the sense that the distribution of the target
-in our sample is different from the distribution of the target in the target population per se. But what happens is that the sample
-is limited and therefore only cuts out a piece of the target population that is not representative. Therefore, when we collect more data
-we come closer to the target population and our classifier will work better on the target population for the group with more data.
 
 What happens if we train the logistic classifier (to predict weapon yes no) on the SQF as is (Kallus), don’t do a post processing fairness intervention (NO Hardt et. al)
 and test the classifier on the target population (that is created via the weighing method of Kallus and Zhou)? I think according to \cite{RambachanBBOEFW} we should observe bias reversal.
