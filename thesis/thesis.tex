@@ -138,15 +138,42 @@ Supervised by \mytitle
 \newpage
 \begin{abstract}
 
-In this study we provide an introduction to the most common fairness definitions and subtleties that come with them. We advocate for tackling fairness in a wholeistic way, taking into account how the data was generated and how it will be used. This will be illustrated by a case study on the Stop, Question, and Frisk data (SQF) from the New York Police Department (NYPD). 
+In the first half of this paper we provide an introduction to the most common metrics and methods in fair machine learning. We then apply the theoretical concepts to the New York Stop, Question and Frisk dataset, which will showcase difficulties that come with fairness in practice. This leads us to explore the problem of selection bias and related issues. We turn our focus to studies that have worked with the SQF dataset and established interesting theoretical results; residual unfairness, bias reversal and bias inheritance.
+Value of this paper: compare and contrast traditional fairness metrics, use them in a real world setting, show its limitations in this setting, present how they are adressed in more advanced ways and try to explain why traditional metrics can not reflect the whole situation.
 
 \end{abstract}
-\newpage
-\section*{Acknowledgement}
+
 
 \newpage
 \tableofcontents
+\newpage
 
+
+% CHAPTERS ---------------------------------------------------------------------
+
+\pagenumbering{arabic}
+    
+\section{Introduction}
+% \label{intro}
+% \input{chapters/intro.tex}
+\section{Related Work}
+\section{Fairness Metrics}
+\input{chapters/fairness_metrics.tex}
+\section{Fairness Methods}
+\input{chapters/fairness_methods.tex}
+\section{Case Study: Stop, Question, and Frisk}
+\input{chapters/sqf_case_study.tex}
+\input{chapters/residual_unfairness.tex}
+\input{chapters/bias_in_bias_out.tex}
+\newpage
+
+% \includeonly{chapters/introduction.tex, chapters/results.tex}
+% include{}
+
+% \section{Data}
+% \label{Data}
+% \input{Chapter/Data.tex}
+% \newpage
 \newpage
 
 % ------------------------------------------------------------------------------
@@ -169,30 +196,8 @@ In this study we provide an introduction to the most common fairness definitions
 
 \newpage
 
-% CHAPTERS ---------------------------------------------------------------------
-
-\pagenumbering{arabic}
-    
-\section{Introduction}
-% \label{intro}
-% \input{chapters/intro.tex}
-\section{Fairness Metrics}
-\input{chapters/fairness_metrics.tex}
-\section{Fairness Methods}
-\input{chapters/fairness_methods.tex}
-\section{Case Study: Stop, Question, and Frisk}
-\input{chapters/sqf_case_study.tex}
-\input{chapters/residual_unfairness.tex}
-\input{chapters/bias_in_bias_out.tex}
 \newpage
-
-% \includeonly{chapters/introduction.tex, chapters/results.tex}
-% include{}
-
-% \section{Data}
-% \label{Data}
-% \input{Chapter/Data.tex}
-% \newpage
+\section*{Acknowledgement}
 
 \newpage
 

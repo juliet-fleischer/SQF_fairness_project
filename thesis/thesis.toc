@@ -1,8 +1,11 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Fairness Metrics}{1}{section.2}%
-\contentsline {subsubsection}{\numberline {2.0.1}Separation}{2}{subsubsection.2.0.1}%
-\contentsline {subsubsection}{\numberline {2.0.2}Sufficiency}{3}{subsubsection.2.0.2}%
-\contentsline {section}{\numberline {3}Fairness Methods}{6}{section.3}%
-\contentsline {section}{\numberline {4}Case Study: Stop, Question, and Frisk}{7}{section.4}%
-\contentsline {section}{\numberline {5}Residual Unfairness}{12}{section.5}%
+\contentsline {section}{\numberline {2}Related Work}{1}{section.2}%
+\contentsline {section}{\numberline {3}Fairness Metrics}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Group fairness}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Individual fairness}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Causality-based fairness metrics}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Comparison and Summary}{6}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Fairness Methods}{7}{section.4}%
+\contentsline {section}{\numberline {5}Case Study: Stop, Question, and Frisk}{8}{section.5}%
+\contentsline {section}{\numberline {6}Residual Unfairness}{13}{section.6}%
 \contentsline {section}{\numberline {A}Electronic Appendix}{V}{appendix.A}%

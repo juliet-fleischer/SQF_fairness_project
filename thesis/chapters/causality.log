@@ -1,0 +1,300 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  22 FEB 2025 20:10
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex
+(/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:1: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \usepackage{
+                tikz}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:2: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage{
+                amsmath}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count185
+\l__pdf_internal_box=\box51
+)
+No file causality.aux.
+\openout1 = `causality.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:4: LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \begin{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:6: LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 \begin{tikzpicture}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:8: Undefined control sequence.
+l.8     \definecolor
+                    {myblue}{RGB}{173, 216, 230}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:9: Undefined control sequence.
+l.9     \definecolor
+                    {mygreen}{RGB}{144, 238, 144}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:12: Missing $ inserted.
+<inserted text> 
+                $
+l.12     \matrix[
+                 matrix of nodes,
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 12.
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:14: Undefined control sequence.
+l.14             column sep=-\pgflinewidth
+                                          , row sep=-\pgflinewidth,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:14: Undefined control sequence.
+l.14 ...sep=-\pgflinewidth, row sep=-\pgflinewidth
+                                                  ,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:23: Misplaced alignment tab character &.
+l.23           &
+                 $Y = 0$ & $Y = 1$ \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:23: Missing } inserted.
+<inserted text> 
+                }
+l.23           & $
+                  Y = 0$ & $Y = 1$ \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:23: Misplaced alignment tab character &.
+l.23           & $Y = 0$ &
+                           $Y = 1$ \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24     $\hat
+              {Y} = 0$ & TN & FN \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:24: Misplaced alignment tab character &.
+l.24     $\hat{Y} = 0$ &
+                         TN & FN \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:24: Misplaced alignment tab character &.
+l.24     $\hat{Y} = 0$ & TN &
+                              FN \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:25: Misplaced alignment tab character &.
+l.25     $\hat{Y} = 1$ &
+                         FP & TP \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:25: Misplaced alignment tab character &.
+l.25     $\hat{Y} = 1$ & FP &
+                              TP \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:26: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.26     }
+          ;
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:29: Undefined control sequence.
+l.29     \node
+              [above=0.5cm of m-1-2] (actual) {Actual};
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:30: Undefined control sequence.
+l.30     \node
+              [left=0.5cm of m-2-1, rotate=90] (predicted) {Predicted};
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:33: Undefined control sequence.
+l.33     \draw
+              [dashed] (m-1-2.north west) -- (m-3-2.south west);
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:34: Undefined control sequence.
+l.34     \draw
+              [dashed] (m-1-2.north west) -- (m-1-3.north east);
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:35: LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 \end{tikzpicture}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex:37: LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 \end{document}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./causality.aux) ) 
+Here is how much of TeX's memory you used:
+ 217 strings out of 476025
+ 5911 string characters out of 5790017
+ 1852388 words of memory out of 5000000
+ 20761 multiletter control sequences out of 15000+600000
+ 512287 words of font info for 32 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 33i,10n,35p,193b,76s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on causality.pdf (1 page, 42529 bytes).
+PDF statistics:
+ 23 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

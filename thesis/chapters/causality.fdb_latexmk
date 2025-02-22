@@ -1,0 +1,18 @@
+# Fdb version 4
+["pdflatex"] 1740251440 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex" "causality.pdf" "causality" 1740251441 2
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/chapters/causality.tex" 1740251439 1143 ded82df90b2e2ac4b2e1368336052f67 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1673989714 30429 213676d4c7327a21d91ddaed900e7b81 ""
+  "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1677365944 40745 87bb86a62d462f93a1efc6b0c65c872e ""
+  "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
+  "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
+  "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "causality.aux" 1740251441 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "causality.tex" 1740251439 1143 ded82df90b2e2ac4b2e1368336052f67 ""
+  (generated)
+  "causality.aux"
+  "causality.log"
+  "causality.pdf"
+  (rewritten before read)

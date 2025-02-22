@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  22 FEB 2025 10:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  22 FEB 2025 21:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1025,7 +1025,7 @@ Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 87.
 Package biblatex Info: Reference segment=0 on input line 87.
-<../figures/sigillum.png, id=36, 2946.00626pt x 2991.175pt>
+<../figures/sigillum.png, id=48, 2946.00626pt x 2991.175pt>
 File: ../figures/sigillum.png Graphic file (type png)
 <use ../figures/sigillum.png>
 Package pdftex.def Info: ../figures/sigillum.png  used on input line 123.
@@ -1035,8 +1035,8 @@ Package pdftex.def Info: ../figures/sigillum.png  used on input line 123.
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../figures/sigillum.png
 
 pdfTeX warning: pdflatex (file ../figures/sigillum.png): large interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
->] [1] [2] (./thesis.toc
-LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 3.
+>] [1] (./thesis.toc
+LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 4.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/yhmath/OMXyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
@@ -1044,36 +1044,28 @@ File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [3] (./thesis.lof)
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
-
- [4] (./thesis.lot)
-\tf@lot=\write7
-\openout7 = `thesis.lot'.
-
- [5] (./chapters/fairness_metrics.tex
+ [2] (./chapters/fairness_metrics.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18 
-      [1{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+l.29 $$
+       P(\hat{Y} | A = a) = P(\hat{Y} | A = b)$$ [1] [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3]
+Overfull \hbox (91.15843pt too wide) detected at line 71
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y \OT1/cmr/m/n/12 = 1\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 = 1\OML/cmm/m/it/12 ; A \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y \OT1/cmr/m/n/12 = 1\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 = 1\OML/cmm/m/it/12 ; A \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 b\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y \OT1/cmr/m/n/12 = 0\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ; A \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 a\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y \OT1/cmr/m/n/12 = 0\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ; A \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 b\OT1/cmr/m/n/12 )
+ []
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 19.
-
-[2] [3] [4] [5]) (./chapters/fairness_methods.tex) (./chapters/sqf_case_study.tex [6] [7]
-<../figures/sqf_case_study_plot7.png, id=163, 722.7pt x 433.62pt>
+[4] [5] [6]) (./chapters/fairness_methods.tex) (./chapters/sqf_case_study.tex [7] [8]
+<../figures/sqf_case_study_plot7.png, id=161, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot7.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot7.png>
 Package pdftex.def Info: ../figures/sqf_case_study_plot7.png  used on input line 26.
 (pdftex.def)             Requested size: 318.66946pt x 191.20361pt.
-<../figures/sqf_case_study_plot8.png, id=166, 722.7pt x 433.62pt>
+<../figures/sqf_case_study_plot8.png, id=164, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot8.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot8.png>
 Package pdftex.def Info: ../figures/sqf_case_study_plot8.png  used on input line 39.
 (pdftex.def)             Requested size: 318.66946pt x 191.20361pt.
- [8 <../figures/sqf_case_study_plot7.png>]
+ [9 <../figures/sqf_case_study_plot7.png>]
 <../figures/sqf_case_study_plot10.png, id=173, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot10.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot10.png>
@@ -1084,42 +1076,51 @@ File: ../figures/bias_loop.png Graphic file (type png)
 <use ../figures/bias_loop.png>
 Package pdftex.def Info: ../figures/bias_loop.png  used on input line 76.
 (pdftex.def)             Requested size: 318.66946pt x 182.18039pt.
- [9 <../figures/sqf_case_study_plot8.png>] [10 <../figures/sqf_case_study_plot10.png> <../figures/bias_loop.png>]) (./chapters/residual_unfairness.tex
-<../figures/selection_bias.png, id=186, 362.35374pt x 147.55125pt>
+ [10 <../figures/sqf_case_study_plot8.png>] [11 <../figures/sqf_case_study_plot10.png> <../figures/bias_loop.png>]) (./chapters/residual_unfairness.tex
+<../figures/selection_bias.png, id=188, 362.35374pt x 147.55125pt>
 File: ../figures/selection_bias.png Graphic file (type png)
 <use ../figures/selection_bias.png>
 Package pdftex.def Info: ../figures/selection_bias.png  used on input line 3.
 (pdftex.def)             Requested size: 318.66946pt x 129.76443pt.
-<../figures/sqf_case_study_plot6.png, id=192, 722.7pt x 433.62pt>
+<../figures/sqf_case_study_plot6.png, id=194, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot6.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot6.png>
 Package pdftex.def Info: ../figures/sqf_case_study_plot6.png  used on input line 14.
 (pdftex.def)             Requested size: 318.66946pt x 191.20361pt.
- [11 <../figures/selection_bias.png>] [12 <../figures/sqf_case_study_plot6.png>] [13] [14]) (./chapters/bias_in_bias_out.tex [15]) [16]
-pdfTeX warning (ext4): destination with the same identifier (name{page.V}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.231 \newpage
-               [5] [6] (./thesis.aux)
+ [12 <../figures/selection_bias.png>]
+<../figures/sqf_case_study_plot11.png, id=208, 722.7pt x 433.62pt>
+File: ../figures/sqf_case_study_plot11.png Graphic file (type png)
+<use ../figures/sqf_case_study_plot11.png>
+Package pdftex.def Info: ../figures/sqf_case_study_plot11.png  used on input line 27.
+(pdftex.def)             Requested size: 318.66946pt x 191.20361pt.
+ [13 <../figures/sqf_case_study_plot6.png>] [14 <../figures/sqf_case_study_plot11.png>] [15]) (./chapters/bias_in_bias_out.tex [16] [17]) [18] (./thesis.lof)
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+ [19] (./thesis.lot)
+\tf@lot=\write7
+\openout7 = `thesis.lot'.
+
+ [20] [21] [5] [6] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 52A860E0C5467FF8E0B55E4CD9E6176C;1120.
+(rerunfilecheck)             Checksum: A604C4E8F04840EA0D3D61D6D6896F76;1670.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31242 strings out of 476025
- 592302 string characters out of 5790017
- 1867388 words of memory out of 5000000
- 51180 multiletter control sequences out of 15000+600000
+ 31271 strings out of 476025
+ 592845 string characters out of 5790017
+ 1866388 words of memory out of 5000000
+ 51195 multiletter control sequences out of 15000+600000
  528348 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1971b,1584s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (24 pages, 979732 bytes).
+ 75i,13n,79p,1971b,1580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (26 pages, 1103311 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 266 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 310 compressed objects within 4 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

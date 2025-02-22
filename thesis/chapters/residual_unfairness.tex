@@ -5,7 +5,7 @@
     \label{fig:selection_bias}
 \end{figure}
 The major concern that has been identified in the literature for SQF data is how the data is generated in the first place. In their paper "Residual Unfairness" \cite{kallus} conceptualise the problem as shown in \autoref{fig:selection_bias}.
-We define a person by their sensitive feature (A) and non-sensitive features (X). For each person in the population of interest a police officer decides whether to stop them or not. Based on this biased decision policy people are included in the sample (Z = 1) or they are not (Z = 0). But naturally, we can only know the outcome of a stop, which constitutes the target of a classificaiton task, for the people who were stopped.
+We define a person by their sensitive feature (A) and non-sensitive features (X). For each person in the population of interest a police officer decides whether to stop them or not. The problem arises in the decision to stop someone because it might be influenced by prejudice. In the SQF context we can imagine that the police is generally more suspicious towards PoC than white people. Or we can imagine that they are stopping people in general more frequently in high crime areas which happen to be correlated with low-income neighbourhoods which are more populated by PoC than white people {\color{red}sources}. Based on this biased decision policy people are included in the sample (Z = 1) or they are not (Z = 0). But naturally, we can only know the outcome of a stop for the people who were stopped.
 \cite{kallus} distinguish between target population and training population in such scenarios. The target population is the one on which we want to use the ADM on while the training population are the observations the biased decision policy chose to include in the sample and on which the algorithm is trained.
 In the SQF data we can see this form of bias by comparing the race distribution of NYC to the race distribution in the SQF data. From \autoref{fig:race_distributions} it is clear that in terms of race the SQF data does not represent the general population of the city. We can see that white people form the majority of the population in NYC, but only make up a tiny fraction of SQF stops. Black people in contrast are the third-largest ethnic group in NYC while they exceed any other group in the SQF data by far.
 \autoref{fig:race_distributions} shows that selection bias might be at play in the decision of stopping a suspect.
@@ -16,10 +16,18 @@ In the SQF data we can see this form of bias by comparing the race distribution 
     \label{fig:race_distributions}
 \end{figure}
 
-To get a more nuanced picture we also plot the true arrestment rate per ethnic group in the SQF 2023 data and find that White and Asian people have the highest arrestment rates and black people the lowest. This supports the argument that black people are stopped more leniently and there is a biased decision policy in place. The questions now are, why the group metrics did not detect any unfairness in our algorithm and how such biases can be addressed in fairness practice?
+We take the borough as the non-sensitive variable that in combination with the race describes the suspect.  The comparison of the race distribution in each borough for the SQF data and the New Yorker population as a whole supports the argument that black people are stopped more leniently \autoref{fig:arrestment_rates_clean_data}. The questions now are, why the group metrics did not detect any unfairness in our algorithm and how such biases can be addressed in fairness practice? \\
 % The main message of this paper is that it is not that easy to adjust for fairness, when the data the algorithm learns from is biased. Ensuring Equal Opportunity or Equalized Odds on the training data does not generalize to the target population. The paper proposes a way to estimate the TRP and FPR in the target population. This is useful, when the fairness methods depends on the FPR and/or TPR. 
-Why the group metrics did not show any unfairness in the algorithm can be answered ins a straight forward way. Group metrics offer a rather isolated view on fairness. They assess disparities in algorithimic predictions between protected groups rather than measuring the fairness of a whole situation. Thus, group metrics are not designed to detect selection bias. They work with the joint distribution of $Y, A, X, \hat{Y}$ and do not take any additional information into account. When we rely on the true label $Y$ (Separation) to detect unfairness but the true label itself is not reliabel (generated via an objective truth), then the group metrics cannot show this \cite{castelnovo2022}.
+Why the group metrics did not show any unfairness in the algorithm can be answered ins a straight forward way. Group metrics offer a rather isolated view on fairness. They assess disparities in algorithimic predictions between protected groups rather than measuring the fairness of a whole situation. Thus, group metrics are not designed to detect selection bias. They work with the joint distribution of $Y, A, \hat{Y}$ \footnote{There are variations of group metrics that allow for non-sensitive attributes $X$ to be considered as well when assessing fairness. An example is conditional statistical parity \cite{verma2018}.} 
+and do not take any additional information into account. When we rely on the true label $Y$ (Separation) to detect unfairness but the true label itself is not reliabel (not generated via an objective truth), then the group metrics cannot show this mechanism \cite{castelnovo2022}.
 To answer the second question we use the following chapter to examine two papers that propose methods to address selection bias in fairness practice and have explicity used the SQF data as a case study.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
+    \caption {Distribution of race by borough in the SQF data (top) and NYC as a whole (bottom).}
+    \label{fig:borough_race_distribution}
+\end{figure}
 
 \section{Residual Unfairness}
 We already outlined the formal problem setting in \cite{kallus} in \autoref{fig:selection_bias}. The main message of the paper supports the saying "bias in, bias out". They argue that fairness traidional fairness interventions on the training data, such as thresholding, are not enough to ensure fainress in general future applications fo the algorithm. We will take the main findings of the paper and translate them to the SQF scenario.
@@ -68,7 +76,14 @@ Though it could be interesting regardless, to get picture for how the algortihm 
 As the fairness audit in the previous chapter showed little disparities, we only take their method to estiamte the generalisation of the algorithm.
 We match the target population to the training population via precinct.
 ....
-Result: the classifier has even lower estimated error rates for the target population than for the trainign population - what is happening here?
+Results:
+On the target population FPR for POC is estimated to be higher than for white people, but true positive rate also. FNR is estimated lower for POC than for white people on the target population and TNR is estimated to be lower for POC than for white people. So in general POC in the target population are more often expected to be more often predicted as positive and less often as negative. 
+
+For the train population the FPR of black and white people is basically the same whereas the difference in estimated FPR for the target population is a larger (still small) with POC having the higher FPR than white people. High FPR is undesirable.
+But at the same time the TPR in the train population is basically the same between groups whereas the for the target population POC get estimated a higher TPR than white people.
+So maybe it is better put this way: It is estimated that the classifier performs better in terms of TPR on the POC of the target population than on the white people of the target population. Naturally with a higher TPR comes also a higher FPR (inherent trade-off).
+So the estimation overall show minor differences in race groups and at most maybe even a slightly better estimated performance for POC than for white people.
+
 
 
 % Things I have to introduce when I want to presente the math of the paper (e.g.Preposition 2)

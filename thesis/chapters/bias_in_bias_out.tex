@@ -1,6 +1,12 @@
 \section*{Bias in, bias out - an alternative perspective}
 
-A potential answer can be found in \cite{RambachanBBOEFW}. They take a different perspective on the problem of biased training data than \cite{kallus} and question the "bias in, bia out" mechanism.
+An interesting perspective on this observation can be found in \cite{RambachanBBOEFW}. They take a different stance on the problem of biased training data than \cite{kallus} and question the "bias in, bias out" mechanism.
+
+They formalise the problem as follows. An individual is measured by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus}
+and U is a set of unobserved features. These latent variables are unknown to the person training the algorithm but are characteristics the police bases their decision to stop someone on. In the SQF context this could be the personal impression the officer got of a suspect which is not recorded and hard to measure.
+
+The paper assumes the concept of a taste-based classifier for the police. What they assume is that the police faces a cost when stopping someone but they also have an (expected) payoff when stopping someone. So the police basically associated lower costs with stopping PoC and they expect a higher payoff. This setting would translate to stopping PoC more leniently.
+The taste-based classifier that distrciminates against PoC is defined as follows:
 
 In short: It actually depends on the outcome and the training sample whether the discrminiation of the previously discriminated (bias interhitance) exists. In some cases it can actuall come to the opposite effect, which they call bias reversal.
 The mechanism is as follows: the historically discriminated groups is very represented in the sample as being included is an act of discrimination itself. This means we have more training data for the disadvantaged group, they resemble the target population more, as they were more leniently included, and thus the classifier generalised better to the disadvanteged group.

@@ -41,3 +41,61 @@ getFairnessAudit <- function(prediction, task) {
     )
   )
 }
+
+# For the residual unfairness analysis
+## function to estimate the error rates in the target population
+estimateRate <- function(data, groupVal, truthVal, responseVal) {
+  # Numerator: sum of weights for (group, truth, response)
+  num <- data |>
+    dplyr::filter(
+      PA_GROUP == groupVal,
+      truth == truthVal,
+      response == responseVal
+    ) |>
+    dplyr::summarise(num = sum(weight)) |>
+    dplyr::pull(num)
+  
+  # Denominator: sum of weights for (group, truth)
+  den <- data |>
+    dplyr::filter(
+      PA_GROUP == groupVal,
+      truth == truthVal
+    ) |>
+    dplyr::summarise(den = sum(weight)) |>
+    dplyr::pull(den)
+  
+  # Safeguard against dividing by zero
+  if (den == 0) {
+    return(NA_real_)
+  }
+  
+  rate <- num / den
+  return(rate)
+}
+
+getErrorRates <- function(data, groupA, groupB) {
+  # TPR for each group
+  tprA <- estimateRate(data, groupA, truthVal = "Y", responseVal = "Y")
+  tprB <- estimateRate(data, groupB, truthVal = "Y", responseVal = "Y")
+  
+  # FPR for each group
+  fprA <- estimateRate(data, groupA, truthVal = "N", responseVal = "Y")
+  fprB <- estimateRate(data, groupB, truthVal = "N", responseVal = "Y")
+  
+  # FNR for each group
+  fnrA <- 1 - tprA
+  fnrB <- 1 - tprB
+  
+  # TNR for each group
+  tnrA <- 1 - fprA
+  tnrB <- 1 - fprB
+  
+  # Return a tidy summary
+  dplyr::tibble(
+    group = c(groupA, groupB),
+    TPR   = c(tprA, tprB),
+    FPR   = c(fprA, fprB),
+    FNR   = c(fnrA, fnrB),
+    TNR   = c(tnrA, tnrB)
+  )
+}
