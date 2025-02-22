@@ -35,7 +35,7 @@ train_pop <- data2023 |>
   ungroup() |> 
   mutate(prop = n / sum(n))
 
-# 3. Weighing
+# 3. Weighing ----
 # create the weights as ratio between probabilities
 # join the data
 weight_df <- left_join(
@@ -48,16 +48,79 @@ weight_df <- weight_df |>
   mutate(weight = prop_target / prop_train)
 
 
-# 4. Match the weights
+# 4. Match the weights ----
 # have to get the PREDICITON of the people to count tp or fp
 data2023_weights <- data2023 |> 
   left_join(weight_df, by = c("STOP_LOCATION_BORO_NAME", "PA_GROUP")) |>
   mutate(weight = ifelse(is.na(weight), 0, weight))
 # predict on the whole dataset
-train_preds_2023 <- lrn_rf$predict(task_arrest, row_ids = data2023_weights$row_ids)
+train_preds_2023 <- lrn_rf_2023$predict(task_arrest, row_ids = data2023_weights$row_ids)
+calcGroupwiseMetrics(base_mrs_assistive, task_arrest, train_preds_2023)
+calcGroupwiseMetrics(base_mrs_punitive, task_arrest, train_preds_2023)
+
 train_preds_2023 <- as.data.table(train_preds_2023)
 # combine the predictions with the data
 data2023_weights <- cbind(data2023_weights, train_preds_2023)
+
+# tpr for black people
+data2023_weights |> 
+  select(truth, response, PA_GROUP, weight, STOP_LOCATION_BORO_NAME) |>
+  filter(truth == "Y", response == "Y", PA_GROUP == "POC") |>
+  summarise(nominator = mean(weight))
+
+data2023_weights |> 
+  select(truth, response, PA_GROUP, weight, STOP_LOCATION_BORO_NAME) |>
+  filter(truth == "Y", response == "N", PA_GROUP == "POC") |>
+  summarise(denominator_1 = mean(weight))
+# 0.5299261 for black
+
+data2023_weights |> 
+  select(truth, response, PA_GROUP, weight, STOP_LOCATION_BORO_NAME) |>
+  filter(truth == "Y", response == "Y", PA_GROUP == "White") |>
+  summarise(nominator = mean(weight))
+
+data2023_weights |> 
+  select(truth, response, PA_GROUP, weight, STOP_LOCATION_BORO_NAME) |>
+  filter(truth == "Y", response == "N", PA_GROUP == "White") |>
+  summarise(denominator_1 = mean(weight))
+# 0.4937023 for white 
+
+
+
+
+# Numerator: sum of weights where A=a, Y=1, predicted=1
+num <- data2023_weights |>
+  filter(PA_GROUP == "POC", truth == "Y", response == "Y") |>
+  summarize(num = sum(weight)) |>
+  pull(num)
+
+# Denominator: sum of weights where A=a, Y=1 (regardless of predicted label)
+den <- data2023_weights |>
+  filter(PA_GROUP == "POC", truth == "Y") |>
+  summarize(den = sum(weight)) |>
+  pull(den)
+
+num / den
+
+# Numerator: sum of weights where A=a, Y=1, predicted=1
+num2 <- data2023_weights |>
+  filter(PA_GROUP == "White", truth == "Y", response == "Y") |>
+  summarize(num = sum(weight)) |>
+  pull(num)
+
+# Denominator: sum of weights where A=a, Y=1 (regardless of predicted label)
+den2 <- data2023_weights |>
+  filter(PA_GROUP == "White", truth == "Y") |>
+  summarize(den = sum(weight)) |>
+  pull(den)
+
+num2 / den2
+
+
+
+
+
+
 d1 <- data2023_weights[truth == "Y" & response == "Y", .N,
                        by = c("PA_GROUP", "STOP_LOCATION_BORO_NAME", "weight")][order(PA_GROUP, STOP_LOCATION_BORO_NAME)]
 
@@ -80,3 +143,5 @@ poc_numerator <- sum(poc_positives$weight[poc_positives$response == "Y"])
 poc_denominator <- sum(poc_positives$weight)
 poc_tpr <- poc_numerator / poc_denominator
 poc_tpr
+
+

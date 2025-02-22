@@ -4,5 +4,5 @@
 \contentsline {subsubsection}{\numberline {2.0.2}Sufficiency}{3}{subsubsection.2.0.2}%
 \contentsline {section}{\numberline {3}Fairness Methods}{6}{section.3}%
 \contentsline {section}{\numberline {4}Case Study: Stop, Question, and Frisk}{7}{section.4}%
-\contentsline {section}{\numberline {5}Residual Unfairness}{11}{section.5}%
+\contentsline {section}{\numberline {5}Residual Unfairness}{12}{section.5}%
 \contentsline {section}{\numberline {A}Electronic Appendix}{V}{appendix.A}%

@@ -1,6 +1,6 @@
-# 1. Preparations ----
-# Fairness metrics ----
-# Defines punitive base measures
+set.seed(024)
+# 1. Fairness metrics ----
+## punitive base measures ----
 base_mrs_punitive <- list(
   fpr = msr("classif.fpr"),
   tnr = msr("classif.tnr"),
@@ -8,7 +8,7 @@ base_mrs_punitive <- list(
   fdr = msr("classif.fdr")
 )
 
-# Define multiple base measures
+# assistive base measures ----
 base_mrs_assistive <- list(
   fnr = msr("classif.fnr"),
   tpr = msr("classif.tpr"),
@@ -16,16 +16,24 @@ base_mrs_assistive <- list(
   fomr = msr("classif.fomr")
 )
 
-# define mixed base measures
+# mixed base measures ----
 base_mrs_other <- list(
   acc = msr("classif.acc"),
   auc = msr("classif.auc"),
   bbrier = msr("classif.bbrier")
 )
 
-# regular learner
-lrn_rf = lrn("classif.ranger", predict_type = "prob")
-lrn_rf$id = "ranger_rf"
+# punitive mlr3 measures ----
+fairness_msr_punitive <- msrs(c("fairness.fpr","fairness.tnr","fairness.ppv"))
+# assistive mlr3 measures ----
+fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
+                                 "fairness.fomr"))
+# mixed mlr3 measures ---- 
+fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
+
+# 2. Learner and task ----
+lrn_rf_2023 = lrn("classif.ranger", predict_type = "prob")
+lrn_rf_2023$id = "ranger_rf"
 
 # Preprocessing: reweighing
 l1 = as_learner(mlr3pipelines::`%>>%`(po("reweighing_wts"), lrn("classif.rpart")))
@@ -48,23 +56,14 @@ cc.splits <- partition(task_arrest)
 
 
 # 2. Fairness Auditing ----
-# 2.1 Fairness metrics ----
-# punitive
-fairness_msr_punitive <- msrs(c("fairness.fpr","fairness.tnr","fairness.ppv"))
-# assistive
-fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
-                                 "fairness.fomr"))
-# in between
-fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
-
-# 2.2 regular RF ----
-lrn_rf$train(task_arrest, cc.splits$train)
-preds_2023 <- lrn_rf$predict(task_arrest, cc.splits$test)
+## regular RF ----
+lrn_rf_2023$train(task_arrest, cc.splits$train)
+preds_2023 <- lrn_rf_2023$predict(task_arrest, cc.splits$test)
 fairness_audit_rf <- getFairnessAudit(preds_2023, task_arrest)
 p1_rf <- fairness_prediction_density(fairness_audit_rf$predictions, task = task_arrest) + theme_minimal()
 p2_rf <- compare_metrics(fairness_audit_rf$prediction,
-                         msrs(c("fairness.ppv", "fairness.acc", "fairness.eod", "fairness.fpr")),
-                      task = task_arrest) + ylim(0, 0.04)
+                         msrs(c("fairness.ppv", "fairness.fpr", "fairness.eod", "fairness.acc")),
+                      task = task_arrest) 
 
 calcGroupwiseMetrics(base_mrs_assistive, task_arrest, fairness_audit_rf$predictions)
 calcGroupwiseMetrics(base_mrs_punitive, task_arrest, fairness_audit_rf$predictions)

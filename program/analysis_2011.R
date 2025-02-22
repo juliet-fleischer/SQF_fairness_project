@@ -1,8 +1,13 @@
+set.seed(024)
 theme_set(
   theme_minimal()
 )
 
 # 1. Training + Prediction  ----
+# initialize the learner
+# lrn_rf = lrn("classif.ranger", predict_type = "prob")
+# lrn_rf$id = "ranger_rf"
+lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
 # Create a Task
 task.2011 <-  as_task_classif(data2011, target = "arstmade", response_type = "prob",
                               positive = "Y", id = "arrested")
