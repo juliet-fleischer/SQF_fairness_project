@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[175] biber-darwin:340> INFO - === Sat Feb 22, 2025, 21:16:26
-[204] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[366] Biber.pm:979> INFO - Found 9 citekeys in bib section 0
-[390] Biber.pm:4419> INFO - Processing section 0
-[410] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
-[422] bibtex.pm:1713> INFO - LaTeX decoding ...
-[577] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
-[805] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[805] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[805] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[805] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[827] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[843] bbl.pm:763> INFO - Output to thesis.bbl
+[1] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[180] biber-darwin:340> INFO - === Sun Feb 23, 2025, 13:05:59
+[217] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[409] Biber.pm:979> INFO - Found 9 citekeys in bib section 0
+[434] Biber.pm:4419> INFO - Processing section 0
+[455] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
+[466] bibtex.pm:1713> INFO - LaTeX decoding ...
+[632] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
+[822] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[822] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[822] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[823] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[837] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[851] bbl.pm:763> INFO - Output to thesis.bbl

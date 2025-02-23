@@ -4,10 +4,15 @@ theme_set(
 )
 
 # 1. Training + Prediction  ----
+data2011_ex_ante <- copy(data2011)
+cols_to_keep <- c("datestop", "timestop", "inout", "crimsusp", "arstmade",
+                  "offunif", "radio", "sex", "race", "age", "ht_feet", "ht_inch",
+                  "weight", "haircolr", "eyecolor", "build", "city", "sector", "pa_group")
+data2011_ex_ante <- data2011_ex_ante[, ..cols_to_keep]
 # initialize the learner
-# lrn_rf = lrn("classif.ranger", predict_type = "prob")
-# lrn_rf$id = "ranger_rf"
-lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
+lrn_rf = lrn("classif.ranger", predict_type = "prob")
+lrn_rf$id = "ranger_rf"
+# lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
 # Create a Task
 task.2011 <-  as_task_classif(data2011, target = "arstmade", response_type = "prob",
                               positive = "Y", id = "arrested")
