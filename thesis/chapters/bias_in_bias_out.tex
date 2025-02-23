@@ -1,12 +1,23 @@
 \section*{Bias in, bias out - an alternative perspective}
 
+% mathematical definitions I really need to get the point across
+% - population as tupel of random variables (X, U, A, Y)
+% - taste-based discriminator https://link.springer.com/referenceworkentry/10.1007/978-981-33-4016-9_1-1
+
 An interesting perspective on this observation can be found in \cite{RambachanBBOEFW}. They take a different stance on the problem of biased training data than \cite{kallus} and question the "bias in, bias out" mechanism.
 
-They formalise the problem as follows. An individual is measured by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus}
-and U is a set of unobserved features. These latent variables are unknown to the person training the algorithm but are characteristics the police bases their decision to stop someone on. In the SQF context this could be the personal impression the officer got of a suspect which is not recorded and hard to measure.
+They formalise the problem as follows. For the decision-maker (the police) an individual is characterised by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus}
+and U is a set of unobserved features. These latent variables are unknown to the algorithm but are characteristics the police bases their decision to stop someone on. In the SQF context this could be the personal impression the officer got of a suspect which is not recorded and hard to measure.
 
-The paper assumes the concept of a taste-based classifier for the police. What they assume is that the police faces a cost when stopping someone but they also have an (expected) payoff when stopping someone. So the police basically associated lower costs with stopping PoC and they expect a higher payoff. This setting would translate to stopping PoC more leniently.
-The taste-based classifier that distrciminates against PoC is defined as follows:
+The paper assumes the police is a taste-based classifier against African-Americans. This means they hold some form of prejudice against the group of African-Americans that influences their decision to stop a member of this group.
+In general, for stopping any person, an officer incurs a cost c > 0. If they stop an individual that turns out to be involved in criminal activity and is therefore arrested, the officer receives a reward b = 1 \footnote{The reward can set to any number b > 0. We assume b = 1 as in \cite{RambachanBBOEFW} without loss of generality.}. In case of stopping an innocent person b = 0.
+For stopping African Americans the payoff an officer expects increases by $\tau > 0$ compared to stopping a white person. The total payoff for stopping an individual is given by:
+$$Y + \tau * A - c$$
+where $Y$ is the outcome of the stop, $\tau$ is the discrimination parameter, $A \in \{0,1\}$, and $c > 0$ is the cost for stopping a person.
+Holding the costs $c$ and the outcome of the stop $Y$ constant, searching an African American results in a higher payoff than searching a white person. The goal of the police is to maximise their payoff. Therefore they stop an individual according to the following threshold rule:
+$$Z(X, U, R) = 1(E[Y|X, U, A] \ge c - \tau * A)$$
+This means that the threshold for stopping an African American is \textit{lower} than for stopping a white person. Consequently, the police stops African Americans more leniently than white people.
+This taste-based discrimination rule is the biased decision policy introduced in \cite{kallus}. In \cite{RambachanBBOEFW} the authors speak of "selective labels" where again the tupel $(Y, X, A, Z)$ is only available for $Z = 1$. 
 
 In short: It actually depends on the outcome and the training sample whether the discrminiation of the previously discriminated (bias interhitance) exists. In some cases it can actuall come to the opposite effect, which they call bias reversal.
 The mechanism is as follows: the historically discriminated groups is very represented in the sample as being included is an act of discrimination itself. This means we have more training data for the disadvantaged group, they resemble the target population more, as they were more leniently included, and thus the classifier generalised better to the disadvanteged group.
