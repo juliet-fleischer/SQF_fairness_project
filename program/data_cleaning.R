@@ -1,4 +1,4 @@
-# 2021 data ----
+# 2023 data ----
 sqf <- read_excel("data/sqf-2023.xlsx")
 setDT(sqf)
 n <- nrow(sqf)
@@ -65,6 +65,12 @@ sqf <- sqf |>
   mutate(STOP_FRISK_TIME = round(as.numeric(STOP_FRISK_TIME))) |> 
   mutate(STOP_FRISK_TIME = ifelse(STOP_FRISK_TIME == 24, 0, STOP_FRISK_TIME))
 
+# binning of stop time of the day
+# 6 - 12: AM
+# 12 - 18: PM
+# 18 - 22: evening
+# 22 - 6 : night
+
 # bin time
 sqf$STOP_FRISK_TIME <- cut(
   sqf$STOP_FRISK_TIME,
@@ -118,11 +124,6 @@ sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
 #                                                   "WHITE","ASIAN / PACIFIC ISLANDER",
 #                                                   "MIDDLE EASTERN/SOUTHWEST ASIAN",
 #                                                   "AMERICAN INDIAN/ALASKAN NATIVE"))
-# binning of stop time of the day
-# 6 - 12: AM
-# 12 - 18: PM
-# 18 - 22: evening
-# 22 - 6 : night
 
 
 # remove levels that are very rare
@@ -142,8 +143,6 @@ complete_cases$PA_GROUP <- factor(complete_cases$PA_GROUP)
 
 # 2011 data ----
 data2011 <- fread("data/2011.csv")
-# Import the trained model
-lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds")
 
 # convert all empty entries "" into NA
 data2011[data2011 == ""] <- NA
@@ -171,11 +170,37 @@ data2011[, race := droplevels(race)]
 # filter out the complete cases
 complete_cases_2011 <- data2011[complete.cases(data2011), ]
 
+# create proper month and weekday columns
+complete_cases_2011[, datestop_char := sprintf("%08d", datestop)]
+complete_cases_2011[, datestop := mdy(datestop_char)]
+complete_cases_2011[, weekday := factor(weekdays(datestop))]
+complete_cases_2011[, month := factor(month(datestop), levels = 1:12, labels = month.abb)]
+complete_cases_2011$datestop <- NULL
+complete_cases_2011$datestop_char <- NULL
+
+# create proper time column
+# Ensure `timestop` is properly formatted as a 4-digit character string
+complete_cases_2011[, timestop_char := sprintf("%04d", timestop)]
+
+# Extract hours and minutes as numeric values
+complete_cases_2011[, timestop_hour := as.numeric(substr(timestop_char, 1, 2))]
+
+# bin the time as in the 2023 data
+complete_cases_2011[, timestop := cut(
+  timestop_hour,
+  breaks = c(0, 6, 12, 18, 24),
+  labels = c("night", "AM", "PM", "evening"),
+  right = FALSE)]
+# remove all the hleper columns
+complete_cases_2011[, c("timestop_char", "timestop_hour") := NULL]
+
+
 # adjust the level of race to align with 2021 data and target population
 complete_cases_2011$race <- factor(complete_cases_2011$race, levels = c("B", "Q", "P", "W", "A", "I", "Z"),
                         labels = c("Black", "Hispanic", "Black", "White", "Asian", "Other", "Other"))
 
 # dichotomise the race attribute
 complete_cases_2011$pa_group <- ifelse(complete_cases_2011$race %in% c("Black", "Hispanic"), "POC", "White")
+complete_cases_2011$pa_group <- factor(complete_cases_2011$pa_group)
 
 

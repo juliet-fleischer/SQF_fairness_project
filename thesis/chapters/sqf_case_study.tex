@@ -15,7 +15,8 @@ For our analysis we look at the stops from 2023 as they were the most recent rec
 but treating missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some fairness methods later on.}
 % (many fairness methods can not deal with missing data, especially in the protected attribute, which makes sense, since they base their decision on it). 
 We choose the arrestment of a suspect as target and the race as protected attribute. For the fairness audit later in the chapter we dichtotomise the PA to adjust our situation to the common binary classification, binary PA scenario in the fairness literature. For the descriptive analysis we leave align the race description of SQF data with the 2021 census data. Thereby placing "Black Hispanic" into the group "Black" and summarising "American Indian/ Native American" of SQF and "Middle Eastern/ Southwest Asian" of SQF into the "Other" category.  
-In the cleaned 2023 data about 31\% of stops result in an arrest. Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$ alone, this already gives us a hint that the classifier will show little racial disparities.
+We select specific features that should resemble the information that were available to the officer at the time of the stop. Additionally we control for variables, such a the time of the stop or whether the officer was wearing a uniform. This selection of features can be similarly found in previous studies of SQF.
+In the cleaned 2023 data about 31\% of stops result in an arrest. Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$ alone, this already gives us a hint that the classifier might show little racial disparities.
 % \footnote{This, of course, is an oversimplification of the scenario and we know that this grouping can be critisised from a social science standpoint. We see this as a compromise to keep things straight forward. More nuanced scenarios can be addressed in future work.} 
 
 
@@ -40,6 +41,10 @@ Given that the classifier is fair from a group perspective, it does not make sen
     \caption{Comparison of fairness metrics.}
     \label{fig:fairness_metrics_barplot}
 \end{figure}
+
+\subsubsection{Fairness Experiment}
+Inspired by the chapter on fairness in the mlr3book, we decide to experiment with some fairness methods for the SQF data. \texttt{mlr3fairness} currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
+The inprocessing method is a fairness-adjusted logistic regression implemented in \texttt{mlr3fairness} inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
 
 It is more interesting to compare the classifier trained on data that comes from the unconstitutional period 2004 to 2012. We decide for 2011 as it is the year with the most stops.
 We carry out the same data cleaning steps for the 2011 data as before, starting with 685724 recorded stops and reducing this to 651567 clean observations. Note, these are more than 50 times more stops than in 2023.

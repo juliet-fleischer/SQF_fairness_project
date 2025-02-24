@@ -1,5 +1,8 @@
 # 1. tables ----
-writexl::write_xlsx(fairness_audit_rf$fairness_metrics, path = "figures/sqf_case_study_table1")
+writexl::write_xlsx(fairness_audit_rf$fairness_metrics, path = "figures/sqf_case_study_table1.xlsx")
+latex_tab1 <- xtable::xtable(res_all, caption = "Groupwise Fairness Metrics (2023)", label = "tab:groupwise_metrics_2023")
+print(latex_tab1, file = "figures/groupwise_metrics_2023.tex", include.rownames = FALSE)
+# \input{groupwise_metrics_2023.tex}
 
 # 2. plots ----
 ggsave("figures/sqf_case_study_plot1.png", p1_rf, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
@@ -21,5 +24,7 @@ ggsave("figures/sqf_case_study_plot11.png", p45, width = 10, height = 6, units =
 # 3. models and data ----
 saveRDS(complete_cases, file = "data/data2023.rds")
 saveRDS(complete_cases_2011, file = "data/data2011.rds")
-saveRDS(lrn_rf, file = "program/trained_rf_2011.rds")
+saveRDS(lrn_rf_2011, file = "program/trained_rf_2011.rds")
 saveRDS(lrn_rf_2023, file = "program/trained_rf_2023.rds")
+saveRDS(bmr, "program/bmr_results.rds")
+

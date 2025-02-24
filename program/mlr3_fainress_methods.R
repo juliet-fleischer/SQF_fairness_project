@@ -1,29 +1,24 @@
+set.seed(024)
 theme_set(
   theme_minimal()
 )
-set.seed(024)
 # 1. Fairness metrics ----
 ## punitive base measures ----
 base_mrs_punitive <- list(
   fpr = msr("classif.fpr"),
-  tnr = msr("classif.tnr"),
   ppv = msr("classif.ppv"),
   fdr = msr("classif.fdr")
 )
 
 # assistive base measures ----
 base_mrs_assistive <- list(
-  fnr = msr("classif.fnr"),
   tpr = msr("classif.tpr"),
-  npv = msr("classif.npv"),
-  fomr = msr("classif.fomr")
+  npv = msr("classif.npv")
 )
 
 # mixed base measures ----
 base_mrs_other <- list(
-  acc = msr("classif.acc"),
-  auc = msr("classif.auc"),
-  bbrier = msr("classif.bbrier")
+  acc = msr("classif.acc")
 )
 
 # punitive mlr3 measures ----
@@ -72,30 +67,37 @@ data2023_split <- partition(task_arrest_ex_ante)
 ## regular RF ----
 lrn_rf_2023$train(task_arrest_ex_ante, data2023_split$train)
 preds_ex_ante_2023 <- lrn_rf_2023$predict(task_arrest_ex_ante, data2023_split$test)
+preds_ex_ante_2023_dt <- as.data.table(preds_ex_ante_2023)
+preds_ex_ante_2023_dt$pa_group <- data2023_ex_ante[data2023_split$test, PA_GROUP]
+
+preds_ex_ante_2023_dt |> 
+  group_by(pa_group) |>
+  reframe(avg_score = mean(prob.Y), response_arrested = mean(response == "Y"),
+        truth_arrested = mean(truth == "Y"))
 
 p1_rf <- fairness_prediction_density(preds_ex_ante_2023, task = task_arrest_ex_ante) +
   xlim(0, 1) +
   theme(legend.position = "bottom")
 p2_rf <- compare_metrics(preds_ex_ante_2023,
-                         msrs(c("fairness.tpr", "fairness.eod", "fairness.fpr", "fairness.ppv", "fairness.acc")),
+                         msrs(c("fairness.acc", "fairness.eod", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
                       task = task_arrest_ex_ante) 
 
-calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023)
-calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023)
-calcGroupwiseMetrics(base_mrs_other, task_arrest_ex_ante, preds_ex_ante_2023)
+res1 <- calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023)
+res2 <- calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023)
+res3 <- calcGroupwiseMetrics(base_mrs_other, task_arrest_ex_ante, preds_ex_ante_2023)
 
-
-
+res_all <- do.call(rbind, lapply(list(res1, res2, res3), formatResultTable))
 
 # 3. Experiment ----
-lrns = list(lrn_rf_2023, l1, l2, l3)
-bmr = benchmark(benchmark_grid(task_arrest_ex_ante, lrns, rsmp("cv", folds = 5)))
+lrns = list(lrn_rf_2023, lrn_rf_2011, l1, l2, l3)
+# bmr = benchmark(benchmark_grid(task_arrest_ex_ante, lrns, rsmp("cv", folds = 5)))
+bmr <- readRDS("bmr_results.rds")
 meas = msrs(c("classif.acc", "fairness.eod", "fairness.tpr"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
 p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.fpr"),
                            accuracy_measure = msr("classif.ce")) +
-  ggplot2::scale_color_viridis_d("Learner")
+  scale_color_viridis_d("Learner")
 
 # # distribution of Y | A
 # ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +

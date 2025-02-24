@@ -99,3 +99,13 @@ getErrorRates <- function(data, groupA, groupB) {
     TNR   = c(tnrA, tnrB)
   )
 }
+
+# specifically for results tables from the fairness audit
+formatResultTable <- function(data) {
+  data_t <- as.data.frame(t(data))
+  data_t$metric<- rownames(data_t)
+  names(data_t) <- c("PoC", "White", "Metric")
+  data_t <- data_t |> 
+    select(Metric, PoC, White)
+  return(data_t)
+}
