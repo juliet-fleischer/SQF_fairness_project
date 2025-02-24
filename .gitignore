@@ -6,3 +6,6 @@
 # Large datasets
 data/2004.csv
 data/2011.csv
+program/trained_rf_2011.rds
+program/bmr_results.rds
+
