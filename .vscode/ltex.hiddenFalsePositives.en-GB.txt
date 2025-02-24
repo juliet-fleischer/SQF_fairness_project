@@ -1,0 +1,4 @@
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QAlso, the extension from binary classification to other tasks, such as neural networks, LLMs and other models is subject of ongoing research.\\E$"}
+{"rule":"THE_PUNCT","sentence":"^\\QOr if we would need to set a higher threshold for group a, such that it becomes harder for them to be classified as positive.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFabris and S. Messina and G. Silvello and G.A. Susto scanned more than x datasets to diversify the datasets that are used in the fairness literature.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QThe stop can result in a summon, an arrest or no further consequences.\\E$"}

@@ -4,9 +4,9 @@
 % - population as tupel of random variables (X, U, A, Y)
 % - taste-based discriminator https://link.springer.com/referenceworkentry/10.1007/978-981-33-4016-9_1-1
 
-An interesting perspective on this observation can be found in \cite{RambachanBBOEFW}. They take a different stance on the problem of biased training data than \cite{kallus} and question the "bias in, bias out" mechanism.
+An interesting perspective on this observation can be found in \cite{RambachanBBOEFW}. They take a different stance on the problem of biased training data than \cite{kallus2018} and question the "bias in, bias out" mechanism.
 
-They formalise the problem as follows. For the decision-maker (the police) an individual is characterised by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus}
+They formalise the problem as follows. For the decision-maker (the police) an individual is characterised by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus2018}
 and U is a set of unobserved features. These latent variables are unknown to the algorithm but are characteristics the police bases their decision to stop someone on. In the SQF context this could be the personal impression the officer got of a suspect which is not recorded and hard to measure.
 
 The paper assumes the police is a taste-based classifier against African-Americans. This means they hold some form of prejudice against the group of African-Americans that influences their decision to stop a member of this group.
@@ -17,7 +17,7 @@ where $Y$ is the outcome of the stop, $\tau$ is the discrimination parameter, $A
 Holding the costs $c$ and the outcome of the stop $Y$ constant, searching an African American results in a higher payoff than searching a white person. The goal of the police is to maximise their payoff. Therefore they stop an individual according to the following threshold rule:
 $$Z(X, U, R) = 1(E[Y|X, U, A] \ge c - \tau * A)$$
 This means that the threshold for stopping an African American is \textit{lower} than for stopping a white person. Consequently, the police stops African Americans more leniently than white people.
-This taste-based discrimination rule is the biased decision policy introduced in \cite{kallus}. In \cite{RambachanBBOEFW} the authors speak of "selective labels" where again the tupel $(Y, X, A, Z)$ is only available for $Z = 1$. 
+This taste-based discrimination rule is the biased decision policy introduced in \cite{kallus2018}. In \cite{RambachanBBOEFW} the authors speak of "selective labels" where again the tupel $(Y, X, A, Z)$ is only available for $Z = 1$. 
 
 In short: It actually depends on the outcome and the training sample whether the discrminiation of the previously discriminated (bias interhitance) exists. In some cases it can actuall come to the opposite effect, which they call bias reversal.
 The mechanism is as follows: the historically discriminated groups is very represented in the sample as being included is an act of discrimination itself. This means we have more training data for the disadvantaged group, they resemble the target population more, as they were more leniently included, and thus the classifier generalised better to the disadvanteged group.
@@ -26,14 +26,14 @@ When we collect more data for the group, we come closer to the target population
 
 Black people are more leniently stopped, leading to higher stopping rates in for black people in the training data, meaning
 more training data for this group. Because we stop black peopel more leniently, we record many innocent black people in our data.
-In \cite{kallus} this would lead to a lower learned threshold \footnote{first this leads to lower risk scores for black individuals. And then via fairness adjustments (e.g. for equalized odds) this leads to lower thresholds for black individuals.}
+In \cite{kallus2018} this would lead to a lower learned threshold \footnote{first this leads to lower risk scores for black individuals. And then via fairness adjustments (e.g. for equalized odds) this leads to lower thresholds for black individuals.}
 for black individuals. Applied on the target population this would mean that we would predict too many false positive. The threshold estimated from the training 
 data is so low that we classify to many people as guilty because in the target populations the scores are actually higher and meet the threshold easily.
 In \cite{RambachanBBOEFW} they say that by stopping (searching, they actually talk about searching, not stopping) black people so leniently, our sample for black people comes actually pretty
 close to the target population.
 In other words, the training data for black people is pretty close to the target data for black people, which means that our classifier will work well on the
 target population for black people. \\
-To summarise, in \cite{kallus} bias against a group results in a less representative sample. In \cite{RambachanBBOEFW} bias against a group results in a more representative sample.
+To summarise, in \cite{kallus2018} bias against a group results in a less representative sample. In \cite{RambachanBBOEFW} bias against a group results in a more representative sample.
 
 
 \textbf{Theorem 1}\\
@@ -41,11 +41,11 @@ The prediction for african americans is weakly decreasing in tau. This means, as
 so closer to zero, so less often predicted to have a contraband. What is happening? Higher tau means lower searching threshold for african americans.
 So the data for african americans becomes "more noisy", more and more innocent people come into our sample, so we predict lower risk for african americans. 
 In \cite{RambachanBBOEFW} paper this translates to a more representative training data for african americans and thus also better performance on the general population of african americans.
-In \cite{kallus} paper the mechanisms is the same, we also estimate lower risks cores for african americans, but then sth else happens.
+In \cite{kallus2018} paper the mechanisms is the same, we also estimate lower risks cores for african americans, but then sth else happens.
 I think in Kallus we then do a fairness intervention that leads us to setting a LOWER threshold for african americans, meaning we predict them as
 guilty more easily to achieve the same FPR as in the other group. I think in kallus they first formulate it in the strict way, where the police is so biased against african americans
 that the stopped african americans are LESS likely to actually have a weapon than the general population. But they relax this setting afterwards.
 
 
-What happens if we train the logistic classifier (to predict weapon yes no) on the SQF as is (Kallus), don’t do a post processing fairness intervention (NO Hardt et. al)
+What happens if we train the logistic classifier (to predict weapon yes no) on the SQF as is (Kallus), do not do a post processing fairness intervention (NO Hardt et. al)
 and test the classifier on the target population (that is created via the weighing method of Kallus and Zhou)? I think according to \cite{RambachanBBOEFW} we should observe bias reversal.

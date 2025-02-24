@@ -259,7 +259,7 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/hardt2016/Hardt et al. - 2016 - Equality of Opportunity in Supervised Learning.pdf
       \endverb
     \endentry
-    \entry{kallus}{article}{}
+    \entry{kallus2018}{inproceedings}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2db96cc54afe3fe8c684be53af54a7bf}{%
            family={Kallus},
@@ -274,6 +274,9 @@
            giveni={A\bibinitperiod},
            givenun=0}}%
       }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
       \strng{namehash}{94ee67824833d351384c9ed9a46b9422}
       \strng{fullhash}{94ee67824833d351384c9ed9a46b9422}
       \strng{bibnamehash}{94ee67824833d351384c9ed9a46b9422}
@@ -282,17 +285,28 @@
       \strng{authorfullhash}{94ee67824833d351384c9ed9a46b9422}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Recent work in fairness in machine learning has proposed adjusting for fairness by equalizing accuracy metrics across groups and has also studied how datasets affected by historical prejudices may lead to unfair decision policies. We connect these lines of work and study the residual unfairness that arises when a fairness-adjusted predictor is not actually fair on the target population due to systematic censoring of training data by existing biased policies. This scenario is particularly common in the same applications where fairness is a concern. We characterize theoretically the impact of such censoring on standard fairness metrics for binary classifiers and provide criteria for when residual unfairness may or may not appear. We prove that, under certain conditions, fairnessadjusted classifiers will in fact induce residual unfairness that perpetuates the same injustices, against the same groups, that biased the data to begin with, thus showing that even state-of-theart fair machine learning can have a ``bias in, bias out'' property. When certain benchmark data is available, we show how sample reweighting can estimate and adjust fairness metrics while accounting for censoring. We use this to study the case of Stop, Question, and Frisk (SQF) and demonstrate that attempting to adjust for fairness perpetuates the same injustices that the policy is infamous for.}
+      \field{abstract}{Recent work in fairness in machine learning has proposed adjusting for fairness by equalizing accuracy metrics across groups and has also studied how datasets affected by historical prejudices may lead to unfair decision policies. We connect these lines of work and study the residual unfairness that arises when a fairness-adjusted predictor is not actually fair on the target population due to systematic censoring of training data by existing biased policies. This scenario is particularly common in the same applications where fairness is a concern. We characterize theoretically the impact of such censoring on standard fairness metrics for binary classifiers and provide criteria for when residual unfairness may or may not appear. We prove that, under certain conditions, fairness-adjusted classifiers will in fact induce residual unfairness that perpetuates the same injustices, against the same groups, that biased the data to begin with, thus showing that even state-of-the-art fair machine learning can have a "bias in, bias out" property. When certain benchmark data is available, we show how sample reweighting can estimate and adjust fairness metrics while accounting for censoring. We use this to study the case of Stop, Question, and Frisk (SQF) and demonstrate that attempting to adjust for fairness perpetuates the same injustices that the policy is infamous for.}
+      \field{booktitle}{Proceedings of the 35th {{International Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
       \field{langid}{english}
+      \field{month}{7}
       \field{title}{Residual {{Unfairness}} in {{Fair Machine Learning}} from {{Prejudiced Data}}}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{2439\bibrangedash 2448}
+      \range{pages}{10}
       \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/kallus/Kallus und Zhou - Residual Unfairness in Fair Machine Learning from Prejudiced Data.pdf
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Kallus2018RUFMLPD/Kallus und Zhou - 2018 - Residual Unfairness in Fair Machine Learning from Prejudiced Data 2.pdf;/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Kallus2018RUFMLPD/Kallus und Zhou - 2018 - Residual Unfairness in Fair Machine Learning from Prejudiced Data 3.pdf
       \endverb
     \endentry
-    \entry{kusner}{article}{}
+    \entry{kusner}{inproceedings}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=37d0d7a3ba0cb7a7253c7b690ce4e8c6}{%
            family={Kusner},
@@ -319,6 +333,9 @@
            giveni={R\bibinitperiod},
            givenun=0}}%
       }
+      \list{location}{1}{%
+        {Long Beach, CA, USA}%
+      }
       \strng{namehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
       \strng{fullhash}{31480a6997ada758f14a82daae7e9c2d}
       \strng{bibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
@@ -327,17 +344,21 @@
       \strng{authorfullhash}{31480a6997ada758f14a82daae7e9c2d}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
-      \field{langid}{english}
-      \field{title}{Counterfactual {{Fairness}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/KusnerCF/Kusner et al. - Counterfactual Fairness.pdf
+      \field{booktitle}{Proceedings of the 31st Conference on Neural Information Processing Systems (NeurIPS)}
+      \field{title}{Counterfactual Fairness}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
       \endverb
     \endentry
-    \entry{RambachanBBOEFW}{article}{}
+    \entry{RambachanBBOEFW}{misc}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=85edb53244c29c17ce57830271014b46}{%
            family={Rambachan},
@@ -360,15 +381,12 @@
       \strng{authorfullhash}{c7db070288680264f6dfa86410e8586f}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{We evaluate the folk wisdom that algorithmic decision rules trained on data produced by biased human decision-makers necessarily reflect this bias. We consider a setting where training labels are only generated if a biased decision-maker takes a particular action, and so ``biased'' training data arise due to discriminatory selection into the training data. In our baseline model, the more biased the decision-maker is against a group, the more the algorithmic decision rule favors that group. We refer to this phenomenon as bias reversal. We then clarify the conditions that give rise to bias reversal. Whether a prediction algorithm reverses or inherits bias depends critically on how the decision-maker affects the training data as well as the label used in training. We illustrate our main theoretical results in a simulation study applied to the New York City Stop, Question and Frisk dataset.}
-      \field{langid}{english}
-      \field{title}{Bias {{In}}, {{Bias Out}}? {{Evaluating}} the {{Folk Wisdom}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/RambachanBBOEFW/Rambachan und Roth - Bias In, Bias Out Evaluating the Folk Wisdom.pdf
-      \endverb
+      \field{title}{Bias In, Bias Out? Evaluating the Folk Wisdom}
+      \field{year}{2020}
     \endentry
     \entry{verma2018}{inproceedings}{}
       \name{author}{2}{}{%
