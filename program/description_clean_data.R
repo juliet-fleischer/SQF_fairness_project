@@ -85,6 +85,34 @@ p13 <- data2023 |>
   geom_col() +
   ylim(c(0, 0.4)) +
   xlab("2023")
+p16 <- data2023 |> 
+  group_by(STOP_LOCATION_BORO_NAME) |> 
+  summarise(arrest_rate = mean(SUSPECT_ARRESTED_FLAG == "Y")) |>
+  ggplot(aes(x = STOP_LOCATION_BORO_NAME, y = arrest_rate)) +
+  geom_col() +
+  xlab("2023")
+
+# estimation of crime rates by borough
+## problem is that we normalise based on 2020 census data
+# but the crime rates come from 2024
+target_pop_total <- target_pop |> 
+  group_by(borough) |>
+  reframe(total_n = sum(count))
+
+bronx2024 <- 30223
+brooklyn2024 <- 14906 + 15847
+manhattan <-  14252 + 17135
+queens <- 16782 + 11105
+staten_island <- 3453
+
+target_pop_total$crime_count <- c(bronx2024, brooklyn2024, manhattan, queens, staten_island)
+target_pop_total$crime_rate <- (target_pop_total$crime_count / target_pop_total$total_n) * 100000
+
+p17 <- ggplot(target_pop_total, aes(x = borough, y = crime_rate)) +
+  geom_col() +
+  xlab("") +
+  ylab("Crime rate per 100,000 citizens")
+
 ## 2011 data ----
 p14 <- data2011 |> 
   group_by(race) |> 

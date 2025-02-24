@@ -91,7 +91,7 @@ res_all <- do.call(rbind, lapply(list(res1, res2, res3), formatResultTable))
 # 3. Experiment ----
 lrns = list(lrn_rf_2023, lrn_rf_2011, l1, l2, l3)
 # bmr = benchmark(benchmark_grid(task_arrest_ex_ante, lrns, rsmp("cv", folds = 5)))
-bmr <- readRDS("bmr_results.rds")
+bmr <- readRDS("program/bmr_results.rds")
 meas = msrs(c("classif.acc", "fairness.eod", "fairness.tpr"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
