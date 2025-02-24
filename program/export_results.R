@@ -24,6 +24,7 @@ ggsave("figures/sqf_case_study_plot11.png", p45, width = 10, height = 6, units =
 # crime rates by borough
 ggsave("figures/sqf_case_study_plot12.png", p16, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
 ggsave("figures/sqf_case_study_plot13.png", p17, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
+ggsave("figures/sqf_case_study_plot14.png", p19, width = 10, height = 6, units = "in", dpi = 300, bg = "white")
 
 # 3. models and data ----
 saveRDS(complete_cases, file = "data/data2023.rds")

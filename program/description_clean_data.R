@@ -31,30 +31,39 @@ target_pop$count <- as.integer(gsub("\\.", "", target_pop$count))
 # Target population vs. 2023 ----
 # description for reduced data
 p4 <- ggplot(data2023, aes(x = STOP_LOCATION_BORO_NAME, fill = SUSPECT_RACE_DESCRIPTION)) +
-  geom_bar(position = "dodge") +
+  geom_bar(position = "fill") +
   labs(title = "SQF 2021",
        x = "",
        y = "Proportion of stops") +
   theme(legend.title = element_blank())
 
 p5 <- ggplot(target_pop, aes(x = borough, y = count, fill = group)) +
-  geom_col(position = "dodge") +
-  labs(title = "target population",
+  geom_col(position = "fill") +
+  labs(title = "NYC population",
        x = "",
-       y = "Proportion of arrests") + # remove the legend completely
+       y = "Proportion") + # remove the legend completely
   theme(legend.position = "none")
 p45 <- p4 / p5
 
-p6 <- ggplot(data2023, aes(x = SUSPECT_RACE_DESCRIPTION)) +
-  geom_bar() +
-  xlab("Race distribution in SQF data 2021")
+p6 <- data2023 |> 
+  group_by(SUSPECT_RACE_DESCRIPTION) |> 
+  reframe(n = n()) |>
+  ungroup() |> 
+  mutate(prop = n / sum(n)) |> 
+  ggplot(aes(x = SUSPECT_RACE_DESCRIPTION, y = prop)) +
+  geom_col() +
+  xlab("Sop, Question, Frisk data 2023") + # add percentage y legend
+  scale_y_continuous(labels = scales::percent)
+
 p7 <- target_pop |> 
   group_by(group) |> 
-  summarise(count = sum(count)) |>
-  ggplot(aes(x = group, y = count)) +
+  reframe(count = sum(count)) |>
+  ungroup() |> 
+  mutate(prop = count / sum(count)) |>
+  ggplot(aes(x = group, y = prop)) +
   geom_col() +
-  xlab("Race distribution in NYC according to 2020 census") +
-  scale_y_continuous(labels = scales::comma)
+  xlab("census 2020") +
+  scale_y_continuous(labels = scales::percent)
 # put p6 and p7 underneath each other
 p8 <- p6 / p7
 
@@ -112,6 +121,21 @@ p17 <- ggplot(target_pop_total, aes(x = borough, y = crime_rate)) +
   geom_col() +
   xlab("") +
   ylab("Crime rate per 100,000 citizens")
+
+# proportion of stops by borough
+p18 <- data2023 |> 
+  group_by(STOP_LOCATION_BORO_NAME) |> 
+  reframe(n = n()) |> 
+  ungroup() |> 
+  mutate(prop = n / sum(n)) |>
+  ggplot(aes(x = STOP_LOCATION_BORO_NAME, y = prop)) +
+  geom_col() +
+  xlab("") +
+  ylab("Proportion of stops") +
+  scale_y_continuous(labels = scales::percent)
+
+# combine thee plots p5, p17, p18
+p19 <- p5 + p17 / p18
 
 ## 2011 data ----
 p14 <- data2011 |> 

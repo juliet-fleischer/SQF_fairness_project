@@ -7,5 +7,5 @@
 \contentsline {subsection}{\numberline {3.4}Comparison and Summary}{6}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Fairness Methods}{7}{section.4}%
 \contentsline {section}{\numberline {5}Case Study: Stop, Question, and Frisk}{8}{section.5}%
-\contentsline {section}{\numberline {6}Residual Unfairness}{13}{section.6}%
+\contentsline {section}{\numberline {6}Residual Unfairness}{14}{section.6}%
 \contentsline {section}{\numberline {A}Electronic Appendix}{V}{appendix.A}%

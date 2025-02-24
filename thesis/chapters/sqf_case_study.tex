@@ -1,6 +1,6 @@
 \subsection*{Stop, Question, and Frisk data}
 
-The legal sector is one in which Arms have been deployed, more often than not accompanied by public debate and protests about targeted policing and racial discrimination (COMPASS as the most popular example). We will turn our focus to the stop, question, and frisk (SQF) dataset published by the New York police department (NYPD). A. Fabris and S. Messina and G. Silvello and G.A. Susto scanned more than x datasets to diversify the datasets that are used in the fairness literature. They recommend it as suitable dataset for fairness research. First, we will give some context to the dataset. We will continue with descriptive analysis and finally examine fairness of an algorithm trained on this data.
+The legal sector is one in which ADMs have been deployed, more often than not accompanied by public debate and protests about targeted policing and racial discrimination (COMPASS as the most popular example). We will turn our focus to the stop, question, and frisk (SQF) dataset published by the New York police department (NYPD). A. Fabris and S. Messina and G. Silvello and G.A. Susto scanned more than x datasets to diversify the datasets that are used in the fairness literature. They recommend it as suitable dataset for fairness research. First, we will give some context to the dataset. We will continue with descriptive analysis and finally examine fairness of an algorithm trained on this data.
 
 Since x the stop, question, and frisk practice is implemented in New York City. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 During the stop the officer is allowed to frisk a person (pat-down the person's outer clothing) or search them more carefully.
@@ -9,27 +9,37 @@ Many citizens have criticized the stop and frisk practice. There is disagreement
 Stop and Frisk practice during 2004 to 2012 has been deemed as unconstitutional. {\color{red} Source}
 
 \subsubsection*{Data description}
-For our analysis we look at the stops from 2023 as they were the most recent recordings at the time of writing this paper. The raw 2023 dataset consists of 16971 observations and 82 variables. We first discarded all the variables that have more than 20\% missing values, which leaves 34 variables.
+For our analysis we look at the stops from 2023 as they were the most recent at the time of writing this paper. The raw 2023 dataset consists of 16971 observations and 82 variables. We first discarded all the variables that have more than 20\% missing values, which leaves 34 variables.
 From this reduced dataset we filter out the complete cases and end up with 12039 observations. \footnote{Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
 but treating missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some fairness methods later on.}
-From the clean dataset we choose x variables as features that contain information about the stop and demographic information of the stopped person. Table x gives an overview of them. 
+
 % (many fairness methods can not deal with missing data, especially in the protected attribute, which makes sense, since they base their decision on it). 
 We choose the arrestment of a suspect as target and the race as protected attribute. For the fairness audit later in the chapter we dichotomize the PA to adjust our situation to the common binary classification, binary PA scenario in the fairness literature. For a more nuanced descriptive analysis we only summarize "Black Hispanic" and "Black" into the group "Black" and  "American Indian/ Native American" and "Middle Eastern/ Southwest Asian" into the "Other" category.  
-In the cleaned 2023 data about 31\% of stops result in an arrest. Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$ alone, this already gives us a hint that the classifier might show little racial disparities.
-% \footnote{This, of course, is an oversimplification of the scenario and we know that this grouping can be critisised from a social science standpoint. We see this as a compromise to keep things straight forward. More nuanced scenarios can be addressed in future work.} 
+Since racial discrimination is the major concern in the SQF practice, we examine the proportion of each race ethnic group in the data. Black people are by far most often stopped, making up 70\% of the total stops \autoref{fig:race_distributions}. Yet, according to 2020 census data black people make up only 20\% of the city's population. At the same time white people form the majority of New York citizens (30\%) but contribute with only 6\% to the stops. 
+After 2021 there has been a stark decline in stops and the police is known to focus their attention on high crime areas. Therefore, we further look at each borough. Based on report of the NYPD and population statistics from 2020 
+This trend persists when we look at the stops for each borough separately. 
+The most stops in 2023 occur in Bronx and Brooklyn. Bronx also has the highest estimated crime rate per 100,000 citizens, but Manhattan is not far behind, but has fewer stops anyway. But Bronx and Brooklyn also happen to be the boroughs with the highest proportion of black citizens \autoref{fig:nyc_pop_crimerates_stops_comparison}. 
 
-
-\subsubsection*{Fairness Auditing}
-% insert a graphic
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot7.png}
-    \caption{Density of predicted probabilities both groups.}
-    \label{fig:fairness_density}
+    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
+    \caption{Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.}
+    \label{fig:racial_distribution_borough}
 \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot14.png}
+    \caption{Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.}
+    \label{fig:nyc_pop_crimerates_stops_comparison}
+\end{figure}
+
+After a more general overview of the dataset, we turn to the outcomes of the stop. From the potential outcomes of the stop mentioned earlier, we choose to focus on the arrestment of a suspect. In the cleaned 2023 data about 31\% of stops result in an arrest.
+Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$ alone, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
+
+\subsubsection*{Fairness Auditing}
 To train a random forest classifier on the 2023 data to predict the arrest of a person, we dichotomize the race attribute by grouping "Black" and "Hispanic" as people of colour ("PoC") and "White", "Asian", and "Other" as white ("White").
-We select specific features that should resemble the information that were available to the officer at the time of the stop. Additionally, we control for variables, such as the time of the stop or whether the officer was wearing a uniform. This selection of features can be similarly found in previous studies of SQF.
-With many of the group fairness metrics implemented in mlr3fairness, we can measure the (group) fairness of our models.
+As features we select variables that should resemble the information that were available to the officer at the time of the stop. Additionally, we control for factors, such as the time of the stop or whether the officer was wearing a uniform. This selection of features is inspired by previous studies on SQF data. \\
+With many of the group fairness metrics implemented in \texttt{mlr3fairness}, we can measure the (group) fairness of the regular random forest classifier.
 As suspected after data description, we find that the random forest classifier is already fair. There are minor differences between groups, but exact equality cannot be expected. It is common to allow for a certain margin of error $\epsilon$ in practice.
 Especially the error rates (FNR, FPR) are very similar between groups, thus Separation seems to be satisfied overall. Sufficiency metrics have larger differences, though they are still minor. Mlr3fairness offers functions to easily visualize fairness. First, in \autoref{fig:fairness_density} we plot the density of risk scores output by the random forest for each group.
 The risk score represents the probability of getting a positive prediction $P(\hat{Y} = 1)$, which is undesirable in the SQF context. White subjects tend to have higher predicted probabilities of being arrested, their mode lies around 0.15 while the mode of the PoC group is around 0.05. This means we have more low-risk PoC in the data. Next, from \autoref{fig:fairness_metrics_barplot} we can see that the positive predictive value (Sufficiency) has a relatively large difference between groups,
@@ -37,10 +47,23 @@ while the false positive rate is practically the same between groups (Separation
 Given that the classifier is fair from a group perspective, it does not make sense to experiment with any of the implemented fairness methods in mlr3. At most, we could try to address the disparities in sufficiency metrics, but the common methods in the package are designed to address concerns with independence or separation. \\
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot8.png}
-    \caption{Comparison of fairness metrics.}
-    \label{fig:fairness_metrics_barplot}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/sqf_case_study_plot1.png}
+        \caption{Density of predicted probabilities for both groups.}
+        \label{fig:fairness_density}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/sqf_case_study_plot2.png}
+        \caption{Another relevant plot.}
+        \label{fig:fairness_other}
+    \end{minipage}
+    \caption{Comparison of fairness-related distributions.}
+    \label{fig:fairness_comparison}
 \end{figure}
+
 
 \subsubsection*{Fairness Experiment}
 Inspired by the chapter on fairness in the mlr3book, we decide to experiment with some fairness methods for the SQF data. \texttt{Mlr3fairness} currently has two preprocessing methods, one post-processing method and some fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalize the distribution of $P(Y|PA)$.

@@ -80,7 +80,8 @@ p1_rf <- fairness_prediction_density(preds_ex_ante_2023, task = task_arrest_ex_a
   theme(legend.position = "bottom")
 p2_rf <- compare_metrics(preds_ex_ante_2023,
                          msrs(c("fairness.acc", "fairness.eod", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
-                      task = task_arrest_ex_ante) 
+                      task = task_arrest_ex_ante) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 res1 <- calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023)
 res2 <- calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023)
