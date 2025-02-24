@@ -96,7 +96,7 @@ bmr <- readRDS("program/bmr_results.rds")
 meas = msrs(c("classif.acc", "fairness.eod", "fairness.tpr"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
-p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.fpr"),
+p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.tpr"),
                            accuracy_measure = msr("classif.ce")) +
   scale_color_viridis_d("Learner")
 

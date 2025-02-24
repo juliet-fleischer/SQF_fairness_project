@@ -14,11 +14,16 @@ From this reduced dataset we filter out the complete cases and end up with 12039
 but treating missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some fairness methods later on.}
 
 % (many fairness methods can not deal with missing data, especially in the protected attribute, which makes sense, since they base their decision on it). 
-We choose the arrestment of a suspect as target and the race as protected attribute. For the fairness audit later in the chapter we dichotomize the PA to adjust our situation to the common binary classification, binary PA scenario in the fairness literature. For a more nuanced descriptive analysis we only summarize "Black Hispanic" and "Black" into the group "Black" and  "American Indian/ Native American" and "Middle Eastern/ Southwest Asian" into the "Other" category.  
-Since racial discrimination is the major concern in the SQF practice, we examine the proportion of each race ethnic group in the data. Black people are by far most often stopped, making up 70\% of the total stops \autoref{fig:race_distributions}. Yet, according to 2020 census data black people make up only 20\% of the city's population. At the same time white people form the majority of New York citizens (30\%) but contribute with only 6\% to the stops. 
-After 2021 there has been a stark decline in stops and the police is known to focus their attention on high crime areas. Therefore, we further look at each borough. Based on report of the NYPD and population statistics from 2020 
-This trend persists when we look at the stops for each borough separately. 
-The most stops in 2023 occur in Bronx and Brooklyn. Bronx also has the highest estimated crime rate per 100,000 citizens, but Manhattan is not far behind, but has fewer stops anyway. But Bronx and Brooklyn also happen to be the boroughs with the highest proportion of black citizens \autoref{fig:nyc_pop_crimerates_stops_comparison}. 
+Race is the protected attribute (PA). For the fairness audit later in the chapter we dichotomize the PA to adjust our situation to the common binary classification, binary PA scenario in the fairness literature. For a more nuanced descriptive analysis we only summarize "Black Hispanic" and "Black" into the group "Black" and  "American Indian/ Native American" and "Middle Eastern/ Southwest Asian" into the "Other" category.  
+Black people are by far most often stopped, making up 70\% of the total stops; yet, according to 2020 census data black people make up only 20\% of the city's population \autoref{fig:race_distributions}. At the same time white people form the majority of New York citizens (30\%) but contribute with only 6\% to the stops. 
+After 2021 there has been a stark decline in stops and the police is known to focus their attention on high crime areas. Therefore, we further look at each borough. 
+The most stops in 2023 occur in Bronx and Brooklyn. Based on report of the NYPD and population statistics from 2020, the Bronx also has the highest estimated crime rate per 100,000 citizens. Manhattan is not far behind in crime rate, but has fewer stops. Note that Bronx and Brooklyn happen to be the boroughs with the highest proportion of black citizens \autoref{fig:nyc_pop_crimerates_stops_comparison}. 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot6.png}
+  \caption{Comparison of race distribution in the training and target population.}
+  \label{fig:race_distributions}
+\end{figure}
 
 \begin{figure}
     \centering
@@ -33,18 +38,23 @@ The most stops in 2023 occur in Bronx and Brooklyn. Bronx also has the highest e
     \label{fig:nyc_pop_crimerates_stops_comparison}
 \end{figure}
 
-After a more general overview of the dataset, we turn to the outcomes of the stop. From the potential outcomes of the stop mentioned earlier, we choose to focus on the arrestment of a suspect. In the cleaned 2023 data about 31\% of stops result in an arrest.
-Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$ alone, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
+After a more general overview of the dataset, we turn to the outcome of the stop. Specifically, we are interested in the arrestment of a suspect. In the cleaned 2023 data about 31\% of stops result in an arrest.
+Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
 
 \subsubsection*{Fairness Auditing}
 To train a random forest classifier on the 2023 data to predict the arrest of a person, we dichotomize the race attribute by grouping "Black" and "Hispanic" as people of colour ("PoC") and "White", "Asian", and "Other" as white ("White").
-As features we select variables that should resemble the information that were available to the officer at the time of the stop. Additionally, we control for factors, such as the time of the stop or whether the officer was wearing a uniform. This selection of features is inspired by previous studies on SQF data. \\
-With many of the group fairness metrics implemented in \texttt{mlr3fairness}, we can measure the (group) fairness of the regular random forest classifier.
-As suspected after data description, we find that the random forest classifier is already fair. There are minor differences between groups, but exact equality cannot be expected. It is common to allow for a certain margin of error $\epsilon$ in practice.
-Especially the error rates (FNR, FPR) are very similar between groups, thus Separation seems to be satisfied overall. Sufficiency metrics have larger differences, though they are still minor. Mlr3fairness offers functions to easily visualize fairness. First, in \autoref{fig:fairness_density} we plot the density of risk scores output by the random forest for each group.
-The risk score represents the probability of getting a positive prediction $P(\hat{Y} = 1)$, which is undesirable in the SQF context. White subjects tend to have higher predicted probabilities of being arrested, their mode lies around 0.15 while the mode of the PoC group is around 0.05. This means we have more low-risk PoC in the data. Next, from \autoref{fig:fairness_metrics_barplot} we can see that the positive predictive value (Sufficiency) has a relatively large difference between groups,
-while the false positive rate is practically the same between groups (Separation). It comes to no surprise that equalized odds, which is based on error rates, is satisfied. Finally, the accuracy between groups is not as equal as the error rates, but the absolute difference is still smaller than 0.05, which is a common $\epsilon$ to choose.
-Given that the classifier is fair from a group perspective, it does not make sense to experiment with any of the implemented fairness methods in mlr3. At most, we could try to address the disparities in sufficiency metrics, but the common methods in the package are designed to address concerns with independence or separation. \\
+As features, we select variables that should resemble the information that were available to the officer at the time of the stop. Additionally, we control for factors, such as the time of the stop or whether the officer was wearing a uniform. This selection of features is inspired by previous studies on SQF data (e.g. \cite{goel2016}). With many of the group fairness metrics implemented in \texttt{mlr3fairness}, we can measure the (group) fairness of the regular random forest classifier.\\
+First we plot the prediction score densities for each group in \autoref{fig:fairness_density}. We can see that in general white people tend to have higher predicted probabilities than PoC. There is a relatively large proportion of PoC with low predicted probabilities, as seen by the peak at around 0.05. Recall that the predicted probability resembles the probability of being predicted positive (arrested).
+In \autoref{fig:fairness_metrics} we plot the absolute difference in common group fairness metrics.
+Exact equality of the group metrics cannot be expected in practice, so it is common to allow for a margin of error $\epsilon$. Taking $\epsilon = 0.05$, the classifier is fair according to equalized odds, predictive parity, and equal opportunity. The classifier is unfair according to overall accuracy equality and predictive equality. This again shows that there is not one clear solution to fairness, but it depends on the perspective one takes.\\
+With the absolute differences alone, it is possible to quantify the magnitude of unfairness but not the direction of it. Thus, we report the group-wise error metrics in \autoref{tab:groupwise_metrics_2023}.
+% Interpretation of the direction is, however, not super clear. The positive prediction (to get arrested) is undesirable for the individual, but when a group as a whole has a high proportion of positive predictions, it speaks for the fact that the members were stopped for a good reason. This argumentation follows the principle of assessing a policing strategy based on hit rates. A hit is an arrest and high a high hit rate means that the police is stopping the right people.
+% With this ambiguity in mind, we take a closer look at
+% We therefore mainly notice the differences in fairness metrics and do not make clear statements about who is discriminated against.
+White people have a higher true positive rate, but also a higher false positive rate. This is usually a natural trade-off in classification tasks. For PoC the negative predictive values and the positive predictive value is higher. This means that given a person of colour is predicted as arrested, it is more likely that they were indeed arrested. The same for a negative prediction. Additionally, the false discovery rate, the proportion of predicted positives that are actually negative, is lower for PoC. This means that the classifier is more conservative in predicting positive outcomes for PoC. Overall, the accuracy is higher for PoC.
+Apart from the lower true positive rate, one could say that the classifier performs better for PoC than for white people. We will leave this interpretation as it is for now and will return to an alternative view later on.
+
+
 \begin{figure}
     \centering
     \begin{minipage}{0.48\textwidth}
@@ -58,32 +68,56 @@ Given that the classifier is fair from a group perspective, it does not make sen
         \centering
         \includegraphics[width=\textwidth]{../figures/sqf_case_study_plot2.png}
         \caption{Another relevant plot.}
-        \label{fig:fairness_other}
+        \label{fig:fairness_metrics}
     \end{minipage}
-    \caption{Comparison of fairness-related distributions.}
-    \label{fig:fairness_comparison}
 \end{figure}
 
+% results table
+\begin{table}[ht]
+  \centering
+    \begin{tabular}{lrr}
+      \hline
+    Metric & PoC & White \\ 
+      \hline
+    tpr & 0.34 & 0.38 \\ 
+      npv & 0.75 & 0.69 \\ 
+      fpr & 0.07 & 0.13 \\ 
+      ppv & 0.68 & 0.65 \\ 
+      fdr & 0.32 & 0.35 \\ 
+      acc & 0.74 & 0.68 \\ 
+       \hline
+    \end{tabular}
+  \caption{Groupwise Fairness Metrics (2023)} 
+  \label{tab:groupwise_metrics_2023}
+\end{table}
 
 \subsubsection*{Fairness Experiment}
-Inspired by the chapter on fairness in the mlr3book, we decide to experiment with some fairness methods for the SQF data. \texttt{Mlr3fairness} currently has two preprocessing methods, one post-processing method and some fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalize the distribution of $P(Y|PA)$.
-The in processing method is a fairness-adjusted logistic regression implemented in \texttt{mlr3fairness} inspired by Zafar et al. This method optimizes for statistical parity (independence). The post-processing method we choose aims for equalized odds, and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalized odds constraints.
+Given that there are indeed disparities for two of the chosen metrics that exceed the $\epsilon$ threshold, we experiment with some fairness methods for the SQF data.
+The \texttt{mlr3fairness} package currently has two pre-processing methods, one post-processing method and some fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalize the distribution of $P(Y|A)$.
+The in-processing method is a fairness-adjusted logistic regression implemented in \texttt{mlr3fairness} inspired by Zafar et al. This method optimizes for statistical parity (Independence). The post-processing method aims for equalized odds, and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalized odds constraints. {\color{red}{reference to mlr3fairness book}} \\
+In \autoref{fig:fairness_experiment} we compare the performance and fairness of each classifier, measured by the difference in true positive rates and the classification accuracy respectively. In the bottom right corner we find fair and accurate classifiers. In terms of fairness reweighing and the equalized odds post-processing method perform best. However, the regular random forest classifier comes close to their fairness performance and performs slightly more accurate. The fairness adjusted logistic regression performs worst in terms of accuracy and fairness.
+We note that this picture can of course change depending on how one measures fairness (the difference we see on the y-axis).
 
-It is more interesting to compare the classifier trained on data that comes from the unconstitutional period 2004 to 2012. We decide for 2011 as it is the year with the most stops.
-We carry out the same data cleaning steps for the 2011 data as before, starting with 685724 recorded stops and reducing this to 651567 clean observations. Note, these are more than 50 times more stops than in 2023.
-The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops result in an arrest.
-The differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group. \autoref{fig:arrestment_rates_clean_data}
-Due to the large proportion of low-risk stops in 2011 the predicted probabilities are generally low. The x-axis is cut-off at a probability of 0.1, otherwise it would be hard to see anything as the vast majority of probability mass lies in the small regions.
-The measured racial disparities are interestingly not greater than in 2023. We see that for the classifier trained on 2011 stops, equalized odds has the greatest difference, but overall the differences in predictions rates across groups are very small. \\ 
-Our fairness audit did not show any substantial disparities in fairness metrics. Does this mean the classifier is fair?
-It is easy to come to such conclusions, especially if fairness is not the major concern of the practitioners but more of a nuisance criterion that should be fulfilled. However, to truly ensure a fair practice, it is crucial to look at the context in which the algorithm is embedded.
-
+% result plot fairness experiment
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot10.png}
-    \caption{Comparison of arrestment rates for 2023 (left) and 2011 (right).}
-    \label{fig:arrestment_rates_clean_data}
+    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot3.png}
+    \caption{Fairness metrics for the fairness adjusted random forest classifier.}
+    \label{fig:fairness_experiment}
 \end{figure}
+
+\subsubsection*{Training on stops from an unconstitutional period}
+Considering that the SQF practice from 2004 to 2012 has been deemed unconstitutional, the question arises whether a classifier trained on data from this period shows more racial disparities.
+We choose data from 2011 as it is the year with the most stops.
+We carry out the same data cleaning steps for the 2011 data as before, starting with 685724 recorded stops and reducing this to 651567 clean observations. Note that these are more than 50 times more stops than in 2023.
+The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops resulted in an arrest.
+The differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group.
+Due to the large proportion of low-risk stops in 2011 the predicted probabilities are generally low. In fact, the predicted probabilities for the positive class are generally so low that the classifier rarely predicts the positive class for any person, regardless of group membership.
+So a classifier trained on data from the 2011 data primarily suffers from the highly skewed distribution of arrests. A reweighing technique would first need to establish more balance in the target before any fairness analysis becomes relevant.\\ 
+
+All in all, it seems like a classifier trained on SQF data to predict the arrest of a suspect is not discriminatory against PoC. In fact, it even performs better for PoC than for white people.
+To truly understand what these findings are telling us, it is crucial to take a step back and look at the context of the data and the algorithm.
+
 
 % \textbf{Fairness Experiment}
 % - fairness metrics (table) for dichotomised race and for full race grouping in appendix.
@@ -96,19 +130,6 @@ It is easy to come to such conclusions, especially if fairness is not the major 
 % https://mlr3fairness.mlr-org.com/#debiasing-methods
 
 
-% mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
-% The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
-\subsubsection*{Bias and the feedback loop}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
-    \caption{The bias loop.}
-    \label{fig:bias_loop}
-\end{figure}
-
-Usually fairness is a concern in the first place, because the algorithm should be implemented as an ADM to assist decision-making in some way. As such it could influence if someone gets admitted to college, gets a loan or is released from prison. The algorithm does not exist in isolation, but is embedded in a loop with data and the user.
-We make the circumstances of a decision measurable by collecting data. The algorithm learns from this data to make an optimal prediction, on which the decision-makers base their judgement on \autoref{fig:bias_loop}. At each step of this loop, bias can be introduced in the process and, more dangerous, be amplified as the algorithm influences decision-making on a large scale.
-This means that every fairness project comes with the task to understand where the data comes from and how exactly the algorithm will be deployed in practice. Let us therefore take a step back and look at the context of the SQF data.
 
 % The data introduced three main challenges: selection bias; missing data; class imbalance.
 
