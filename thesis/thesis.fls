@@ -1220,6 +1220,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 OUTPUT thesis.toc
+INPUT ./chapters/intro.tex
+INPUT chapters/intro.tex
+INPUT ./chapters/intro.tex
+INPUT chapters/intro.tex
 INPUT ./chapters/related_work.tex
 INPUT chapters/related_work.tex
 INPUT ./chapters/related_work.tex
@@ -1281,11 +1285,6 @@ INPUT ../figures/sqf_case_study_plot2.png
 INPUT ../figures/sqf_case_study_plot2.png
 INPUT ../figures/sqf_case_study_plot2.png
 INPUT ../figures/sqf_case_study_plot2.png
-INPUT ../figures/sqf_case_study_plot3.png
-INPUT ../figures/sqf_case_study_plot3.png
-INPUT ../figures/sqf_case_study_plot3.png
-INPUT ../figures/sqf_case_study_plot3.png
-INPUT ../figures/sqf_case_study_plot3.png
 INPUT ./chapters/residual_unfairness.tex
 INPUT chapters/residual_unfairness.tex
 INPUT ./chapters/residual_unfairness.tex

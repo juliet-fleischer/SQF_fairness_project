@@ -1,9 +1,8 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Comparison of race distribution in the training and target population.\relax }}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.\relax }}{9}{figure.caption.12}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.\relax }}{10}{figure.caption.12}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.\relax }}{10}{figure.caption.13}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Density of predicted probabilities for both groups.\relax }}{11}{figure.caption.15}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Another relevant plot.\relax }}{11}{figure.caption.15}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Fairness metrics for the fairness adjusted random forest classifier.\relax }}{12}{figure.caption.18}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Selection bias in the SQF data.\relax }}{13}{figure.caption.22}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Distribution of race by borough in the SQF data (top) and NYC as a whole (bottom).\relax }}{14}{figure.caption.23}%
-\contentsline {figure}{\numberline {9}{\ignorespaces The bias loop.\relax }}{17}{figure.caption.27}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Selection bias in the SQF data.\relax }}{13}{figure.caption.20}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Distribution of race by borough in the SQF data (top) and NYC as a whole (bottom).\relax }}{14}{figure.caption.21}%
+\contentsline {figure}{\numberline {8}{\ignorespaces The bias loop.\relax }}{17}{figure.caption.25}%

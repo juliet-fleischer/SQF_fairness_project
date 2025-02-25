@@ -65,6 +65,44 @@
       \verb 10.1145/3460533
       \endverb
     \endentry
+    \entry{barocas}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=cb55e045fbd37698b0b60a60b567ab83}{%
+           family={Barocas},
+           familyi={B\bibinitperiod},
+           given={Solon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e771760b6d0d33f8b4dfd907d8d57ac2}{%
+           family={Hardt},
+           familyi={H\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95dc795a2be14c50fb6a924acc135ff8}{%
+           family={Narayanan},
+           familyi={N\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \strng{fullhash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \strng{bibnamehash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \strng{authorbibnamehash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \strng{authornamehash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \strng{authorfullhash}{f6daa5fbad9e518e58da0fbc508936ba}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Fairness and {{Machine Learning}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/BarocasFML/Barocas et al. - Fairness and Machine Learning.pdf
+      \endverb
+    \endentry
     \entry{castelnovo2022}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=6c3ab60bce254137083c6d7874df46ed}{%
@@ -136,6 +174,107 @@
       \endverb
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Castelnovo2022cnfmlb/Castelnovo et al. - 2022 - A clarification of the nuances in the fairness metrics landscape.pdf
+      \endverb
+    \endentry
+    \entry{caton2024}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1e2b4a1204b7e8f7c7d379a22d93c699}{%
+           family={Caton},
+           familyi={C\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df5dadd2d3fbb65e0e1641bab398afcd}{%
+           family={Haas},
+           familyi={H\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{fullhash}{5533b0453780985b76fdb63a216864f2}
+      \strng{bibnamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authorbibnamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authornamehash}{5533b0453780985b76fdb63a216864f2}
+      \strng{authorfullhash}{5533b0453780985b76fdb63a216864f2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{When Machine Learning technologies are used in contexts that affect citizens, companies as well as researchers need to be confident that there will not be any unexpected social implications, such as bias towards gender, ethnicity, and/or people with disabilities. There is significant literature on approaches to mitigate bias and promote fairness, yet the area is complex and hard to penetrate for newcomers to the domain. This article seeks to provide an overview of the different schools of thought and approaches that aim to increase the fairness of Machine Learning. It organizes approaches into the widely accepted framework of pre-processing, in-processing, and post-processing methods, subcategorizing into a further 11 method areas. Although much of the literature emphasizes binary classification, a discussion of fairness in regression, recommender systems, and unsupervised learning is also provided along with a selection of currently available open source libraries. The article concludes by summarizing open challenges articulated as five dilemmas for fairness research.}
+      \field{issn}{0360-0300, 1557-7341}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{7}
+      \field{shorttitle}{Fairness in {{Machine Learning}}}
+      \field{title}{Fairness in {{Machine Learning}}: {{A Survey}}}
+      \field{urlday}{23}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{56}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
+      \verb{doi}
+      \verb 10.1145/3616865
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Caton2024FMLSb/Caton und Haas - 2024 - Fairness in Machine Learning A Survey.pdf
+      \endverb
+    \endentry
+    \entry{corbett-davies}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=341a17b1faf8ad74034822ff2f891742}{%
+           family={{Corbett-Davies}},
+           familyi={C\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc87d955c84b91ba3d881af1c1a93666}{%
+           family={Gaebler},
+           familyi={G\bibinitperiod},
+           given={Johann\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4b30e51359854c0d89aa15a6279a424}{%
+           family={Nilforoshan},
+           familyi={N\bibinitperiod},
+           given={Hamed},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85bd24ef7b2a76727f6692bb1bd9d048}{%
+           family={Shroff},
+           familyi={S\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=769c0f637707fcc5e9ebb71ce29eb5d1}{%
+           family={Goel},
+           familyi={G\bibinitperiod},
+           given={Sharad},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{fullhash}{4544570fa35bc719cb1465901595a433}
+      \strng{bibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authorbibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authornamehash}{5a8687cd6a4a9ab3df98cc3620677781}
+      \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
+      \field{langid}{english}
+      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
       \endverb
     \endentry
     \entry{fernando2021}{article}{}
@@ -470,6 +609,73 @@
       \endverb
       \verb{url}
       \verb https://papers.nips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
+      \endverb
+    \endentry
+    \entry{mehrabi2022}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=e49a830517defa430474d9c2b5c22d83}{%
+           family={Mehrabi},
+           familyi={M\bibinitperiod},
+           given={Ninareh},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6fc2e21e9c786462d54f7e2eeae61c19}{%
+           family={Morstatter},
+           familyi={M\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=125158a659e4885af8901c5155a4e57a}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Nripsuta},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8aea0a421db201a447f5fec22e73a92f}{%
+           family={Lerman},
+           familyi={L\bibinitperiod},
+           given={Kristina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=73b781905368dfe2cc66cef5e33e0d32}{%
+           family={Galstyan},
+           familyi={G\bibinitperiod},
+           given={Aram},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cc037d6c925e3502b4bada6900e5b052}
+      \strng{fullhash}{70df8b815290d4668300a842f0dfe8bc}
+      \strng{bibnamehash}{cc037d6c925e3502b4bada6900e5b052}
+      \strng{authorbibnamehash}{cc037d6c925e3502b4bada6900e5b052}
+      \strng{authornamehash}{cc037d6c925e3502b4bada6900e5b052}
+      \strng{authorfullhash}{70df8b815290d4668300a842f0dfe8bc}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the widespread use of artificial intelligence (AI) systems and applications in our everyday lives, accounting for fairness has gained significant importance in designing and engineering of such systems. AI systems can be used in many sensitive environments to make important and life-changing decisions; thus, it is crucial to ensure that these decisions do not reflect discriminatory behavior toward certain groups or populations. More recently some work has been developed in traditional machine learning and deep learning that address such challenges in different subdomains. With the commercialization of these systems, researchers are becoming more aware of the biases that these applications can contain and are attempting to address them. In this survey, we investigated different real-world applications that have shown biases in various ways, and we listed different sources of biases that can affect AI applications. We then created a taxonomy for fairness definitions that machine learning researchers have defined to avoid the existing bias in AI systems. In addition to that, we examined different domains and subdomains in AI showing what researchers have observed with regard to unfair outcomes in the state-of-the-art methods and ways they have tried to address them. There are still many future directions and solutions that can be taken to mitigate the problem of bias in AI systems. We are hoping that this survey will motivate researchers to tackle these issues in the near future by observing existing work in their respective fields.}
+      \field{issn}{0360-0300, 1557-7341}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{6}
+      \field{title}{A {{Survey}} on {{Bias}} and {{Fairness}} in {{Machine Learning}}}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{volume}{54}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 35}
+      \range{pages}{35}
+      \verb{doi}
+      \verb 10.1145/3457607
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/mehrabi2022/Mehrabi et al. - 2022 - A Survey on Bias and Fairness in Machine Learning.pdf
       \endverb
     \endentry
     \entry{RambachanBBOEFW}{misc}{}
