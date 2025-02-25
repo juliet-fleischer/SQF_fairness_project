@@ -1,7 +1,22 @@
-As algorithms are increasingly used to make decisions that affect people's lives, it is important to ensure that these decisions are fair. 
-... the field of fiar machine learning. Interesting findings, recent developments, dynamic field.
-limitations: unclear definitions, same datasets used over and over again.
-This paper is an uncommon introduction to fairness. In "chapter ..." it provides the reader with the most common fairness metrics and methods, found in other introductions
-but then in "Chapter ...." we apply them more uncommon dataset. SQF.
-Since x the police in NYC is allowed to stop individuals if they have ...
-Our case study will showcase difficulties that come with fairness in practice. This leads us to explore other studies that have worked with SQF data in "chapter ...". 
+
+% Why should the reader care? fairness is important because ...
+Building a fair and equitable society is a challenge humans grapple with since ancient times. With the rise of artificial intelligence (AI) questions of justice and fairness have taken on new urgency. AI enables automated decision-making systems (ADM) that are now common in law, healthcare, finance, and other fields, where data-driven decisions can significantly affect lives. Despite their ongoing improvements they carry the risk of perpetuating and even exacerbating social injustices. 
+
+
+
+% Whats the issue? the problem is that ...
+After a general introduction to the study of fairness in machine learning (fairML), this paper turns its focus to the stop, question, and frisk (SQF) dataset published by the New York Police Department (NYPD). Since 1990 the US Supreme Court has been allowing police officers in New York City to stop individuals if they suspect them of being involved in criminal activity (Terry v. Ohio (1968), 392 U.S. 1, U.S. Supreme Court.). While proponents argue that SQF is an effective crime prevention tool, many criticize the practice for disproportionally targetting people of colour. The stop-and-frisk practice has a long history of public debate about racial profiling and police trust (see \cite{gelman2007} for more historical details). This makes the datasets recording the stops an interesting resource for fairML research.
+Advocating for more diversity in the datasets used for fairness research additionally \cite{Fabris_2022} recommend the dataset as a valuable resource.
+
+% Why is this paper needed?
+Our main contribution lies in bringing together multiple studies that examine fairness in SQF from different angles. Though these studies seek to answer the same question—Is stop, question, and frisk fair?—they approach the problem differently and arrive at alternative conclusions.
+This divergence is not necessarily a contradiction but rather a reflection of the diverse perspectives and objectives that shape fairness research. Each study addresses fairness within its own problem setting, making its conclusions valid within that specific context. However, this can create confusion, as studies with different assumptions and goals may still claim to answer the same overarching question. Our goal lies not in identifying \textit{the right} approach, but rather in highlighting the importance of understanding data context and problem framing when evaluating fairness.
+% What will we cover?
+In Section~\ref{sec:fairness_metrics_methods}, we introduce the most common fairness metrics and techniques used in machine learning.
+Next, in Section~\ref{sec:case_study} we apply the theoretical concepts to the real-world SQF dataset. 
+The application on real-world data will show difficulties that come with fairness in practice.
+This will lead us to explore other studies that have worked with SQF data in Section~\ref{sec:studies}. 
+
+% Important infos about setup
+% we focus binary classifiation, binary PA scenario
+

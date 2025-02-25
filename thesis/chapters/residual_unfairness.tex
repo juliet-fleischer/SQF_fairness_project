@@ -1,10 +1,5 @@
 
-\subsection*{Sources of bias in the SQF data}
-\begin{figure}
-    \includegraphics[width=0.7\textwidth]{../figures/selection_bias.png}
-    \caption{Selection bias in the SQF data.}
-    \label{fig:selection_bias}
-\end{figure}
+\subsection{Sources of bias in the SQF data}
 The main difficulty is that the SQF data contains many information and various tasks could be defined for it. But only some of them are suitable to make conclusions about the fairness of the stop-and-frisk policy as a whole. AS \cite{Badr2022DTFANSP} we trained a classifier to predict arrest and used group metrics to assess fairness. Given that our 2011 classifier performed well on the gorup metrics, but the stop-and-frisk practice was officially declared unconstitutional for 2011, fairness measured with these metrics for this classification task is not a good indicator for the fairness of the stop-and-frisk policy.\\
 So to answer the question of fairness in Stop-and-Frisk other studies take a step back and identify a problem with how the data is generated. They try to formalize and acknowledge that the discrimination in SQF does not lie in the outcome of the stop but the decision to stop someone in the first place. In their paper "Residual Unfairness" \cite{kallus2018} conceptualize the problem as shown in \autoref{fig:selection_bias}.
 We define a person by their sensitive feature (A) and non-sensitive features (X). For each person in the population of interest a police officer decides whether to stop them or not. This is the first potential source of bias. In the SQF context we can imagine that the police is generally more suspicious towards PoC than white people. Alternatively, we can imagine that they are stopping anyone more likely in high crime areas which happen to be correlated with low-income neighbourhoods which are mostly populated by PoC {\color{red}sources}. \\
@@ -12,28 +7,65 @@ Based on this biased decision policy, individuals are either included in the sam
 \cite{kallus2018} distinguish between target population and training population in such scenarios. The target population is the one on which we want to use the ADM on while the training population are the observations the biased decision policy chose to include in the sample and on which the algorithm is trained. The indicator $T \in \{0, 1\}$ tell us whether a person belongs to the target population. If $T = 1$ constantly, it means that the algorithm should be deployed for the entire population of NYC.\\
 At this point, we refer back to \autoref{fig:race_distributions} and \autoref{fig:nyc_pop_crimerates_stops_comparison}. \autoref{fig:race_distributions} shows a clear difference between the racial distribution in the SQF data and the city as a whole. In terms of race, the sample is clearly not representative for NYC. At the same time the estimated borough-specific crime rates also differ from the distribution of stops per borough. \\
 
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{../figures/selection_bias.png}
+    \caption{Selection bias in the SQF data.}
+    \label{fig:selection_bias}
+\end{figure}
+
 It is unclear whether a biased selection mechanism of such sort, can be captured by group metrics. They work with the joint distribution of $Y, A, \hat{Y}$ and do not take any additional information into account \footnote{There are variations of group metrics that allow for non-sensitive attributes $X$ to be considered as well when assessing fairness. An example is conditional statistical parity \cite{verma2018}.} . When we rely on the true label $Y$ to detect unfairness but the true label itself is not reliable (not generated via an objective truth), then the group metrics cannot show this mechanism ()\cite{castelnovo2022}). They offer a rather isolated view on fairness. They assess disparities in algorithmic predictions between protected groups rather than measuring the fairness of a whole situation.\\
 On top of this, the mechanisms behind the selection bias in SQF is twisted in the sense that the (potentially) discriminated group is \textit{more present} in the data. Often we find ourselves in the situation that disadvantaged groups form underrepresented minorities, thus the algorithm oversees them and performs worse on them. In the SQF data, however, the algorithm has plenty of observations from PoC to learn from and less from white people. More training data leads to better algorithmic performance and could explain why the classifier in chapter 5 performed mostly better for PoC. With this in mind \cite{kallus2018} take the following approach.\\
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
-    \caption {Distribution of race by borough in the SQF data (top) and NYC as a whole (bottom).}
-    \label{fig:borough_race_distribution}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
+%     \caption {Distribution of race by borough in the SQF data (top) and NYC as a whole (bottom).}
+%     \label{fig:borough_race_distribution}
+% \end{figure}
 
-\subsubsection*{Alternative approaches to fairness in SQF}
+\subsection{Different approaches to fairness in SQF}
 % Residual unfairness
 % task: predict probability of innocence
 % target: innocent (measured by what? no hit?)
 % In short \cite{kallus2018} come to the conclusion that a SQF-trained classifier exhibits bias towards non-white individuals.
+\subsubsection*{Residual unfairness}
 Before an officer stops a person, they need to have a suspicion about what the person did wrong. The suspected crime is recorded in the SQF data. The most common suspicion is the illegal possession of a weapon. \cite{kallus2018} limit themselves to only the stops where the suspected crime of the illegal possession of a weapon and the goal then becomes to predict the possession of a weapon. We refer to \cite{goel2016} for the detailed reasoning behind this approach.
 Note that this is different to \cite{Badr2022DTFANSP} and our analysis, where the arrest is defined as the target variable.\\
 
 \cite{kallus2018} train a logistic regression classifier and measure fairness in terms of equalized odds and equal opportunity. They find that non-white individuals are more often wrongly accused of possessing a weapon than white individuals. They apply a post-processing technique which assigns group specific thresholds to equalize the false negative rates/true positive rates (and the false positive rates/true negative rates in case of equalized odds) (\cite{hardt2016}).
 After this fairness intervention the error rates are equal between groups when tested on the data the algorithm was trained on. However, when they claim that when the fairness-adjusted algorithm would be deployed on the population of NYC as a whole, racial discrimination against the historically discriminated persists. They do not test their dataset on actual new data from citizens but they design a way to estimate the error rates that would occur when the algorithm is deployed on the target population. They call the unfairness that comes from switching from training population to target population \textbf{residual unfairness} and identify it when training a classifier to predict the possession of a weapon on SQF data.\\
 Here I would need to compare the results of one of the fairness classifiers (probably the EoD post-processing) and compare it to the estimated error rates. Does the classifier inherent the same tendencies?
+
+\subsubsection*{Bias in, bias out?}
+
+% mathematical definitions I really need to get the point across
+% - population as tupel of random variables (X, U, A, Y)
+% - taste-based discriminator https://link.springer.com/referenceworkentry/10.1007/978-981-33-4016-9_1-1
+Another perspective is offered by \cite{RambachanBBOEFW}
+While the main message of \cite{kallus2018} is that even fairness adjusted classifiers exhibit the "bias in, bias out" mechanism \cite{RambachanBBOEFW} argue that is depends on the chosen classification task.
+
+% problem setting, intro of selection bias
+Similar to \cite{kallus2018} they are interested in whether a person carries a contraband. The paper assumes the police is a taste-based classifier against African-Americans. This means they hold some form of prejudice against the group of African-Americans that influences their decision to stop a member of this group. More precisely, they see the biased-decision policy in the decision to search someone; only on searched people a contraband can be found. Essentially the problem setting is the same as in \cite{kallus2018}.\\
+
+They formalise the problem as follows. For the decision-maker (the police) an individual is characterized by the random vector $(X, U, A)$, where X and A have the same meaning as in \cite{kallus2018}
+and U is a set of unobserved features. These latent variables are unknown to the algorithm but are characteristics the police bases their decision to stop someone on. In the SQF context this could be the personal impression the officer got of a suspect which is not recorded and hard to measure.
+In general, for searching any person, an officer incurs a cost $c > 0$. If they search an individual that truly carries a contraband, the officer receives a reward $b = 1$ \footnote{The reward can set to any number b > 0. We assume b = 1 as in \cite{RambachanBBOEFW} without loss of generality.}. In case of searching an innocent person $b = 0$.
+For stopping African Americans the payoff an officer expects increases by $\tau > 0$ compared to stopping a white person. The total payoff for stopping an individual is given by:
+$$Y + \tau * A - c$$
+where $Y$ is the outcome of the search, $\tau$ is the discrimination parameter, $A \in \{0,1\}$, and $c > 0$ is the cost for searching a person.
+Holding the costs $c$ and the outcome of the search $Y$ constant, searching an African American results in a higher payoff than searching a white person. The goal of the police is to maximize their payoff. Therefore, they search an individual according to the following threshold rule:
+$$Z(X, U, R) = 1(E[Y|X, U, A] \ge c - \tau * A)$$
+This means that the threshold for searching an African American is \textit{lower} than for a white person. Consequently, the police searches African Americans more leniently than white people.
+In \cite{RambachanBBOEFW} the authors speak of "selective labels" where again the tupel $(Y, X, A, Z)$ is only available for $Z = 1$. \\
+
+
+% relevant tasks
+Given this biased-selection mechanism that produces the training data, the authors distinguish between three classification scenarios.\\
+In the first one, the goal is to predict the possession of a contraband, but the algorithm is trained on the biased sample that searched African Americans more leniently than white people. In this case the algorithm will exhibit \textit{less} bias towards African Americans in the future. What happens is that as the police becomes more biased towards African Americans, they search them more leniently. This means that many innocent African Americans are included in the searched observations. Consequently, the model learns on average lower risk scores for African Americans. Essentially, the data for African Americans becomes more "noisy", more innocent people, without contraband are included, lowering the predicted probabilities for this group. The authors call this mechanism \textbf{bias reversal}.
+In their second classification task the idea is to train an algorithm to predict whether to search someone in the first place. Now the search becomes the target and here bias inheritance is observed. The same goes for a two stage classification ask that first predicts whether to search and then whether the individual carries a contraband if they were predicted as searched. What happens here is that as more of the stopped African Americans are also searched, the algorithm learns to associate search with more with African Americans than with white people and thus in the future also predicts higher probabilities for a search for African Americans. This is the \textbf{bias inheritance} mechanism.
+We can see parallels to this paper to our own case study in the sense that, PoC indeed have lower risk scores (density plot) and are relatively speaking less often predicted as arrested as white individuals.
+
 
 % formal problem setting
 % The selection bias we face means that we only have knowledge about $X, A, Y | Z = 1$ while we do not know $X, A, Y | Z = 0$. All information about the stop, the demographic details of the person and the outcome which serve as training label for an algorithm are only observed for stopped individuals.

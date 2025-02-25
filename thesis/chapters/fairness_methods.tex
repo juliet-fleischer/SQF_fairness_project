@@ -1,9 +1,28 @@
-\subsection*{Fairness methods}
-Another question fair machine learning deals with is how algorithms can be adjusted such that they fullfil one of the above fairness metrics.
-Depending on when they take place in the machine learning pipeline, we distinguish between preprocessing, inprocessing or postprocessing methods.
-Preprocessing methods have the idea that the data should be modified before training, so that the algorithm learns on "corrected" data. Reweighing observations before training is an example for a preprocessing method, that we will use in our case study in chapter x.
-In Processing methods modify the optimisation criterion, such that a it also accounts for a chosen fairness metric. Introducing a regularization term to the loss function is one example of such modifications.
-Postprocessing methods work with black box algorithms, just like preprocessing methods. We only need the predictions from the model to adjust them so that again a chosen fairness metric is fullfilled. One example for this is thresholding, where we set group specific thresholds to re-classify the data after training. We will discuss a post-processing approach by \cite{hardt2016} in a following chapter.
+\subsubsection*{Fairness methods}
+Another question fair machine learning deals with is how algorithms can be adjusted so that they fulfil one of the above fairness metrics.
+Depending on when they take place in the machine learning pipeline, we distinguish between
+\begin{enumerate}
+    \item Pre-processing methods
+    \item In-processing methods
+    \item Post-processing methods
+\end{enumerate}
+Pre-processing methods follow the idea that the data should be modified before training, so that the algorithm learns on "corrected" data. Reweighing observations before training is an example for a preprocessing method. The idea is to assign different weights to the observations based on relative frequencies, so that the algorithm learns on a balanced dataset \cite{caton2024}.
+In-Processing methods modify the optimization criterion, such that it also accounts for a chosen fairness metric. Introducing a regularization term to the loss function is one example of such modifications.
+Post-processing methods work with black box algorithms, just like preprocessing methods. We only need the predictions from the model to adjust them so that again a chosen fairness metric is fulfilled. One example for this is thresholding, where we set group specific thresholds to re-classify the data after training \cite{hardt2016}. Maybe mention some mlr3fainress implemented methods or refer to an overview.
+% mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
+% The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
+
+\subsubsection*{Bias and the feedback loop}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
+    \caption{The bias loop.}
+    \label{fig:bias_loop}
+\end{figure}
+
+Usually fairness is a concern in the first place, because the algorithm should be implemented as an ADM to assist decision-making in some way. As such it could influence if someone gets admitted to college, gets a loan or is released from prison. The algorithm does not exist in isolation, but is embedded in a loop with data and the user.
+We make the circumstances of a decision measurable by collecting data. The algorithm learns from this data to make an optimal prediction, on which the decision-makers base their judgement on \autoref{fig:bias_loop}. At each step of this loop, bias can be introduced in the process and, more dangerous, be amplified as the algorithm influences decision-making on a large scale.
+This means that every fairness project comes with the task to understand where the data comes from and how exactly the algorithm will be deployed in practice. This framework should be kept in mind when implementing fairness in the real world and it will also help to think about the following case study.
 
 % \subsection*{Bias}
 % We want to end this general introduction into fair machine learning by outlining the context in which the algorithm is usually embedded. On this note we also advice practitioners to think about the source of bias that could be present in your situation, as this \textit{should} influence how fairness is defined and what fairness adjustments are appropriate. This will motivate the potential difficulties that can arise when implementing fairness in the real world.

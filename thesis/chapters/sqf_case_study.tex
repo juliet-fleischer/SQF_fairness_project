@@ -1,14 +1,10 @@
 \subsection*{Stop, Question, and Frisk data}
-
-The legal sector is one in which ADMs have been deployed, more often than not accompanied by public debate and protests about targeted policing and racial discrimination (COMPASS as the most popular example). We will turn our focus to the stop, question, and frisk (SQF) dataset published by the New York police department (NYPD). A. Fabris and S. Messina and G. Silvello and G.A. Susto scanned more than x datasets to diversify the datasets that are used in the fairness literature. They recommend it as suitable dataset for fairness research. First, we will give some context to the dataset. We will continue with descriptive analysis and finally examine fairness of an algorithm trained on this data.
-
-Since x the stop, question, and frisk practice is implemented in New York City. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
+After introducing the theoretical tools for assessing fairness, we turn to a case study on the stop-and-frisk practice in NYC. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 During the stop the officer is allowed to frisk a person (pat-down the person's outer clothing) or search them more carefully.
 The stop can result in a summon, an arrest or no further consequences. After a stop was made, the officer is required to fill out a form, documenting the stop. This data is published yearly by the NYPD.
-Many citizens have criticized the stop and frisk practice. There is disagreement about whether the strategy is effective in reducing the crime rates of the city {\color{red}cite some studies}. The police has been repeatedly criticized for over-targetting people of colour.
-Stop and Frisk practice during 2004 to 2012 has been deemed as unconstitutional. {\color{red} Source}
+As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. 2013 the stop-and-frisk practice during 2004 to 2012 has been deemed as unconstitutional, violating the fourth and fourteenth amendment {\color{red} Source}
 
-\subsubsection*{Data description}
+\subsection{Data description}
 For our analysis we look at the stops from 2023 as they were the most recent at the time of writing this paper. The raw 2023 dataset consists of 16971 observations and 82 variables. We first discarded all the variables that have more than 20\% missing values, which leaves 34 variables.
 From this reduced dataset we filter out the complete cases and end up with 12039 observations. \footnote{Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
 but treating missing values as an extra category (which some random forest learners in mlr3 can do) will introduce complications when we implement some fairness methods later on.}
@@ -19,29 +15,29 @@ Black people are by far most often stopped, making up 70\% of the total stops; y
 After 2021 there has been a stark decline in stops and the police is known to focus their attention on high crime areas. Therefore, we further look at each borough. 
 The most stops in 2023 occur in Bronx and Brooklyn. Based on report of the NYPD and population statistics from 2020, the Bronx also has the highest estimated crime rate per 100,000 citizens. Manhattan is not far behind in crime rate, but has fewer stops. Note that Bronx and Brooklyn happen to be the boroughs with the highest proportion of black citizens \autoref{fig:nyc_pop_crimerates_stops_comparison}. 
 \begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot6.png}
+  \includegraphics[width=0.5\textwidth]{../figures/sqf_case_study_plot6.png}
   \caption{Comparison of race distribution in the training and target population.}
   \label{fig:race_distributions}
 \end{figure}
 
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
+%     \caption{Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.}
+%     \label{fig:racial_distribution_borough}
+% \end{figure}
 \begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot11.png}
-    \caption{Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.}
-    \label{fig:racial_distribution_borough}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/sqf_case_study_plot14.png}
-    \caption{Racial distribution in the SQF data of each borough in comparison to the racial distribution of each borough in NYC as a whole.}
+    \includegraphics[width=0.5\textwidth]{../figures/sqf_case_study_plot14.png}
+    \caption{Estimated borough-wise crime rates (top) versus the proportion of stops in each borough (bottom).}
     \label{fig:nyc_pop_crimerates_stops_comparison}
 \end{figure}
 
 After a more general overview of the dataset, we turn to the outcome of the stop. Specifically, we are interested in the arrestment of a suspect. In the cleaned 2023 data about 31\% of stops result in an arrest.
-Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest. \autoref{fig:arrestment_rates_clean_data}. As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
+Overall racial disparities in arrestment rates are low. The arrestment rate for white suspects is the highest.
+% \autoref{fig:arrestment_rates_clean_data}.
+As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
 
-\subsubsection*{Fairness Auditing}
+\subsection{Fairness Audit}
 To train a random forest classifier on the 2023 data to predict the arrest of a person, we dichotomize the race attribute by grouping "Black" and "Hispanic" as people of colour ("PoC") and "White", "Asian", and "Other" as white ("White").
 As features, we select variables that should resemble the information that were available to the officer at the time they made the decision to arrest the person. This includes information about the development of the stop, e.g. whether the person was frisked or a summon issued (we assume that all of these constitute "smaller" hits that happen before an officer chooses the most extreme consequence, an arrest). A full list of the variables in our model can be found in the appendix.
 Additionally, we control for factors, such as the time of the stop or whether the officer was wearing a uniform. This selection of features is inspired by previous studies on SQF data (\cite{Badr2022DTFANSP}). With many of the group fairness metrics implemented in \texttt{mlr3fairness}, we can measure the (group) fairness of the regular random forest classifier.\\
@@ -110,8 +106,9 @@ The true positive rate, false positive rate, and the accuracy is basically ident
 All in all, it seems like a classifier trained on SQF data to predict the arrest of a suspect is not discriminatory against PoC. In contrast, it even performs better on many of the common performance metrics for PoC than for white people. This opposes the public belief that the NYPD Stop-and-Frisk practice is biased towards PoC. \cite{Badr2022DTFANSP} have similar findings.
 In their study they choose six representative machine learning algorithms (Logistic Regression, Random Forest, XG Boost, GNB, SVC) to predict the arrest of a suspect. Fairness is measured with different metrics (Balanced Accuracy, Statistical Parity, Equal Opportunity, Disparate Impact, Avg. Odds Difference, Theil Index) and separate analysis are conducted with sex and race as PA.
 They compare the fairness of the regular learner to the fairness of learner with a pre-processing method (reweighing) and a post-processing method (Reject Option-based Classifier). All in all, they find that the regular models to not perform worse in terms of fairness than the fairness adjusted models. This leads them to conclude "[...] that there is no-to-less racial bias that is present in the NYPD Stop-and-Frisk dataset concerning colored and Hispanic individuals."
-What both of our case studies have in common is that the models were trained on recent data. We trained our model on 2023 stops and \cite{Badr2022DTFANSP} used 2019 stops. In 2013 the court deemed the SQF practice from 2004 to 2012 as unconstitutional. Specifically they saw violations against the fourth and fourteenth amendment. Under this fall explicitly targetting of primarily Black and Hispanic citizens. Since the ruling the number of stops has decreased significantly and citizens are in generally less often stopped. After 2014 the stops have been consistently kept at a low level.
+What both of our case studies have in common is that the models were trained on recent data. We trained our model on 2023 stops and \cite{Badr2022DTFANSP} used 2019 stops. Since the judgement of how stop-and-frisk was implemented in NYC in 2013, the number of stops has decreased significantly and citizens are in generally less often stopped. After 2014 the stops have been consistently kept at a low level.
 \cite{Badr2022DTFANSP} see this as explanation for their results and state "The NYPD has taken crucial steps over the past years and significantly reduced racial and genderbased bias in the stops leading to arrests. This conclusion nullifies the common belief that the NYPD Stop-and-Frisk program is biased toward colored and Hispanic individuals." 
+
 
 
 \subsubsection*{Training on stops from an unconstitutional period}
@@ -120,7 +117,7 @@ We choose data from 2011 as it is the year with the most stops. We carry out the
 The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops resulted in an arrest.\\
 In the data, the differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group.
 Due to the low prevalence in the population, a classifier trained on 2011 data primarily suffers from the highly skewed distribution of arrests. In terms of fairness, it performs similar to the 2023 classifier.
-So somehow the picture is confusing. A classifier trained on SQF data from recent years seems to be fair, and a classifier trained on data from the unconstitutional period is even fairer. What happens here?
+So somehow the picture is confusing. A classifier trained on SQF data from recent years seems to be fair, and a classifier trained on data from the unconstitutional period is even fairer. In the following we examine alternative approaches to fairness in SQF to find possible a explanation.
 
 % Due to the large proportion of low-risk stops in 2011 the predicted probabilities are generally low. In fact, the predicted probabilities for the positive class are generally so low that the classifier rarely predicts the positive class for any person, regardless of group membership.
 % A classifier trained on 2011 data primarily suffers from the highly skewed distribution of arrests. A reweighing technique would first need to establish more balance in the target before any fairness analysis becomes relevant.

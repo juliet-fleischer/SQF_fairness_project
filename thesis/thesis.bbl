@@ -277,6 +277,67 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
       \endverb
     \endentry
+    \entry{Fabris_2022}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5b7e2461e527dc107ee365205271db53}{%
+           family={Fabris},
+           familyi={F\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78303c77966c20729c566e775c64e6de}{%
+           family={Messina},
+           familyi={M\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07ba092df73e59c7b57619e719e881a6}{%
+           family={Silvello},
+           familyi={S\bibinitperiod},
+           given={Gianmaria},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1d72b30e470cf61893e5806eeab4bba}{%
+           family={Susto},
+           familyi={S\bibinitperiod},
+           given={Gian\bibnamedelima Antonio},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media {LLC}}%
+      }
+      \strng{namehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{fullhash}{0259010af2682b884dd31b7b0e3e911c}
+      \strng{bibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authorbibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authornamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authorfullhash}{0259010af2682b884dd31b7b0e3e911c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Data Mining and Knowledge Discovery}
+      \field{month}{9}
+      \field{number}{6}
+      \field{title}{Algorithmic fairness datasets: the story so far}
+      \field{volume}{36}
+      \field{year}{2022}
+      \field{pages}{2074\bibrangedash 2152}
+      \range{pages}{79}
+      \verb{doi}
+      \verb 10.1007/s10618-022-00854-z
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
+      \endverb
+    \endentry
     \entry{fernando2021}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=a76fb73b9ba9f02e8cf50125940b9600}{%
@@ -338,6 +399,60 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Fernando2021Mmvudfml/Fernando et al. - 2021 - Missing the missing values The ugly duckling of fairness in machine learning.pdf;/Users/julietfleischer/Zotero/storage/WDUPKMWG/int.html
       \endverb
       \keyw{algorithmic bias,confirmation bias,data imputation,fairness,missing values,sample bias,survey bias}
+    \endentry
+    \entry{gelman2007}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1e1eb60e3b6e222217bf8e9b24070b28}{%
+           family={Gelman},
+           familyi={G\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3923e1b9cdc01e1e073dc6b9ffe1b3b}{%
+           family={Fagan},
+           familyi={F\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d37eeb99a871aab354ceddd1a2f6cf1c}{%
+           family={Kiss},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{23a74311177b75079ac994aea3638a07}
+      \strng{fullhash}{23a74311177b75079ac994aea3638a07}
+      \strng{bibnamehash}{23a74311177b75079ac994aea3638a07}
+      \strng{authorbibnamehash}{23a74311177b75079ac994aea3638a07}
+      \strng{authornamehash}{23a74311177b75079ac994aea3638a07}
+      \strng{authorfullhash}{23a74311177b75079ac994aea3638a07}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0162-1459, 1537-274X}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{479}
+      \field{title}{An {{Analysis}} of the {{New York City Police Department}}'s ``{{Stop-and-Frisk}}'' {{Policy}} in the {{Context}} of {{Claims}} of {{Racial Bias}}}
+      \field{urlday}{8}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{volume}{102}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \field{pages}{813\bibrangedash 823}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1198/016214506000001040
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/gelman2007/Gelman et al. - 2007 - An Analysis of the New York City Police Department's “Stop-and-Frisk” Policy in the Context of Claim.pdf
+      \endverb
     \endentry
     \entry{goel2016}{article}{}
       \name{author}{3}{}{%
@@ -559,7 +674,7 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Khademi2019FADMELC/Khademi et al. - 2019 - Fairness in Algorithmic Decision Making An Excursion Through the Lens of Causality.pdf
       \endverb
     \endentry
-    \entry{kusner}{inproceedings}{}
+    \entry{kusner}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=37d0d7a3ba0cb7a7253c7b690ce4e8c6}{%
            family={Kusner},
@@ -586,9 +701,6 @@
            giveni={R\bibinitperiod},
            givenun=0}}%
       }
-      \list{location}{1}{%
-        {Long Beach, CA, USA}%
-      }
       \strng{namehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
       \strng{fullhash}{31480a6997ada758f14a82daae7e9c2d}
       \strng{bibnamehash}{5ed8ad78ef3e89e7f60ebcdfc729fd12}
@@ -597,18 +709,69 @@
       \strng{authorfullhash}{31480a6997ada758f14a82daae7e9c2d}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Machine learning can impact people with legal or ethical consequences when it is used to automate decisions in areas such as insurance, lending, hiring, and predictive policing. In many of these scenarios, previous decisions have been made that are unfairly biased against certain subpopulations, for example those of a particular race, gender, or sexual orientation. Since this past data may be biased, machine learning predictors must account for this to avoid perpetuating or creating discriminatory practices. In this paper, we develop a framework for modeling fairness using tools from causal inference. Our definition of counterfactual fairness captures the intuition that a decision is fair towards an individual if it the same in (a) the actual world and (b) a counterfactual world where the individual belonged to a different demographic group. We demonstrate our framework on a real-world problem of fair prediction of success in law school.}
+      \field{langid}{english}
+      \field{title}{Counterfactual {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/KusnerCF/Kusner et al. - Counterfactual Fairness.pdf
+      \endverb
+    \endentry
+    \entry{makhlouf2021}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=99da3194dcde78db72606c8a724f180f}{%
+           family={Makhlouf},
+           familyi={M\bibinitperiod},
+           given={Karima},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d388bc0c628674b3a47873f32b0084f1}{%
+           family={Zhioua},
+           familyi={Z\bibinitperiod},
+           given={Sami},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1be391749a3de49eae8b6aa3838278db}{%
+           family={Palamidessi},
+           familyi={P\bibinitperiod},
+           given={Catuscia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3882a33a1565267fefd1d99b6052dd1e}
+      \strng{fullhash}{3882a33a1565267fefd1d99b6052dd1e}
+      \strng{bibnamehash}{3882a33a1565267fefd1d99b6052dd1e}
+      \strng{authorbibnamehash}{3882a33a1565267fefd1d99b6052dd1e}
+      \strng{authornamehash}{3882a33a1565267fefd1d99b6052dd1e}
+      \strng{authorfullhash}{3882a33a1565267fefd1d99b6052dd1e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 31st Conference on Neural Information Processing Systems (NeurIPS)}
-      \field{title}{Counterfactual Fairness}
-      \field{year}{2017}
-      \verb{urlraw}
-      \verb https://papers.nips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
+      \field{abstract}{Machine Learning (ML) based predictive systems are increasingly used to support decisions with a critical impact on individuals' lives such as college admission, job hiring, child custody, criminal risk assessment, etc. As a result, fairness emerged as an important requirement to guarantee that ML predictive systems do not discriminate against specific individuals or entire sub-populations, in particular, minorities. Given the inherent subjectivity of viewing the concept of fairness, several notions of fairness have been introduced in the literature. This paper is a survey of fairness notions that, unlike other surveys in the literature, addresses the question of ``which notion of fairness is most suited to a given real-world scenario and why?''. Our attempt to answer this question consists in (1) identifying the set of fairness-related characteristics of the real-world scenario at hand, (2) analyzing the behavior of each fairness notion, and then (3) fitting these two elements to recommend the most suitable fairness notion in every specific setup. The results are summarized in a decision diagram that can be used by practitioners and policy makers to navigate the relatively large catalogue of ML fairness notions.}
+      \field{issn}{1931-0145, 1931-0153}
+      \field{journaltitle}{ACM SIGKDD Explorations Newsletter}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{On the {{Applicability}} of {{Machine Learning Fairness Notions}}}
+      \field{urlday}{1}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{23}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{14\bibrangedash 23}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3468507.3468511
       \endverb
-      \verb{url}
-      \verb https://papers.nips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Makhlouf2021AMLFN/Makhlouf et al. - 2021 - On the Applicability of Machine Learning Fairness Notions.pdf
       \endverb
     \endentry
     \entry{mehrabi2022}{article}{}
@@ -678,7 +841,7 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/mehrabi2022/Mehrabi et al. - 2022 - A Survey on Bias and Fairness in Machine Learning.pdf
       \endverb
     \endentry
-    \entry{RambachanBBOEFW}{misc}{}
+    \entry{RambachanBBOEFW}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=85edb53244c29c17ce57830271014b46}{%
            family={Rambachan},
@@ -701,12 +864,15 @@
       \strng{authorfullhash}{c7db070288680264f6dfa86410e8586f}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \field{labeldatesource}{nodate}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Bias In, Bias Out? Evaluating the Folk Wisdom}
-      \field{year}{2020}
+      \field{abstract}{We evaluate the folk wisdom that algorithmic decision rules trained on data produced by biased human decision-makers necessarily reflect this bias. We consider a setting where training labels are only generated if a biased decision-maker takes a particular action, and so ``biased'' training data arise due to discriminatory selection into the training data. In our baseline model, the more biased the decision-maker is against a group, the more the algorithmic decision rule favors that group. We refer to this phenomenon as bias reversal. We then clarify the conditions that give rise to bias reversal. Whether a prediction algorithm reverses or inherits bias depends critically on how the decision-maker affects the training data as well as the label used in training. We illustrate our main theoretical results in a simulation study applied to the New York City Stop, Question and Frisk dataset.}
+      \field{langid}{english}
+      \field{title}{Bias {{In}}, {{Bias Out}}? {{Evaluating}} the {{Folk Wisdom}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/RambachanBBOEFW/Rambachan und Roth - Bias In, Bias Out Evaluating the Folk Wisdom.pdf
+      \endverb
     \endentry
     \entry{verma2018}{inproceedings}{}
       \name{author}{2}{}{%
