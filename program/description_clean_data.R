@@ -135,7 +135,7 @@ p18 <- data2023 |>
   scale_y_continuous(labels = scales::percent)
 
 # combine thee plots p5, p17, p18
-p19 <- p5 + p17 / p18
+p19 <- p17 / p18
 
 ## 2011 data ----
 p14 <- data2011 |> 

@@ -19,6 +19,52 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{Badr2022DTFANSP}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a21359ea89e586fcea9df371eb20ccb7}{%
+           family={Badr},
+           familyi={B\bibinitperiod},
+           given={Youakim},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f5c184ac68798ea801914f18e49d22bd}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Rahul},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{16d3a351e115c8091ccb4cb7f52de512}
+      \strng{fullhash}{16d3a351e115c8091ccb4cb7f52de512}
+      \strng{bibnamehash}{16d3a351e115c8091ccb4cb7f52de512}
+      \strng{authorbibnamehash}{16d3a351e115c8091ccb4cb7f52de512}
+      \strng{authornamehash}{16d3a351e115c8091ccb4cb7f52de512}
+      \strng{authorfullhash}{16d3a351e115c8091ccb4cb7f52de512}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Given the increased concern of racial disparities in the stop-and-frisk programs, the New York Police Department ( NYPD ) requires publicly displaying detailed data for all the stops conducted by police authorities, including the suspected offense and race of the suspects. By adopting a public data transparency policy, it becomes possible to investigate racial biases in stop-and-frisk data and demonstrate the benefit of data transparency to approve or disapprove social beliefs and police practices. Thus, data transparency becomes a crucial need in the era of Artificial Intelligence ( AI ), where police and justice increasingly use different AI techniques not only to understand police practices but also to predict recidivism, crimes, and terrorism. In this study, we develop a predictive analytics method, including bias metrics and bias mitigation techniques to analyze the NYPD Stop-and-Frisk datasets and discover whether underline bias patterns are responsible for stops and arrests. In addition, we perform a fairness analysis on two protected attributes, namely, the race and the gender, and investigate their impacts on arrest decisions. We also apply bias mitigation techniques. The experimental results show that the NYPD Stop-and-Frisk dataset is not biased toward colored and Hispanic individuals and thus law enforcement authorities can apply the bias predictive analytics method to inculcate more fair decisions before making any arrests.}
+      \field{issn}{1936-1955, 1936-1963}
+      \field{journaltitle}{Journal of Data and Information Quality}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{Data {{Transparency}} and {{Fairness Analysis}} of the {{NYPD Stop-and-Frisk Program}}}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{volume}{14}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 14}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/3460533
+      \endverb
+    \endentry
     \entry{castelnovo2022}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=6c3ab60bce254137083c6d7874df46ed}{%
@@ -307,6 +353,71 @@
       \range{pages}{10}
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Kallus2018RUFMLPD/Kallus und Zhou - 2018 - Residual Unfairness in Fair Machine Learning from Prejudiced Data 2.pdf;/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Kallus2018RUFMLPD/Kallus und Zhou - 2018 - Residual Unfairness in Fair Machine Learning from Prejudiced Data 3.pdf
+      \endverb
+    \endentry
+    \entry{Khademi2019FADMELC}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=b55b999ad178707f117666f017a7955a}{%
+           family={Khademi},
+           familyi={K\bibinitperiod},
+           given={Aria},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1d07770182b45127701c1b12023aa62}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Sanghack},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=268f1d53400ccb34afac70143a9e4eeb}{%
+           family={Foley},
+           familyi={F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=81459ef9e663cf418b718d392867309d}{%
+           family={Honavar},
+           familyi={H\bibinitperiod},
+           given={Vasant},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {San Francisco CA USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{b34e3522dc8b2a57506522c5dff13291}
+      \strng{fullhash}{6b343b98a0bdd0de36c4b1a7df848f0a}
+      \strng{bibnamehash}{b34e3522dc8b2a57506522c5dff13291}
+      \strng{authorbibnamehash}{b34e3522dc8b2a57506522c5dff13291}
+      \strng{authornamehash}{b34e3522dc8b2a57506522c5dff13291}
+      \strng{authorfullhash}{6b343b98a0bdd0de36c4b1a7df848f0a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{The {{World Wide Web Conference}}}
+      \field{isbn}{978-1-4503-6674-8}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{shorttitle}{Fairness in {{Algorithmic Decision Making}}}
+      \field{title}{Fairness in {{Algorithmic Decision Making}}: {{An Excursion Through}} the {{Lens}} of {{Causality}}}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{2907\bibrangedash 2914}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/3308558.3313559
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Khademi2019FADMELC/Khademi et al. - 2019 - Fairness in Algorithmic Decision Making An Excursion Through the Lens of Causality.pdf
       \endverb
     \endentry
     \entry{kusner}{inproceedings}{}

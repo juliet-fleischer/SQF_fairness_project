@@ -96,7 +96,7 @@ Given that there are indeed disparities for two of the chosen metrics that excee
 The \texttt{mlr3fairness} package currently has two pre-processing methods, one post-processing method and some fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalize the distribution of $P(Y|A)$.
 The in-processing method is a fairness-adjusted logistic regression implemented in \texttt{mlr3fairness} inspired by Zafar et al. This method optimizes for statistical parity (Independence). The post-processing method aims for equalized odds, and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalized odds constraints. {\color{red}{reference to mlr3fairness book}} \\
 In \autoref{fig:fairness_experiment} we compare the performance and fairness of each classifier, measured by the difference in true positive rates and the classification accuracy respectively. In the bottom right corner we find fair and accurate classifiers. In terms of fairness reweighing and the equalized odds post-processing method perform best. However, the regular random forest classifier comes close to their fairness performance and performs slightly more accurate. The fairness adjusted logistic regression performs worst in terms of accuracy and fairness.
-We note that this picture can of course change depending on how one measures fairness (the difference we see on the y-axis).
+As the picture could change depending on the chosen fairness metric (y-axis), we also tried out other metrics, such as equalised odds or predictive parity. In all cases the regular random forest does not perform worse in terms of fairness but better in terms of accuracy than most fairness adjusted classifiers. This supports the in general low racial disparities the fairness audit in the previous section showed.
 
 % result plot fairness experiment
 \begin{figure}
@@ -110,13 +110,22 @@ We note that this picture can of course change depending on how one measures fai
 Considering that the SQF practice from 2004 to 2012 has been deemed unconstitutional, the question arises whether a classifier trained on data from this period shows more racial disparities.
 We choose data from 2011 as it is the year with the most stops.
 We carry out the same data cleaning steps for the 2011 data as before, starting with 685724 recorded stops and reducing this to 651567 clean observations. Note that these are more than 50 times more stops than in 2023.
-The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops resulted in an arrest.
+The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops resulted in an arrest.\\
 The differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group.
 Due to the large proportion of low-risk stops in 2011 the predicted probabilities are generally low. In fact, the predicted probabilities for the positive class are generally so low that the classifier rarely predicts the positive class for any person, regardless of group membership.
-So a classifier trained on data from the 2011 data primarily suffers from the highly skewed distribution of arrests. A reweighing technique would first need to establish more balance in the target before any fairness analysis becomes relevant.\\ 
+A classifier trained on 2011 data primarily suffers from the highly skewed distribution of arrests. A reweighing technique would first need to establish more balance in the target before any fairness analysis becomes relevant.
 
-All in all, it seems like a classifier trained on SQF data to predict the arrest of a suspect is not discriminatory against PoC. In fact, it even performs better for PoC than for white people.
-To truly understand what these findings are telling us, it is crucial to take a step back and look at the context of the data and the algorithm.
+\subsubsection*{The SQF practice is fair?}
+% the other study that supports our results and is contradictory to public belif
+All in all, it seems like a classifier trained on SQF data to predict the arrest of a suspect is not discriminatory against PoC. In contrast, it even performs better for PoC than for white people. This opposes the public belief that the NYPD Stop-and-Frisk practice is biased towards PoC. \cite{Badr2022DTFANSP} have similar findings.
+In their study they choose six representative machine learning algorithms (Logistic Regression, Random Forest, XG Boost, GNB, SVC) to predict the arrest of a suspect. Fairness is measured with different metrics (Balanced Accuracy, Statistical Parity, Equal Opportunity, Disparate Impact, Avg. Odds Difference, Theil Index) and separate analysis are conducted with sex and race as PA.
+They compare the fairness of the regular learner to the fairness of learner with a pre-processing method (reweighing) and a post-processing method (Reject Option-based Classifier). All in all, they find that the regular models to not perform worse in terms of fairness than the fairness adjusted models. This leads them to conclude "[...] that there is no-to-less racial bias that is present in the NYPD Stop-and-Frisk dataset concerning colored and Hispanic individuals."
+They further note that the NYPD has made efforts to reduce racial bias in the SQF practice and show the rapid fall in stops in 2011 and the consistently low stop levels since 2014. \\
+Is this the whole picture? Let us look at other studies that approach situation differently. \\
+
+% Or maybe first a note to the fairness performance of the classifier depended on feature selection.
+% Some studies model the ex ante probability of the event, this one models the probability of the event. The difference lies in the features. For learning the ex ante probability the we provide variables to the algorithm that resemble the limited information status of the police officer before the stop, e.g. we specifically do not include the info whether the person was searched or a weapon was found because these are infos the officer get only when they already stopped the person.
+% This is what we gave the algorithm. 
 
 
 % \textbf{Fairness Experiment}

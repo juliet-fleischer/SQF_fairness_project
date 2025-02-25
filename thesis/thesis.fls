@@ -1220,6 +1220,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 OUTPUT thesis.toc
+INPUT ./chapters/related_work.tex
+INPUT chapters/related_work.tex
+INPUT ./chapters/related_work.tex
+INPUT chapters/related_work.tex
 INPUT ./chapters/fairness_metrics.tex
 INPUT chapters/fairness_metrics.tex
 INPUT ./chapters/fairness_metrics.tex
@@ -1299,6 +1303,15 @@ INPUT ./chapters/bias_in_bias_out.tex
 INPUT chapters/bias_in_bias_out.tex
 INPUT ./chapters/bias_in_bias_out.tex
 INPUT chapters/bias_in_bias_out.tex
+INPUT ./chapters/limitations.tex
+INPUT chapters/limitations.tex
+INPUT ./chapters/limitations.tex
+INPUT chapters/limitations.tex
+INPUT ../figures/bias_loop.png
+INPUT ../figures/bias_loop.png
+INPUT ../figures/bias_loop.png
+INPUT ../figures/bias_loop.png
+INPUT ../figures/bias_loop.png
 INPUT ./thesis.lof
 INPUT thesis.lof
 INPUT thesis.lof
