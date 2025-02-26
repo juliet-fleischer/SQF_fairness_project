@@ -115,9 +115,28 @@ In the first one, the goal is to predict the possession of a contraband, but the
 % We can see parallels to this paper to our own case study in the sense that, PoC indeed have lower risk scores (density plot) and are relatively speaking less often predicted as arrested as white individuals.
 
 
-\subsubsection*{Other studies}
-% Precinct and prejudice approaches more from a statistical standpoint; no 
+\subsubsection*{Fairness through the lense of causality - problem setting}
+Another paper from the field of fairML by \cite{Khademi2019FADMELC} approached the fairness problem in the SQF data from a causal perspective. As in our case study in section 4 they are interested in whether the decision to arrest someone after they have been stopped is discriminatory with respect to race, while they limit their comparison to Black-Hispanic and White men. They formalize the decision for an arrest made by the officer as a decision function $h: X x A \rightarrow Y$ and estimate the causal effect of race on the outcome from the data. For this they define two causal fairness metrics.
+They write $Y_i^{(a)}$ and $Y_i^{(a')}$ for the outcomes of an observation $i$ when the sensitive attribute $A$ is set to $a$ and $a'$ respectively. Hereby $A = a$ is the observed value of the sensitive attribute for this observation and $A = a'$ is the counterfactual value. In the case of binary PAs this simply means that the person switches group membership. This is relevant because for causal fairness we essentially ask what outcome would the person have had if they were in the other group.\\
+% \begin{definition}
+%     \textbf{Fair on Average Causal Effect (FACE).}  
+%     A decision function \( h \) is said to be fair, on average over all individuals in the population, with respect to \( A \), if  
+%     \[
+%     E[Y_i^{(a)} - Y_i^{(a')}] = 0.
+%     \]
+% \end{definition}
 
+% \begin{definition}
+%     \textbf{Fair on Average Causal Effect on the Treated (FACT).}
+%     A decision function \( h \) is said to be fair with respect to \( A \), on average over individuals with the same value of \( A \), if  
+%     \[
+%     E[Y_i^{(a)} - Y_i^{(a')} \mid A_i = a] = 0.
+%     \]
+% \end{definition}
+
+In words, FACE measure the difference between the true prediction and the counterfactual prediction for each data point and averages over these differences. However, in the most extreme case it could happen that $A = black$ were predicted as positive and their counterfactual parts $A = whitee'$ are predicted as negative - so there was a counterfactual switch in predictions. The switch works the other way around for the pairs of (actual white, counterfactual black). This has the consequence that all black individuals get a difference of 1 and all white ones a difference of -1. Taking the average this equalizes and hides the systematic bias.
+This cannot happen with the second definition as we here condition on each group. Averaging out of causal discrimination can theoretically only happen within a group but not between groups anymore. Observational data of course does not contain the information needed for the estimation of their fairness definitions. They use Probability Weighting to estimate FACE and matching to estimate FACT. We refer to \cite{Khademi2019FADMELC} for the details.\\
+To their own surprise, with FACT they find no racial discrimination against Black-Hispanic males, while FACE estimates that Black-Hispanic men are on average more likely to be arrested than white men.
 
 
 

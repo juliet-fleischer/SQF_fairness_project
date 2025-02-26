@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[130] biber-darwin:340> INFO - === Wed Feb 26, 2025, 10:27:36
-[159] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[318] Biber.pm:979> INFO - Found 19 citekeys in bib section 0
-[340] Biber.pm:4419> INFO - Processing section 0
-[358] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
-[370] bibtex.pm:1713> INFO - LaTeX decoding ...
-[522] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
-[842] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[842] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[842] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[842] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[889] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[930] bbl.pm:763> INFO - Output to thesis.bbl
-[930] Biber.pm:131> WARN - legacy month field 'sep' in entry 'Fabris_2022' is not an integer - this will probably not sort properly.
-[930] Biber.pm:133> INFO - WARNINGS: 1
+[123] biber-darwin:340> INFO - === Wed Feb 26, 2025, 13:31:10
+[149] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[307] Biber.pm:979> INFO - Found 21 citekeys in bib section 0
+[329] Biber.pm:4419> INFO - Processing section 0
+[345] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
+[357] bibtex.pm:1713> INFO - LaTeX decoding ...
+[502] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
+[838] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[838] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[838] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[838] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[879] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[911] bbl.pm:763> INFO - Output to thesis.bbl
+[912] Biber.pm:131> WARN - legacy month field 'sep' in entry 'Fabris_2022' is not an integer - this will probably not sort properly.
+[912] Biber.pm:133> INFO - WARNINGS: 1

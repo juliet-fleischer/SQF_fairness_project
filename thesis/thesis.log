@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  26 FEB 2025 10:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  26 FEB 2025 13:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1047,7 +1047,7 @@ Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 90.
 Package biblatex Info: Reference segment=0 on input line 90.
-<../figures/sigillum.png, id=68, 2946.00626pt x 2991.175pt>
+<../figures/sigillum.png, id=64, 2946.00626pt x 2991.175pt>
 File: ../figures/sigillum.png Graphic file (type png)
 <use ../figures/sigillum.png>
 Package pdftex.def Info: ../figures/sigillum.png  used on input line 126.
@@ -1067,33 +1067,49 @@ File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 \openout5 = `thesis.toc'.
 
  [2] (./chapters/intro.tex) (./chapters/related_work.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--2
+
+ []
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2 
-     [1]) (./chapters/fairness_metrics.tex [2] [3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4]
+l.4 
+     [1]) (./chapters/fairness_metrics.tex [2] [3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 76.
+(caption)                particular \caption on input line 70.
 See the caption package documentation for explanation.
 
-[5] [6] [7]) (./chapters/fairness_methods.tex
-<../figures/bias_loop.png, id=203, 567.11874pt x 324.21124pt>
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
+
+ []
+
+[5] [6]) (./chapters/fairness_methods.tex [7]
+<../figures/bias_loop.png, id=204, 567.11874pt x 324.21124pt>
 File: ../figures/bias_loop.png Graphic file (type png)
 <use ../figures/bias_loop.png>
-Package pdftex.def Info: ../figures/bias_loop.png  used on input line 18.
+Package pdftex.def Info: ../figures/bias_loop.png  used on input line 19.
 (pdftex.def)             Requested size: 318.66946pt x 182.18039pt.
-) (./chapters/sqf_case_study_2.tex [8]
-<../figures/sqf_case_study_plot14.png, id=221, 722.7pt x 433.62pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--29
+
+ []
+
+[8 <../figures/bias_loop.png>]) (./chapters/sqf_case_study_2.tex
+<../figures/sqf_case_study_plot14.png, id=222, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot14.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot14.png>
 Package pdftex.def Info: ../figures/sqf_case_study_plot14.png  used on input line 29.
 (pdftex.def)             Requested size: 227.62204pt x 136.57117pt.
- [9 <../figures/bias_loop.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 34--37
 
  []
 
+[9]
 <../figures/sqf_case_study_plot6.png, id=233, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot6.png Graphic file (type png)
 <use ../figures/sqf_case_study_plot6.png>
@@ -1245,34 +1261,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--109
 
  []
 
-[17]) (./chapters/limitations.tex [18]) [19] (./thesis.lof)
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 119--128
+
+ []
+
+[18]) (./chapters/limitations.tex [19]) [20] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [20] (./thesis.lot)
+ [21] (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [21] [22] [5] [6] [7] (./thesis.aux)
+ [22] [23] [5] [6] [7] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8F525C52271ACE6CABFCC9719E90FB11;2821.
+(rerunfilecheck)             Checksum: 54ECD85C2C68D7C36C63EF794FDDF9A0;2647.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31699 strings out of 476025
- 600398 string characters out of 5790017
- 1864388 words of memory out of 5000000
- 51589 multiletter control sequences out of 15000+600000
+ 31713 strings out of 476025
+ 600784 string characters out of 5790017
+ 1866388 words of memory out of 5000000
+ 51599 multiletter control sequences out of 15000+600000
  528348 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1971b,1630s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (28 pages, 1099044 bytes).
+ 75i,13n,79p,1971b,1632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (29 pages, 1119236 bytes).
 PDF statistics:
- 493 PDF objects out of 1000 (max. 8388607)
- 415 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 513 PDF objects out of 1000 (max. 8388607)
+ 430 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
