@@ -7,7 +7,8 @@ Fairness metrics can be classified in the following ways.
 \end{enumerate}
 
 Broadly speaking, group fairness aims to create equality between groups and individual fairness aims to create equality between two individuals within a group. Group membership is encoded by the PA. Observational fairness metrics act descriptive and use the observed distribution of random variables characterizing the population of interest to assess fairness while causality-based criteria make assumptions about the causal structure of the data and base their notion of fairness on these structures.
-On the basis of these fundamental ideas, a plethora of formalizations have emerged. Most of them concern themselves with defining fairness for a binary classification task and one binary PA. For this work, we will also stay within this setting. For the subsequent sections let $Y \in \{0, 1\}$ be the true label, $\hat{Y} \in \{0, 1\}$ be the prediction label, $S \in [0,1]$ bet the prediction score, $A \in \{0, 1\}$ be the sensitive attribute and $X \in \mathcal{X}$ encode the non-sensitive attributes.
+On the basis of these fundamental ideas, a plethora of formalizations have emerged. Most of them concern themselves with defining fairness for a binary classification task and one binary PA. For this work, we will also stay within this setting.\\
+For the subsequent sections let $Y \in \{0, 1\}$ be the true label, $\hat{Y} \in \{0, 1\}$ be the prediction label, $S \in [0,1]$ bet the prediction score, $A \in \{0, 1\}$ be the sensitive attribute and $X \in \mathcal{X}$ encode the non-sensitive attributes.
 
 \subsection{Group fairness}
 \begin{table}
@@ -108,13 +109,13 @@ A problem blinding has been proxies. These are variables that are strongly corre
 For SQF this would mean that we remove the race attribute during training.
 A person's ethnicity, however, is strongly correlated with their place of residence. Thus, indirect discrimination based on ethnicity remains, even though the information was not directly available during training. \textbf{Suppression} extends the idea of blinding and the goal is to develop a model that is blind to not only the sensitive attribute but also the proxies. The drawback is, that it is unclear when a feature is sufficiently high correlated with the sensitive attribute to be counted as proxy. Additionally, we could lose important information by removing too many features \cite{castelnovo2022}.
 
-\subsection{Causality-based fairness metrics}
-In contrast to observational fairness metrics, causality-based notions ask whether the sensitive attribute was the \textit{reason} for the decision. If a certain (harmful) decision was made \textit{because of} the value of the sensitive attribute of a person, we deem the algorithm as unfair.
-% There are causality-based concepts that focus on group-level fairness and also some that focus on individual-level fairness. We want to give an intoduction to all of them, but since this category requires a new theory we will not get into great detail.
+% \subsection{Causality-based fairness metrics}
+% In contrast to observational fairness metrics, causality-based notions ask whether the sensitive attribute was the \textit{reason} for the decision. If a certain (harmful) decision was made \textit{because of} the value of the sensitive attribute of a person, we deem the algorithm as unfair.
+% % There are causality-based concepts that focus on group-level fairness and also some that focus on individual-level fairness. We want to give an intoduction to all of them, but since this category requires a new theory we will not get into great detail.
 
-\textbf{Group-level}: FACE, FACT (on average or on conditional average level) \parencite{Zafar2017PPNFC}\\
-\textbf{Individual-level}: counterfactual fairness, path-based fairness \parencite{kusner} 
-The two most common individual fairness metrics are counterfactual fairness and path-based fairness.
+% \textbf{Group-level}: FACE, FACT (on average or on conditional average level) \parencite{Zafar2017PPNFC}\\
+% \textbf{Individual-level}: counterfactual fairness, path-based fairness \parencite{kusner} 
+% The two most common individual fairness metrics are counterfactual fairness and path-based fairness.
 
 
 \subsubsection*{Comparison and Summary}

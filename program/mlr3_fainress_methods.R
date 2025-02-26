@@ -1,7 +1,15 @@
 set.seed(024)
+
 theme_set(
-  theme_minimal()
+  theme_minimal(base_size = 30) +  # Increase the base size (default is 11)
+    theme(legend.position = "top",
+          plot.title = element_blank(),
+          # plot.margin = unit(c(1, 1, 1, 1), "cm"),
+          # panel.grid.major.x = element_blank(),
+          panel.grid.minor = element_blank()
+    )
 )
+
 # 1. Fairness metrics ----
 ## punitive base measures ----
 base_mrs_punitive <- list(
@@ -82,16 +90,18 @@ preds_ex_ante_2023_dt |>
           truth_arrested = mean(truth == "N"))
 
 p1_rf <- fairness_prediction_density(preds_ex_ante_2023, task = task_arrest_ex_ante) +
-  xlim(0, 1) +
-  theme(legend.position = "bottom")
+  xlim(0, 1)
+
+
 p2_rf <- compare_metrics(preds_ex_ante_2023,
-                         msrs(c("fairness.acc", "fairness.eod", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
+                         msrs(c("fairness.acc", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
                       task = task_arrest_ex_ante) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 res1 <- calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023)
 res2 <- calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023)
 res3 <- calcGroupwiseMetrics(base_mrs_other, task_arrest_ex_ante, preds_ex_ante_2023)
+res_all <- cbind(res1, res2, res3)
 
 res_all <- do.call(rbind, lapply(list(res1, res2, res3), formatResultTable))
 
@@ -118,7 +128,12 @@ bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
 p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.tpr"),
                            accuracy_measure = msr("classif.ce")) +
-  scale_color_viridis_d("Learner")
+  scale_color_viridis_d("Learner") +
+  theme(legend.position = "right") +
+  geom_point(size = 4) +
+  theme_minimal(base_size = 26)
+
+
 
 # # distribution of Y | A
 # ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +

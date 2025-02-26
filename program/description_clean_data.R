@@ -1,5 +1,11 @@
 theme_set(
-  theme_minimal()
+  theme_minimal(base_size = 30) +  # Increase the base size (default is 11)
+    theme(legend.position = "top",
+          plot.title = element_blank(),
+          # plot.margin = unit(c(1, 1, 1, 1), "cm"),
+          # panel.grid.major.x = element_blank(),
+          panel.grid.minor = element_blank()
+    )
 )
 
 
@@ -52,7 +58,7 @@ p6 <- data2023 |>
   mutate(prop = n / sum(n)) |> 
   ggplot(aes(x = SUSPECT_RACE_DESCRIPTION, y = prop)) +
   geom_col() +
-  xlab("Sop, Question, Frisk data 2023") + # add percentage y legend
+  xlab("Stop, Question, and Frisk data 2023") +
   scale_y_continuous(labels = scales::percent)
 
 p7 <- target_pop |> 
@@ -62,7 +68,7 @@ p7 <- target_pop |>
   mutate(prop = count / sum(count)) |>
   ggplot(aes(x = group, y = prop)) +
   geom_col() +
-  xlab("census 2020") +
+  xlab("Census 2020") +
   scale_y_continuous(labels = scales::percent)
 # put p6 and p7 underneath each other
 p8 <- p6 / p7
@@ -119,19 +125,22 @@ target_pop_total$crime_rate <- (target_pop_total$crime_count / target_pop_total$
 
 p17 <- ggplot(target_pop_total, aes(x = borough, y = crime_rate)) +
   geom_col() +
-  xlab("") +
-  ylab("Crime rate per 100,000 citizens")
+  xlab("Estimated crime rate") +
+  ylab("rate/100,000")
 
 # proportion of stops by borough
-p18 <- data2023 |> 
+p18 <- data2023 |>
+  mutate(STOP_LOCATION_BORO_NAME = factor(STOP_LOCATION_BORO_NAME,
+                                          levels = c("BRONX", "BROOKLYN", "MANHATTAN", "QUEENS", "STATEN ISLAND"),
+                                          labels = c("Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"))) |> 
   group_by(STOP_LOCATION_BORO_NAME) |> 
   reframe(n = n()) |> 
   ungroup() |> 
   mutate(prop = n / sum(n)) |>
   ggplot(aes(x = STOP_LOCATION_BORO_NAME, y = prop)) +
   geom_col() +
-  xlab("") +
-  ylab("Proportion of stops") +
+  xlab("Stop, Question, and Frisk data 2023") +
+  ylab("prop") +
   scale_y_continuous(labels = scales::percent)
 
 # combine thee plots p5, p17, p18
