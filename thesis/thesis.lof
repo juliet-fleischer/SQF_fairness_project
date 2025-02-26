@@ -1,6 +1,7 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces The bias loop.\relax }}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of race distribution in the training and target population.\relax }}{10}{figure.caption.13}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Estimated borough-wise crime rates (top) versus the proportion of stops in each borough (bottom).\relax }}{10}{figure.caption.14}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Density of predicted probabilities for both groups.\relax }}{11}{figure.caption.15}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Another relevant plot.\relax }}{11}{figure.caption.15}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Selection bias in the SQF data.\relax }}{14}{figure.caption.19}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Estimated borough-wise crime rates (top) versus the proportion of stops in each borough (bottom).\relax }}{10}{figure.caption.12}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of race distribution in the training and target population.\relax }}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Fairness metrics for the fairness adjusted random forest classifier.\relax }}{12}{figure.caption.14}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Density of predicted probabilities for both groups.\relax }}{12}{figure.caption.15}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Another relevant plot.\relax }}{12}{figure.caption.15}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Selection bias in the SQF data.\relax }}{16}{figure.caption.19}%

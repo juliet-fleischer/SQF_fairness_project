@@ -2,7 +2,7 @@
 After introducing the theoretical tools for assessing fairness, we turn to a case study on the stop-and-frisk practice in NYC. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 During the stop the officer is allowed to frisk a person (pat-down the person's outer clothing) or search them more carefully.
 The stop can result in a summon, an arrest or no further consequences. After a stop was made, the officer is required to fill out a form, documenting the stop. This data is published yearly by the NYPD.
-As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. 2013 the stop-and-frisk practice during 2004 to 2012 has been deemed as unconstitutional, violating the fourth and fourteenth amendment {\color{red} Source}
+As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. In 2013 how the stop-and-frisk practice was being implemented during 2004 to 2012 in NYC was deemed unconstitutional, violating the fourth and fourteenth amendment {\color{red} Source}
 
 \subsection{Data description}
 For our analysis we look at the stops from 2023 as they were the most recent at the time of writing this paper. The raw 2023 dataset consists of 16971 observations and 82 variables. We first discarded all the variables that have more than 20\% missing values, which leaves 34 variables.
@@ -117,7 +117,7 @@ We choose data from 2011 as it is the year with the most stops. We carry out the
 The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 2023 data, where 31\% of stops resulted in an arrest.\\
 In the data, the differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group.
 Due to the low prevalence in the population, a classifier trained on 2011 data primarily suffers from the highly skewed distribution of arrests. In terms of fairness, it performs similar to the 2023 classifier.
-So somehow the picture is confusing. A classifier trained on SQF data from recent years seems to be fair, and a classifier trained on data from the unconstitutional period is even fairer. In the following we examine alternative approaches to fairness in SQF to find possible a explanation.
+So somehow the picture is confusing. A classifier trained on SQF data from recent years seems to be fair, and a classifier trained on data from the unconstitutional period is even fairer. In the following we examine alternative approaches to fairness in SQF to find possible explanation.
 
 % Due to the large proportion of low-risk stops in 2011 the predicted probabilities are generally low. In fact, the predicted probabilities for the positive class are generally so low that the classifier rarely predicts the positive class for any person, regardless of group membership.
 % A classifier trained on 2011 data primarily suffers from the highly skewed distribution of arrests. A reweighing technique would first need to establish more balance in the target before any fairness analysis becomes relevant.

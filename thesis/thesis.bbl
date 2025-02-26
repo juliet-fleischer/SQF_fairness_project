@@ -841,6 +841,65 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/mehrabi2022/Mehrabi et al. - 2022 - A Survey on Bias and Fairness in Machine Learning.pdf
       \endverb
     \endentry
+    \entry{mlr3_book}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c2fc2334f775f39d53c050871c587dc4}{%
+           family={Pfisterer},
+           familyi={P\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=c5695b464b6059e7047553d017275f65}{%
+           family={Bischl},
+           familyi={B\bibinitperiod},
+           given={Bernd},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2db4d382d99a2d9177badfb9a18d85d5}{%
+           family={Sonabend},
+           familyi={S\bibinitperiod},
+           given={Raphael},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d989545591ff0b2bb124972c34d7811b}{%
+           family={Kotthoff},
+           familyi={K\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+        {{hash=081c44d48de07decc0eb61e6b652e349}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{fullhash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{bibnamehash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{authorbibnamehash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{authornamehash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{authorfullhash}{c2fc2334f775f39d53c050871c587dc4}
+      \strng{editorbibnamehash}{57c73c265eb28377149f924698b3a3da}
+      \strng{editornamehash}{57c73c265eb28377149f924698b3a3da}
+      \strng{editorfullhash}{8f4d0e3482183e3314fc1c8797341c1d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Applied Machine Learning Using {m}lr3 in {R}}
+      \field{title}{Algorithmic Fairness}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://mlr3book.mlr-org.com/algorithmic_fairness.html
+      \endverb
+      \verb{url}
+      \verb https://mlr3book.mlr-org.com/algorithmic_fairness.html
+      \endverb
+    \endentry
     \entry{RambachanBBOEFW}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=85edb53244c29c17ce57830271014b46}{%

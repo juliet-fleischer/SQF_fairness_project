@@ -1,11 +1,17 @@
 
 More concrete limitations and what future work could adress. Be as conrete as possible.
+Limitations of our own case study:
+- we followed principle of \cite{Badr2022DTFANSP} ans just as them did not find any unfairness; taking the findings from a classifier trained to predict arrest and make conclusions about the fairness of SQF practice as a whole is a big jump.
+- we only trained on 2023 or 2011 data separately but did not take years together; other studies took multiple years; due too limited resources had to keep computation time low
+
+Interesting to explore from here:
+
 
 In conclusion, the questions of fairness for SQF is difficult.
 Before any fairness intervention, we have to formulate a clear fairness question. It is something entirely different to ask if the stop, question, and frisk practice (as a whole) is fair or whether a classifier to predict the arrest of a person trained on SQF data is fair? Or whether a classifier trained to predict the possession of a weapon trained on SQF data is fair?
 The exact question we formulate leads us to look at different aspects of the data. In this paper we got a first idea of the answer to the first questions by comparing certain characteristics of the SQF population to the population of NYC as a whole (descriptive analysis) and find that the two populations do differ. But does it make sense to want the SQF sample be representative for whole NYC or does it not make more sense to want it to be representative of the population of criminals in NYC?
 Here we see a closer match in racial distributions. This, however, is by far not enough to claim the fairness of the police practice. Crime statistics have to be read with caution. They are influenced by many factors, including the amount of police in a certain area, the socio-economic status of the population and the trust in the police. Historical discrimination leads to lower socio-economic, lower socio-economic status comes with higher crime rates, higher crime rates lead to more police in the area, more police in the area lead to more reported crime. Crime statistics are embedded in a broad context and do not necesarily reflect objective inherent truths but our social and economic system.
-We can cite \cite{goel2016} who approach the question in a more wholeistic way, account for complex factors and come to the conclusion that SQF is over-targetting PoC.
+We can cite \cite{goel2016} who approach the question in a more wholistic way, account for complex factors and come to the conclusion that SQF is over-targetting PoC.
 As we saw in our own case study and \cite{Badr2022DTFANSP} also find, is that this does not mean a classifier trained on SQF data violates group fairness. Depending on the task some classifiers might perform better on the historically disadvantaged group while others in fact discriminate against them.
 With this study we do not claim to give the answer to fairness in SQF but the goal was to show the readers the complexity of the situation/ give critical perspective/ show different approaches to fairness in SQF. As many datasets, this one comes with a great backstory (socio-economic context, historical biases) and problems (group imbalance, ...) and all of this is entangled. We should be aware of this otherwise it might misinterpretation of results.
 
