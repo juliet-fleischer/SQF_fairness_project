@@ -1,4 +1,4 @@
-\subsubsection*{Fairness methods}
+\subsection{Fairness methods}
 Another question fair machine learning deals with is how algorithms can be adjusted so that they fulfil one of the above fairness metrics.
 Depending on when they take place in the machine learning pipeline, we distinguish between
 \begin{enumerate}
@@ -13,7 +13,7 @@ Depending on the task (regression, classification) and the model there are highl
 % mlr3fairness currently has two preprocessing methods, one postprocessing method and several fairness adjusted models implemented. We decide to use a reweighing methods that works with assigning weights to the observations to equalise the distribution of $P(Y|PA)$.
 % The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
 
-\subsubsection*{Bias and the feedback loop}
+\subsection{Bias and the feedback loop}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
