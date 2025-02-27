@@ -4,7 +4,7 @@ setDT(sqf)
 n <- nrow(sqf)
 sqf[sqf == "(null)"] <- NA
 
-### --- Missing data analysis --- ###
+## Missing data ----
 # count the missing values in each column
 na.count <- apply(sqf, 2, function(x) sum(is.na(x))) / nrow(sqf)
 na.count.df <- as.data.frame(na.count)
@@ -19,32 +19,13 @@ row_missing <- rowSums(is.na(sqf))
 # Summarize rows with different numbers of missing values
 table(row_missing)
 
-
 enough.data.cols <- names(which(na.count <= 0.2))
 cols.to.keep <- sqf[, names(sqf) %in% enough.data.cols]
 sqf <- sqf[, ..cols.to.keep]
 
+## Variables ----
 targets <- c("SUSPECT_ARRESTED_FLAG", "SEARCHED_FLAG", "FRISKED_FLAG", "SUMMONS_ISSUED_FLAG")
 protected.a <- c("SUSPECT_SEX", "SUSPECT_RACE_DESCRIPTION")
-
-# remove all officer columns
-# pattern.officer <- "[:alpha:]*_OFFICER_[:alpha:]*"
-# officer.cols <- grep(pattern.officer, names(sqf))
-# sqf[, (officer.cols) := NULL]
-# # remove all location columns except STOP_LOCATION_BORO_NAME
-# pattern.location <- "[:alpha:]*_LOCATION_[:alpha:]*"
-# location.cols <- grep(pattern.location, names(sqf))
-# sqf[, (location.cols[-length(location.cols)]) := NULL]
-# remove all columns that start with PHYSICAL_FORCE
-# pattern.force <- "PHYSICAL_FORCE[:alpha:]*"
-# force.cols <- grep(pattern.force, names(sqf))
-# sqf[, (force.cols) := NULL]
-# remove all columns relted to summons
-# pattern.summons <- "SUMMONS[:alpha:]*"
-# summons.cols <- grep(pattern.summons, names(sqf))
-# sqf[, (summons.cols) := NULL]
-# remove all columns without specifc pattern
-
 
 sqf$YEAR2 <- NULL
 sqf$STOP_FRISK_DATE <- NULL
@@ -70,8 +51,6 @@ sqf <- sqf |>
 # 12 - 18: PM
 # 18 - 22: evening
 # 22 - 6 : night
-
-# bin time
 sqf$STOP_FRISK_TIME <- cut(
   sqf$STOP_FRISK_TIME,
   breaks = c(0, 6, 12, 18, 24),
@@ -90,12 +69,6 @@ col.names <- names(sqf)[-c(1,2)]
 sqf[, (col.names) := lapply(.SD, function(x) {
   if (all(is.na(x) | grepl("[[:digit:]]+", x))) as.numeric(x) else x
 }), .SDcols = col.names]
-
-
-# convert all potential target columns to numeric
-# sqf[ , (targets) := lapply(.SD,function(x) { ifelse(x == "Y", 1, 0)}), .SDcols = targets]
-# convert sex to numeric 0 = female, 1 = male
-# sqf[, SUSPECT_SEX := ifelse(SUSPECT_SEX == "FEMALE", 0, 1)]
 
 # convert all remaining character columns to factor
 char.cols <- which(sapply(sqf, is.character))
@@ -118,12 +91,6 @@ sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
                                        levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
                                                   "WHITE", "ASIAN / PACIFIC ISLANDER", "OTHER"),
                          labels = c("Black", "Hispanic", "Black", "White", "Asian", "Other"))
-# 
-# sqf$SUSPECT_RACE_DESCRIPTION <- factor(sqf$SUSPECT_RACE_DESCRIPTION,
-#                                        levels = c("BLACK", "WHITE HISPANIC", "BLACK HISPANIC",
-#                                                   "WHITE","ASIAN / PACIFIC ISLANDER",
-#                                                   "MIDDLE EASTERN/SOUTHWEST ASIAN",
-#                                                   "AMERICAN INDIAN/ALASKAN NATIVE"))
 
 
 # remove levels that are very rare
@@ -138,12 +105,12 @@ complete_cases <- sqf[complete.cases(sqf), ]
 unprivileged <- c("Black", "Hispanic", "Black")
 complete_cases$PA_GROUP <- ifelse(complete_cases$SUSPECT_RACE_DESCRIPTION %in% unprivileged, "POC", "White")
 complete_cases$PA_GROUP <- factor(complete_cases$PA_GROUP)
-# complete_cases$SUSPECT_RACE_DESCRIPTION <- NULL
 
 
 # 2011 data ----
 data2011 <- fread("data/2011.csv")
 
+## Missing data ----
 # convert all empty entries "" into NA
 data2011[data2011 == ""] <- NA
 
@@ -151,6 +118,7 @@ na.count <- colSums(is.na(data2011))
 na.cols <- which(na.count/ nrow(data2011) > 0.2)
 data2011 <- data2011[, -..na.cols]
 
+## Variables ----
 # convert all columns of type "character" to factor with data.table
 char.cols <- sapply(data2011, is.character)
 data2011[, (names(char.cols)[char.cols]) := lapply(.SD, as.factor), .SDcols = names(char.cols)[char.cols]]
@@ -179,7 +147,6 @@ complete_cases_2011$datestop <- NULL
 complete_cases_2011$datestop_char <- NULL
 
 # create proper time column
-# Ensure `timestop` is properly formatted as a 4-digit character string
 complete_cases_2011[, timestop_char := sprintf("%04d", timestop)]
 
 # Extract hours and minutes as numeric values
@@ -203,4 +170,19 @@ complete_cases_2011$race <- factor(complete_cases_2011$race, levels = c("B", "Q"
 complete_cases_2011$pa_group <- ifelse(complete_cases_2011$race %in% c("Black", "Hispanic"), "POC", "White")
 complete_cases_2011$pa_group <- factor(complete_cases_2011$pa_group)
 
+# Target population ----
+# The data is from NYC Population FactFinder: https://popfactfinder.planning.nyc.gov/#11.67/40.7198/-73.9515
+target_pop <- lapply(1:5, \(i) assign(paste0("data_", i), read_xlsx("data/target_pop_data.xlsx", sheet = i)))
+names(target_pop) <- c("Brooklyn", "Manhattan", "Bronx", "Queens", "Staten Island")
+# for each tibble in target_pop select only the first three columns
+target_pop <- lapply(target_pop, \(x) select(x, 1:2))
+# rename the columns for each tibble
+target_pop <- lapply(target_pop, function(x) {
+  colnames(x) <- c("group", "count")
+  x$count <- as.numeric(gsub(",", "", x$count)) 
+  return(x)
+})
+# bind everything together to one data frame
+target_pop <- do.call(rbind, lapply(names(target_pop), \(x) cbind(target_pop[[x]], borough = x)))
+target_pop$count <- as.integer(gsub("\\.", "", target_pop$count))
 

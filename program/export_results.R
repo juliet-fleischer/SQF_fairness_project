@@ -29,9 +29,10 @@ ggsave("figures/sqf_case_study_plot14.pdf", p19, width = 10, height = 8, units =
 # 3. models and data ----
 saveRDS(complete_cases, file = "data/data2023.rds")
 saveRDS(complete_cases_2011, file = "data/data2011.rds")
-saveRDS(lrn_rf_2011, file = "program/trained_rf_2011.rds")
-saveRDS(lrn_rf_2023, file = "program/trained_rf_2023.rds")
-saveRDS(bmr, "program/bmr_results.rds")
+saveRDS(target_pop, file = "data/target_pop_clean.rds")
+saveRDS(lrn_rf_2011, file = "data/trained_rf_2011.rds")
+saveRDS(lrn_rf_2023, file = "data/trained_rf_2023.rds")
+saveRDS(bmr, "data/bmr_results.rds")
 
 
 
