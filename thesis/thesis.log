@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  26 FEB 2025 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 FEB 2025 00:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -619,16 +619,6 @@ Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)) (./shortcuts.tex (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup5
-\symboldletters=\mathgroup6
-\symboldsymbols=\mathgroup7
-Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
-Package bm Info: No bold for \OMX/yhex/m/n, using \pmb.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/dsfont.sty
-Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip70
@@ -666,7 +656,17 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count368
 \@lastruleclass=\count369
 \@thisrulewidth=\dimen309
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
+) (./shortcuts.tex (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup5
+\symboldletters=\mathgroup6
+\symboldsymbols=\mathgroup7
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \OMX/yhex/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -932,7 +932,7 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip117
 \f@nch@O@orf=\skip118
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 76.
+Package hyperref Info: Option `colorlinks' set `true' on input line 78.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 )
@@ -941,24 +941,24 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
  (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count501
@@ -990,7 +990,7 @@ Package caption Info: End \AtBeginDocument code.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/ninecolors/ninecolors.sty
 Package: ninecolors 2022-02-13 vv2022D Select colors with proper color contrast
 )
-Package hyperref Info: Link coloring ON on input line 90.
+Package hyperref Info: Link coloring ON on input line 92.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -1045,12 +1045,12 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 90.
-Package biblatex Info: Reference segment=0 on input line 90.
-<../figures/sigillum.png, id=60, 2946.00626pt x 2991.175pt>
+Package biblatex Info: Reference section=0 on input line 92.
+Package biblatex Info: Reference segment=0 on input line 92.
+<../figures/sigillum.png, id=64, 2946.00626pt x 2991.175pt>
 File: ../figures/sigillum.png Graphic file (type png)
 <use ../figures/sigillum.png>
-Package pdftex.def Info: ../figures/sigillum.png  used on input line 126.
+Package pdftex.def Info: ../figures/sigillum.png  used on input line 128.
 (pdftex.def)             Requested size: 182.09485pt x 184.84846pt.
  [1
 
@@ -1075,229 +1075,245 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--2
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.4 
-     [1]) (./chapters/fairness_metrics.tex [2] [3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+l.2 
+     [1]) (./chapters/fairness_metrics.tex [2]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 71.
+(caption)                particular \caption on input line 49.
 See the caption package documentation for explanation.
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 77--79
+[3]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 80.
+See the caption package documentation for explanation.
+
+[4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
 
 [5] [6]) (./chapters/fairness_methods.tex [7]
-<../figures/bias_loop.png, id=198, 567.11874pt x 324.21124pt>
+<../figures/bias_loop.png, id=206, 567.11874pt x 324.21124pt>
 File: ../figures/bias_loop.png Graphic file (type png)
 <use ../figures/bias_loop.png>
-Package pdftex.def Info: ../figures/bias_loop.png  used on input line 19.
+Package pdftex.def Info: ../figures/bias_loop.png  used on input line 26.
 (pdftex.def)             Requested size: 318.66946pt x 182.18039pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--29
-
- []
-
-) (./chapters/sqf_case_study_2.tex [8 <../figures/bias_loop.png>]
-<../figures/sqf_case_study_plot6.pdf, id=213, 722.7pt x 578.16pt>
+) (./chapters/sqf_case_study_2.tex [8]
+<../figures/sqf_case_study_plot6.pdf, id=218, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot6.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot6.pdf>
-Package pdftex.def Info: ../figures/sqf_case_study_plot6.pdf  used on input line 32.
+Package pdftex.def Info: ../figures/sqf_case_study_plot6.pdf  used on input line 34.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
-<../figures/sqf_case_study_plot14.pdf, id=214, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot14.pdf, id=219, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot14.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot14.pdf>
-Package pdftex.def Info: ../figures/sqf_case_study_plot14.pdf  used on input line 37.
+Package pdftex.def Info: ../figures/sqf_case_study_plot14.pdf  used on input line 39.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--46
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+
+ []
+
+[9 <../figures/bias_loop.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 49--52
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
+Underfull \hbox (badness 10000) in paragraph at lines 54--57
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 52--55
-
- []
-
-<../figures/sqf_case_study_plot3.pdf, id=229, 722.7pt x 433.62pt>
+[10 <../figures/sqf_case_study_plot6.pdf> <../figures/sqf_case_study_plot14.pdf>]
+<../figures/sqf_case_study_plot3.pdf, id=251, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot3.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot3.pdf>
-Package pdftex.def Info: ../figures/sqf_case_study_plot3.pdf  used on input line 65.
+Package pdftex.def Info: ../figures/sqf_case_study_plot3.pdf  used on input line 67.
 (pdftex.def)             Requested size: 318.66946pt x 191.20361pt.
-[10 <../figures/sqf_case_study_plot6.pdf> <../figures/sqf_case_study_plot14.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 70--76
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--78
 
  []
 
 [11 <../figures/sqf_case_study_plot3.pdf>]
-<../figures/sqf_case_study_plot1.pdf, id=263, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot1.pdf, id=268, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot1.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot1.pdf>
-Package pdftex.def Info: ../figures/sqf_case_study_plot1.pdf  used on input line 81.
+Package pdftex.def Info: ../figures/sqf_case_study_plot1.pdf  used on input line 83.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
-<../figures/sqf_case_study_plot2.pdf, id=264, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot2.pdf, id=269, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot2.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot2.pdf>
-Package pdftex.def Info: ../figures/sqf_case_study_plot2.pdf  used on input line 86.
+Package pdftex.def Info: ../figures/sqf_case_study_plot2.pdf  used on input line 88.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
- [12 <../figures/sqf_case_study_plot1.pdf> <../figures/sqf_case_study_plot2.pdf>]) (./chapters/sqf_papers.tex [13]
-Underfull \hbox (badness 4569) in paragraph at lines 22--23
-[]|\OT1/cmr/m/n/12 Kallus and Zhou
+ [12 <../figures/sqf_case_study_plot1.pdf> <../figures/sqf_case_study_plot2.pdf>]) (./chapters/sqf_papers.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+\OT1/cmr/m/n/12 in-no-cence (no
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 25--26
-[]|\OT1/cmr/m/n/12 Equal Op-por-tu-nity,
+[]|\OT1/cmr/m/n/12 Bias against
+ []
+
+
+Overfull \hbox (3.31055pt too wide) in paragraph at lines 27--28
+[]|\OT1/cmr/m/n/12 Rambachan
+ []
+
+
+Underfull \hbox (badness 7981) in paragraph at lines 27--28
+\OT1/cmr/m/n/12 and Roth
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
-[]|\OT1/cmr/m/n/12 Rambachan and
+[]|\OT1/cmr/m/n/12 Possession of
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 29--30
-[]|\OT1/cmr/m/n/12 Task 1: Pos-ses-sion of
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+\OT1/cmr/m/n/12 met-ric; eval-u-ate
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 31--32
-[]|\OT1/cmr/m/n/12 No ex-plicit fair-ness
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+[]|\OT1/cmr/m/n/12 Badr and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+\OT1/cmr/m/n/12 Sharma
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+[]|\OT1/cmr/m/n/12 Predict prob-a-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
-[]|\OT1/cmr/m/n/12 Logistic Re-gres-
+[]|\OT1/cmr/m/n/12 Balanced Ac-cu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-\OT1/cmr/m/n/12 sion, Ran-dom
+Underfull \hbox (badness 3942) in paragraph at lines 36--37
+\OT1/cmr/m/n/12 Dis-parate Im-pact,
  []
 
 
-Underfull \hbox (badness 7397) in paragraph at lines 36--37
-\OT1/cmr/m/n/12 For-est, XG-Boost,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-[]|\OT1/cmr/m/n/12 Balanced Ac-cu-racy,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-\OT1/cmr/m/n/12 Op-por-tu-nity, Dis-
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+[]|\OT1/cmr/m/n/12 Khademi
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 40--41
-[]|\OT1/cmr/m/n/12 Khademi et al.
+[]|\OT1/cmr/m/n/12 Predict prob-a-
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 41--42
+[]|\OT1/cmr/m/n/12 Weighted re-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
-[]|\OT1/cmr/m/n/12 Weighted re-gres-
+[]|\OT1/cmr/m/n/12 FACE causal
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 43--44
-\OT1/cmr/m/n/12 (group), FACT fair-
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+\OT1/cmr/m/n/12 fair-ness (group),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-[]|\OT1/cmr/m/n/12 Goel, Rao, and
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+\OT1/cmr/m/n/12 FACT fair-ness
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 43--44
+[]|\OT1/cmr/m/n/12 No group bias,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+\OT1/cmr/m/n/12 but in-di-vid-ual
+ []
+
+
+Underfull \hbox (badness 7595) in paragraph at lines 46--47
+[]|\OT1/cmr/m/n/12 Predict pos-ses-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
-[]|\OT1/cmr/m/n/12 Predict pos-ses-sion of
+[]|\OT1/cmr/m/n/12 (Penalized)
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 48--49
-[]|\OT1/cmr/m/n/12 (Penalized) Lo-gis-
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+[]|\OT1/cmr/m/n/12 Bias against
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 49--50
-[]|\OT1/cmr/m/n/12 No ex-plicit fair-ness
- []
-
-[14
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
-
+Underfull \hbox (badness 1383) in paragraph at lines 49--50
+\OT1/cmr/m/n/12 Black and His-
  []
 
 
-LaTeX Warning: Reference `fig:nyc_pop_crimerates_stops_comparison' on page 15 undefined on input line 69.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
-
+Overfull \hbox (5.49443pt too wide) in paragraph at lines 17--52
+ [][] 
  []
 
-<../figures/selection_bias.png, id=307, 362.35374pt x 147.55125pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../figures/selection_bias.png, id=299, 362.35374pt x 147.55125pt>
 File: ../figures/selection_bias.png Graphic file (type png)
 <use ../figures/selection_bias.png>
-Package pdftex.def Info: ../figures/selection_bias.png  used on input line 72.
+Package pdftex.def Info: ../figures/selection_bias.png  used on input line 63.
 (pdftex.def)             Requested size: 318.66946pt x 129.76443pt.
-[15
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 81--83
+LaTeX Warning: Reference `fig:nyc_pop_crimerates_stops_comparison' on page 13 undefined on input line 75.
 
- []
-
-[16 <../figures/selection_bias.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+[13] [14 <../figures/selection_bias.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
-
- []
-
-[17]) (./chapters/limitations.tex [18]) [19] (./thesis.lof)
+[15]) (./chapters/limitations.tex) [16] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [20] (./thesis.lot)
+ [17] (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [21] [22] [5] [6] [7] (./thesis.aux)
+ [18] [19] [5] [6] [7] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F50353D137AC6723EF46952D44780D46;2423.
+(rerunfilecheck)             Checksum: F239D8A969F28B5798E690DE60ED04E4;2533.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31692 strings out of 476025
- 600399 string characters out of 5790017
- 1866388 words of memory out of 5000000
- 51584 multiletter control sequences out of 15000+600000
+ 31679 strings out of 476025
+ 600303 string characters out of 5790017
+ 1871388 words of memory out of 5000000
+ 51577 multiletter control sequences out of 15000+600000
  528348 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,1971b,1672s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (28 pages, 640082 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (25 pages, 623616 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 495 PDF objects out of 1000 (max. 8388607)
+ 417 compressed objects within 5 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

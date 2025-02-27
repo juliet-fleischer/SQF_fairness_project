@@ -14,18 +14,19 @@ Depending on the task (regression, classification) and the model there are highl
 % The inprocessing method is a fairness-adjusted logistic regression implemented in mlr3fairness inspired by Zafar et. al. This method optimises for statistical parity (independence). The postprocessing method we choose aims for equalised odds and it works by randomly flipping a subset of predictions with pre-computed probabilities in order to satisfy equalised odds constraints.
 
 \subsection{Bias and the feedback loop}
+Before the application on real data, to introduce different types of biases and the context in which the ADM is embedded.
+Used to assist decision-making, the machine learning model influences if someone gets admitted to college, receives a loan or is released from prison.
+The circumstances of a decision are made measurable by collecting data. The algorithm learns from this data to make an optimal prediction, on which the decision-makers base their judgement on. This decision will shape the reality, which reflects in new data. This means the algorithm does not exist in isolation, but depends on the data and shapes the user's actions.\\ 
+\cite{mehrabi2022} call this the data, algorithm, and user interaction feedback loop. At each stage, bias can be introduced into the process. More dangerous, bias can even be amplified as the algorithm influences decision-making on a large scale.
+Consequently, every fairness project comes with the responsibility to understand the data-generating process and gain clarity on how the algorithm will be deployed in the real-world.\\
+The data, algorithm, and user interaction feedback loop also helps in distinguish between various types of bias. \autoref{fig:bias_loop} depicts one exemplary type of bias for each stage of the feedback loop. It can be crucial to think about which type of bias might be relevant in a given situation as this should influence the definition of fairness and the choice of fairness adjustments. This will also become evident as we examine the SQF dataset.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{../figures/bias_loop.png}
     \caption{The bias loop.}
     \label{fig:bias_loop}
 \end{figure}
-
-Before the application on real data, to introduce different types of biases and the context in which the ADM is embedded.
-Used to assist decision-making, the machine learning model influences if someone gets admitted to college, receives a loan or is released from prison. This means the algorithm does not exist in isolation, but is embedded in a loop with data and the user.\\
-The circumstances of a decision are made measurable by collecting data. The algorithm learns from this data to make an optimal prediction, on which the decision-makers base their judgement on \autoref{fig:bias_loop}. At each step of this loop, bias can be introduced in the process and, more dangerous, be amplified as the algorithm influences decision-making on a large scale.
-This means that every fairness project comes with the task to understand where the data comes from and how exactly the algorithm will be deployed in practice.\\
-Depending on at which station of the user, algorithm, feedback loop bias is introduced into the process, different types of bias can be distinguished. We refer to x for an extensive overview of the different types of bias. It can be crucial to think about which type of bias might be relevant in a given situation as this should influence the definition of fairness and the choice of fairness adjustments. This will also become clear in the context of SQF.\\
 
 % \subsection*{Bias}
 % We want to end this general introduction into fair machine learning by outlining the context in which the algorithm is usually embedded. On this note we also advice practitioners to think about the source of bias that could be present in your situation, as this \textit{should} influence how fairness is defined and what fairness adjustments are appropriate. This will motivate the potential difficulties that can arise when implementing fairness in the real world.

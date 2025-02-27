@@ -34,6 +34,22 @@ Conditional statistical parity is an extention of this as it allows to condition
 The other two categories of group fairness metrics can both be derived from the error matrix.
 
 \subsubsection*{Separation}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{\(Y = 0\)} & \textbf{\(Y = 1\)} \\
+        \hline
+        \(\hat{Y} = 0\) & TN & FN \\
+        \hline
+        \(\hat{Y} = 1\) & FP & TP \\
+        \hline
+    \end{tabular}
+    \captionof{table}{Confusion matrix with conditioned on the true label $Y$.}
+    \label{tab:confusion_matrix_1}
+\end{center}
+
 Separation requires independence between $\hat{Y}$ and $A$ conditioned on the true label $Y$. This means that the focus is on equal error rates between groups, which gives rise to the following list of fairness metrics:
 \begin{itemize}
     \item Equal opportunity requires the false negative rates, the ratio of actual positive people that were wrongly predicted as negative, is equal between groups $$P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$$
@@ -46,7 +62,25 @@ Separation requires independence between $\hat{Y}$ and $A$ conditioned on the tr
 In essence the group metrics outlined so far do nothing other than picking a performance metrics from the confusion matrix and requiring it to be equal between two (or more) groups in the population.
 This means that they come with trade-offs just as the usual performance metrics for classifiers do. Researchers have shown that if base rates differ between groups, it is mathematically impossible to equalize all desirable metrics simultaneously. See for more details on the so-called Impossibility Theorem.
 
+
+
 \subsubsection*{Sufficiency}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \(Y = 0\) & \(Y = 1\) \\
+        \hline
+        \textbf{\(\hat{Y} = 0\)} & TN & FN \\
+        \hline
+        \textbf{\(\hat{Y} = 1\)} & FP & TP \\
+        \hline
+    \end{tabular}
+    \captionof{table}{Confusion matrix with condition on the prediction $\hat{Y}$.}
+    \label{tab:confusion_matrix_2}
+\end{center}
+
 Sufficiency requires independence between $Y$ and $A$ conditioned on $\hat{Y}$. Intuitively this means that we want a prediction to be equally credible between groups. When a white person gets a positive prediction the probability that it is correct should be they same as for a black person. This leads to the following fairness metrics:
 \begin{itemize}
     \item Predictive parity/ outcome test requires that the probability of actually being positive, given a positive prediction is the same between groups. $$P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$$
@@ -58,41 +92,22 @@ Sufficiency requires independence between $Y$ and $A$ conditioned on $\hat{Y}$. 
 Just a for the \textit{Separation} metrics one can combine two of these  \textit{Sufficiency} metrics and require them to hold simultaneously to get a stricter requirement.
 While it is easy to get lost by the amount of fairness definitions in the beginning, taking a closer look, it becomes clear that they are constructed in a structured way. In fact, equal false omission rate and equal false discovery rate were not introduced in the paper \cite{verma2018} but are implemented in \texttt{mlr3fairness}, and evidently follow the same pattern as the other metrics.
 
-\begin{center}
-    \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
-    \begin{tabular}{c|c|c|}
-        \hline
-        & \(Y = 0\) & \(Y = 1\) \\
-        \hline
-        \(\hat{Y} = 0\) & TN & FN \\
-        \hline
-        \(\hat{Y} = 1\) & FP & TP \\
-    \end{tabular}
-    \captionof{table}{Confusion matrix}
-    \label{tab:confusion_matrix}
-\end{center}
-
 \subsubsection*{Score-based fairness metrics}
 Most (binary) classifiers work with predictions scores and a hard label classifier is applied only afterwards in form of a threshold criterion. It should therefore come as no surprise that instead of formulating fairness with $\hat{Y}$ there exist fairness metrics that use the score $S$, which typically represents the probability of belonging to the positive class. Instead of conditioning on $\hat{Y}$ as Separation metrics, we can simply condition on $S$ and define Calibration:
 $$P(Y = 1 | S = s, A = a) = P(Y = 1 | S = s, A = b)$$
-Calibration requires that the probability for actually being positive, given a score $s$ is the same between groups. So the idea is a more fine-grained version of predictive parity. As the score can usually take values from the whole real number line, this can in practice be implemented by binning the scores. See \cite{verma2018} for an example.\\
-
-
+Calibration requires that the probability for actually being positive, given a score $s$ is the same between groups. So the idea is a more fine-grained version of predictive parity. As the score can usually take values from the whole real number line, this can in practice be implemented by binning the scores. See \cite{verma2018} for an example.
 
 \subsubsection*{Choosing the right group metric}
-% summarizing comparison
-To compare the group fairness criteria, sufficiency takes the perspective of the decision-making instance, as usually only the prediction is known to them in the moment of decision. For example, the police, who do not yet know the true label at the time when they are supposed to decide whether someone would become a criminal.
-As separation criteria condition on the true label Y it is suitable when we can be sure that $Y$ is free from any bias, so to say when $Y$ was generated via an objectively true process (this will become clearer in the chapter on bias).
-Independence is best, when we want to enforce a form of equality between groups, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}. \\
+To compare the group fairness criteria, \textit{Sufficiency} takes the perspective of the decision-making instance, as usually only the prediction is known to them in the moment of decision. For example, the police, who do not yet know the true label at the time when they are supposed to decide whether someone would become a criminal.\\
+As \textit{Separation} criteria condition on the true label $Y$ it is suitable when we can be sure that $Y$ is free from any bias, meaning it was generated via an objectively true process. \\
+\textit{Independence} is best, when a form of equality between groups should be enforced, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}.\\
 
-
-Due to the wide range of group metrics alone there have been further studies to assist practitioners choose the right metric. One possibility is to distinguish between punitive and assistive tasks to help choose the right fairness metric. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, a focus on minimizing the false negative rate could be more relevant. This points to equal opportunity as suitable metric.
+Due to the abudance of group metrics alone there have been further studies to assist practitioners choose the right metric. One possibility is to distinguish between punitive and assistive tasks to help choose the right fairness metric. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, a focus on minimizing the false negative rate could be more relevant. This points to equal opportunity as suitable metric.
 In setting in which a positive prediction leads to a harmful outcome, as in the SQF setting, it often makes sense to focus on minimizing the false positive rate, while a higher false negative rate is accepted as a trade-off.
 There is dedicated work that assists in finding the right group fairness metric for a given situation and refer to for an in-depth analysis \cite{makhlouf2021}.
 
-
 \subsection{Individual fairness}
-Individual metrics shift the focus from comparison between groups to comparison within groups . The underlying idea of fairness is that similar individuals should be treated similarly.
+Individual metrics shift the focus from comparison \textit{between} groups to comparison \textit{within} groups. The underlying idea of fairness is that similar individuals should be treated similarly.
 
 \subsubsection*{Fairness through awareness (FTA)}
 FTA formalizes this idea as Lipschitz criterion. $$d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda {d_X}(x_i, x_j)$$
@@ -122,11 +137,11 @@ A person's ethnicity, however, is strongly correlated with their place of reside
 
 
 \subsubsection*{Comparison and Summary}
+Experts debate the incompatibility of group and individuals fairness.
+% Binns, R. On the apparent conflict between individual and group fairness. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 514–524 (2020).
 
-The observational metrics can also be differentiated by how much additional information of the features $X$ they allow into the definition of fairness.
-Traditional group metrics like demographic parity, equal error rate metrics and sufficiency metrics only work with the distribution of $Y, \hat{Y}, X, A$. The individual fairness metrics take more information of the non-sensitive feature into account in order to define similarity. Metrics such as conditional demographic parity lie in between, as we allow for a relevant subset of non-sensitive feature to be part of the definition \cite{castelnovo2022}.\\
-While most group metrics are already implemented in one form or the other in software packages, causal notions of fairness require more advanced estimation methods and often involve graphical models. For our case study in chapter 3, we will focus on the group fairness metrics.\\
-The amount of approaches to measure fairness shows the complexity of the topic. There is not \textit{the} right fairness metric to choose, but there can be the best one depending on the context and the data.
+It is out of the scope of this paper to debate this topic, and we simply point out that the clear line we sharp between group and individuals metrics gets softer as a group metric like demographic parity does not only take the joint distribution of $Y, \hat{Y}, A$ into account but allows for information of non-sensitive features to seep into the fairness assessment \cite{castelnovo2022}.\\
+Group metrics are certainly easier to understand and apply as most of them are implemented in fairness software packages. This is also a reason for why we will focus on group metrics in our case study in chapter 3.
 
 
 

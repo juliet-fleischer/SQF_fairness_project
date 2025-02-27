@@ -1,12 +1,14 @@
 % \subsection*{Fairness Experiment: Stop, Question, and Frisk data}
-After introducing the theoretical tools for assessing fairness, we turn to a case study on the stop-and-frisk practice. A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
+After introducing the theoretical tools for assessing fairness, we turn to a case study on the stop-and-frisk practice.
+A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 During the stop the officer is allowed to frisk a person (pat-down the person's outer clothing) or search them more carefully.
-The stop can result in a summon, an arrest or no further consequences. After a stop was made, the officer is required to fill out a form, documenting the stop. This data is published yearly by the NYPD.
-As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. The aggressive way in whcih the stop-and-frisk practice was being implemented during 2004 to 2012 in NYC was indeed deemed unconstitutional in 2013, violating the fourth and fourteenth amendment {\color{red} Source}
+The stop can result in a summon, an arrest or no further consequences.\\
+After a stop was made, the officer is required to fill out a form, documenting the stop. This data is published yearly by the NYPD.
+As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. For this analysis we are interested in whether a classifier trained to predict the arrest after a stop is discriminatory with resepct to race.
 
 
 \subsection{Fairness Experiment: Setup}
-For our analysis the task is to predict the arrest of a suspect. We compare the following models in terms of fairness and model performance, measured by the difference in true positive rates and the classification accuracy respectively.:
+We compare the following models in terms of fairness and model performance, measured by the difference in true positive rates (equal opportunity)  and the classification accuracy respectively:
 \begin{itemize}
     \item Regular Random Forest
     \item Reweighing to balance disparate impact metric (Pre-Processing)
@@ -92,9 +94,9 @@ The true positive rate, false positive rate, and the accuracy is basically ident
 % results table
 \begin{table}[ht]
   \centering
-  \begin{tabular}{rrrrrrr}
+  \begin{tabular}{|rrrrrrr|}
     \hline
-   & tpr & npv & fpr & ppv & fdr & acc \\ 
+   & TPR & NPV & FPR & PPV & FDR & Acc \\ 
     \hline
     PoC & 0.75 & 0.89 & 0.07 & 0.84 & 0.16 & 0.88 \\ 
     White & 0.74 & 0.85 & 0.06 & 0.89 & 0.11 & 0.86 \\ 
