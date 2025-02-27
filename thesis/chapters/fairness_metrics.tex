@@ -31,25 +31,24 @@ Independence is in a sense the simplest group fairness metric. It requires that 
 \textbf{demographic parity/statistical parity}
 $$P(\hat{Y} | A = a) = P(\hat{Y} | A = b)$$
 Conditional statistical parity is an extention of this as it allows to condition on $A$ and a set of legitimate features $E$. In the context of SQF, predictive parity would mean that we require equal prediction ratios between PoC and white people while conditional statistical parity requires equal prediction ratios between PoC and white people who \textit{live within the same borough} of New York $(E = borough)$. This can be seen as a more nuanced approach, as it allows tacking additional information into account.
-The other two categories of group fairness metrics can both be derived from the error matrix.
-
-\subsubsection*{Separation}
+The other two categories of group fairness metrics can both be derived from the confusion matrix \autoref{tab:confusion_matrix}.
 
 \begin{center}
     \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
     \begin{tabular}{|c|c|c|}
         \hline
-        & \textbf{\(Y = 0\)} & \textbf{\(Y = 1\)} \\
+        & \(Y = 0\) & \(Y = 1\) \\
         \hline
         \(\hat{Y} = 0\) & TN & FN \\
         \hline
         \(\hat{Y} = 1\) & FP & TP \\
         \hline
     \end{tabular}
-    \captionof{table}{Confusion matrix with conditioned on the true label $Y$.}
-    \label{tab:confusion_matrix_1}
+    \captionof{table}{Confusion matrix.}
+    \label{tab:confusion_matrix}
 \end{center}
 
+\subsubsection*{Separation}
 Separation requires independence between $\hat{Y}$ and $A$ conditioned on the true label $Y$. This means that the focus is on equal error rates between groups, which gives rise to the following list of fairness metrics:
 \begin{itemize}
     \item Equal opportunity requires the false negative rates, the ratio of actual positive people that were wrongly predicted as negative, is equal between groups $$P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$$
@@ -65,22 +64,6 @@ This means that they come with trade-offs just as the usual performance metrics 
 
 
 \subsubsection*{Sufficiency}
-
-\begin{center}
-    \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
-    \begin{tabular}{|c|c|c|}
-        \hline
-        & \(Y = 0\) & \(Y = 1\) \\
-        \hline
-        \textbf{\(\hat{Y} = 0\)} & TN & FN \\
-        \hline
-        \textbf{\(\hat{Y} = 1\)} & FP & TP \\
-        \hline
-    \end{tabular}
-    \captionof{table}{Confusion matrix with condition on the prediction $\hat{Y}$.}
-    \label{tab:confusion_matrix_2}
-\end{center}
-
 Sufficiency requires independence between $Y$ and $A$ conditioned on $\hat{Y}$. Intuitively this means that we want a prediction to be equally credible between groups. When a white person gets a positive prediction the probability that it is correct should be they same as for a black person. This leads to the following fairness metrics:
 \begin{itemize}
     \item Predictive parity/ outcome test requires that the probability of actually being positive, given a positive prediction is the same between groups. $$P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$$

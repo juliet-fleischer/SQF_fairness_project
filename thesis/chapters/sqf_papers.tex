@@ -58,7 +58,7 @@ One of the main difficulties that come with the NYPD's data is that, when asking
 As \cite{Badr2022DTFANSP} we trained a classifier to predict the arrest and used group metrics to assess fairness. Given that both, the 2011 and 2023 regular random forest classifier, performed well on the group metrics, but the stop-and-frisk practice was officially declared unconstitutional for 2011, fairness measured with these metrics for this classification task is not a good indicator for the fairness of the policy as a whole.\\
 To answer the question of fairness in stop-and-frisk other studies take a step back and identify a problem with how the data is generated. They formalize and acknowledge that the discrimination in SQF does not solely lie in the outcome of the stop but the decision to stop someone in the first place.
 
-\subsubsection*{Residual unfairness}
+\subsection{Residual unfairness}
 \begin{figure}
     \includegraphics[width=0.7\textwidth]{../figures/selection_bias.png}
     \caption{Selection bias in the SQF data.}
@@ -82,7 +82,7 @@ They show that their theoretical findings can be observed in the SQF data. Their
 % After this fairness intervention the error rates are equal between groups when tested on the data the algorithm was trained on. However, when they claim that when the fairness-adjusted algorithm would be deployed on the population of NYC as a whole, racial discrimination against the historically discriminated persists. They do not test their dataset on actual new data from citizens but they design a way to estimate the error rates that would occur when the algorithm is deployed on the target population. They call the unfairness that comes from switching from training population to target population \textbf{residual unfairness} and identify it when training a classifier to predict the possession of a weapon on SQF data.\\
 % Here I would need to compare the results of one of the fairness classifiers (probably the EoD post-processing) and compare it to the estimated error rates. Does the classifier inherent the same tendencies?
 
-\subsubsection*{Bias in, bias out?}
+\subsection{Bias in, bias out?}
 
 % mathematical definitions I really need to get the point across
 % - population as tupel of random variables (X, U, A, Y)

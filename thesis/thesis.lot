@@ -1,5 +1,4 @@
 \contentsline {table}{\numberline {1}{\ignorespaces Group fairness metrics\relax }}{3}{table.caption.2}%
-\contentsline {table}{\numberline {2}{\ignorespaces Confusion matrix with conditioned on the true label $Y$.\relax }}{3}{table.2}%
-\contentsline {table}{\numberline {3}{\ignorespaces Confusion matrix with condition on the prediction $\hat {Y}$.\relax }}{4}{table.3}%
-\contentsline {table}{\numberline {4}{\ignorespaces Groupwise Fairness Metrics (2023)\relax }}{12}{table.caption.15}%
-\contentsline {table}{\numberline {5}{\ignorespaces Summary of SQF-related Fairness Studies\relax }}{14}{table.caption.16}%
+\contentsline {table}{\numberline {2}{\ignorespaces Confusion matrix.\relax }}{3}{table.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces Groupwise Fairness Metrics (2023)\relax }}{12}{table.caption.15}%
+\contentsline {table}{\numberline {4}{\ignorespaces Summary of SQF-related Fairness Studies\relax }}{14}{table.caption.16}%

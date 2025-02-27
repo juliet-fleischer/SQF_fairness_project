@@ -11,5 +11,7 @@
 \contentsline {subsection}{\numberline {4.3}Results of the Fairness Experiment}{11}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Studies on the SQF Dataset}{13}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Different approaches to fairness in SQF}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Residual unfairness}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Bias in, bias out?}{15}{subsection.5.3}%
 \contentsline {section}{\numberline {6}Conclusion}{16}{section.6}%
 \contentsline {section}{\numberline {A}Electronic Appendix}{V}{appendix.A}%

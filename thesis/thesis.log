@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 FEB 2025 00:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 FEB 2025 01:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1047,7 +1047,7 @@ Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 92.
 Package biblatex Info: Reference segment=0 on input line 92.
-<../figures/sigillum.png, id=64, 2946.00626pt x 2991.175pt>
+<../figures/sigillum.png, id=72, 2946.00626pt x 2991.175pt>
 File: ../figures/sigillum.png Graphic file (type png)
 <use ../figures/sigillum.png>
 Package pdftex.def Info: ../figures/sigillum.png  used on input line 128.
@@ -1067,11 +1067,6 @@ File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 \openout5 = `thesis.toc'.
 
  [2] (./chapters/intro.tex) (./chapters/related_work.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--2
-
- []
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1079,33 +1074,27 @@ l.2
      [1]) (./chapters/fairness_metrics.tex [2]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 49.
+(caption)                particular \caption on input line 47.
 See the caption package documentation for explanation.
 
-[3]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 80.
-See the caption package documentation for explanation.
-
-[4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+[3] [4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
 
  []
 
 [5] [6]) (./chapters/fairness_methods.tex [7]
-<../figures/bias_loop.png, id=206, 567.11874pt x 324.21124pt>
+<../figures/bias_loop.png, id=216, 567.11874pt x 324.21124pt>
 File: ../figures/bias_loop.png Graphic file (type png)
 <use ../figures/bias_loop.png>
 Package pdftex.def Info: ../figures/bias_loop.png  used on input line 26.
 (pdftex.def)             Requested size: 318.66946pt x 182.18039pt.
 ) (./chapters/sqf_case_study_2.tex [8]
-<../figures/sqf_case_study_plot6.pdf, id=218, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot6.pdf, id=228, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot6.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot6.pdf>
 Package pdftex.def Info: ../figures/sqf_case_study_plot6.pdf  used on input line 34.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
-<../figures/sqf_case_study_plot14.pdf, id=219, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot14.pdf, id=229, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot14.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot14.pdf>
 Package pdftex.def Info: ../figures/sqf_case_study_plot14.pdf  used on input line 39.
@@ -1126,7 +1115,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--57
  []
 
 [10 <../figures/sqf_case_study_plot6.pdf> <../figures/sqf_case_study_plot14.pdf>]
-<../figures/sqf_case_study_plot3.pdf, id=251, 722.7pt x 433.62pt>
+<../figures/sqf_case_study_plot3.pdf, id=261, 722.7pt x 433.62pt>
 File: ../figures/sqf_case_study_plot3.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot3.pdf>
 Package pdftex.def Info: ../figures/sqf_case_study_plot3.pdf  used on input line 67.
@@ -1137,12 +1126,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--78
  []
 
 [11 <../figures/sqf_case_study_plot3.pdf>]
-<../figures/sqf_case_study_plot1.pdf, id=268, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot1.pdf, id=278, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot1.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot1.pdf>
 Package pdftex.def Info: ../figures/sqf_case_study_plot1.pdf  used on input line 83.
 (pdftex.def)             Requested size: 223.0721pt x 178.46024pt.
-<../figures/sqf_case_study_plot2.pdf, id=269, 722.7pt x 578.16pt>
+<../figures/sqf_case_study_plot2.pdf, id=279, 722.7pt x 578.16pt>
 File: ../figures/sqf_case_study_plot2.pdf Graphic file (type pdf)
 <use ../figures/sqf_case_study_plot2.pdf>
 Package pdftex.def Info: ../figures/sqf_case_study_plot2.pdf  used on input line 88.
@@ -1270,7 +1259,7 @@ Overfull \hbox (5.49443pt too wide) in paragraph at lines 17--52
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../figures/selection_bias.png, id=299, 362.35374pt x 147.55125pt>
+<../figures/selection_bias.png, id=309, 362.35374pt x 147.55125pt>
 File: ../figures/selection_bias.png Graphic file (type png)
 <use ../figures/selection_bias.png>
 Package pdftex.def Info: ../figures/selection_bias.png  used on input line 63.
@@ -1296,24 +1285,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--109
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F239D8A969F28B5798E690DE60ED04E4;2533.
+(rerunfilecheck)             Checksum: 25E366D77C309062A767178E43222EBA;2846.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31679 strings out of 476025
- 600303 string characters out of 5790017
+ 31678 strings out of 476025
+ 600277 string characters out of 5790017
  1871388 words of memory out of 5000000
  51577 multiletter control sequences out of 15000+600000
  528348 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,1971b,1672s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (25 pages, 623616 bytes).
+Output written on thesis.pdf (25 pages, 623134 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 92 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 424 compressed objects within 5 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
