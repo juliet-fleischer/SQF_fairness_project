@@ -72,8 +72,11 @@ preds_2023 <- lrn_rf_2023$predict(task_arrest_2023, data2023_split$test)
 preds_2023_dt <- as.data.table(preds_2023)
 preds_2023_dt$pa_group <- data2023[data2023_split$test, PA_GROUP]
 
+# colorblind-friendly palette
+cbPalette1 <- brewer.pal(3, "Set2")
 p1_rf <- fairness_prediction_density(preds_2023, task = task_arrest_2023) +
-  xlim(0, 1)
+  xlim(0, 1) +
+  scale_fill_manual(values = cbPalette1)
 
 p2_rf <- compare_metrics(preds_2023,
                          msrs(c("fairness.acc", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
@@ -95,10 +98,11 @@ bmr <- readRDS("data/bmr_results.rds") # read in the benchmark results
 meas = msrs(c("classif.acc", "fairness.eod", "fairness.tpr"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
+cbPalette2 <- brewer.pal(5, "Dark2")
 p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.tpr"),
                            accuracy_measure = msr("classif.ce")) +
-  scale_color_viridis_d("Learner") +
   theme(legend.position = "right") +
-  geom_point(size = 4) +
-  theme_minimal(base_size = 26)
+  geom_point(size = 8) +
+  theme_minimal(base_size = 26) +
+  scale_fill_manual(values = cbPalette2)
 

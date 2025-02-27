@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 FEB 2025 01:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 FEB 2025 10:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1276,11 +1276,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--109
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [17] (./thesis.lot)
+ (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [18] [19] [5] [6] [7] (./thesis.aux)
+ [5] [6] [7] [8] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1291,18 +1291,18 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31678 strings out of 476025
- 600277 string characters out of 5790017
+ 31676 strings out of 476025
+ 600269 string characters out of 5790017
  1871388 words of memory out of 5000000
- 51577 multiletter control sequences out of 15000+600000
+ 51578 multiletter control sequences out of 15000+600000
  528348 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1971b,1672s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1971b,1670s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (25 pages, 623134 bytes).
+Output written on thesis.pdf (23 pages, 622990 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 424 compressed objects within 5 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 495 PDF objects out of 1000 (max. 8388607)
+ 419 compressed objects within 5 object streams
+ 88 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

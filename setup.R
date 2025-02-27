@@ -14,6 +14,7 @@ library(iml)
 library(lubridate)
 library(roxygen2)
 library(rJava)
+library(RColorBrewer)
 
 # source custom functions
 source("program/functions.R")

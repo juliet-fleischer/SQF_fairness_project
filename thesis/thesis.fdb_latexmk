@@ -1,21 +1,21 @@
 # Fdb version 4
-["biber thesis"] 1740607739 "thesis.bcf" "thesis.bbl" "thesis" 1740614814 0
-  "../literature.bib" 1740560238 71027 46af1afcade8d4830ec35c4ffacad526 ""
-  "thesis.bcf" 1740614813 111214 2df5aea9ba5162939420b41385f83194 "pdflatex"
+["biber thesis"] 1740646074 "thesis.bcf" "thesis.bbl" "thesis" 1740647277 0
+  "../literature.bib" 1740646073 69525 4b8d8e6bc8b2a7ae5fc3c55114b7aad2 ""
+  "thesis.bcf" 1740647276 111214 2df5aea9ba5162939420b41385f83194 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1740614805 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1740614814 0
+["pdflatex"] 1740647266 "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" "thesis.pdf" "thesis" 1740647277 0
   "../figures/bias_loop.png" 1736267755 58181 e55a9c263be5cb381ace40eeb8cbfef0 ""
   "../figures/selection_bias.png" 1739263206 10079 04f4585a131303970d88658b348b374e ""
   "../figures/sigillum.png" 1733764644 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "../figures/sqf_case_study_plot1.pdf" 1740578907 13283 4a4f2b2fbfe325af7de3720baef49a4e ""
+  "../figures/sqf_case_study_plot1.pdf" 1740647257 13284 cec8d66154bccc93e67067afc645d4b4 ""
   "../figures/sqf_case_study_plot14.pdf" 1740582007 4778 6b43c71f6c00c99099443a7371251d77 ""
   "../figures/sqf_case_study_plot2.pdf" 1740578999 4483 3037a7e35c6635b6cb4671b9b732bdec ""
-  "../figures/sqf_case_study_plot3.pdf" 1740582312 9218 424b9c314497a08ae14c2ee2ab5c3db5 ""
+  "../figures/sqf_case_study_plot3.pdf" 1740647260 9149 139c1ae273ed1f351ed738587f500a64 ""
   "../figures/sqf_case_study_plot6.pdf" 1740581745 4722 e733b72c7fd86ecb6764c8635c713c51 ""
-  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1740614719 7810 5e041fd48c0fcc5b90b988565d3a1c83 ""
+  "/Users/julietfleischer/Documents/NYPD_SQF_data/thesis/thesis.tex" 1740646374 7825 b85ceffa689ba19a48e6b6e14dcd9bbc ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -218,14 +218,14 @@
   "chapters/sqf_case_study_2.tex" 1740611455 12319 26d8168268baf1f6f11337eb0cccbafb ""
   "chapters/sqf_papers.tex" 1740612659 29415 88a541fedc7ce375ffc638df9aa6202c ""
   "shortcuts.tex" 1733764376 6160 10d5572ffc53a1976007dade8cced089 ""
-  "thesis.aux" 1740614813 13419 7a49f1e3147d9dddf5f9e96cca7b1235 "pdflatex"
-  "thesis.bbl" 1740607744 58990 e96135ba8efe8a10f44544b2bdd095b9 "biber thesis"
-  "thesis.lof" 1740614813 1133 dabe941bdfea53532e9457d57578c845 "pdflatex"
-  "thesis.lot" 1740614813 439 4e91847f80492159e3c7a911700a3b23 "pdflatex"
-  "thesis.out" 1740614813 2846 25e366d77c309062a767178e43222eba "pdflatex"
-  "thesis.run.xml" 1740614813 2328 46ecddacfa3796d02ad480a586c24558 "pdflatex"
-  "thesis.tex" 1740614719 7810 5e041fd48c0fcc5b90b988565d3a1c83 ""
-  "thesis.toc" 1740614813 1430 566b56c7b941c487e286f7afd3d59eba "pdflatex"
+  "thesis.aux" 1740647276 13419 aa8443e6515a8947a7c33719f76dbdb9 "pdflatex"
+  "thesis.bbl" 1740646080 57780 fdfb488589aa42991a856e0f3b3307e4 "biber thesis"
+  "thesis.lof" 1740647276 1133 dabe941bdfea53532e9457d57578c845 "pdflatex"
+  "thesis.lot" 1740647276 439 4e91847f80492159e3c7a911700a3b23 "pdflatex"
+  "thesis.out" 1740647276 2846 25e366d77c309062a767178e43222eba "pdflatex"
+  "thesis.run.xml" 1740647276 2328 46ecddacfa3796d02ad480a586c24558 "pdflatex"
+  "thesis.tex" 1740646374 7825 b85ceffa689ba19a48e6b6e14dcd9bbc ""
+  "thesis.toc" 1740647276 1430 566b56c7b941c487e286f7afd3d59eba "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"
