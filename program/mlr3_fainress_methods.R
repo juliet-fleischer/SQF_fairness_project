@@ -4,8 +4,6 @@ theme_set(
   theme_minimal(base_size = 30) +  # Increase the base size (default is 11)
     theme(legend.position = "top",
           plot.title = element_blank(),
-          # plot.margin = unit(c(1, 1, 1, 1), "cm"),
-          # panel.grid.major.x = element_blank(),
           panel.grid.minor = element_blank()
     )
 )
@@ -31,6 +29,7 @@ base_mrs_other <- list(
 
 # punitive mlr3 measures ----
 fairness_msr_punitive <- msrs(c("fairness.fpr","fairness.tnr","fairness.ppv"))
+
 # assistive mlr3 measures ----
 fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
                                  "fairness.fomr"))
@@ -38,91 +37,75 @@ fairness_msr_assistive <- msrs(c("fairness.fnr","fairness.tpr", "fairness.npv",
 fairness_msr_other <- msrs(c("fairness.acc", "fairness.cv", "fairness.eod"))
 
 # 2. Data, learner and task ----
-data2023_ex_ante <- copy(data2023)
-# cols_to_remove <- c(
-#   "OFFICER_EXPLAINED_STOP_FLAG", "OBSERVED_DURATION_MINUTES", "OTHER_PERSON_STOPPED_FLAG",
-#   "SUMMONS_ISSUED_FLAG", "FRISKED_FLAG", "SEARCHED_FLAG",
-#   "ASK_FOR_CONSENT_FLG", "CONSENT_GIVEN_FLG", "OTHER_CONTRABAND_FLAG", "WEAPON_FOUND_FLAG"
-# )
-# data2023_ex_ante[, (cols_to_remove) := NULL] 
 
+## regular learner ----
 lrn_rf_2023 = lrn("classif.ranger", predict_type = "prob")
 lrn_rf_2023$id = "ranger_rf"
 
-# Preprocessing: reweighing
+## pre-processing: reweighing ----
 l1 = as_learner(mlr3pipelines::`%>>%`(po("reweighing_wts"), lrn("classif.rpart")))
 l1$id = "reweight"
 
-# Postprocessing: Equalized Odds
+## post-processing: Equalized Odds ----
 l2 = as_learner(po("learner_cv", lrn("classif.ranger")) %>>%
                   po("EOd"))
 l2$id = "EOd"
 
-# Inprocessing: fair logistic regression
+## inprocessing: fair logistic regression ----
 l3 = as_learner(po("collapsefactors") %>>% lrn("classif.fairzlrm"))
 l3$id = "fairzlrm"
 
-# define a task
-task_arrest_ex_ante <- as_task_classif(data2023_ex_ante, target = "SUSPECT_ARRESTED_FLAG",
+## classification task ----
+task_arrest_2023 <- as_task_classif(data2023, target = "SUSPECT_ARRESTED_FLAG",
                                        positive = "Y", response_type = "prob")
 # set the PA
-task_arrest_ex_ante$set_col_roles("PA_GROUP", "pta")
+task_arrest_2023$set_col_roles("PA_GROUP", "pta")
 # split the data
-data2023_split <- partition(task_arrest_ex_ante)
+data2023_split <- partition(task_arrest_2023)
 
 
 # 2. Fairness Auditing ----
-## regular RF ----
-lrn_rf_2023$train(task_arrest_ex_ante, data2023_split$train)
-preds_ex_ante_2023 <- lrn_rf_2023$predict(task_arrest_ex_ante, data2023_split$test)
-# get general mlr3 perfomrance metrics for the predictions
-preds_ex_ante_2023$score(msrs(c("classif.acc", "classif.ce", "classif.auc")))
-preds_ex_ante_2023_dt <- as.data.table(preds_ex_ante_2023)
-preds_ex_ante_2023_dt$pa_group <- data2023_ex_ante[data2023_split$test, PA_GROUP]
+## regular RF 2023 ----
+lrn_rf_2023 <- readRDS("program/trained_rf_2023.rds") # read in the trained learner
+# lrn_rf_2023$train(task_arrest_2023, data2023_split$train) # alternatively train the learner
+preds_2023 <- lrn_rf_2023$predict(task_arrest_2023, data2023_split$test)
+preds_2023_dt <- as.data.table(preds_2023)
+preds_2023_dt$pa_group <- data2023[data2023_split$test, PA_GROUP]
 
-preds_ex_ante_2023_dt |> 
-  group_by(pa_group) |>
-  reframe(avg_score = mean(prob.Y), response_arrested = mean(response == "Y"),
-        truth_arrested = mean(truth == "Y"))
-preds_ex_ante_2023_dt |> 
- group_by(pa_group) |>
-  reframe(avg_score = mean(prob.N), response_arrested = mean(response == "N"),
-          truth_arrested = mean(truth == "N"))
-
-p1_rf <- fairness_prediction_density(preds_ex_ante_2023, task = task_arrest_ex_ante) +
+p1_rf <- fairness_prediction_density(preds_2023, task = task_arrest_2023) +
   xlim(0, 1)
 
-
-p2_rf <- compare_metrics(preds_ex_ante_2023,
+p2_rf <- compare_metrics(preds_2023,
                          msrs(c("fairness.acc", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
-                      task = task_arrest_ex_ante) +
+                      task = task_arrest_2023) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-res1 <- calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023)
-res2 <- calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023)
-res3 <- calcGroupwiseMetrics(base_mrs_other, task_arrest_ex_ante, preds_ex_ante_2023)
+res1 <- calcGroupwiseMetrics(base_mrs_assistive, task_arrest_2023, preds_2023)
+res2 <- calcGroupwiseMetrics(base_mrs_punitive, task_arrest_2023, preds_2023)
+res3 <- calcGroupwiseMetrics(base_mrs_other, task_arrest_2023, preds_2023)
 res_all <- cbind(res1, res2, res3)
 
-res_all <- do.call(rbind, lapply(list(res1, res2, res3), formatResultTable))
+## regular RF 2011 ----
+lrn_rf_2011 <- readRDS("program/trained_rf_2011.rds") # see analysis_2011.R for the training
 
 ## Post-processing EOd ----
-l2$train(task_arrest_ex_ante, data2023_split$train)
-preds_ex_ante_2023_eod <- l2$predict(task_arrest_ex_ante, data2023_split$test)
-preds_ex_ante_2023_eod_dt <- as.data.table(preds_ex_ante_2023_eod)
-preds_ex_ante_2023_eod_dt$pa_group <- data2023_ex_ante[data2023_split$test, PA_GROUP]
+l2$train(task_arrest_2023, data2023_split$train)
+preds_2023_eod <- l2$predict(task_arrest_2023, data2023_split$test)
+preds_2023_eod_dt <- as.data.table(preds_2023_eod)
+preds_2023_eod_dt$pa_group <- data2023[data2023_split$test, PA_GROUP]
 
-compare_metrics(preds_ex_ante_2023_eod,
+compare_metrics(preds_2023_eod,
                 msrs(c("fairness.acc", "fairness.eod", "fairness.fpr", "fairness.ppv", "fairness.tpr")),
-                task = task_arrest_ex_ante) +
+                task = task_arrest_2023) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-calcGroupwiseMetrics(base_mrs_assistive, task_arrest_ex_ante, preds_ex_ante_2023_eod)
-calcGroupwiseMetrics(base_mrs_punitive, task_arrest_ex_ante, preds_ex_ante_2023_eod)
-calcGroupwiseMetrics(base_mrs_other, task_arrest_ex_ante, preds_ex_ante_2023_eod)
+calcGroupwiseMetrics(base_mrs_assistive, task_arrest_2023, preds_2023_eod)
+calcGroupwiseMetrics(base_mrs_punitive, task_arrest_2023, preds_2023_eod)
+calcGroupwiseMetrics(base_mrs_other, task_arrest_2023, preds_2023_eod)
 
 # 3. Experiment ----
 lrns = list(lrn_rf_2023, lrn_rf_2011, l1, l2, l3)
-# bmr = benchmark(benchmark_grid(task_arrest_ex_ante, lrns, rsmp("cv", folds = 5)))
-bmr <- readRDS("program/bmr_results.rds")
+bmr <- readRDS("program/bmr_results.rds") # read in the benchmark results
+# bmr = benchmark(benchmark_grid(task_arrest_2023, lrns, rsmp("cv", folds = 5))) # alternatively run the benchmark
 meas = msrs(c("classif.acc", "fairness.eod", "fairness.tpr"))
 bmr$aggregate(meas)[, .(learner_id, classif.acc, fairness.equalized_odds)]
 
@@ -133,20 +116,3 @@ p3 <- fairness_accuracy_tradeoff(bmr, fairness_measure = msr("fairness.tpr"),
   geom_point(size = 4) +
   theme_minimal(base_size = 26)
 
-
-
-# # distribution of Y | A
-# ggplot(data2023, aes(x = PA_GROUP, fill = SUSPECT_ARRESTED_FLAG)) +
-#   geom_bar(position = "fill")
-# data2023[, sum(SUSPECT_ARRESTED_FLAG == "Y") / .N, by = PA_GROUP]
-
-# 4. Limitations ----
-# estimate the tpr on the target population with the method from Kallus and Zhou
-# and compare it to this tpr
-
-# in the graph low and right is good
-
-# interestingly (on the complete dataset) decision tree performs with high accuracy and the highest fairness
-# random forrest performs with even higher accuracy (as expected) but with lower fairness
-# EOD and fairzml performs completetly different which is weird because it is an own learner and shouldt be influenced from chaning the learner should it?
-# reweight is "the best" method

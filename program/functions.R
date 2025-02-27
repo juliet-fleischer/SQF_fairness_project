@@ -25,22 +25,22 @@ calcGroupwiseMetrics <- function(base_mrs, task, predictions) {
 }
 
 
-
-getFairnessAudit <- function(prediction, task) {
-  # initialize results list
-  res <- list()
-  pred_test <- prediction
-  res1 <- pred_test$score(fairness_msr_other, task = task)
-  res2 <- pred_test$score(fairness_msr_punitive, task = task)
-  res3 <- pred_test$score(fairness_msr_assistive, task = task)
-  list(
-    predictions = pred_test,
-    fairness_metrics = data.frame(
-      Metric = c(names(fairness_msr_other), names(fairness_msr_punitive), names(fairness_msr_assistive)),
-      Value = c(res1, res2, res3)
-    )
-  )
-}
+# 
+# getFairnessAudit <- function(prediction, task) {
+#   # initialize results list
+#   res <- list()
+#   pred_test <- prediction
+#   res1 <- pred_test$score(fairness_msr_other, task = task)
+#   res2 <- pred_test$score(fairness_msr_punitive, task = task)
+#   res3 <- pred_test$score(fairness_msr_assistive, task = task)
+#   list(
+#     predictions = pred_test,
+#     fairness_metrics = data.frame(
+#       Metric = c(names(fairness_msr_other), names(fairness_msr_punitive), names(fairness_msr_assistive)),
+#       Value = c(res1, res2, res3)
+#     )
+#   )
+# }
 
 # For the residual unfairness analysis
 ## function to estimate the error rates in the target population
