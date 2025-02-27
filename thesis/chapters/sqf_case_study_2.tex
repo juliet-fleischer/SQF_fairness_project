@@ -1,10 +1,11 @@
 % \subsection*{Fairness Experiment: Stop, Question, and Frisk data}
-After introducing the theoretical tools for assessing fairness, we turn to a case study on the stop-and-frisk practice.
 A police officer is allowed to stop a person if they have reasonable suspicion that the person has committed, is committing, or is about to commit a crime.
 During the stop the officer is allowed to frisk a person (pat-down the person's outer clothing) or search them more carefully.
 The stop can result in a summon, an arrest or no further consequences.\\
 After a stop was made, the officer is required to fill out a form, documenting the stop. This data is published yearly by the NYPD.
-As mentioned in the introduction the so-called "New York strategy" \cite{gelman2007} is highly controversial. For this analysis we are interested in whether a classifier trained to predict the arrest after a stop is discriminatory with resepct to race.
+As mentioned in the introduction the so-called "New York strategy" (\cite{gelman2007}) has been criticized for disproportionally targetting African American and Hispanic individuals. This makes the recordings of the stops an interesting resource for fairness research.
+It also has been recommended by \cite{Fabris_2022} for fairML studies. Not lastly in the aim to bring more diversity to the datasets used in this field.
+For our analysis we are interested in whether a classifier trained to predict the arrest after a stop is discriminatory with respect to race.
 
 
 \subsection{Fairness Experiment: Setup}
@@ -15,10 +16,10 @@ We compare the following models in terms of fairness and model performance, meas
     \item Classification Fair Logistic Regression With Covariance Constraints Learner (In-Processing)
     \item Equalized Odds Debiasing (Post-Processing)
 \end{itemize}
-More details about the methods can be found in the \texttt{mlr3} documentation \cite{mlr3_book}.  
-For reweighing, see \href{https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_reweighing.html}{mlr3fairness Reweighing}.  
-For fair logistic regression, refer to \href{https://rdrr.io/cran/mlr3fairness/man/mlr_learners_classif.fairzlrm.html}{Fair Logistic Regression}.  
-For equalized odds, check \href{https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_equalized_odds.html}{Equalized Odds}.  
+More details about the methods can be found in \cite{mlr3_book}.  
+Specifically, for Reweighing, see \href{https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_reweighing.html}{mlr3fairness Reweighing}.  
+Refer to \href{https://rdrr.io/cran/mlr3fairness/man/mlr_learners_classif.fairzlrm.html}{Fair Logistic Regression} for more details on the chosen in-processing method.  
+For the post-processing strategy, check \href{https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_equalized_odds.html}{Equalized Odds}.  
 
 % Reweighing: https://mlr3fairness.mlr-org.com/reference/mlr_pipeops_reweighing.html
 % Fair logistic regression: https://rdrr.io/cran/mlr3fairness/man/mlr_learners_classif.fairzlrm.html
@@ -43,17 +44,60 @@ For equalized odds, check \href{https://mlr3fairness.mlr-org.com/reference/mlr_p
 \end{figure}
 
 As they were the most recent at the time of writing this paper, we work with the stops from 2023. The raw 2023 dataset consists of 16971 observations and 82 variables. We first discarded all the variables that have more than 20\% missing values, which leaves 34 variables.
-From this reduced dataset we filter out the complete cases and end up with 12039 observations. \footnote{Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
-but treating missing values as an extra category will introduce complications when we implement fairness methods.} \\
+From this reduced dataset we filter out the complete cases and end up with 12039 observations.\footnote{Simply discarding the missing values and only training on complete cases is discouraged by \cite{fernando2021}. We opt for this approach regardless, since imputation of the missing values is not straight forward
+but treating missing values as an extra category will introduce complications when we implement fairness methods.}\\
 
-We summarize "Black Hispanic" and "Black" into the group "Black" and  "American Indian/ Native American" and "Middle Eastern/ Southwest Asian" into the "Other" category. Black people are by far most often stopped, making up 70\% of the total stops; yet, according to 2020 census data black people make up only 20\% of the city's population \autoref{fig:race_distributions}. At the same time white people form the majority of New York citizens (30\%) but contribute with only 6\% to the stops. 
+We summarize "Black Hispanic" and "Black" into the group "Black" and  "American Indian/ Native American" and "Middle Eastern/ Southwest Asian" into the "Other" category. Black people are by far most often stopped, making up 70\% of the total stops; yet, according to 2020 census data black people contribute to only 20\% of the city's population (\autoref{fig:race_distributions}, left). At the same time white people form the majority of New York citizens (30\%) but are involved in merely 6\% of the stops. 
 After 2012 there has been a stark decline in stops and the police is known to focus their attention on high crime areas. Therefore, we further look at each borough. 
-The most stops in 2023 occur in Bronx and Brooklyn. Based on report of the NYPD and population statistics from 2020, the Bronx also has the highest estimated crime rate per 100,000 citizens. Manhattan is not far behind in crime rate, but has fewer stops. Note that Bronx and Brooklyn happen to be the boroughs with the highest proportion of black citizens \autoref{fig:race_distributions}.\\
+The most stops in 2023 occured in Bronx and Brooklyn. Based on report of the NYPD and population statistics from 2020, the Bronx also has the highest estimated crime rate per 100,000 citizens. Manhattan is not far behind in crime rate, but has fewer stops. Note that Bronx and Brooklyn happen to be the boroughs with the highest proportion of black citizens (\autoref{fig:race_distributions}, right).\\
 
-  
-Given the historical context of stop-and-frisk, the question arises if a classifier trained on data from the unconstitutional period will perform differently.
-We choose data from 2011 as it is the year with the most stops. We carry out the same data cleaning steps for the 2011 data as before, starting with 685724 recorded stops and reducing this to 651567 clean observations. Note that these are more than 50 times more stops than in 2023.
-The 2011 data has substantially more low-risk stops, only around 6\% of stops result in an arrest. This is a stark contrast to the 31\% in 2023. In the data, the differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white group.\\
+After a more general overview of the dataset, we turn to the outcome of interest. In the cleaned 2023 data about 31\% of stops result in an arrest.
+\autoref{tab:groupwise_arrestment_rates_2023} shows the the disparities in arrestment across ethinic groups is in general low for 2023.
+% \autoref{fig:arrestment_rates_clean_data}.
+As group fairness metrics are observational and constructed from the joint probability of $Y, \hat{Y}, A$, this already gives us a hint that the classifier trained to predict the arrestment of a suspect might show little racial disparities.
+
+\begin{table}[!h]
+    \centering
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \begin{tabular}{|ll|}
+            \hline
+            Group & Prop \\ 
+            \hline
+            Black & 30.56\% \\ 
+            Hispanic & 31.60\% \\ 
+            White & 37.95\% \\ 
+            Asian & 37.84\% \\ 
+            Other & 31.45\% \\ 
+            \hline
+        \end{tabular}
+        \caption{Groupwise Arrestment Rates in 2023} 
+        \label{tab:groupwise_arrestment_rates_2023}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \begin{tabular}{|ll|}
+            \hline
+            Group & Prop \\ 
+            \hline
+            Black & 5.988\% \\ 
+            Hispanic & 5.830\% \\ 
+            White & 6.859\% \\ 
+            Asian & 5.840\% \\ 
+            Other & 4.575\% \\ 
+            \hline
+        \end{tabular}
+        \caption{Groupwise Arrestment Rates in 2011} 
+        \label{tab:groupwise_arrestment_rates_2011}
+    \end{minipage}
+\end{table}
+
+
+    
+Given the development of stops over the years and the judgement in 2013\footnote{\href{https://www.nyclu.org/data/stop-and-frisk-data}{https://www.nyclu.org/data/stop-and-frisk-data}}, the question arises if a classifier trained on data from the unconstitutional period (2004-2012) will perform differently.
+For a comparison in fairness and performance, we therefore train an additional random forest classifier on data from 2011. This is the year with the most stops. We carry out the same data cleaning steps, starting with 685,724 recorded stops and reducing this to 651,567 clean observations. Note that these are around 40 times more stops than in 2023.
+This means that the 2011 data has substantially more low-risk stops; only around 6\% result in an arrest. This is a stark contrast to the 31\% in 2023. In the data, the differences in arrestment rate between groups are slightly lower for 2011 and the highest arrestment rate remains to be for the white people.\\
 
 As features, we select variables that should resemble the information that were available to the officer at the time they made the decision to arrest the person. This includes information about the development of the stop, e.g. whether the person was frisked or a summon issued. We assume that all of these constitute "smaller" hits that happen before an officer chooses the most extreme consequence, an arrest. Additionally, we control for factors, such as the time of the stop or whether the officer was wearing a uniform. This selection of features is inspired by \cite{Badr2022DTFANSP}.
 

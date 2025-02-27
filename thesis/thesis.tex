@@ -42,7 +42,7 @@
 \newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
 
 
-\newcommand{\mytitle}{FairML and the SQF dataset}
+\newcommand{\mytitle}{FairML and the SQF Dataset}
 \newcommand{\myname}{\large Juliet Fleischer}
 \newcommand{\mysupervisor}{Dr. Ludwig Bothmann}
 
@@ -67,6 +67,7 @@ bindingoffset = 0mm]{geometry}
 % \usepackage[round, comma]{natbib}
 \usepackage[backend=biber, style=authoryear]{biblatex}
 \addbibresource{../literature.bib}
+\addbibresource{../literature_manual.bib}
 \usepackage{fancyhdr}
 \newcommand{\changefont}{%
     \fontsize{8}{11}\selectfont
@@ -132,7 +133,7 @@ Munich, \mydate
 \normalsize
 Submitted in fulfillment of the requirements for the degree of B. Sc.
 \\
-Supervised by \mytitle
+Supervised by \mysupervisor
 
 \end{center}
 \end{titlepage}
@@ -143,7 +144,8 @@ Supervised by \mytitle
 \newpage
 \begin{abstract}
 
-In the first half of this paper we provide an introduction to the most common metrics and methods in fair machine learning. We then apply the theoretical concepts to the New York Stop, Question and Frisk dataset, which will showcase difficulties that come with fairness in practice. This leads us to explore the problem of selection bias and related issues. We turn our focus to studies that have worked with the SQF dataset and established interesting theoretical results: residual unfairness and bias reversal.
+With the increased presence of AI in our society topics of social justice and fairness have swept over to technical research fileds. In the first half of this paper we provide an introduction to the most common metrics and methods in fair machine learning. We then apply the theoretical concepts to the New York Stop, Question and Frisk dataset, which will showcase difficulties that come with fairness in practice.
+This leads us to explore the problem of selection bias and how it affects algorithmic learning. For this, we turn our focus to studies that have worked with the SQF dataset and established interesting theoretical results: residual unfairness and bias reversal.
 The main contribution of this paper lies in comparing and contrasting the different ways in which fairness has been studied for the Stop, Question, and Frisk dataset. We show that the challenges is not to identify the right approach, but rather to understand the implications and reasoning behind each method.
 
 \end{abstract}
@@ -161,15 +163,20 @@ The main contribution of this paper lies in comparing and contrasting the differ
 \section{Introduction}
 % \label{intro}
 \input{chapters/intro.tex}
+\newpage
 \section{Related Work}
+\newpage
 \input{chapters/related_work.tex}
 \section{Fairness Metrics and Methods}
 \label{sec:fairness_metrics_methods}
 \input{chapters/fairness_metrics.tex}
 \input{chapters/fairness_methods.tex}
+\newpage
 \section{Case Study: Stop, Question, and Frisk}
 \label{sec:case_study}
 \input{chapters/sqf_case_study_2.tex}
+\newpage
+
 \section{Studies on the SQF Dataset}
 \label{sec:studies}
 \input{chapters/sqf_papers.tex}

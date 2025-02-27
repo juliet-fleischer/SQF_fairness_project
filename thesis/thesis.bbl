@@ -65,7 +65,7 @@
       \verb 10.1145/3460533
       \endverb
     \endentry
-    \entry{barocas}{book}{}
+    \entry{barocas}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=cb55e045fbd37698b0b60a60b567ab83}{%
            family={Barocas},
@@ -94,19 +94,13 @@
       \strng{authorfullhash}{f6daa5fbad9e518e58da0fbc508936ba}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \field{labeldatesource}{nodate}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{note}{Preprint available online}
-      \field{title}{Fairness and Machine Learning}
-      \field{year}{2023}
-      \verb{urlraw}
-      \verb https://fairmlbook.org/
-      \endverb
-      \verb{url}
-      \verb https://fairmlbook.org/
+      \field{title}{Fairness and {{Machine Learning}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/BarocasFML/Barocas et al. - Fairness and Machine Learning.pdf
       \endverb
     \endentry
     \entry{castelnovo2022}{article}{}
@@ -232,18 +226,52 @@
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Caton2024FMLSb/Caton und Haas - 2024 - Fairness in Machine Learning A Survey.pdf
       \endverb
     \endentry
+    \entry{Chouldechova2016FairPW}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=38a289c38744c96713fe118011e7781d}{%
+           family={Chouldechova},
+           familyi={C\bibinitperiod},
+           given={Alexandra},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{38a289c38744c96713fe118011e7781d}
+      \strng{fullhash}{38a289c38744c96713fe118011e7781d}
+      \strng{bibnamehash}{38a289c38744c96713fe118011e7781d}
+      \strng{authorbibnamehash}{38a289c38744c96713fe118011e7781d}
+      \strng{authornamehash}{38a289c38744c96713fe118011e7781d}
+      \strng{authorfullhash}{38a289c38744c96713fe118011e7781d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Big data}
+      \field{title}{Fair prediction with disparate impact: A study of bias in recidivism prediction instruments}
+      \field{volume}{5 2}
+      \field{year}{2016}
+      \field{pages}{153\bibrangedash 163}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:1443041
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:1443041
+      \endverb
+    \endentry
     \entry{corbett-davies}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=341a17b1faf8ad74034822ff2f891742}{%
-           family={Corbett-Davies},
-           familyi={C\bibinithyphendelim D\bibinitperiod},
+           family={{Corbett-Davies}},
+           familyi={C\bibinitperiod},
            given={Sam},
            giveni={S\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=dc87d955c84b91ba3d881af1c1a93666}{%
            family={Gaebler},
            familyi={G\bibinitperiod},
-           given={Johann\bibnamedelima D.},
+           given={Johann\bibnamedelima D},
            giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=a4b30e51359854c0d89aa15a6279a424}{%
@@ -273,83 +301,14 @@
       \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \field{labeldatesource}{nodate}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Machine Learning Research}
-      \field{number}{312}
-      \field{title}{The Measure and Mismeasure of Fairness}
-      \field{volume}{24}
-      \field{year}{2023}
-      \field{pages}{1\bibrangedash 117}
-      \range{pages}{117}
-      \verb{urlraw}
-      \verb http://jmlr.org/papers/v24/22-1511.html
-      \endverb
-      \verb{url}
-      \verb http://jmlr.org/papers/v24/22-1511.html
-      \endverb
-    \endentry
-    \entry{Fabris_2022}{article}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=5b7e2461e527dc107ee365205271db53}{%
-           family={Fabris},
-           familyi={F\bibinitperiod},
-           given={Alessandro},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=78303c77966c20729c566e775c64e6de}{%
-           family={Messina},
-           familyi={M\bibinitperiod},
-           given={Stefano},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=07ba092df73e59c7b57619e719e881a6}{%
-           family={Silvello},
-           familyi={S\bibinitperiod},
-           given={Gianmaria},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d1d72b30e470cf61893e5806eeab4bba}{%
-           family={Susto},
-           familyi={S\bibinitperiod},
-           given={Gian\bibnamedelima Antonio},
-           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{2}{%
-        {Springer Science}%
-        {Business Media {LLC}}%
-      }
-      \strng{namehash}{4522e8a8d9a646c7c3e5adfe70472435}
-      \strng{fullhash}{0259010af2682b884dd31b7b0e3e911c}
-      \strng{bibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
-      \strng{authorbibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
-      \strng{authornamehash}{4522e8a8d9a646c7c3e5adfe70472435}
-      \strng{authorfullhash}{0259010af2682b884dd31b7b0e3e911c}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Data Mining and Knowledge Discovery}
-      \field{month}{9}
-      \field{number}{6}
-      \field{title}{Algorithmic fairness datasets: the story so far}
-      \field{volume}{36}
-      \field{year}{2022}
-      \field{pages}{2074\bibrangedash 2152}
-      \range{pages}{79}
-      \verb{doi}
-      \verb 10.1007/s10618-022-00854-z
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
+      \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
+      \field{langid}{english}
+      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
       \endverb
     \endentry
     \entry{favier2023}{article}{}
@@ -528,6 +487,61 @@
       \endverb
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/gelman2007/Gelman et al. - 2007 - An Analysis of the New York City Police Department's “Stop-and-Frisk” Policy in the Context of Claim.pdf
+      \endverb
+    \endentry
+    \entry{lane}{book}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=6cfc641e2ca8f9579534edebf4ffb064}{%
+           family={Ghani},
+           familyi={G\bibinitperiod},
+           given={Rayid},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da8c0cc59b107a3e07208005277b7ea9}{%
+           family={Jarmin},
+           familyi={J\bibinitperiod},
+           given={Ron\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7c91aa8a97e2bf810febcf40b083a72b}{%
+           family={Kreuter},
+           familyi={K\bibinitperiod},
+           given={Frauke},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef1fd4a400dec702b5baeeac0f942be7}{%
+           family={Foster},
+           familyi={F\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=846f2f7465f0ceb9fa52ff5e6bb0bae9}{%
+           family={Lane},
+           familyi={L\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{fullhash}{ed33af3b4582e0333768cb1e229cbf0b}
+      \strng{bibnamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authorbibnamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authornamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authorfullhash}{ed33af3b4582e0333768cb1e229cbf0b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Chapter 11: Bias and Fairness | Big Data and Social Science}
+      \field{title}{Chapter 11: Bias and Fairness {|} {Big Data and Social Science}}
+      \field{urlday}{15}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/julietfleischer/Zotero/storage/IKNVR93L/chap-bias.html
       \endverb
     \endentry
     \entry{goel2016}{article}{}
@@ -749,6 +763,65 @@
       \verb{file}
       \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Khademi2019FADMELC/Khademi et al. - 2019 - Fairness in Algorithmic Decision Making An Excursion Through the Lens of Causality.pdf
       \endverb
+    \endentry
+    \entry{kleinberg2017}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e405ae3c720db1b0e447ff5b601b968f}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={Jon},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ad4a50fedec7f3fb2ce43f3f64e62d6}{%
+           family={Mullainathan},
+           familyi={M\bibinitperiod},
+           given={Sendhil},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94c87c71bf2fc02be222df4cf15f575a}{%
+           family={Raghavan},
+           familyi={R\bibinitperiod},
+           given={Manish},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Schloss Dagstuhl -- Leibniz-Zentrum für Informatik}%
+      }
+      \strng{namehash}{55804740a6bc42af2c3d658a3da3ce37}
+      \strng{fullhash}{55804740a6bc42af2c3d658a3da3ce37}
+      \strng{bibnamehash}{55804740a6bc42af2c3d658a3da3ce37}
+      \strng{authorbibnamehash}{55804740a6bc42af2c3d658a3da3ce37}
+      \strng{authornamehash}{55804740a6bc42af2c3d658a3da3ce37}
+      \strng{authorfullhash}{55804740a6bc42af2c3d658a3da3ce37}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recent discussion in the public sphere about algorithmic classification has involved tension between competing notions of what it means for a probabilistic classification to be fair to different groups. We formalize three fairness conditions that lie at the heart of these debates, and we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously. Moreover, even satisfying all three conditions approximately requires that the data lie in an approximate version of one of the constrained special cases identified by our theorem. These results suggest some of the ways in which key notions of fairness are incompatible with each other, and hence provide a framework for thinking about the trade-offs between them.}
+      \field{isbn}{9783959770293}
+      \field{issn}{1868-8969}
+      \field{journaltitle}{LIPIcs, Volume 67, ITCS 2017}
+      \field{langid}{english}
+      \field{note}{\subsection{SeriesInformation} LIPIcs, Vol. 67, 8th Innovations in Theoretical Computer Science Conference (ITCS 2017), pages 43:1-43:23}
+      \field{title}{Inherent {{Trade-Offs}} in the {{Fair Determination}} of {{Risk Scores}}}
+      \field{urlday}{27}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{67}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \field{pages}{43:1\bibrangedash 43:23}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.4230/LIPICS.ITCS.2017.43
+      \endverb
+      \verb{file}
+      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/kleinberg2017/Kleinberg et al. - 2017 - Inherent Trade-Offs in the Fair Determination of Risk Scores.pdf
+      \endverb
+      \keyw{algorithmic fairness,calibration,risk tools}
     \endentry
     \entry{Lakkaraju2017SLPEAPPU}{inproceedings}{}
       \name{author}{5}{}{%
@@ -1090,6 +1163,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{Fabris_2022}
 \endrefsection
 \endinput
 

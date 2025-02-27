@@ -1,15 +1,24 @@
 % \section*{Definitions of Fairness in Machine Learning}
-It is easy to get overwhelmed by the sheer amount of definitions and metrics. This chapter groups the metrics in an intuitive way and motivate them in the hope to bring some clarity to the readers. What all the metrics have in common is that they build on the idea of a protected attribute (PA) or alternatively called sensitive attribute. This is a feature present in the training data because of which individuals should not experience discrimination. Examples for sensitive attributes are race, sex and age. \\
-Fairness metrics can be classified in the following ways.
+It is easy to get overwhelmed by the sheer amount of fairness definitions in machine learning. This chapter groups the metrics in an intuitive way and motivate them in the hope to bring some clarity to the readers. What all the metrics have in common is that they build on the idea of a protected attribute (PA) or alternatively called sensitive attribute. This is a feature present in the training data because of which individuals should not experience discrimination. Examples for sensitive attributes are race, sex and age.
+Fairness metrics can be classified in the following ways:
 \begin{enumerate}
-    \item Group fairness vs. individual fairness
+    \item group fairness vs. individual fairness
     \item observational vs. causality-based criteria
 \end{enumerate}
 
 Broadly speaking, group fairness aims to create equality between groups and individual fairness aims to create equality between two individuals within a group. Group membership is encoded by the PA. Observational fairness metrics act descriptive and use the observed distribution of random variables characterizing the population of interest to assess fairness while causality-based criteria make assumptions about the causal structure of the data and base their notion of fairness on these structures.
-On the basis of these fundamental ideas, a plethora of formalizations have emerged. Most of them concern themselves with defining fairness for a binary classification task and one binary PA. For this work, we will also stay within this setting.\\
-For the subsequent sections let $Y \in \{0, 1\}$ be the true label, $\hat{Y} \in \{0, 1\}$ be the prediction label, $S \in [0,1]$ bet the prediction score, $A \in \{0, 1\}$ be the sensitive attribute and $X \in \mathcal{X}$ encode the non-sensitive attributes.
+On the basis of these fundamental ideas, a plethora of formalizations have emerged. Most of them concern themselves with defining fairness for a binary classification task and one, often dichotomized, PA. For this work, we will also stay within this setting. Moreover, our focus will lie on the observational metrics, as causal notions of fairness require more invovled techniques that are out of the scope of this paper.\\
+We denote the categorical sensitive attribute as $A \in \{a,b\}$ while we assume for simplicity that it is binary. The remaining features are encoded as $X \in \mathcal{X}$.\\
+We define $f : \mathcal{X} \times \{0,1\} \to [0,1]$ as a prediction function that returns a score \(s = f(x, a)\) representing the estimated probability that the true label is 1 for each input $(x, a)$ .\\
+To obtain a hard prediction from the score, we define a thresholding function
+$$ g(s) = \begin{cases} 
+1, & \text{if } s \ge c, \\
+0, & \text{if } s < c,
+\end{cases}$$
+where \(c \in [0,1]\) is a predetermined threshold (often \(c = 0.5\)).
+Thus, the final predicted label is given by $\hat{y} = g\bigl(f(x, a)\bigr) = \mathbf{1}\{f(x, a) \ge c\}$
 
+To facilitate the understanding of the following fairness metrics, we can choose variables from the SQF dataset for illustration.
 \subsection{Group fairness}
 \begin{table}
     \centering
@@ -24,17 +33,24 @@ For the subsequent sections let $Y \in \{0, 1\}$ be the true label, $\hat{Y} \in
     \label{tab:group_fairness}
 \end{table}
 
-The groups metrics presented in the following are observational metrics. They can be separated into three main categories shown in \autoref{tab:group_fairness}, depending on which information they use.
+They observational group metrics presented in this section can be separated into the three main categories shown in \autoref{tab:group_fairness}, depending on which information they use.
 
 \subsubsection*{Independence}
-Independence is in a sense the simplest group fairness metric. It requires that the prediction $\hat{Y}$ is independent of the protected attribute $A$. This is fulfilled when for each group the same proportion is classified as positive by the algorithm. In other words, the positive prediction ratio (ppr) should be the same for all values of $A$. For a binary classification task with binary sensitive attribute this can be formalized as \\
-\textbf{demographic parity/statistical parity}
-$$P(\hat{Y} | A = a) = P(\hat{Y} | A = b)$$
-Conditional statistical parity is an extention of this as it allows to condition on $A$ and a set of legitimate features $E$. In the context of SQF, predictive parity would mean that we require equal prediction ratios between PoC and white people while conditional statistical parity requires equal prediction ratios between PoC and white people who \textit{live within the same borough} of New York $(E = borough)$. This can be seen as a more nuanced approach, as it allows tacking additional information into account.
+Independence is in a sense the simplest group fairness metric. It requires that the prediction $\hat{Y}$ is independent of the protected attribute $A$. This is fulfilled when for each group the same proportion is classified as positive by the algorithm. For a binary classification task with binary sensitive attribute this can be formalized as
+\begin{itemize}
+    \item \textit{Demographic parity} requires equal positive prediction ratios (ppr) for both groups $$P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b)$$
+\end{itemize}
+\textit{Independence} is best, when a form of equality between groups should be enforced, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}.\\
+In many cases it can make sense to allow for additional information to be taken into account. Therefore an extension of demographic parity can be defined as
+\begin{itemize}
+    \item \textit{Conditional statistical parity} $P(\hat{Y} = 1 \mid E = e, A = a) = P(\hat{Y} = 1 \mid E = e, A = b)$
+\end{itemize}
+$E$ is a set of legitimate features that encapsulates valuable information about predicting the target $Y$.
+In the context of SQF, predictive parity could mean that we require that PoC relatively measured are as often predicted positive as white people, regardless of any information.  Conditional statistical parity, on the other hand, does not require equal proportions in general but only within specific subgroups (defined via $E$). For example, we could require equal ppr between PoC and white people who \textit{live within the same borough} of New York $(E = borough)$.\\
 The other two categories of group fairness metrics can both be derived from the confusion matrix \autoref{tab:confusion_matrix}.
 
-\begin{center}
-    \renewcommand{\arraystretch}{1.5}  % Increase row height for a more square-like appearance
+\begin{table}
+    \centering
     \begin{tabular}{|c|c|c|}
         \hline
         & \(Y = 0\) & \(Y = 1\) \\
@@ -44,50 +60,51 @@ The other two categories of group fairness metrics can both be derived from the 
         \(\hat{Y} = 1\) & FP & TP \\
         \hline
     \end{tabular}
-    \captionof{table}{Confusion matrix.}
+    \caption{Confusion matrix}
     \label{tab:confusion_matrix}
-\end{center}
+\end{table}
 
 \subsubsection*{Separation}
 Separation requires independence between $\hat{Y}$ and $A$ conditioned on the true label $Y$. This means that the focus is on equal error rates between groups, which gives rise to the following list of fairness metrics:
 \begin{itemize}
-    \item Equal opportunity requires the false negative rates, the ratio of actual positive people that were wrongly predicted as negative, is equal between groups $$P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$$
-    \item Predictive equality/ False positive error rate balance follows same principle as equal opportunity but for the false positives $$P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$$
-    \item Equalized odds combines singel metrics for a stronger requirenment $$P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \forall y \in \{0, 1\}$$ 
-    \item Overall accuracy equality: $$P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$$ 
-    \item Treatment equality: $$\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$$
+    \item \textit{Equal opportunity} requires the false negative rates, the ratio of actual positive people that were wrongly predicted as negative, is equal between groups $$P(\hat{Y} = 0 | Y = 1, A = a) = P(\hat{Y} = 0 | Y = 1, A = b)$$
+    \item \textit{Predictive equality/ False positive error rate balance} follows same principle as equal opportunity but for the false positives $$P(\hat{Y} = 1 | Y = 0, A = a) = P(\hat{Y} = 1 | Y = 0, A = b)$$
+    \item \textit{Equalized odds} requires that both the true positive rate and the false positive rate are equal across groups $$P(\hat{Y} = 1 | Y = y, A = a) = P(\hat{Y} = 1 | Y = y, A = b) \quad \forall y \in \{0, 1\}$$ 
+    \item \textit{Overall accuracy equality} requires equal accuracy for both groups $$P(\hat{Y} = Y | A = a) = P(\hat{Y} = Y | A = b)$$ 
+    \item \textit{Treatment equality} builds groups-wise ratios of error-rates and requires equality $$\frac{\text{FN}}{\text{FP}} \big|_{A = a} = \frac{\text{FN}}{\text{FP}} \big|_{A = b}$$
 \end{itemize}
-
-In essence the group metrics outlined so far do nothing other than picking a performance metrics from the confusion matrix and requiring it to be equal between two (or more) groups in the population.
-This means that they come with trade-offs just as the usual performance metrics for classifiers do. Researchers have shown that if base rates differ between groups, it is mathematically impossible to equalize all desirable metrics simultaneously. See for more details on the so-called Impossibility Theorem.
-
-
+The idea behind \textit{Separation} metrics is ... As \textit{Separation} criteria condition on the true label $Y$ it is suitable when we can be sure that $Y$ is free from any bias, meaning it was generated via an objectively true process. \\
 
 \subsubsection*{Sufficiency}
 Sufficiency requires independence between $Y$ and $A$ conditioned on $\hat{Y}$. Intuitively this means that we want a prediction to be equally credible between groups. When a white person gets a positive prediction the probability that it is correct should be they same as for a black person. This leads to the following fairness metrics:
 \begin{itemize}
-    \item Predictive parity/ outcome test requires that the probability of actually being positive, given a positive prediction is the same between groups. $$P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$$
-    \item Equal true negative rate follows the same principle as predictive parity. It requires that the probability of actually being negative, given a negative prediction is the same between groups.: $$P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$$
-    \item If we instead look at errors again, we can require equal false omission rates: $$P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$$
-    \item Or equal false discovery rate: $$P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$$
+    \item \textit{Predictive parity/ outcome test} requires that the probability of actually being positive, given a positive prediction is the same between groups. $$P(Y = 1 | \hat{Y} = 1, A = a) = P(Y = 1 | \hat{Y} = 1, A = b)$$
+    \item \textit{Equal true negative rate} follows the same principle as predictive parity. It requires that the probability of actually being negative, given a negative prediction is the same between groups.: $$P(Y = 0 | \hat{Y} = 0, A = a) = P(Y = 0 | \hat{Y} = 0, A = b)$$
+    \item If we instead look at errors again, we can require \textit{equal false omission rates} $$P(Y = 1 | \hat{Y} = 0, A = a) = P(Y = 1 | \hat{Y} = 0, A = b)$$
+    \item Or \textit{equal false discovery rates} $$P(Y = 0 | \hat{Y} = 1, A = a) = P(Y = 0 | \hat{Y} = 1, A = b)$$
 \end{itemize}
 
-Just a for the \textit{Separation} metrics one can combine two of these  \textit{Sufficiency} metrics and require them to hold simultaneously to get a stricter requirement.
+Just a for the \textit{Separation} metrics one can combine two of these \textit{Sufficiency} metrics and require them to hold simultaneously to get a stricter requirement.
+The intuition behind \textit{Sufficiency} is that ... takes the perspective of the decision-making instance, as usually only the prediction is known to them in the moment of decision. For example, the police, who do not yet know the true label at the time when they are supposed to decide whether someone would become a criminal.\\
 While it is easy to get lost by the amount of fairness definitions in the beginning, taking a closer look, it becomes clear that they are constructed in a structured way. In fact, equal false omission rate and equal false discovery rate were not introduced in the paper \cite{verma2018} but are implemented in \texttt{mlr3fairness}, and evidently follow the same pattern as the other metrics.
 
+% mention Imposibility Theorem
+In essence the group metrics outlined so far do nothing other than picking a performance metrics from the confusion matrix and requiring it to be equal across two (or more) groups.
+This means that they come with trade-offs just as the usual performance metrics for classifiers do \cite{kleinberg2017}. Researchers have shown that if base rates, i.e. the proportions of the positive outcomes of the groups in the population, differ between groups, it is mathematically impossible to equalize all desirable metrics simultaneously \cite{Chouldechova2016FairPW}. This is also refered to as the Impossibility Theorem.
+
 \subsubsection*{Score-based fairness metrics}
-Most (binary) classifiers work with predictions scores and a hard label classifier is applied only afterwards in form of a threshold criterion. It should therefore come as no surprise that instead of formulating fairness with $\hat{Y}$ there exist fairness metrics that use the score $S$, which typically represents the probability of belonging to the positive class. Instead of conditioning on $\hat{Y}$ as Separation metrics, we can simply condition on $S$ and define Calibration:
+Most (binary) classifiers work with predictions scores $S \in [0,1]]$ and a hard label classifier is applied only afterwards in form of a threshold criterion. It should therefore come as no surprise that instead of formulating fairness with $\hat{Y}$ there exist fairness metrics that use the score $S$, which typically represents the probability of belonging to the positive class. Instead of conditioning on $\hat{Y}$ as Separation metrics, we can simply condition on $S$ and define Calibration:
 $$P(Y = 1 | S = s, A = a) = P(Y = 1 | S = s, A = b)$$
 Calibration requires that the probability for actually being positive, given a score $s$ is the same between groups. So the idea is a more fine-grained version of predictive parity. As the score can usually take values from the whole real number line, this can in practice be implemented by binning the scores. See \cite{verma2018} for an example.
 
 \subsubsection*{Choosing the right group metric}
-To compare the group fairness criteria, \textit{Sufficiency} takes the perspective of the decision-making instance, as usually only the prediction is known to them in the moment of decision. For example, the police, who do not yet know the true label at the time when they are supposed to decide whether someone would become a criminal.\\
-As \textit{Separation} criteria condition on the true label $Y$ it is suitable when we can be sure that $Y$ is free from any bias, meaning it was generated via an objectively true process. \\
-\textit{Independence} is best, when a form of equality between groups should be enforced, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}.\\
+% To compare the group fairness criteria, \textit{Sufficiency} takes the perspective of the decision-making instance, as usually only the prediction is known to them in the moment of decision. For example, the police, who do not yet know the true label at the time when they are supposed to decide whether someone would become a criminal.\\
+% As \textit{Separation} criteria condition on the true label $Y$ it is suitable when we can be sure that $Y$ is free from any bias, meaning it was generated via an objectively true process. \\
+% \textit{Independence} is best, when a form of equality between groups should be enforced, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}.\\
 
-Due to the abudance of group metrics alone there have been further studies to assist practitioners choose the right metric. One possibility is to distinguish between punitive and assistive tasks to help choose the right fairness metric. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, a focus on minimizing the false negative rate could be more relevant. This points to equal opportunity as suitable metric.
+Due to the abudance of group metrics alone there have been further studies to assist practitioners choose the right metric. One possibility is to distinguish between punitive and assistive tasks \cite{lane}. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, a focus on minimizing the false negative rate could be more relevant. This points to equal opportunity as suitable metric.
 In setting in which a positive prediction leads to a harmful outcome, as in the SQF setting, it often makes sense to focus on minimizing the false positive rate, while a higher false negative rate is accepted as a trade-off.
-There is dedicated work that assists in finding the right group fairness metric for a given situation and refer to for an in-depth analysis \cite{makhlouf2021}.
+There is dedicated work that assists in finding the right group fairness metric for a given situation and refer to \cite{makhlouf2021} for an in-depth analysis.
 
 \subsection{Individual fairness}
 Individual metrics shift the focus from comparison \textit{between} groups to comparison \textit{within} groups. The underlying idea of fairness is that similar individuals should be treated similarly.
@@ -98,17 +115,18 @@ $d_Y$ is a distance metric in the prediction space, $d_X$ is a distance metric i
 The criterion puts an upper bound to the distance between predictions of two individuals, which depends on the features of them. In other words, if two people are close in the feature space, they also should be close in the prediction space. The challenge of FTA is the definition of the equality in the feature space \cite{castelnovo2022}.\\
 In the SQF context, it could make sense to define similar individuals based on yearly income, age and neighbourhood.
 Yet one could easily argue that taking the criminal history into account is important as well. After the decision for a legitimate set of features has been made, the next challenge is to choose a distance metric that appropriately captures the conceptual definition of similarity defined via the selected features.
-FTA does not have one clear solution and requires domain knowledge and the choice of $d_X$ should take context-specific information into account.
+FTA does not have one clear solution and requires domain knowledge and the choice of $d_X$ should take context-specific information into account.\\
+What then, do we measure this for each individual? Get aggregation statistics from this? Explain this further in one or two sentences.
 
 \subsubsection*{Fairness through unawareness (FTU) or blinding}
 In contrast to FTA, blinding should give a simple, context-independent rule. It tells us to not use the protected attribute explicitly in the decision-making process. When training a classifier this means discarding the PA during training.
 Since FTU is a more procedural rule than a mathematical definition, there exist multiple ways to test whether the blinding worked for a classifier. \\
 One approach is to simulate a doppelgänger for each observation in the dataset. This doppelgänger has the exact same features except the protected attribute, which is flipped.
-If both these instances have the same prediction, the algorithm would satisfy FTU \cite{verma2018}. \footnote{This can be seen as a from of FTA, in which we chose the distance metric to measure a distance of zero only if two people are the same on all their features except for the protected attribute. In this special case FTA and FTU are measured in the same way.} Other ways to assess FTU can be found in \cite{verma2018}.\\
-A problem blinding has been proxies. These are variables that are strongly correlated with the sensitive attribute. It is not enough to simply mask the information of the sensitive attribute during training because discrimination can persist via these proxies.
-For SQF this would mean that we remove the race attribute during training.
+If both these instances have the same prediction, the algorithm would satisfy FTU \cite{verma2018}.\footnote{This can be seen as a from of FTA, in which we chose the distance metric to measure a distance of zero only if two people are the same on all their features except for the protected attribute. In this special case FTA and FTU are measured in the same way.} Other ways to assess FTU can be found in \cite{verma2018}.\\
+A problem blinding has are proxies. Proxies are variables that are strongly correlated with the sensitive attribute. In the presence of such features, it is not enough to mask the information of the sensitive attribute during training because discrimination can persist via these proxies.\\
+For SQF this could mean that we remove the race attribute during training.
 A person's ethnicity, however, is strongly correlated with their place of residence. Thus, indirect discrimination based on ethnicity remains, even though the information was not directly available during training.\\
-\textbf{Suppression} extends the idea of blinding and the goal is to develop a model that is blind to not only the sensitive attribute but also the proxies. The drawback is, that it is unclear when a feature is sufficiently high correlated with the sensitive attribute to be counted as proxy. Additionally, we could lose important information by removing too many features \cite{castelnovo2022}.
+\textbf{Suppression} extends the idea of blinding and the goal is to develop a model that is blind to not only the sensitive attribute but also the proxies. The drawback is, that it is unclear when a feature is sufficiently high correlated with the sensitive attribute to be counted as proxy. Additionally, important information could be lost by removing too many features (\cite{castelnovo2022}).
 
 % \subsection{Causality-based fairness metrics}
 % In contrast to observational fairness metrics, causality-based notions ask whether the sensitive attribute was the \textit{reason} for the decision. If a certain (harmful) decision was made \textit{because of} the value of the sensitive attribute of a person, we deem the algorithm as unfair.
@@ -120,11 +138,9 @@ A person's ethnicity, however, is strongly correlated with their place of reside
 
 
 \subsubsection*{Comparison and Summary}
-Experts debate the incompatibility of group and individuals fairness.
-% Binns, R. On the apparent conflict between individual and group fairness. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 514–524 (2020).
-
-It is out of the scope of this paper to debate this topic, and we simply point out that the clear line we sharp between group and individuals metrics gets softer as a group metric like demographic parity does not only take the joint distribution of $Y, \hat{Y}, A$ into account but allows for information of non-sensitive features to seep into the fairness assessment \cite{castelnovo2022}.\\
-Group metrics are certainly easier to understand and apply as most of them are implemented in fairness software packages. This is also a reason for why we will focus on group metrics in our case study in chapter 3.
+Experts debate the incompatibility of group and individuals fairness. % Binns, R. On the apparent conflict between individual and group fairness. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 514–524 (2020).
+It is out of the scope of this paper to discuss this topic, and we simply point out that the sharp line we drew between group and individuals metrics gets softer as a group metric like demographic parity does not only take information from $Y, \hat{Y}, A$ into account but allows for information contained in the non-sensitive features to seep into the fairness assessment (\cite{castelnovo2022}).\\
+Group metrics are certainly easier to understand and apply as most of them are implemented in fairness software packages. For this reason our case study in Section~\ref{sec:case_study} uses group metrics for the fairness assessment.
 
 
 

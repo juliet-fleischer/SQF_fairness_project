@@ -1,25 +1,4 @@
-@incollection{mlr3_book, 
-  author = "Florian Pfisterer", 
-  title = "Algorithmic Fairness",
-  booktitle = "Applied Machine Learning Using {m}lr3 in {R}",
-  publisher = "CRC Press", year = "2024",
-  editor = "Bernd Bischl and Raphael Sonabend and Lars Kotthoff and Michel Lang", 
-  url = "https://mlr3book.mlr-org.com/algorithmic_fairness.html"
-}
 
-@article{Fabris_2022,
-	doi = {10.1007/s10618-022-00854-z},
-	url = {https://doi.org/10.1007%2Fs10618-022-00854-z},
-	year = 2022,
-	month = {sep},
-	publisher = {Springer Science and Business Media {LLC}},
-	volume = {36},
-	number = {6},
-	pages = {2074--2152},
-	author = {Alessandro Fabris and Stefano Messina and Gianmaria Silvello and Gian Antonio Susto},
-	title = {Algorithmic fairness datasets: the story so far},
-	journal = {Data Mining and Knowledge Discovery}
-}
 @misc{Ahmadzadeh2022MCSDPEM,
   title = {Measuring {{Class-Imbalance Sensitivity}} of {{Deterministic Performance Evaluation Metrics}}},
   author = {Ahmadzadeh, Azim and Angryk, Rafal A.},
@@ -55,13 +34,11 @@
   langid = {english}
 }
 
-@book{barocas,
-  title = {Fairness and Machine Learning},
+@article{barocas,
+  title = {Fairness and {{Machine Learning}}},
   author = {Barocas, Solon and Hardt, Moritz and Narayanan, Arvind},
-  year = {2023}, % Update the year if needed
-  url = {https://fairmlbook.org/},
-  note = {Preprint available online},
-  langid = {english}
+  langid = {english},
+  file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/BarocasFML/Barocas et al. - Fairness and Machine Learning.pdf}
 }
 
 @misc{bothmann2024,
@@ -142,14 +119,11 @@
 }
 
 @article{corbett-davies,
-  author  = {Sam Corbett-Davies and Johann D. Gaebler and Hamed Nilforoshan and Ravi Shroff and Sharad Goel},
-  title   = {The Measure and Mismeasure of Fairness},
-  journal = {Journal of Machine Learning Research},
-  year    = {2023},
-  volume  = {24},
-  number  = {312},
-  pages   = {1--117},
-  url     = {http://jmlr.org/papers/v24/22-1511.html}
+  title = {The {{Measure}} and {{Mismeasure}} of {{Fairness}}},
+  author = {{Corbett-Davies}, Sam and Gaebler, Johann D and Nilforoshan, Hamed and Shroff, Ravi and Goel, Sharad},
+  abstract = {The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.},
+  langid = {english},
+  file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf}
 }
 
 @article{deng2023,
@@ -416,6 +390,29 @@
   file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Khademi2019FADMELC/Khademi et al. - 2019 - Fairness in Algorithmic Decision Making An Excursion Through the Lens of Causality.pdf}
 }
 
+@article{kleinberg2017,
+  title = {Inherent {{Trade-Offs}} in the {{Fair Determination}} of {{Risk Scores}}},
+  author = {Kleinberg, Jon and Mullainathan, Sendhil and Raghavan, Manish},
+  year = {2017},
+  journal = {LIPIcs, Volume 67, ITCS 2017},
+  volume = {67},
+  pages = {43:1-43:23},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  issn = {1868-8969},
+  doi = {10.4230/LIPICS.ITCS.2017.43},
+  urldate = {2025-02-27},
+  abstract = {Recent discussion in the public sphere about algorithmic classification has involved tension between competing notions of what it means for a probabilistic classification to be fair to different groups. We formalize three fairness conditions that lie at the heart of these debates, and we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously. Moreover, even satisfying all three conditions approximately requires that the data lie in an approximate version of one of the constrained special cases identified by our theorem. These results suggest some of the ways in which key notions of fairness are incompatible with each other, and hence provide a framework for thinking about the trade-offs between them.},
+  collaborator = {Papadimitriou, Christos H.},
+  copyright = {Creative Commons Attribution 3.0 Unported license, info:eu-repo/semantics/openAccess},
+  isbn = {9783959770293},
+  langid = {english},
+  keywords = {algorithmic fairness,calibration,risk tools},
+  note = {\subsection{SeriesInformation}
+
+LIPIcs, Vol. 67, 8th Innovations in Theoretical Computer Science Conference (ITCS 2017), pages 43:1-43:23},
+  file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/kleinberg2017/Kleinberg et al. - 2017 - Inherent Trade-Offs in the Fair Determination of Risk Scores.pdf}
+}
+
 @article{kusner,
   title = {Counterfactual {{Fairness}}},
   author = {Kusner, Matt J and Loftus, Joshua and Russell, Chris and Silva, Ricardo},
@@ -442,13 +439,6 @@
   file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Lakkaraju2017SLPEAPPU/Lakkaraju et al. - 2017 - The Selective Labels Problem Evaluating Algorithmic Predictions in the Presence of Unobservables.pdf}
 }
 
-@book{lane,
-  title = {Chapter 11 {{Bias}} and {{Fairness}} {\textbar} {{Big Data}} and {{Social Science}}},
-  author = {Lane, Rayid Ghani, Ron S. Jarmin, Frauke Kreuter {and} Julia, Ian Foster},
-  urldate = {2025-01-15},
-  abstract = {Chapter 11 Bias and Fairness {\textbar} Big Data and Social Science},
-  file = {/Users/julietfleischer/Zotero/storage/IKNVR93L/chap-bias.html}
-}
 
 @article{makhlouf2021,
   title = {On the {{Applicability}} of {{Machine Learning Fairness Notions}}},
@@ -531,6 +521,15 @@
   urldate = {2024-12-28},
   abstract = {An increasing number of decisions regarding the daily lives of human beings are being controlled by artificial intelligence and machine learning (ML) algorithms in spheres ranging from healthcare, transportation, and education to college admissions, recruitment, provision of loans, and many more realms. Since they now touch on many aspects of our lives, it is crucial to develop ML algorithms that are not only accurate but also objective and fair. Recent studies have shown that algorithmic decision making may be inherently prone to unfairness, even when there is no intention for it. This article presents an overview of the main concepts of identifying, measuring, and improving algorithmic fairness when using ML algorithms, focusing primarily on classification tasks. The article begins by discussing the causes of algorithmic bias and unfairness and the common definitions and measures for fairness. Fairness-enhancing mechanisms are then reviewed and divided into pre-process, in-process, and post-process mechanisms. A comprehensive comparison of the mechanisms is then conducted, toward a better understanding of which mechanisms should be used in different scenarios. The article ends by reviewing several emerging research sub-fields of algorithmic fairness, beyond classification.},
   langid = {english}
+}
+
+@article{rambachan2016,
+  title = {Bias {{In}}, {{Bias Out}}? {{Evaluating}} the {{Folk Wisdom}}},
+  author = {Rambachan, Ashesh and Roth, Jonathan},
+  year = {2016},
+  abstract = {We evaluate the folk wisdom that algorithmic decision rules trained on data produced by biased human decision-makers necessarily reflect this bias. We consider a setting where training labels are only generated if a biased decision-maker takes a particular action, and so ``biased'' training data arise due to discriminatory selection into the training data. In our baseline model, the more biased the decision-maker is against a group, the more the algorithmic decision rule favors that group. We refer to this phenomenon as bias reversal. We then clarify the conditions that give rise to bias reversal. Whether a prediction algorithm reverses or inherits bias depends critically on how the decision-maker affects the training data as well as the label used in training. We illustrate our main theoretical results in a simulation study applied to the New York City Stop, Question and Frisk dataset.},
+  langid = {english},
+  file = {/Users/julietfleischer/Zotero/storage/5EBLZ3CW/Rambachan und Roth - 2016 - Bias In, Bias Out Evaluating the Folk Wisdom.pdf}
 }
 
 @article{RambachanBBOEFW,

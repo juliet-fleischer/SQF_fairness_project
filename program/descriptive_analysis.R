@@ -81,7 +81,15 @@ p13 <- data2023 |>
   ggplot(aes(x = SUSPECT_RACE_DESCRIPTION, y = arrest_rate)) +
   geom_col() +
   ylim(c(0, 0.4)) +
-  xlab("2023")
+  scale_y_continuous(labels = scales::percent) +
+  xlab("") +
+  ylab("prop")
+p13_table <- data2023 |> 
+  group_by(SUSPECT_RACE_DESCRIPTION) |> 
+  summarise(arrest_rate = mean(SUSPECT_ARRESTED_FLAG == "Y")) |> 
+  mutate(arrest_rate = scales::percent(arrest_rate)) |> 
+  rename("group" = SUSPECT_RACE_DESCRIPTION, "prop" = arrest_rate)
+
 p16 <- data2023 |> 
   group_by(STOP_LOCATION_BORO_NAME) |> 
   summarise(arrest_rate = mean(SUSPECT_ARRESTED_FLAG == "Y")) |>
@@ -94,6 +102,11 @@ p14 <- data2011 |>
   geom_col() +
   xlab("2011") +
   ylim(c(0, 0.4))
+p14_table <- data2011 |> 
+  group_by(race) |> 
+  summarise(arrest_rate = mean(arstmade == "Y")) |>
+  mutate(arrest_rate = scales::percent(arrest_rate)) |>
+  rename("group" = race, "prop" = arrest_rate)
 
 # Estimation of crime rates by borough ----
 ## we normalise based on 2020 census data but the crime rates come from 2024

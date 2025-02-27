@@ -1,20 +1,21 @@
 
 % Why should the reader care? fairness is important because ...
-Building a fair and equitable society is a challenge humans grapple with since ancient times. With the rise of artificial intelligence (AI) questions of justice and fairness have taken on new urgency. AI enables automated decision-making systems (ADM) that are now common in law, healthcare, finance, and other fields, where data-driven decisions can significantly affect lives. Despite their ongoing improvements they carry the risk of perpetuating and even exacerbating social injustices. 
-
-
+The challenge of creating a fair and equitable society has been a concern for society since ancient times. With the rise of artificial intelligence (AI) questions of justice and fairness have taken on new urgency. AI enables automated decision-making systems (ADM) that are now common in law, healthcare, finance, and other fields, where they can affect the lives of people significantly. Despite their ongoing improvements they carry the risk of perpetuating and even exacerbating social injustices.\par
 
 % Whats the issue? the problem is that ...
-After a general introduction to the study of fairness in machine learning (fairML), this paper turns its focus to the stop, question, and frisk (SQF) dataset published yearly by the New York Police Department (NYPD). Since 1990 the US Supreme Court has been allowing police officers in New York City to stop individuals if they suspect them of being involved in criminal activity (Terry v. Ohio (1968), 392 U.S. 1, U.S. Supreme Court.). While proponents argue that SQF is an effective crime prevention tool, many criticize the practice for disproportionally targetting people of colour (PoC). The stop-and-frisk practice has a long history of public debate about racial profiling and police trust (see \cite{gelman2007} for more historical details).
+After a general introduction to the study of fairness in machine learning (fairML), this paper turns its focus to the stop, question, and frisk (SQF) dataset published yearly by the New York Police Department (NYPD). Since 1990 the US Supreme Court has been allowing police officers in New York City to stop individuals if they have a reasonable suspicion that they are involved in criminal activity (Terry v. Ohio (1968), 392 U.S. 1, U.S. Supreme Court).\\
+While proponents argue that the stop-and-frisk strategy is an effective crime prevention tool, many criticize the police for disproportionally targetting people of colour (PoC).
+The way in which the stop-and-frisk practice was being implemented during 2004 to 2012 in NYC was indeed deemed unconstitutional in 2013, violating the fourth and fourteenth amendment {\color{red} Source}.
+Official statistics show the steep decline in stops after the 2013 judgement. Since then the stops have been kept at a low level.\footnote{\href{https://www.nyclu.org/data/stop-and-frisk-data}{https://www.nyclu.org/data/stop-and-frisk-data}}
+More details on the historical background regarding the public debate about the policing strategy can be found in \cite{gelman2007}.\par
 
-The aggressive way in which the stop-and-frisk practice was being implemented during 2004 to 2012 in NYC was indeed deemed unconstitutional in 2013, violating the fourth and fourteenth amendment {\color{red} Source}
+
 % more history, development of stops over time, link to the website
-Official statistics show the steep decline in stops after the 2013 judgement and since then the stops have been kept at a low level \href{https://www.nyclu.org/data/stop-and-frisk-data}{https://www.nyclu.org/data/stop-and-frisk-data}.
+
 
 % Why is this paper needed?
-Our main contribution lies in bringing together multiple studies that examine fairness in SQF from different angles. Though these studies seek to answer the same question—Is stop, question, and frisk fair?—they approach the problem differently and arrive at alternative conclusions.\\
-This divergence is not necessarily a contradiction but rather a reflection of the diverse perspectives and objectives that shape fairness research. Each study addresses fairness within its own problem setting, making its conclusions valid within that specific context. However, this can create confusion, as studies with different assumptions and goals may still claim to answer the same overarching question.\\
-Our goal lies not in identifying \textit{the right} approach, but rather in highlighting the importance of understanding data context and problem framing when evaluating fairness.\\
+Disagreement on the justice of this system can also be found in the literature. The main contribution of this thesis lies in reviewing multiple studies that examine the fairness of SQF from different angles. Though these studies seek to answer the same question—Is stop, question, and frisk fair?—they approach the problem differently and arrive at alternative conclusions.\\
+This divergence is not necessarily a contradiction but rather a reflection of the diverse perspectives and objectives that shape fairness research. Each study addresses fairness within its own problem setting, making its conclusions valid within that specific context. However, this can create confusion, as studies with different assumptions and goals may still claim to answer the same overarching question. Our goal lies not in identifying \textit{the right} approach, but rather in highlighting the importance of understanding data context and problem framing when evaluating fairness.\par
 % What will we cover?
 The paper is organized in the following way: in Section~\ref{sec:fairness_metrics_methods}, we introduce the most common fairness metrics and techniques used in machine learning.
 Next, in Section~\ref{sec:case_study} we apply the theoretical concepts to the real-world SQF dataset. 
