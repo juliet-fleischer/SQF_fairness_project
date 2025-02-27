@@ -24,7 +24,7 @@ Before going into detail about a specific study, we provide a tabular overview o
             & Equal Opportunity, Equalized Odds 
             & Bias against PoC \\ 
             \hline
-            \cite{RambachanBBOEFW} 
+            \cite{rambachan2016} 
             & Possession of contraband
             & Log. Regression 
             & No explicit fairness metric; evaluate prediction function properties 
@@ -87,8 +87,8 @@ They show that their theoretical findings can be observed in the SQF data. Their
 % mathematical definitions I really need to get the point across
 % - population as tupel of random variables (X, U, A, Y)
 % - taste-based discriminator https://link.springer.com/referenceworkentry/10.1007/978-981-33-4016-9_1-1
-Another perspective is offered by \cite{RambachanBBOEFW}
-While the main message of \cite{kallus2018} is that even fairness adjusted classifiers exhibit the "bias in, bias out" mechanism \cite{RambachanBBOEFW} argue that is depends on the chosen classification task.
+Another perspective is offered by \cite{rambachan2016}
+While the main message of \cite{kallus2018} is that even fairness adjusted classifiers exhibit the "bias in, bias out" mechanism \cite{rambachan2016} argue that is depends on the chosen classification task.
 
 % problem setting, intro of selection bias
 Similar to \cite{kallus2018} they are interested in whether a person carries a contraband $Y \in \{0, 1\}$. The paper assumes the police is a taste-based classifier against African-Americans. This means they hold some form of prejudice against the group of African-Americans that influences their decision to stop a member of this group. More precisely, they see the biased-decision policy in the decision to search someone $Z = 1$ or not $Z = 0$. Again, only on searched people a contraband can be found. So we are essentially in the same problem setting as before. The goal is to estimate the possession of a contraband $Y$, but we estimate this from $Y | Z = 1$

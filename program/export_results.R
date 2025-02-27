@@ -3,6 +3,10 @@ writexl::write_xlsx(fairness_audit_rf$fairness_metrics, path = "figures/sqf_case
 latex_tab1 <- xtable::xtable(res_all, caption = "Groupwise Fairness Metrics (2023)", label = "tab:groupwise_metrics_2023")
 print(latex_tab1, file = "figures/groupwise_metrics_2023.tex", include.rownames = TRUE)
 # \input{groupwise_metrics_2023.tex}
+latex_tab2 <- xtable::xtable(p13_table, caption = "Groupwise Arrestment Rates in 2023", label = "tab:groupwise_arrestment_rates_2023")
+print(latex_tab2, file = "figures/groupwise_arrestment_rates_2023.tex", include.rownames = FALSE)
+latex_tab3 <- xtable::xtable(p14_table, caption = "Groupwise Arrestment Rates in 2011", label = "tab:groupwise_arrestment_rates_2011")
+print(latex_tab3, file = "figures/groupwise_arrestment_rates_2011.tex", include.rownames = FALSE)
 
 # 2. plots ----
 ggsave("figures/sqf_case_study_plot1.pdf", plot = p1_rf, width = 10, height = 8, units = "in", bg = "white")

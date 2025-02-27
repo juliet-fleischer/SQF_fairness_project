@@ -805,7 +805,6 @@
       \field{issn}{1868-8969}
       \field{journaltitle}{LIPIcs, Volume 67, ITCS 2017}
       \field{langid}{english}
-      \field{note}{\subsection{SeriesInformation} LIPIcs, Vol. 67, 8th Innovations in Theoretical Computer Science Conference (ITCS 2017), pages 43:1-43:23}
       \field{title}{Inherent {{Trade-Offs}} in the {{Fair Determination}} of {{Risk Scores}}}
       \field{urlday}{27}
       \field{urlmonth}{2}
@@ -1076,7 +1075,7 @@
       \verb https://mlr3book.mlr-org.com/algorithmic_fairness.html
       \endverb
     \endentry
-    \entry{RambachanBBOEFW}{article}{}
+    \entry{rambachan2016}{misc}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=85edb53244c29c17ce57830271014b46}{%
            family={Rambachan},
@@ -1099,14 +1098,19 @@
       \strng{authorfullhash}{c7db070288680264f6dfa86410e8586f}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We evaluate the folk wisdom that algorithmic decision rules trained on data produced by biased human decision-makers necessarily reflect this bias. We consider a setting where training labels are only generated if a biased decision-maker takes a particular action, and so ``biased'' training data arise due to discriminatory selection into the training data. In our baseline model, the more biased the decision-maker is against a group, the more the algorithmic decision rule favors that group. We refer to this phenomenon as bias reversal. We then clarify the conditions that give rise to bias reversal. Whether a prediction algorithm reverses or inherits bias depends critically on how the decision-maker affects the training data as well as the label used in training. We illustrate our main theoretical results in a simulation study applied to the New York City Stop, Question and Frisk dataset.}
       \field{langid}{english}
-      \field{title}{Bias {{In}}, {{Bias Out}}? {{Evaluating}} the {{Folk Wisdom}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/RambachanBBOEFW/Rambachan und Roth - Bias In, Bias Out Evaluating the Folk Wisdom.pdf
+      \field{title}{Bias In, Bias Out? Evaluating the Folk Wisdom}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://drops.dagstuhl.de/storage/00lipics/lipics-vol156-forc2020/LIPIcs.FORC.2020.6/LIPIcs.FORC.2020.6.pdf
+      \endverb
+      \verb{url}
+      \verb https://drops.dagstuhl.de/storage/00lipics/lipics-vol156-forc2020/LIPIcs.FORC.2020.6/LIPIcs.FORC.2020.6.pdf
       \endverb
     \endentry
     \entry{verma2018}{inproceedings}{}
