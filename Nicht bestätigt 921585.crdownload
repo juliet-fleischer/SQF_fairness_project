@@ -1,0 +1,13 @@
+@article{Fabris_2022,
+	doi = {10.1007/s10618-022-00854-z},
+	url = {https://doi.org/10.1007%2Fs10618-022-00854-z},
+	year = 2022,
+	month = {sep},
+	publisher = {Springer Science and Business Media {LLC}},
+	volume = {36},
+	number = {6},
+	pages = {2074--2152},
+	author = {Alessandro Fabris and Stefano Messina and Gianmaria Silvello and Gian Antonio Susto},
+	title = {Algorithmic fairness datasets: the story so far},
+	journal = {Data Mining and Knowledge Discovery}
+}

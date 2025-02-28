@@ -4,3 +4,4 @@ Zafar
 interprate
 migitate
 extention
+thresholding

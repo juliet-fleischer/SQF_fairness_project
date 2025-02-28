@@ -65,7 +65,7 @@
       \verb 10.1145/3460533
       \endverb
     \endentry
-    \entry{barocas}{article}{}
+    \entry{barocas-hardt-narayanan}{book}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=cb55e045fbd37698b0b60a60b567ab83}{%
            family={Barocas},
@@ -86,6 +86,9 @@
            giveni={A\bibinitperiod},
            givenun=0}}%
       }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
       \strng{namehash}{f6daa5fbad9e518e58da0fbc508936ba}
       \strng{fullhash}{f6daa5fbad9e518e58da0fbc508936ba}
       \strng{bibnamehash}{f6daa5fbad9e518e58da0fbc508936ba}
@@ -94,14 +97,58 @@
       \strng{authorfullhash}{f6daa5fbad9e518e58da0fbc508936ba}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Fairness and {{Machine Learning}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/BarocasFML/Barocas et al. - Fairness and Machine Learning.pdf
+      \field{title}{Fairness and Machine Learning: Limitations and Opportunities}
+      \field{year}{2023}
+    \endentry
+    \entry{Binns2020}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fb422381736924baba11f870dd96d350}{%
+           family={Binns},
+           familyi={B\bibinitperiod},
+           given={Reuben},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Barcelona, Spain}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{fb422381736924baba11f870dd96d350}
+      \strng{fullhash}{fb422381736924baba11f870dd96d350}
+      \strng{bibnamehash}{fb422381736924baba11f870dd96d350}
+      \strng{authorbibnamehash}{fb422381736924baba11f870dd96d350}
+      \strng{authornamehash}{fb422381736924baba11f870dd96d350}
+      \strng{authorfullhash}{fb422381736924baba11f870dd96d350}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A distinction has been drawn in fair machine learning research between 'group' and 'individual' fairness measures. Many technical research papers assume that both are important, but conflicting, and propose ways to minimise the trade-offs between these measures. This paper argues that this apparent conflict is based on a misconception. It draws on discussions from within the fair machine learning research, and from political and legal philosophy, to argue that individual and group fairness are not fundamentally in conflict. First, it outlines accounts of egalitarian fairness which encompass plausible motivations for both group and individual fairness, thereby suggesting that there need be no conflict in principle. Second, it considers the concept of individual justice, from legal philosophy and jurisprudence, which seems similar but actually contradicts the notion of individual fairness as proposed in the fair machine learning literature. The conclusion is that the apparent conflict between individual and group fairness is more of an artefact of the blunt application of fairness measures, rather than a matter of conflicting principles. In practice, this conflict may be resolved by a nuanced consideration of the sources of 'unfairness' in a particular deployment context, and the carefully justified application of measures to mitigate it.}
+      \field{booktitle}{Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency}
+      \field{isbn}{9781450369367}
+      \field{series}{FAT* '20}
+      \field{title}{On the apparent conflict between individual and group fairness}
+      \field{year}{2020}
+      \field{pages}{514\bibrangedash 524}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/3351095.3372864
       \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3351095.3372864
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3351095.3372864
+      \endverb
+      \keyw{discrimination,fairness,individual fairness,justice,machine learning,statistical parity}
     \endentry
     \entry{castelnovo2022}{article}{}
       \name{author}{6}{}{%
@@ -263,15 +310,15 @@
     \entry{corbett-davies}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=341a17b1faf8ad74034822ff2f891742}{%
-           family={{Corbett-Davies}},
-           familyi={C\bibinitperiod},
+           family={Corbett-Davies},
+           familyi={C\bibinithyphendelim D\bibinitperiod},
            given={Sam},
            giveni={S\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=dc87d955c84b91ba3d881af1c1a93666}{%
            family={Gaebler},
            familyi={G\bibinitperiod},
-           given={Johann\bibnamedelima D},
+           given={Johann\bibnamedelima D.},
            giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=a4b30e51359854c0d89aa15a6279a424}{%
@@ -293,6 +340,9 @@
            giveni={S\bibinitperiod},
            givenun=0}}%
       }
+      \list{publisher}{1}{%
+        {JMLR.org}%
+      }
       \strng{namehash}{5a8687cd6a4a9ab3df98cc3620677781}
       \strng{fullhash}{4544570fa35bc719cb1465901595a433}
       \strng{bibnamehash}{5a8687cd6a4a9ab3df98cc3620677781}
@@ -301,14 +351,79 @@
       \strng{authorfullhash}{4544570fa35bc719cb1465901595a433}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.}
-      \field{langid}{english}
-      \field{title}{The {{Measure}} and {{Mismeasure}} of {{Fairness}}}
-      \verb{file}
-      \verb /Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf
+      \field{issn}{1532-4435}
+      \field{journaltitle}{J. Mach. Learn. Res.}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{The measure and mismeasure of fairness}
+      \field{volume}{24}
+      \field{year}{2023}
+      \keyw{fair machine learning,consequentialism,discrimination}
+    \endentry
+    \entry{Fabris_2022}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5b7e2461e527dc107ee365205271db53}{%
+           family={Fabris},
+           familyi={F\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78303c77966c20729c566e775c64e6de}{%
+           family={Messina},
+           familyi={M\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07ba092df73e59c7b57619e719e881a6}{%
+           family={Silvello},
+           familyi={S\bibinitperiod},
+           given={Gianmaria},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1d72b30e470cf61893e5806eeab4bba}{%
+           family={Susto},
+           familyi={S\bibinitperiod},
+           given={Gian\bibnamedelima Antonio},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media {LLC}}%
+      }
+      \strng{namehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{fullhash}{0259010af2682b884dd31b7b0e3e911c}
+      \strng{bibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authorbibnamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authornamehash}{4522e8a8d9a646c7c3e5adfe70472435}
+      \strng{authorfullhash}{0259010af2682b884dd31b7b0e3e911c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Data Mining and Knowledge Discovery}
+      \field{month}{9}
+      \field{number}{6}
+      \field{title}{Algorithmic fairness datasets: the story so far}
+      \field{volume}{36}
+      \field{year}{2022}
+      \field{pages}{2074\bibrangedash 2152}
+      \range{pages}{79}
+      \verb{doi}
+      \verb 10.1007/s10618-022-00854-z
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2Fs10618-022-00854-z
       \endverb
     \endentry
     \entry{favier2023}{article}{}
@@ -1167,7 +1282,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{Fabris_2022}
 \endrefsection
 \endinput
 

@@ -6,12 +6,12 @@
 \contentsline {subsection}{\numberline {3.3}Fairness methods}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Bias and the feedback loop}{9}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Case Study: Stop, Question, and Frisk}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Fairness Experiment: Setup}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Setup of the fairness experiment}{10}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Data description}{11}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Results of the Fairness Experiment}{12}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Studies on the SQF Dataset}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Different approaches to fairness in SQF}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Residual unfairness}{16}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Bias in, bias out?}{17}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusion}{18}{section.6}%
+\contentsline {subsection}{\numberline {4.3}Results of the fairness experiment}{12}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Studies on the SQF Dataset}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Approaches to fairness in SQF}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Residual unfairness}{17}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Bias in, bias out?}{18}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusion}{19}{section.6}%
 \contentsline {section}{\numberline {A}Electronic Appendix}{V}{appendix.A}%

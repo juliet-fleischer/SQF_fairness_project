@@ -1,3 +1,34 @@
+@article{Fabris_2022,
+	doi = {10.1007/s10618-022-00854-z},
+	url = {https://doi.org/10.1007%2Fs10618-022-00854-z},
+	year = 2022,
+	month = {sep},
+	publisher = {Springer Science and Business Media {LLC}},
+	volume = {36},
+	number = {6},
+	pages = {2074--2152},
+	author = {Alessandro Fabris and Stefano Messina and Gianmaria Silvello and Gian Antonio Susto},
+	title = {Algorithmic fairness datasets: the story so far},
+	journal = {Data Mining and Knowledge Discovery}
+}
+@inproceedings{Binns2020,
+author = {Binns, Reuben},
+title = {On the apparent conflict between individual and group fairness},
+year = {2020},
+isbn = {9781450369367},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3351095.3372864},
+doi = {10.1145/3351095.3372864},
+abstract = {A distinction has been drawn in fair machine learning research between 'group' and 'individual' fairness measures. Many technical research papers assume that both are important, but conflicting, and propose ways to minimise the trade-offs between these measures. This paper argues that this apparent conflict is based on a misconception. It draws on discussions from within the fair machine learning research, and from political and legal philosophy, to argue that individual and group fairness are not fundamentally in conflict. First, it outlines accounts of egalitarian fairness which encompass plausible motivations for both group and individual fairness, thereby suggesting that there need be no conflict in principle. Second, it considers the concept of individual justice, from legal philosophy and jurisprudence, which seems similar but actually contradicts the notion of individual fairness as proposed in the fair machine learning literature. The conclusion is that the apparent conflict between individual and group fairness is more of an artefact of the blunt application of fairness measures, rather than a matter of conflicting principles. In practice, this conflict may be resolved by a nuanced consideration of the sources of 'unfairness' in a particular deployment context, and the carefully justified application of measures to mitigate it.},
+booktitle = {Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency},
+pages = {514–524},
+numpages = {11},
+keywords = {discrimination, fairness, individual fairness, justice, machine learning, statistical parity},
+location = {Barcelona, Spain},
+series = {FAT* '20}
+}
+
 @article{Chouldechova2016FairPW,
   title={Fair prediction with disparate impact: A study of bias in recidivism prediction instruments},
   author={Alexandra Chouldechova},
@@ -19,6 +50,7 @@
   url = "https://mlr3book.mlr-org.com/algorithmic_fairness.html"
 }
 
+
 @book{lane,
   title = {Chapter 11: Bias and Fairness {\textbar} {Big Data and Social Science}},
   author = {Rayid Ghani and Ron S. Jarmin and Frauke Kreuter and Ian Foster and Julia Lane},
@@ -37,16 +69,25 @@
 }
 
 @article{corbett-davies,
-  title = {The {{Measure}} and {{Mismeasure}} of {{Fairness}}},
-  author = {{Corbett-Davies}, Sam and Gaebler, Johann D and Nilforoshan, Hamed and Shroff, Ravi and Goel, Sharad},
-  abstract = {The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.},
-  langid = {english},
-  file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/Corbett-DaviesMMFa/Corbett-Davies et al. - The Measure and Mismeasure of Fairness.pdf}
+author = {Corbett-Davies, Sam and Gaebler, Johann D. and Nilforoshan, Hamed and Shroff, Ravi and Goel, Sharad},
+title = {The measure and mismeasure of fairness},
+year = {2023},
+issue_date = {January 2023},
+publisher = {JMLR.org},
+volume = {24},
+number = {1},
+issn = {1532-4435},
+abstract = {The field of fair machine learning aims to ensure that decisions guided by algorithms are equitable. Over the last decade, several formal, mathematical definitions of fairness have gained prominence. Here we first assemble and categorize these definitions into two broad families: (1) those that constrain the effects of decisions on disparities; and (2) those that constrain the effects of legally protected characteristics, like race and gender, on decisions. We then show, analytically and empirically, that both families of definitions typically result in strongly Pareto dominated decision policies. For example, in the case of college admissions, adhering to popular formal conceptions of fairness would simultaneously result in lower student-body diversity and a less academically prepared class, relative to what one could achieve by explicitly tailoring admissions policies to achieve desired outcomes. In this sense, requiring that these fairness definitions hold can, perversely, harm the very groups they were designed to protect. In contrast to axiomatic notions of fairness, we argue that the equitable design of algorithms requires grappling with their context-specific consequences, akin to the equitable design of policy. We conclude by listing several open challenges in fair machine learning and offering strategies to ensure algorithms are better aligned with policy goals.},
+journal = {J. Mach. Learn. Res.},
+month = jan,
+articleno = {312},
+numpages = {117},
+keywords = {fair machine learning, consequentialism, discrimination}
 }
 
-@article{barocas,
-  title = {Fairness and {{Machine Learning}}},
-  author = {Barocas, Solon and Hardt, Moritz and Narayanan, Arvind},
-  langid = {english},
-  file = {/Users/julietfleischer/Library/Mobile Documents/iCloud~md~obsidian/Documents/Studium/PDFs/BarocasFML/Barocas et al. - Fairness and Machine Learning.pdf}
+@book{barocas-hardt-narayanan,
+  title = {Fairness and Machine Learning: Limitations and Opportunities},
+  author = {Solon Barocas and Moritz Hardt and Arvind Narayanan},
+  publisher = {MIT Press},
+  year = {2023}
 }

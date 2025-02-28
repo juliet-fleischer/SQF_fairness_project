@@ -1,20 +1,20 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[99] biber-darwin:340> INFO - === Thu Feb 27, 2025, 23:14:23
-[122] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[239] Biber.pm:979> INFO - Found 22 citekeys in bib section 0
-[255] Biber.pm:4419> INFO - Processing section 0
-[270] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
-[280] bibtex.pm:1713> INFO - LaTeX decoding ...
-[381] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
-[551] Biber.pm:4610> INFO - Looking for bibtex file '../literature_manual.bib' for section 0
-[553] bibtex.pm:1713> INFO - LaTeX decoding ...
-[561] bibtex.pm:1519> INFO - Found BibTeX data source '../literature_manual.bib'
-[656] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[656] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[656] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[657] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[691] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[715] bbl.pm:763> INFO - Output to thesis.bbl
-[716] Biber.pm:131> WARN - I didn't find a database entry for 'Fabris_2022' (section 0)
-[716] Biber.pm:133> INFO - WARNINGS: 1
+[118] biber-darwin:340> INFO - === Fri Feb 28, 2025, 12:18:52
+[142] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[292] Biber.pm:979> INFO - Found 23 citekeys in bib section 0
+[317] Biber.pm:4419> INFO - Processing section 0
+[333] Biber.pm:4610> INFO - Looking for bibtex file '../literature.bib' for section 0
+[346] bibtex.pm:1713> INFO - LaTeX decoding ...
+[471] bibtex.pm:1519> INFO - Found BibTeX data source '../literature.bib'
+[666] Biber.pm:4610> INFO - Looking for bibtex file '../literature_manual.bib' for section 0
+[668] bibtex.pm:1713> INFO - LaTeX decoding ...
+[685] bibtex.pm:1519> INFO - Found BibTeX data source '../literature_manual.bib'
+[806] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[806] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[806] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[806] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[848] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[879] bbl.pm:763> INFO - Output to thesis.bbl
+[879] Biber.pm:131> WARN - legacy month field 'sep' in entry 'Fabris_2022' is not an integer - this will probably not sort properly.
+[879] Biber.pm:133> INFO - WARNINGS: 1

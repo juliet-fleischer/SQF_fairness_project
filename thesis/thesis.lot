@@ -2,5 +2,5 @@
 \contentsline {table}{\numberline {2}{\ignorespaces Confusion matrix\relax }}{6}{table.caption.6}%
 \contentsline {table}{\numberline {3}{\ignorespaces Groupwise Arrestment Rates in 2023\relax }}{12}{table.caption.14}%
 \contentsline {table}{\numberline {4}{\ignorespaces Groupwise Arrestment Rates in 2011\relax }}{12}{table.caption.14}%
-\contentsline {table}{\numberline {5}{\ignorespaces Groupwise Fairness Metrics (2023)\relax }}{14}{table.caption.17}%
-\contentsline {table}{\numberline {6}{\ignorespaces Summary of SQF-related Fairness Studies\relax }}{15}{table.caption.18}%
+\contentsline {table}{\numberline {5}{\ignorespaces Group fairness metrics for a RF classifier trained on 2023 SQF data.\relax }}{14}{table.caption.17}%
+\contentsline {table}{\numberline {6}{\ignorespaces Overview of SQF-related fairness studies. This table summarizes findings from five key studies evaluating the fairness of the stop-and-frisk policy. Depending on the task and model used, the studies reach different conclusions.\relax }}{16}{table.caption.18}%

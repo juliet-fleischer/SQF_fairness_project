@@ -19,6 +19,7 @@ where \(c \in [0,1]\) is a predetermined threshold (often \(c = 0.5\)).
 Thus, the final predicted label is given by $\hat{y} = g\bigl(f(x, a)\bigr) = \mathbf{1}\{f(x, a) \ge c\}$
 To facilitate the understanding of the following fairness metrics, we can already think in the context of SQF. We could choose $A \in {non-white, white}$ as the protected attribute and $X$ contains all other variables recorded about the stop, e.g. time and location of the stop et cetera. $Y \in {arrested, not arrested}$ is the true label and $S \in [0,1]$ gives us the probability of being predicted as arrested, estimated via a prediction function $f$ as defined previously. 
 \subsection{Group fairness}
+\label{sec:groupFairnessChapter}
 \begin{table}
     \centering
     \begin{tabular}{lll}
@@ -29,10 +30,10 @@ To facilitate the understanding of the following fairness metrics, we can alread
         \bottomrule
     \end{tabular}
     \caption{Group fairness metrics}
-    \label{tab:group_fairness}
+    \label{tab:groupFairness}
 \end{table}
 
-They observational group metrics presented in this section can be separated into the three main categories shown in \autoref{tab:group_fairness}, depending on which information they use.
+They observational group metrics presented in this section can be separated into the three main categories shown in \autoref{tab:groupFairness}, depending on which information they use.
 
 \subsubsection*{Independence}
 \textit{Independence} is in a sense the simplest group fairness metric. It requires that the prediction $\hat{Y}$ is independent of the protected attribute $A$. This is fulfilled when for each group the same proportion is classified as positive by the algorithm. For a binary classification task with binary sensitive attribute this can be formalized as
@@ -46,7 +47,7 @@ In many cases it can make sense to allow for additional information to be taken 
     \item \textit{Conditional statistical parity} requires $P(\hat{Y} = 1 \mid E = e, A = a) = P(\hat{Y} = 1 \mid E = e, A = b)$
 \end{itemize}
 $E$ is a set of legitimate features that encapsulates valuable information about the target $Y$. As mentioned, we could set $(E = borough)$ to account for the fact that certain boroughs have higher crime rates and thus higher arrestment rates are legitimate.
-Notice that so far, we have only worked with $(\hat{Y},A,X)$. The other two categories of group fairness metrics additionally make use of the true label $Y$ and can be derived from the confusion matrix seen in \autoref{tab:confusion_matrix}.
+Notice that so far, we have only worked with $(\hat{Y},A,X)$. The other two categories of group fairness metrics additionally make use of the true label $Y$ and can be derived from the confusion matrix seen in \autoref{tab:confusionMatrix}.
 
 
 \subsubsection*{Separation}
@@ -86,7 +87,7 @@ While it is easy to get lost by the amount of fairness definitions in the beginn
         \hline
     \end{tabular}
     \caption{Confusion matrix}
-    \label{tab:confusion_matrix}
+    \label{tab:confusionMatrix}
 \end{table}
 
 % mention Imposibility Theorem
@@ -108,7 +109,7 @@ As the score can usually take values from the whole real number line, this can i
 % As \textit{Separation} criteria condition on the true label $Y$ it is suitable when we can be sure that $Y$ is free from any bias, meaning it was generated via an objectively true process. \\
 % \textit{Independence} is best, when a form of equality between groups should be enforced, regardless of context or any potential personal merit. While this seems to be useful in cases in which the data contains complex bias, it is unclear whether these enforcements have the intended benefits, especially over the long term. {\color{red}{Reference?}}.\\
 
-Due to the abudance of group metrics alone there are resources to assist practitioners in choosing the right metric for their specific task. One possibility is to distinguish between punitive and assistive tasks \cite{lane}. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, the focus on minimizing the false negative rate could be more important. This points to equal opportunity as suitable metric.
+Due to the abundance of group metrics alone there are resources to assist practitioners in choosing the right metric for their specific task. One possibility is to distinguish between punitive and assistive tasks \cite{lane}. For punitive tasks metrics that focus on false positives, such as predictive equality are more relevant. For assistive tasks, such as deciding who receives a welfare, the focus on minimizing the false negative rate could be more important. This points to equal opportunity as suitable metric.
 In setting in which a positive prediction leads to a harmful outcome, as in the SQF setting, it often makes sense to focus on minimizing the false positive rate, while a higher false negative rate is accepted as a trade-off.
 There is dedicated work that assists in finding the right group fairness metric for a given situation and refer to \cite{makhlouf2021} for an in-depth analysis.
 
@@ -118,21 +119,19 @@ Individual metrics shift the focus from comparison \textit{between} groups to co
 \subsubsection*{Fairness through awareness (FTA)}
 FTA formalizes this idea as Lipschitz criterion. $$d_Y(\hat{y_i}, \hat{y_j}) \leq \lambda {d_X}(x_i, x_j)$$
 $d_Y$ is a distance metric in the prediction space, $d_X$ is a distance metric in the feature space and $\lambda$ is a constant.
-The criterion puts an upper bound to the distance between predictions of two individuals, which depends on the features of them. The main challenge of FTA is the definition of the equality in the feature space. \cite{castelnovo2022} state "[...] defining a suitable distance metric [$d_X$] on feature space embodying the concept of similarity on  “ethical” grounds alone is almost as tricky as defining fairness in the first place".\par
-In the SQF context, it could make sense to define similar individuals based on yearly income, age and neighbourhood.
-Yet one could easily argue that taking the criminal history into account is important as well. After the decision for a legitimate set of features has been made, the next challenge is to choose a distance metric that appropriately captures the conceptual definition of similarity defined via the selected features.
-FTA does not have one clear solution and requires domain knowledge and the choice of $d_X$ should take context-specific information into account.\\
-What then, do we measure this for each individual? Get aggregation statistics from this? Explain this further in one or two sentences.
+The criterion puts an upper bound to the distance between predictions of two individuals, which depends on the features of them and is regulated by $\lambda$. For the prediction space one could choose $d_Y(\hat{y_i}, \hat{y_j}) = |\hat{y_i} - \hat{y_j}|$ to assign same different predictions a distance of 1 and same ones a distance of 0. Less obvious is the choice of distance metric $d_X$ in the feature space. In fact, "[...] defining a suitable distance metric [$d_X$] on feature space embodying the concept of similarity on  “ethical” grounds alone is almost as tricky as defining fairness in the first place" \cite{castelnovo2022}.\par
+In the SQF context, we see two individuals as similar when they live in the same borough. In this case there is a conceptual parallel to conditional statistical parity introduced in see Section~\ref{sec:groupFairnessChapter} where we chose the reasonable set of feature(s) $E$ to be the borough.
+This is one possible way to define similar individuals. Yet one could easily argue that taking more information, such as the criminal history and yearly income, into account is important as well. After the choice of relevant features has been made, the next challenge is to choose the exact function $d_X$ that appropriately captures the conceptual definition of similarity defined via the selected features.
+This requires domain knowledge and the key is to take context-specific information into account. In practice, we check the criterion for each individual but in the end we still have to build summary statistics to capture the situation. The distance in features space could be binned and for each distance category the average distance in the prediction space can be calculated (see \cite{verma2018} for a concrete example).
 
 \subsubsection*{Fairness through unawareness (FTU) or blinding}
-In contrast to FTA, the goal of FTU is to give a direct, context-independent rule. Blinding tells us to not use the protected attribute explicitly in the decision-making process. When training a classifier this means discarding the PA during training.
-Since FTU is more of a procedural rule than a mathematical definition, there exist multiple ways to test whether classifier is indeed \textit{blind} to the sensitive attribute. \\
+In contrast to FTA, the goal of FTU is to give a direct, context-independent rule. Blinding tells us to not use the sensitive attribute explicitly in the decision-making process.
+Since FTU is more of a procedural rule than a mathematical definition, there exist multiple ways to test whether classifier is indeed \textit{blind} to the PA. \\
 One approach is to simulate a doppelgänger for each observation in the dataset. This doppelgänger has the exact same features except the protected attribute, which is flipped.
-If both these instances receive the same prediction by the classifier for all pairs in the data, the algorithm would satisfy FTU.\footnote{This can be seen as a from of FTA, in which we chose the distance metric to measure a distance of zero only if two people are the same on all their features except for the protected attribute. In this special case FTA and FTU are measured in the same way.} Other ways to assess FTU can be found in \cite{verma2018}.\\
-However, the situation is often more complex dues to proxy variabels. They are variables that are strongly correlated with the sensitive attribute. In the presence of such features, it is not enough to mask the information of the sensitive attribute during training because discrimination can persist via these proxies.\\
-For SQF this could mean that we remove the race attribute during training.
-A person's ethnicity, however, is strongly correlated with their place of residence. Thus, indirect discrimination based on ethnicity remains, even though the information was not directly available during training.
-\textbf{Suppression} extends the idea of blinding and the goal is to develop a model that is blind to not only the sensitive attribute but also the proxies. The drawback is, that it is unclear when a feature is sufficiently high correlated with the sensitive attribute to be counted as proxy. Additionally, important information could be lost by removing too many features (\cite{castelnovo2022}).
+If both these instances receive the same prediction by the classifier for all pairs in the data, the algorithm would satisfy FTU.\footnote{In this case a parallel to a version of FTA can be seen, in which $d_X$ is chosen to be zero only if two people are the same on all their features except for the protected attribute.} Other ways to assess FTU can be found in \cite{verma2018}.\\
+A case FTU overlooks is the possible interdependence between $A$ and $X$. Certain non-sensitive features can have a strong correlation with the sensitive attribute. In the presence of such variable, it is not enough to mask the information of the sensitive attribute during training because discrimination can persist via these proxies.\\
+For SQF this could mean that the race attribute is masked during training, but person's place of residence, contains information about their ethnic background. As a result, indirect racial discrimination remains, even though the information was not directly available during training.
+\textbf{Suppression} extends the idea of FTU and the goal is to develop a model that is blind to not only the sensitive attribute but also its proxies. The drawback is, that it is unclear when a feature is sufficiently high correlated with the sensitive attribute to be counted as proxy. Additionally, important information could be lost by removing too many features (\cite{castelnovo2022}).
 
 % \subsection{Causality-based fairness metrics}
 % In contrast to observational fairness metrics, causality-based notions ask whether the sensitive attribute was the \textit{reason} for the decision. If a certain (harmful) decision was made \textit{because of} the value of the sensitive attribute of a person, we deem the algorithm as unfair.
@@ -144,8 +143,8 @@ A person's ethnicity, however, is strongly correlated with their place of reside
 
 
 \subsubsection*{Comparison and Summary}
-Experts debate the incompatibility of group and individuals fairness. % Binns, R. On the apparent conflict between individual and group fairness. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 514–524 (2020).
-It is out of the scope of this paper to discuss this topic, and we simply point out that the sharp line we drew between group and individuals metrics gets softer as a group metric like demographic parity does not only take information from $Y, \hat{Y}, A$ into account but allows for information contained in the non-sensitive features to seep into the fairness assessment (\cite{castelnovo2022}).\\
+Experts debate the (apparent) conflict between group and individuals fairness (see for example \cite{Binns2020}).
+It is out of the scope of this paper to discuss their incompatibility, and we solely point out that the sharp line we drew between group and individuals metrics gets softer as a group metric like demographic parity does not only take information from $Y, \hat{Y}, A$ into account but allows for information contained in the non-sensitive features to seep into the fairness assessment (\cite{castelnovo2022}).\\
 Group metrics are certainly easier to understand and apply as most of them are implemented in fairness software packages. For this reason our case study in Section~\ref{sec:case_study} also makes use of them.
 
 

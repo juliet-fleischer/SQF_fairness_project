@@ -74,9 +74,9 @@ bindingoffset = 0mm]{geometry}
 }
 \hypersetup{
   colorlinks = true,
-  linkcolor = black,
-  urlcolor = black,
-  citecolor = black}
+  linkcolor = [RGB]{0, 102, 102},
+  urlcolor = [RGB]{0, 102, 102},
+  citecolor = [RGB]{0, 102, 102}}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyhead[R]{\changefont{\mytitle}}
@@ -144,9 +144,9 @@ Supervised by \mysupervisor
 \newpage
 \begin{abstract}
 
-With the increased presence of AI in our society topics of social justice and fairness have swept over to technical research fileds. In the first half of this paper we provide an introduction to the most common metrics and methods in fair machine learning. We then apply the theoretical concepts to the New York Stop, Question and Frisk dataset, which will showcase difficulties that come with fairness in practice.
-This leads us to explore the problem of selection bias and how it affects algorithmic learning. For this, we turn our focus to studies that have worked with the SQF dataset and established interesting theoretical results: residual unfairness and bias reversal.
-The main contribution of this paper lies in comparing and contrasting the different ways in which fairness has been studied for the Stop, Question, and Frisk dataset. We show that the challenges is not to identify the right approach, but rather to understand the implications and reasoning behind each method.
+With the growing presence of AI in our society, issues of social justice and fairness are increasingly intersecting with technical research fields. In the first half of this paper we provide an introduction to the most common metrics and methods in fair machine learning. We then apply the theoretical concepts to the New York Stop, Question and Frisk dataset, which will showcase difficulties that come with fairness in practice.
+This analysis leads us to examine the problem of selection bias and its impact on algorithmic learning. To further explore this issue, we review studies that have worked with the SQF dataset and uncovered key theoretical findings, such as residual unfairness and bias reversal.
+The main contribution of this thesis lies in comparing and contrasting the various approaches used to study fairness in the context of the SQF dataset. Rather than identifying a single "correct" method, we emphasize the importance of understanding the reasoning, assumptions, and implications behind different fairness frameworks.
 
 \end{abstract}
 
@@ -174,7 +174,7 @@ The main contribution of this paper lies in comparing and contrasting the differ
 \newpage
 \section{Case Study: Stop, Question, and Frisk}
 \label{sec:case_study}
-\input{chapters/sqf_case_study_2.tex}
+\input{chapters/sqf_case_study.tex}
 \newpage
 
 \section{Studies on the SQF Dataset}
@@ -263,8 +263,14 @@ be deemed as plagiarism. For the comparison of my work with existing sources I
 agree that it shall be entered in a database where it shall also remain after 
 examination, to enable comparison with future Theses submitted. Further rights 
 of reproduction and usage, however, are not granted here. This paper was not 
-previously presented to another examination board and has not been published.
-\\
+previously presented to another examination board and has not been published.\par
+
+AI was used in the following ways in this work:
+R studio and Visual Studio Code is in general connected with GitHub Copilot in my environment, which I use to help writing the code.
+Literature research with "Search" tool in ChatGPT, Elicit and Connected papers.
+Occasional check in understanding of concepts with "Reason" tool in ChatGPT. Did not take this to generate new ideas but to validate my own understanding.
+Improvement of language and grammar with ChatGPT. Explicitly stated to keep the meaning and content of the text.
+Assistance of ChatGPT and Github for some latex code (e.g. the tables, insertion of images).
 
 \vspace{1cm}
 \textcolor{orange}{Munich, \mydate} \\
