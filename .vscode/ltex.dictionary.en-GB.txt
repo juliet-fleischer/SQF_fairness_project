@@ -5,3 +5,9 @@ interprate
 migitate
 extention
 thresholding
+RStudio
+fairML
+Ludwig-Maximilians-Universität
+migitation
+barplot
+Theil

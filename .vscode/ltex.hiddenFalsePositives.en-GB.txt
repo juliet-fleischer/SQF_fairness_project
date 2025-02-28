@@ -2,3 +2,8 @@
 {"rule":"THE_PUNCT","sentence":"^\\QOr if we would need to set a higher threshold for group a, such that it becomes harder for them to be classified as positive.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFabris and S. Messina and G. Silvello and G.A. Susto scanned more than x datasets to diversify the datasets that are used in the fairness literature.\\E$"}
 {"rule":"A_INFINITIVE","sentence":"^\\QThe stop can result in a summon, an arrest or no further consequences.\\E$"}
+{"rule":"EN_SIMPLE_REPLACE","sentence":"^\\QDepartment of Statistics Ludwig-Maximilians-Universität München\\E$"}
+{"rule":"SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA","sentence":"^\\QFurther rights of reproduction and usage, however, are not granted here.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QThis includes details about the stop's progression, such as whether the person was frisked or issued a summon.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QWe compare the following models in terms of fairness and model performance, measured by the difference in true positive rates (equal opportunity) and the classification accuracy respectively: Regular Random Forest Reweighing to balance disparate impact metric (Pre-Processing) Classification Fair Logistic Regression With Covariance Constraints Learner (In-Processing) Equalized Odds Debiasing (Post-Processing) More details about the methods can be found in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QRegression No explicit fairness metric; group-wise hit rates Bias against Black and Hispanic Overview of SQF-related fairness studies.\\E$"}
