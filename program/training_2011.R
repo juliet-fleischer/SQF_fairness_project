@@ -5,7 +5,7 @@ theme_set(
 
 # 1. Training + Prediction  ----
 # initialize the learner
-# lrn_rf_2011 = lrn("classif.ranger", predict_type = "prob")
+lrn_rf_2011 = lrn("classif.ranger", predict_type = "prob")
 lrn_rf_2011$id = "ranger_rf_2011"
 
 # create a Task
@@ -14,7 +14,7 @@ task_arrest_2011 <-  as_task_classif(data2011,
                                      positive = "Y", id = "arrested")
 task_arrest_2011$col_roles$pta <- "pa_group"
 splits.2011 <- partition(task_arrest_2011)
-# lrn_rf_2011$train(task_arrest_2011, row_ids = splits.2011$train)
+lrn_rf_2011$train(task_arrest_2011, row_ids = splits.2011$train)
 
 preds_2011 <- lrn_rf_2011$predict(task_arrest_2011, row_ids = splits.2011$test)
 predictions_dt <- as.data.table(preds_2011)
